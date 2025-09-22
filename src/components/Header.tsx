@@ -61,31 +61,21 @@ export default function Header() {
             {/* Logo */}
             <Link href="/">
               <motion.div 
-                className="flex items-center space-x-3"
+                className="flex items-center"
                 whileHover={{ scale: 1.02 }}
               >
                 <Image
                   src="/logo.png"
                   alt="Level Up Math Academy Logo"
-                  width={60}
-                  height={60}
-                  className="rounded-full"
+                  width={90}
+                  height={90}
+                  className="rounded-lg"
                 />
-                <div className="text-xl font-bold text-gray-800 hidden sm:block">
-                  Level Up Math Academy
-                </div>
               </motion.div>
             </Link>
             
             {/* Desktop Navigation Menu */}
             <div className="hidden lg:flex items-center space-x-8">
-              <motion.a 
-                href="#home" 
-                className="text-gray-700 hover:text-purple-600 transition-colors font-medium" 
-                whileHover={{ scale: 1.05 }}
-              >
-                Home
-              </motion.a>
               <motion.a 
                 href="#what-we-offer" 
                 className="text-gray-700 hover:text-pink-600 transition-colors font-medium" 
@@ -165,14 +155,6 @@ export default function Header() {
             transition={{ duration: 0.3 }}
           >
             <div className="mt-4 bg-gray-50 rounded-lg p-4 space-y-3">
-              <motion.a 
-                href="#home" 
-                className="block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
-                whileHover={{ x: 5 }}
-              >
-                Home
-              </motion.a>
               <motion.a 
                 href="#what-we-offer" 
                 className="block text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
