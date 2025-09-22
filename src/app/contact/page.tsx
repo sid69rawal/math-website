@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Facebook, Instagram, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -80,16 +80,16 @@ export default function ContactPage() {
             }}
           >
             <span className="mx-8">
-              🎯 First Month Guarantee: If you're not satisfied after the first month, you'll receive a full refund
+              🎯 First Month Guarantee: If you&apos;re not satisfied after the first month, you&apos;ll receive a full refund
             </span>
             <span className="mx-8">
-              📚 Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus & Vectors, Math Competitions etc.
+              📚 Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus &amp; Vectors, Math Competitions etc.
             </span>
             <span className="mx-8">
-              🎯 First Month Guarantee: If you're not satisfied after the first month, you'll receive a full refund
+              🎯 First Month Guarantee: If you&apos;re not satisfied after the first month, you&apos;ll receive a full refund
             </span>
             <span className="mx-8">
-              📚 Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus & Vectors, Math Competitions etc.
+              📚 Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus &amp; Vectors, Math Competitions etc.
             </span>
           </motion.div>
         </div>
@@ -176,7 +176,7 @@ export default function ContactPage() {
               <div className="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center">
                 <div className="text-center text-gray-900">
                   <div className="text-6xl mb-4">📚</div>
-                  <h3 className="text-2xl font-bold mb-2">Let's Connect!</h3>
+                  <h3 className="text-2xl font-bold mb-2">Let&apos;s Connect!</h3>
                   <p className="text-lg">Ready to start your math journey?</p>
                 </div>
               </div>
