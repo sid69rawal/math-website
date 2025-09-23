@@ -36,25 +36,9 @@ export default function CallToActionSection() {
                     <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-100 rounded-full blur-xl"></div>
                     
                     {/* Main Contact Icon */}
-                    <motion.div
-                      className="relative z-10 flex items-center justify-center w-32 h-32 bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl shadow-lg"
-                      whileHover={{ 
-                        boxShadow: "0 15px 30px rgba(147, 51, 234, 0.4)",
-                        scale: 1.05,
-                        transition: { duration: 0.2 }
-                      }}
-                    >
-                      {/* Phone Icon */}
-                      <motion.div
-                        whileHover={{ 
-                          rotate: [0, 5, -5, 0],
-                          scale: [1, 1.05, 1]
-                        }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <Phone className="w-16 h-16 text-white" />
-                      </motion.div>
-                    </motion.div>
+                    <div className="relative z-10 flex items-center justify-center w-32 h-32 bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300">
+                      <Phone className="w-16 h-16 text-white" />
+                    </div>
 
                     {/* Subtle Math Symbols */}
                     <div className="absolute top-4 right-4 text-gray-300 text-xl font-bold">
@@ -79,67 +63,35 @@ export default function CallToActionSection() {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               {/* Message 1 */}
-              <motion.h2
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-              >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                 Let&apos;s Learn Together! 🎓
-              </motion.h2>
+              </h2>
 
               {/* Message 2 */}
-              <motion.p
-                className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 md:mb-10"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-              >
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 md:mb-10">
                 Schedule a free assessment and explore Level Up Math Academy&apos;s unique approach, curriculum, pricing and flexible class options.
-              </motion.p>
+              </p>
 
               {/* Contact Us Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
-              >
+              <div>
                 <Link href="/contact">
-                  <motion.div
-                    className="inline-block bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700 text-white px-10 py-4 rounded-full font-semibold text-xl shadow-lg cursor-pointer transition-all duration-300"
-                    whileHover={{ 
-                      scale: 1.05, 
-                      boxShadow: "0 15px 30px rgba(249, 115, 22, 0.4)"
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                  <div className="inline-block bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700 text-white px-10 py-4 rounded-full font-semibold text-xl shadow-lg cursor-pointer transition-all duration-300 hover:scale-105">
                     Contact Us Now! 🚀
-                  </motion.div>
+                  </div>
                 </Link>
-              </motion.div>
+              </div>
 
               {/* Additional Contact Info */}
-              <motion.div
-                className="mt-6 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start text-gray-600"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 1.2, duration: 0.8 }}
-              >
-                <motion.div
-                  className="flex items-center gap-2"
-                  whileHover={{ scale: 1.02, x: 5 }}
-                >
+              <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start text-gray-600">
+                <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200">
                   <Mail className="w-5 h-5 text-purple-600" />
                   <span className="text-sm">{contactConfig.email}</span>
-                </motion.div>
-                <motion.div
-                  className="flex items-center gap-2"
-                  whileHover={{ scale: 1.02, x: 5 }}
-                >
+                </div>
+                <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-200">
                   <Phone className="w-5 h-5 text-pink-600" />
                   <span className="text-sm">{contactConfig.phone}</span>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             </motion.div>
           </div>
 

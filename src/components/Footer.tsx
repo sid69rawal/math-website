@@ -127,17 +127,17 @@ export default function Footer() {
               
               {/* Email */}
               <motion.div
-                className="flex items-start justify-center md:justify-start space-x-3"
+                className="flex items-center justify-center md:justify-start space-x-3"
                 whileHover={{ x: 5 }}
               >
-                <div className="bg-blue-600 p-2 rounded-lg">
+                <div className="bg-blue-600 p-2 rounded-lg flex-shrink-0">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-gray-400 text-sm mb-1">Email</p>
                   <a 
                     href={`mailto:${contactConfig.email}`}
-                    className="text-white hover:text-blue-400 transition-colors"
+                    className="text-white hover:text-blue-400 transition-colors break-all"
                   >
                     {contactConfig.email}
                   </a>
@@ -146,13 +146,13 @@ export default function Footer() {
 
               {/* Phone */}
               <motion.div
-                className="flex items-start justify-center md:justify-start space-x-3"
+                className="flex items-center justify-center md:justify-start space-x-3"
                 whileHover={{ x: 5 }}
               >
-                <div className="bg-green-600 p-2 rounded-lg">
+                <div className="bg-green-600 p-2 rounded-lg flex-shrink-0">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-gray-400 text-sm mb-1">Phone</p>
                   <a 
                     href={`tel:${contactConfig.phoneLink}`}
@@ -168,10 +168,10 @@ export default function Footer() {
                 className="flex items-start justify-center md:justify-start space-x-3"
                 whileHover={{ x: 5 }}
               >
-                <div className="bg-purple-600 p-2 rounded-lg">
+                <div className="bg-purple-600 p-2 rounded-lg flex-shrink-0 mt-1">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-gray-400 text-sm mb-1">Address</p>
                   <p className="text-white leading-relaxed whitespace-pre-line">
                     {contactConfig.address.full}

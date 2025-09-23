@@ -77,32 +77,21 @@ export default function OurApproachSection() {
             <motion.div
               key={index}
               className="group relative"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: index * 0.05, duration: 0.5 }}
             >
               {/* Background Card */}
-                <motion.div
-                  className="relative bg-white border border-gray-200 rounded-2xl p-8 h-full shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
-                  whileHover={{ 
-                    scale: 1.02,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
+                <div className="relative bg-white border border-gray-200 rounded-2xl p-8 h-full shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                 {/* Subtle Background Overlay */}
                 <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"></div>
                 
                 {/* Icon */}
-                <motion.div
-                  className="text-center mb-6"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl text-3xl mb-4 shadow-md">
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl text-3xl mb-4 shadow-md group-hover:scale-105 transition-transform duration-300">
                     {approach.icon}
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Content */}
                 <div className="relative z-10 text-center">
@@ -115,17 +104,12 @@ export default function OurApproachSection() {
                 </div>
 
                 {/* Bottom Accent Line */}
-                <motion.div
-                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-b-2xl"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
-                  transition={{ delay: (index * 0.1) + 0.5, duration: 0.8 }}
-                />
+                <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-b-2xl w-full" />
 
                 {/* Decorative Elements */}
                 <div className="absolute top-4 right-4 w-8 h-8 border-2 border-gray-100 rounded-full opacity-50"></div>
                 <div className="absolute bottom-4 left-4 w-6 h-6 border-2 border-gray-100 rounded-full opacity-30"></div>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </div>

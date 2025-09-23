@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Announcement Banner */}
+      {/* Top Announcement Banner - Optimized */}
       <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white py-2 overflow-hidden">
         <div className="relative h-6">
           <motion.div
@@ -29,17 +29,12 @@ export default function Header() {
               x: [screenWidth, -(2000)]
             }}
             transition={{
-              duration: 25,
+              duration: 30,
               repeat: Infinity,
               ease: "linear"
             }}
+            style={{ willChange: 'transform' }}
           >
-            <span className="mx-8">
-              🎯 First Month Guarantee: If you&apos;re not satisfied after the first month, you&apos;ll receive a full refund
-            </span>
-            <span className="mx-8">
-              📚 Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus &amp; Vectors, Math Competitions etc.
-            </span>
             <span className="mx-8">
               🎯 First Month Guarantee: If you&apos;re not satisfied after the first month, you&apos;ll receive a full refund
             </span>

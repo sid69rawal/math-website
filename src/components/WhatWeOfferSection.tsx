@@ -96,38 +96,22 @@ export default function WhatWeOfferSection() {
             <motion.div
               key={index}
               className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group"
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
-                delay: index * 0.15, 
-                duration: 0.6, 
-                type: "spring", 
-                bounce: 0.4 
+                delay: index * 0.1, 
+                duration: 0.5
               }}
               whileHover={{ 
-                scale: 1.05,
-                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
-                y: -5,
-                transition: { duration: 0.3, type: "spring", bounce: 0.6 }
+                y: -3,
+                transition: { duration: 0.2 }
               }}
             >
               {/* Card Header */}
               <div className="text-center mb-6">
-                <motion.div
-                  className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300"
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, -5, 0]
-                  }}
-                  transition={{ duration: 4, repeat: Infinity, delay: index * 0.5 }}
-                  whileHover={{
-                    scale: 1.3,
-                    rotate: [0, 10, -10, 0],
-                    transition: { duration: 0.5 }
-                  }}
-                >
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
                   {offer.emoji}
-                </motion.div>
+                </div>
                 <h3 className="text-xl font-bold text-gray-900 leading-tight">
                   {offer.title}
                 </h3>
@@ -136,33 +120,18 @@ export default function WhatWeOfferSection() {
               {/* Bullet Points */}
               <ul className="space-y-4">
                 {offer.points.map((point, pointIndex) => (
-                  <motion.li
+                  <li
                     key={pointIndex}
                     className="flex items-start text-gray-700"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ 
-                      delay: (index * 0.1) + (pointIndex * 0.1), 
-                      duration: 0.5 
-                    }}
                   >
-                    <motion.span
-                      className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mr-3 mt-2 flex-shrink-0"
-                      whileHover={{ scale: 1.5 }}
-                      transition={{ duration: 0.2 }}
-                    />
+                    <span className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mr-3 mt-2 flex-shrink-0" />
                     <span className="text-sm leading-relaxed">{point}</span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
 
               {/* Card Bottom Decoration */}
-              <motion.div
-                className="mt-6 h-1 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full"
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                transition={{ delay: (index * 0.1) + 0.5, duration: 0.8 }}
-              />
+              <div className="mt-6 h-1 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full" />
             </motion.div>
           ))}
         </div>

@@ -67,34 +67,23 @@ function TestimonialCarousel() {
       {/* Main Testimonial Card */}
       <motion.div
         className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 min-h-[400px] flex flex-col justify-center max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 50, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
-        whileHover={{ 
-          boxShadow: "0 30px 60px rgba(0,0,0,0.1)",
-          transition: { duration: 0.3 }
-        }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, x: 50, scale: 0.9 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: -50, scale: 0.9 }}
-            transition={{ duration: 0.6, type: "spring", bounce: 0.3 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.4 }}
             className="text-center"
           >
             {/* Star Rating */}
             <div className="flex justify-center mb-6">
               {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.1, duration: 0.3 }}
-                >
-                  <Star className="w-6 h-6 text-yellow-400 fill-current" />
-                </motion.div>
+                <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
               ))}
             </div>
 
@@ -117,31 +106,19 @@ function TestimonialCarousel() {
       </motion.div>
 
       {/* Navigation Arrows */}
-      <motion.button
+      <button
         onClick={prevTestimonial}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-200 rounded-full p-3 transition-all duration-300 group shadow-md"
-        whileHover={{ 
-          scale: 1.1, 
-          x: -2,
-          boxShadow: "0 10px 20px rgba(0,0,0,0.1)" 
-        }}
-        whileTap={{ scale: 0.9 }}
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-200 rounded-full p-3 transition-all duration-300 group shadow-md hover:scale-105"
       >
         <ChevronLeft className="w-6 h-6 text-gray-600 group-hover:scale-110 transition-transform" />
-      </motion.button>
+      </button>
       
-      <motion.button
+      <button
         onClick={nextTestimonial}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-200 rounded-full p-3 transition-all duration-300 group shadow-md"
-        whileHover={{ 
-          scale: 1.1, 
-          x: 2,
-          boxShadow: "0 10px 20px rgba(0,0,0,0.1)" 
-        }}
-        whileTap={{ scale: 0.9 }}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-100 hover:bg-gray-200 rounded-full p-3 transition-all duration-300 group shadow-md hover:scale-105"
       >
         <ChevronRight className="w-6 h-6 text-gray-600 group-hover:scale-110 transition-transform" />
-      </motion.button>
+      </button>
 
       {/* Dot Indicators */}
       <div className="flex justify-center mt-8 space-x-3">
