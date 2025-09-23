@@ -81,9 +81,9 @@ export default function Footer() {
             <h4 className="text-white font-bold text-xl mb-6">Quick Links</h4>
             <ul className="space-y-4">
               {[
-                { name: "What We Offer", href: "#what-we-offer" },
-                { name: "Our Approach", href: "#our-approach" },
-                { name: "Testimonials", href: "#testimonials" },
+                { name: "Courses", href: "/courses" },
+                { name: "Our Services", href: "/services" },
+                { name: "About Us", href: "/about" },
                 { name: "Contact Us", href: "/contact" }
               ].map((link, index) => (
                 <motion.li

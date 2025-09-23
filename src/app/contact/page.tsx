@@ -18,10 +18,11 @@ export default function ContactPage() {
     phone: '',
     gradeLevel: '',
     message: '',
-    preferences: [] as string[]
+    preference: '' as string
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -31,38 +32,56 @@ export default function ContactPage() {
     }));
   };
 
-  const handleCheckboxChange = (value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      preferences: prev.preferences.includes(value)
-        ? prev.preferences.filter(p => p !== value)
-        : [...prev.preferences, value]
-    }));
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    
-    setIsSubmitting(false);
-    alert('Thank you for your message! We will get back to you soon.');
-    
-    // Reset form
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      gradeLevel: '',
-      message: '',
-      preferences: []
-    });
+    try {
+      // Create form data for formsubmit.co
+      const formDataToSend = new FormData();
+      formDataToSend.append('_subject', `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
+      formDataToSend.append('_replyto', formData.email);
+      formDataToSend.append('_captcha', 'false');
+      formDataToSend.append('_next', window.location.href);
+      
+      // Add form fields
+      formDataToSend.append('firstName', formData.firstName);
+      formDataToSend.append('lastName', formData.lastName);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone || 'Not provided');
+      formDataToSend.append('gradeLevel', formData.gradeLevel);
+      formDataToSend.append('preference', formData.preference);
+      formDataToSend.append('message', formData.message);
+      
+      // Submit form using formsubmit.co
+      const response = await fetch('https://formsubmit.co/levelupmathacademy@gmail.com', {
+        method: 'POST',
+        body: formDataToSend
+      });
+      
+      if (response.ok) {
+        setShowSuccess(true);
+        
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          gradeLevel: '',
+          message: '',
+          preference: ''
+        });
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Sorry, there was an error sending your message. Please try again or contact us directly at levelupmathacademy@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const gradeOptions = Array.from({ length: 10 }, (_, i) => `Grade ${i + 3}`);
@@ -162,7 +181,7 @@ export default function ContactPage() {
             <div className="mb-8">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-4">Contact Us</h1>
               <p className="text-gray-600 text-lg">
-                To learn more about our programs & pricing please fill out the form below and we will be in touch soon!
+                To explore more about our services and pricing, Please fill out the form below and we'll get back to you shortly
               </p>
               
               <div className="mt-6 space-y-2">
@@ -284,7 +303,7 @@ export default function ContactPage() {
                 />
               </div>
 
-              {/* Preferences Checkboxes */}
+              {/* Preferences Radio Buttons */}
               <div>
                 <label className="block text-gray-700 font-medium mb-3">
                   What are you most interested in? <span className="text-purple-600">(required)</span>
@@ -301,10 +320,12 @@ export default function ContactPage() {
                       whileHover={{ x: 5 }}
                     >
                       <input
-                        type="checkbox"
-                        checked={formData.preferences.includes(option)}
-                        onChange={() => handleCheckboxChange(option)}
-                        className="w-5 h-5 rounded border-2 border-gray-300 bg-gray-50 text-purple-600 focus:ring-2 focus:ring-purple-500 mr-3"
+                        type="radio"
+                        name="preference"
+                        value={option}
+                        checked={formData.preference === option}
+                        onChange={handleInputChange}
+                        className="w-5 h-5 border-2 border-gray-300 bg-gray-50 text-purple-600 focus:ring-2 focus:ring-purple-500 mr-3"
                       />
                       <span className="text-gray-700">{option}</span>
                     </motion.label>
@@ -333,6 +354,116 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      {showSuccess && (
+        <motion.div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setShowSuccess(false)}
+        >
+          <motion.div
+            className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-purple-100 relative"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Background Decorative Elements */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full blur-2xl opacity-50"></div>
+            <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-xl opacity-50"></div>
+            
+            {/* Close Button */}
+            <button
+              onClick={() => setShowSuccess(false)}
+              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
+            >
+              <span className="text-gray-500 text-lg">×</span>
+            </button>
+            
+            {/* Success Content */}
+            <div className="text-center relative z-10">
+              {/* Success Icon */}
+              <motion.div
+                className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+              >
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <span className="text-white text-3xl">✓</span>
+                </motion.div>
+              </motion.div>
+              
+              {/* Success Message */}
+              <motion.h2
+                className="text-2xl font-bold text-gray-900 mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                Message Sent Successfully! 🎉
+              </motion.h2>
+              
+              <motion.p
+                className="text-gray-600 mb-6 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                Thank you for reaching out to <span className="font-semibold text-purple-600">Level Up Math Academy</span>! We've received your message and will get back to you shortly.
+              </motion.p>
+              
+              {/* Additional Info */}
+              <motion.div
+                className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-4 mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                <p className="text-sm text-gray-700 mb-2">
+                  <span className="font-semibold text-purple-600">📧 Email:</span> levelupmathacademy@gmail.com
+                </p>
+                <p className="text-sm text-gray-700">
+                  <span className="font-semibold text-pink-600">📞 Phone:</span> (647) 1111111
+                </p>
+              </motion.div>
+              
+              {/* Action Buttons */}
+              <motion.div
+                className="flex flex-col sm:flex-row gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                <motion.button
+                  onClick={() => setShowSuccess(false)}
+                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 px-6 rounded-full font-semibold transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Continue Browsing
+                </motion.button>
+                
+                <motion.a
+                  href="/"
+                  className="flex-1 bg-white border-2 border-purple-200 hover:border-purple-300 text-purple-600 py-3 px-6 rounded-full font-semibold transition-all duration-300 text-center"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Back to Home
+                </motion.a>
+              </motion.div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
 
       {/* Footer */}
       <Footer />

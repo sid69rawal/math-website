@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
@@ -84,9 +84,6 @@ function AnimatedCounter({ end, duration = 2, suffix = "" }: { end: number, dura
 }
 
 export default function HeroSection() {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 300], [0, -50]);
-  const y2 = useTransform(scrollY, [0, 300], [0, -100]);
 
   return (
     <section 
@@ -140,21 +137,22 @@ export default function HeroSection() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              <motion.a
-                href="#what-we-offer"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full transition-all duration-300 text-center"
-                whileHover={{ 
-                  scale: 1.05, 
-                  boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)",
-                  y: -2 
-                }}
-                whileTap={{ scale: 0.98 }}
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.9, duration: 0.4, type: "spring", bounce: 0.6 }}
-              >
-                View What We Offer 📚
-              </motion.a>
+              <Link href="/courses" className="w-full sm:w-auto">
+                <motion.div
+                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center"
+                  whileHover={{ 
+                    scale: 1.05, 
+                    boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)",
+                    y: -2 
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.9, duration: 0.4, type: "spring", bounce: 0.6 }}
+                >
+                  View Our Courses 📚
+                </motion.div>
+              </Link>
               <Link href="/contact" className="w-full sm:w-auto">
                 <motion.div
                   className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center"
@@ -240,7 +238,6 @@ export default function HeroSection() {
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            style={{ y: y1 }}
           >
             {/* Hero Image */}
             <motion.div
@@ -277,7 +274,6 @@ export default function HeroSection() {
                 rotate: -5,
                 boxShadow: "0 10px 30px rgba(147, 51, 234, 0.4)"
               }}
-              style={{ y: y2 }}
             >
               <span className="hidden sm:inline">🏆 Top Rated</span>
               <span className="sm:hidden">🏆</span>
@@ -293,7 +289,6 @@ export default function HeroSection() {
                 rotate: 5,
                 boxShadow: "0 10px 30px rgba(249, 115, 22, 0.4)"
               }}
-              style={{ y: y1 }}
             >
               <span className="hidden sm:inline">⭐ 5-Star Reviews</span>
               <span className="sm:hidden">⭐</span>

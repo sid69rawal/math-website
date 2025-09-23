@@ -1,5 +1,5 @@
 export const contactConfig = {
-  email: "@gmail.com",
+  email: "levelupmathacademy@gmail.com",
   phone: "(647) 1111111",
   phoneLink: "+16471111111", // For tel: links
   address: {
