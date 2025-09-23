@@ -336,13 +336,13 @@ export default function HeroSection() {
           ];
           
           const colors = [
-            'text-purple-300', 'text-pink-300', 'text-orange-300', 'text-teal-300', 
-            'text-blue-300', 'text-indigo-300', 'text-rose-300', 'text-amber-300',
-            'text-purple-400', 'text-pink-400', 'text-orange-400', 'text-teal-400'
+            'text-purple-500', 'text-pink-500', 'text-orange-500', 'text-teal-500', 
+            'text-blue-500', 'text-indigo-500', 'text-rose-500', 'text-amber-500',
+            'text-purple-600', 'text-pink-600', 'text-orange-600', 'text-teal-600'
           ];
           
           const sizes = ['text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl'];
-          const opacities = ['opacity-10', 'opacity-15', 'opacity-20', 'opacity-25'];
+          const opacities = ['opacity-30', 'opacity-35', 'opacity-40', 'opacity-45'];
           
           const symbol = symbols[index % symbols.length];
           const color = colors[index % colors.length];
@@ -353,11 +353,13 @@ export default function HeroSection() {
           const top = Math.random() * 90 + 5; // 5% to 95%
           const left = Math.random() * 90 + 5; // 5% to 95%
           
-          // Generate random animation values
-          const yMovement = (Math.random() - 0.5) * 40; // -20 to 20
-          const rotation = (Math.random() - 0.5) * 60; // -30 to 30
-          const duration = 4 + Math.random() * 6; // 4 to 10 seconds
-          const delay = Math.random() * 5; // 0 to 5 seconds
+          // Generate random animation values for more dynamic floating
+          const yMovement = (Math.random() - 0.5) * 60; // -30 to 30
+          const xMovement = (Math.random() - 0.5) * 40; // -20 to 20
+          const rotation = (Math.random() - 0.5) * 90; // -45 to 45
+          const scaleVariation = 0.8 + Math.random() * 0.4; // 0.8 to 1.2
+          const duration = 6 + Math.random() * 8; // 6 to 14 seconds
+          const delay = Math.random() * 8; // 0 to 8 seconds
           
           return (
             <motion.div
@@ -370,14 +372,17 @@ export default function HeroSection() {
                 transform: 'translate3d(0,0,0)' // Force hardware acceleration
               }}
               animate={{
-                y: [0, yMovement * 0.5, 0], // Reduced movement
-                rotate: [0, rotation * 0.3, 0], // Simplified rotation
+                y: [0, yMovement, -yMovement * 0.5, yMovement * 0.3, 0], // Multi-point floating
+                x: [0, xMovement, -xMovement * 0.7, xMovement * 0.4, 0], // Horizontal drift
+                rotate: [0, rotation, -rotation * 0.6, rotation * 0.3, 0], // Gentle rotation
+                scale: [1, scaleVariation, 1, scaleVariation * 0.9, 1], // Subtle scaling
               }}
               transition={{
-                duration: Math.max(duration, 8), // Slower, less frequent updates
+                duration: duration,
                 repeat: Infinity,
                 ease: "easeInOut",
                 delay: delay,
+                times: [0, 0.25, 0.5, 0.75, 1], // Smooth transitions between keyframes
               }}
             >
               {symbol}
@@ -387,63 +392,79 @@ export default function HeroSection() {
 
         {/* Simplified Featured Symbols */}
         <motion.div
-          className="absolute top-20 left-[8%] text-purple-400 text-4xl font-bold opacity-25"
+          className="absolute top-20 left-[8%] text-purple-600 text-4xl font-bold opacity-40"
           style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
           animate={{
-            y: [0, -15, 0],
+            y: [0, -20, -10, -25, 0],
+            x: [0, 5, -3, 8, 0],
+            rotate: [0, 5, -3, 8, 0],
+            scale: [1, 1.1, 0.95, 1.05, 1],
           }}
           transition={{
-            duration: 12,
+            duration: 15,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
+            times: [0, 0.25, 0.5, 0.75, 1],
           }}
         >
           ∫
         </motion.div>
         
         <motion.div
-          className="absolute top-32 right-[12%] text-pink-400 text-3xl font-bold opacity-25"
+          className="absolute top-32 right-[12%] text-pink-600 text-3xl font-bold opacity-40"
           style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
           animate={{
-            y: [0, 12, 0],
+            y: [0, 15, 8, 18, 0],
+            x: [0, -8, 4, -12, 0],
+            rotate: [0, -8, 4, -12, 0],
+            scale: [1, 0.9, 1.15, 0.95, 1],
           }}
           transition={{
-            duration: 10,
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 2
+            delay: 2,
+            times: [0, 0.25, 0.5, 0.75, 1],
           }}
         >
           π
         </motion.div>
         
         <motion.div
-          className="absolute bottom-32 left-[15%] text-orange-400 text-4xl font-bold opacity-25"
+          className="absolute bottom-32 left-[15%] text-orange-600 text-4xl font-bold opacity-40"
           style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
           animate={{
-            y: [0, -18, 0],
+            y: [0, -22, -12, -28, 0],
+            x: [0, 6, -4, 10, 0],
+            rotate: [0, 6, -4, 10, 0],
+            scale: [1, 1.05, 0.9, 1.1, 1],
           }}
           transition={{
-            duration: 14,
+            duration: 16,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 4
+            delay: 4,
+            times: [0, 0.25, 0.5, 0.75, 1],
           }}
         >
           ∑
         </motion.div>
         
         <motion.div
-          className="absolute bottom-24 right-[8%] text-teal-400 text-3xl font-bold opacity-25"
+          className="absolute bottom-24 right-[8%] text-teal-600 text-3xl font-bold opacity-40"
           style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
           animate={{
-            y: [0, 15, 0],
+            y: [0, 18, 10, 22, 0],
+            x: [0, -6, 3, -9, 0],
+            rotate: [0, -6, 3, -9, 0],
+            scale: [1, 0.95, 1.1, 0.9, 1],
           }}
           transition={{
-            duration: 16,
+            duration: 18,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1
+            delay: 1,
+            times: [0, 0.25, 0.5, 0.75, 1],
           }}
         >
           √
