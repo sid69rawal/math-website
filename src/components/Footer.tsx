@@ -79,40 +79,93 @@ export default function Footer() {
             transition={{ delay: 0.2, duration: 0.8 }}
           >
             <h4 className="text-white font-bold text-xl mb-6">Quick Links</h4>
-            <ul className="space-y-4">
-              {[
-                { name: "Courses", href: "/courses" },
-                { name: "Our Services", href: "/services" },
-                { name: "About Us", href: "/about" },
-                { name: "Contact Us", href: "/contact" }
-              ].map((link, index) => (
+            
+            {/* Courses Sub-section */}
+            <div className="mb-6">
+              <h5 className="text-white font-semibold text-lg mb-3">Courses</h5>
+              <ul className="space-y-2 ml-4">
                 <motion.li
-                  key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 + (index * 0.1), duration: 0.5 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  {link.href.startsWith('/') ? (
-                    <Link href={link.href}>
-                      <motion.div
-                        className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                  <Link href="/courses/grades-3-5">
+                    <motion.div
+                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                      whileHover={{ x: 5 }}
+                    >
+                      Grades 3-5
+                    </motion.div>
+                  </Link>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                >
+                  <Link href="/courses/grades-6-8">
+                    <motion.div
+                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                      whileHover={{ x: 5 }}
+                    >
+                      Grades 6-8
+                    </motion.div>
+                  </Link>
+                </motion.li>
+                <motion.li
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                >
+                  <Link href="/courses/grades-9-12">
+                    <motion.div
+                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                      whileHover={{ x: 5 }}
+                    >
+                      Grades 9-12
+                    </motion.div>
+                  </Link>
+                </motion.li>
+              </ul>
+            </div>
+
+            {/* Other Links */}
+            <div>
+              <h5 className="text-white font-semibold text-lg mb-3">General</h5>
+              <ul className="space-y-2 ml-4">
+                {[
+                  { name: "Our Services", href: "/services" },
+                  { name: "About Us", href: "/about" },
+                  { name: "Contact Us", href: "/contact" }
+                ].map((link, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 + (index * 0.1), duration: 0.5 }}
+                  >
+                    {link.href.startsWith('/') ? (
+                      <Link href={link.href}>
+                        <motion.div
+                          className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                          whileHover={{ x: 5 }}
+                        >
+                          {link.name}
+                        </motion.div>
+                      </Link>
+                    ) : (
+                      <motion.a
+                        href={link.href}
+                        className="text-gray-300 hover:text-white transition-colors duration-300 inline-block"
                         whileHover={{ x: 5 }}
                       >
                         {link.name}
-                      </motion.div>
-                    </Link>
-                  ) : (
-                    <motion.a
-                      href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors duration-300 inline-block"
-                      whileHover={{ x: 5 }}
-                    >
-                      {link.name}
-                    </motion.a>
-                  )}
-                </motion.li>
-              ))}
-            </ul>
+                      </motion.a>
+                    )}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
 
           {/* Right Side - Contact Info */}
