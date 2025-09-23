@@ -6,20 +6,30 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 // Typing Animation Component
-function TypingAnimation({ text, delay = 0 }: { text: string, delay?: number }) {
+function TypingAnimation({ text, delay = 0, repeatDelay = 3000 }: { text: string, delay?: number, repeatDelay?: number }) {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (currentIndex < text.length) {
-        setDisplayText(prev => prev + text[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
-      }
-    }, delay + currentIndex * 8); // Ultra fast - 8ms per character
+    if (isTyping) {
+      const timer = setTimeout(() => {
+        if (currentIndex < text.length) {
+          setDisplayText(prev => prev + text[currentIndex]);
+          setCurrentIndex(prev => prev + 1);
+        } else {
+          // Finished typing, wait then reset
+          setTimeout(() => {
+            setDisplayText('');
+            setCurrentIndex(0);
+            setIsTyping(true);
+          }, repeatDelay);
+        }
+      }, delay + currentIndex * 8); // Ultra fast - 8ms per character
 
-    return () => clearTimeout(timer);
-  }, [currentIndex, text, delay]);
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, text, delay, isTyping, repeatDelay]);
 
   return (
     <span>
@@ -100,14 +110,14 @@ export default function HeroSection() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8, type: "spring", bounce: 0.4 }}
             >
-              <TypingAnimation text="Welcome to " delay={50} />
+              <TypingAnimation text="Welcome to " delay={50} repeatDelay={4000} />
               <motion.span
                 className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent block"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.15, duration: 0.3, type: "spring", bounce: 0.5 }}
               >
-                <TypingAnimation text="Level Up Math Academy" delay={200} />
+                <TypingAnimation text="Level Up Math Academy" delay={200} repeatDelay={4000} />
               </motion.span>
             </motion.h1>
             
@@ -132,7 +142,7 @@ export default function HeroSection() {
             >
               <motion.a
                 href="#what-we-offer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full transition-all duration-300 text-center"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)",
@@ -145,9 +155,9 @@ export default function HeroSection() {
               >
                 View What We Offer 📚
               </motion.a>
-              <Link href="/contact">
+              <Link href="/contact" className="w-full sm:w-auto">
                 <motion.div
-                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer"
+                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center"
                   whileHover={{ 
                     scale: 1.05, 
                     boxShadow: "0 20px 40px rgba(249, 115, 22, 0.3)",
@@ -165,61 +175,61 @@ export default function HeroSection() {
 
             {/* Animated Stats Cards */}
             <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12"
+              className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3, duration: 0.8 }}
             >
               <motion.div 
-                className="text-center p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-purple-100"
+                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-purple-100"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(147, 51, 234, 0.2)",
-                  y: -5
+                  y: -5 
                 }}
                 transition={{ type: "spring", bounce: 0.6 }}
               >
                 <AnimatedCounter end={500} suffix="+" />
-                <p className="text-sm text-gray-600 mt-1 font-medium">Happy Students</p>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Happy Students</p>
               </motion.div>
-              
+
               <motion.div 
-                className="text-center p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-pink-100"
+                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-pink-100"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(236, 72, 153, 0.2)",
-                  y: -5
+                  y: -5 
                 }}
                 transition={{ type: "spring", bounce: 0.6 }}
               >
                 <AnimatedCounter end={95} suffix="%" />
-                <p className="text-sm text-gray-600 mt-1 font-medium">Success Rate</p>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Success Rate</p>
               </motion.div>
-              
+
               <motion.div 
-                className="text-center p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-orange-100"
+                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-orange-100"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(249, 115, 22, 0.2)",
-                  y: -5
+                  y: -5 
                 }}
                 transition={{ type: "spring", bounce: 0.6 }}
               >
                 <AnimatedCounter end={5} suffix="+" />
-                <p className="text-sm text-gray-600 mt-1 font-medium">Years Experience</p>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Years Experience</p>
               </motion.div>
-              
+
               <motion.div 
-                className="text-center p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-teal-100"
+                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-teal-100"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(20, 184, 166, 0.2)",
-                  y: -5
+                  y: -5 
                 }}
                 transition={{ type: "spring", bounce: 0.6 }}
               >
                 <AnimatedCounter end={24} suffix="/7" />
-                <p className="text-sm text-gray-600 mt-1 font-medium">Online Support</p>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Online Support</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -256,9 +266,9 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"></div>
             </motion.div>
 
-            {/* Floating Achievement Badges */}
+            {/* Floating Achievement Badges - Mobile Responsive */}
             <motion.div
-              className="absolute -top-6 -left-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-lg text-sm font-bold z-10"
+              className="absolute top-1 left-1 sm:-top-6 sm:-left-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
               initial={{ opacity: 0, scale: 0, rotate: -15 }}
               animate={{ opacity: 1, scale: 1, rotate: -15 }}
               transition={{ delay: 1.2, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -269,11 +279,12 @@ export default function HeroSection() {
               }}
               style={{ y: y2 }}
             >
-              🏆 Top Rated
+              <span className="hidden sm:inline">🏆 Top Rated</span>
+              <span className="sm:hidden">🏆</span>
             </motion.div>
 
             <motion.div
-              className="absolute -top-4 -right-8 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-4 py-2 rounded-full shadow-lg text-sm font-bold z-10"
+              className="absolute top-1 right-1 sm:-top-4 sm:-right-8 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
               initial={{ opacity: 0, scale: 0, rotate: 15 }}
               animate={{ opacity: 1, scale: 1, rotate: 15 }}
               transition={{ delay: 1.4, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -284,11 +295,12 @@ export default function HeroSection() {
               }}
               style={{ y: y1 }}
             >
-              ⭐ 5-Star Reviews
+              <span className="hidden sm:inline">⭐ 5-Star Reviews</span>
+              <span className="sm:hidden">⭐</span>
             </motion.div>
 
             <motion.div
-              className="absolute -bottom-6 -left-4 bg-gradient-to-r from-teal-500 to-purple-500 text-white px-4 py-2 rounded-full shadow-lg text-sm font-bold z-10"
+              className="absolute bottom-1 left-1 sm:-bottom-6 sm:-left-4 bg-gradient-to-r from-teal-500 to-purple-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
               initial={{ opacity: 0, scale: 0, rotate: -10 }}
               animate={{ opacity: 1, scale: 1, rotate: -10 }}
               transition={{ delay: 1.6, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -297,11 +309,12 @@ export default function HeroSection() {
                 transition: { duration: 0.2 }
               }}
             >
-              🎯 Results Guaranteed
+              <span className="hidden sm:inline">🎯 Results Guaranteed</span>
+              <span className="sm:hidden">🎯</span>
             </motion.div>
 
             <motion.div
-              className="absolute -bottom-4 -right-6 bg-gradient-to-r from-pink-500 to-orange-500 text-white px-4 py-2 rounded-full shadow-lg text-sm font-bold z-10"
+              className="absolute bottom-1 right-1 sm:-bottom-4 sm:-right-6 bg-gradient-to-r from-pink-500 to-orange-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
               initial={{ opacity: 0, scale: 0, rotate: 12 }}
               animate={{ opacity: 1, scale: 1, rotate: 12 }}
               transition={{ delay: 1.8, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -310,7 +323,8 @@ export default function HeroSection() {
                 transition: { duration: 0.2 }
               }}
             >
-              🚀 Fast Progress
+              <span className="hidden sm:inline">🚀 Fast Progress</span>
+              <span className="sm:hidden">🚀</span>
             </motion.div>
           </motion.div>
         </div>
