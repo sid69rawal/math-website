@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { contactConfig } from '@/config/contact';
 
 export default function CallToActionSection() {
   return (
@@ -129,14 +130,14 @@ export default function CallToActionSection() {
                   whileHover={{ scale: 1.02, x: 5 }}
                 >
                   <Mail className="w-5 h-5 text-purple-600" />
-                  <span className="text-sm">hello@levelupmathacademy.com</span>
+                  <span className="text-sm">{contactConfig.email}</span>
                 </motion.div>
                 <motion.div
                   className="flex items-center gap-2"
                   whileHover={{ scale: 1.02, x: 5 }}
                 >
                   <Phone className="w-5 h-5 text-pink-600" />
-                  <span className="text-sm">(647) 362-1883</span>
+                  <span className="text-sm">{contactConfig.phone}</span>
                 </motion.div>
               </motion.div>
             </motion.div>

@@ -4,9 +4,11 @@ import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import FloatingElements from '@/components/FloatingElements';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { contactConfig } from '@/config/contact';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -128,16 +130,26 @@ export default function ContactPage() {
               π
             </motion.div>
             
-            {/* Main Image Container */}
-            <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-purple-100">
-              <div className="aspect-square bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-2xl flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="text-6xl mb-4">📚</div>
-                  <h3 className="text-2xl font-bold mb-2">Let&apos;s Connect!</h3>
-                  <p className="text-lg">Ready to start your math journey?</p>
-                </div>
-              </div>
-            </div>
+                    {/* Main Image Container */}
+                    <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-purple-100">
+                      <div className="aspect-square rounded-2xl overflow-hidden">
+                        <Image
+                          src="/contact_us_image.jpg"
+                          alt="Level Up Math Academy - Contact Us"
+                          width={600}
+                          height={600}
+                          className="w-full h-full object-cover rounded-2xl"
+                          priority
+                        />
+                        {/* Overlay with text */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl flex items-end justify-center pb-8">
+                          <div className="text-center text-white">
+                            <h3 className="text-3xl font-bold mb-2">Let&apos;s Connect!</h3>
+                            <p className="text-xl">Ready to start your math journey?</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
           </motion.div>
 
           {/* Right Side - Contact Form */}
@@ -155,18 +167,18 @@ export default function ContactPage() {
               
               <div className="mt-6 space-y-2">
                 <motion.a 
-                  href="mailto:hello@levelupmathacademy.com"
+                  href={`mailto:${contactConfig.email}`}
                   className="block text-purple-600 hover:text-pink-600 transition-colors font-medium"
                   whileHover={{ x: 5 }}
                 >
-                  📧 hello@levelupmathacademy.com
+                  📧 {contactConfig.email}
                 </motion.a>
                 <motion.a 
-                  href="tel:+916478362-1883"
+                  href={`tel:${contactConfig.phoneLink}`}
                   className="block text-purple-600 hover:text-pink-600 transition-colors font-medium"
                   whileHover={{ x: 5 }}
                 >
-                  📞 (647) 362-1883
+                  📞 {contactConfig.phone}
                 </motion.a>
               </div>
             </div>
@@ -231,7 +243,7 @@ export default function ContactPage() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                  placeholder="(in case our email ends up in spam, we'd love to be able to call you!)"
+                  placeholder="Enter phone number (optional)"
                 />
               </div>
 

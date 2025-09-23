@@ -5,6 +5,7 @@ import { Facebook, Instagram, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { contactConfig } from '@/config/contact';
 
 export default function Header() {
   const [screenWidth, setScreenWidth] = useState(1000);
@@ -101,7 +102,7 @@ export default function Header() {
               {/* Social Media Icons */}
               <div className="flex items-center space-x-3 ml-4">
                 <motion.a
-                  href="https://facebook.com/levelupmathacademy"
+                  href={contactConfig.socialMedia.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-purple-600 transition-colors"
@@ -111,7 +112,7 @@ export default function Header() {
                   <Facebook className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="https://instagram.com/levelupmathacademy"
+                  href={contactConfig.socialMedia.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-pink-600 transition-colors"
@@ -124,7 +125,7 @@ export default function Header() {
               
               <Link href="/contact">
                 <motion.button
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300"
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 cursor-pointer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -182,7 +183,7 @@ export default function Header() {
               
               <div className="flex space-x-4 pt-2 pb-2">
                 <motion.a 
-                  href="https://facebook.com/levelupmathacademy" 
+                  href={contactConfig.socialMedia.facebook} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-blue-600"
@@ -191,7 +192,7 @@ export default function Header() {
                   <Facebook className="w-5 h-5" />
                 </motion.a>
                 <motion.a 
-                  href="https://instagram.com/levelupmathacademy" 
+                  href={contactConfig.socialMedia.instagram} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-pink-600"
@@ -203,7 +204,7 @@ export default function Header() {
               
               <Link href="/contact">
                 <motion.button
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-3 rounded-full font-medium transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
                   onClick={() => setMobileMenuOpen(false)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

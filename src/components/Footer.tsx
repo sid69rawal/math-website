@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { contactConfig } from '@/config/contact';
 
 export default function Footer() {
   return (
@@ -23,9 +24,9 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Level Up Math Academy Logo"
-                width={60}
-                height={60}
-                className="rounded-full"
+                width={90}
+                height={90}
+                className="rounded-lg"
               />
               <div className="text-white font-bold text-xl">
                 Level Up Math Academy
@@ -47,7 +48,7 @@ export default function Footer() {
               <h4 className="text-white font-semibold text-lg mb-4">Follow Us</h4>
               <div className="flex justify-center md:justify-start space-x-4">
                 <motion.a
-                  href="https://facebook.com/levelupmathacademy"
+                  href={contactConfig.socialMedia.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 p-3 rounded-lg hover:bg-blue-600 transition-colors duration-300"
@@ -57,7 +58,7 @@ export default function Footer() {
                   <Facebook className="w-6 h-6 text-white" />
                 </motion.a>
                 <motion.a
-                  href="https://instagram.com/levelupmathacademy"
+                  href={contactConfig.socialMedia.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 p-3 rounded-lg hover:bg-pink-600 transition-colors duration-300"
@@ -135,10 +136,10 @@ export default function Footer() {
                 <div>
                   <p className="text-gray-400 text-sm mb-1">Email</p>
                   <a 
-                    href="mailto:hello@levelupmathacademy.com"
+                    href={`mailto:${contactConfig.email}`}
                     className="text-white hover:text-blue-400 transition-colors"
                   >
-                    hello@levelupmathacademy.com
+                    {contactConfig.email}
                   </a>
                 </div>
               </motion.div>
@@ -154,10 +155,10 @@ export default function Footer() {
                 <div>
                   <p className="text-gray-400 text-sm mb-1">Phone</p>
                   <a 
-                    href="tel:+16473621883"
+                    href={`tel:${contactConfig.phoneLink}`}
                     className="text-white hover:text-blue-400 transition-colors"
                   >
-                    (647) 362-1883
+                    {contactConfig.phone}
                   </a>
                 </div>
               </motion.div>
@@ -172,10 +173,8 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm mb-1">Address</p>
-                  <p className="text-white leading-relaxed">
-                    123 Learning Street<br />
-                    Mississauga, ON L5B 1M5<br />
-                    Canada
+                  <p className="text-white leading-relaxed whitespace-pre-line">
+                    {contactConfig.address.full}
                   </p>
                 </div>
               </motion.div>
