@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Target, Brain, BookOpen, MessageCircle, Star, Award, Lightbulb, Heart, Zap } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import FloatingElements from '@/components/FloatingElements';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -199,13 +198,13 @@ export default function AboutPage() {
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
                 <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8">
-                  At <span className="font-semibold text-purple-600">Level Up Math Academy</span>, we believe math is more than numbers—it's a <span className="font-semibold text-pink-600">gateway to logical thinking, creativity, and lifelong confidence</span>. Our mission is to help students not only <span className="font-semibold text-orange-500">excel in math</span> but also develop a mindset that <span className="font-semibold text-teal-600">embraces challenges, celebrates curiosity, and builds resilience</span>.
+                  At <span className="font-semibold text-purple-600">Level Up Math Academy</span>, we believe math is more than numbers—it&apos;s a <span className="font-semibold text-pink-600">gateway to logical thinking, creativity, and lifelong confidence</span>. Our mission is to help students not only <span className="font-semibold text-orange-500">excel in math</span> but also develop a mindset that <span className="font-semibold text-teal-600">embraces challenges, celebrates curiosity, and builds resilience</span>.
                 </p>
                 <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8">
                   Whether online or in our <span className="font-semibold text-purple-600">Mississauga learning center</span>, we offer <span className="font-semibold text-pink-600">personalized, curriculum-aligned tutoring</span> that empowers learners from <span className="font-semibold text-orange-500">Grades 3 to 12</span> to thrive academically and beyond.
                 </p>
                 <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed">
-                  We're not just tutors—we're <span className="font-semibold text-purple-600">mentors, motivators, and lifelong learners</span> who love to teach, learn, and inspire.
+                  We&apos;re not just tutors—we&apos;re <span className="font-semibold text-purple-600">mentors, motivators, and lifelong learners</span> who love to teach, learn, and inspire.
                 </p>
               </motion.div>
               
@@ -389,7 +388,7 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.0, duration: 0.5 }}
                   >
-                    Kunal's strength lies in making <span className="font-semibold text-orange-500">complex concepts accessible</span> through engaging, personalized instruction that builds confidence and curiosity.
+                    Kunal&apos;s strength lies in making <span className="font-semibold text-orange-500">complex concepts accessible</span> through engaging, personalized instruction that builds confidence and curiosity.
                   </motion.p>
                   
                   <motion.p

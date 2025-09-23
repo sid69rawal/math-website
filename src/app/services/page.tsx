@@ -234,7 +234,7 @@ export default function ServicesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
-                At <span className="font-semibold text-purple-600">Level Up Math Academy</span>, our curriculum is carefully designed for students from <span className="font-semibold text-pink-600">Grade 3 to Grade 12</span>, providing a <span className="font-semibold text-orange-500">customized learning experience</span> tailored to each student's unique abilities and pace. Our innovative and interactive programs make math <span className="font-semibold text-teal-600">enjoyable and engaging</span>, fostering academic excellence and lifelong confidence in mathematics.
+                At <span className="font-semibold text-purple-600">Level Up Math Academy</span>, our curriculum is carefully designed for students from <span className="font-semibold text-pink-600">Grade 3 to Grade 12</span>, providing a <span className="font-semibold text-orange-500">customized learning experience</span> tailored to each student&apos;s unique abilities and pace. Our innovative and interactive programs make math <span className="font-semibold text-teal-600">enjoyable and engaging</span>, fostering academic excellence and lifelong confidence in mathematics.
               </motion.p>
               
               {/* Decorative Line */}

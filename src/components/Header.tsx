@@ -2,22 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Menu, X, ChevronDown } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { contactConfig } from '@/config/contact';
 
 export default function Header() {
-  const [screenWidth, setScreenWidth] = useState(1000);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
-    handleResize(); // Set initial value
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <>

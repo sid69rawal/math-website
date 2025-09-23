@@ -8,8 +8,20 @@ import Footer from '@/components/Footer';
 import FloatingElements from '@/components/FloatingElements';
 import { useState } from 'react';
 
+interface Course {
+  title: string;
+  description: string;
+  topics: string[];
+  duration: string;
+  price: string;
+  icon: string;
+  overview: string;
+  keyConcepts: string[];
+  learningOutcomes: string[];
+}
+
 export default function Grades35Page() {
-  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   const courses = [
     {
@@ -301,7 +313,7 @@ export default function Grades35Page() {
         >
           <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 shadow-lg border border-gray-200">
             <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
-              Ready to Start Your Child's Math Journey? 🚀
+              Ready to Start Your Child&apos;s Math Journey? 🚀
             </h2>
             <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto">
               Give your elementary student the strong foundation they need to excel in mathematics. 

@@ -185,7 +185,7 @@ export default function CoursesPage() {
               Ready to Start Learning? 🚀
             </h2>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Choose the course that's right for your child and begin their journey to math mastery today!
+              Choose the course that&apos;s right for your child and begin their journey to math mastery today!
             </p>
             <Link href="/contact">
               <motion.button

@@ -8,8 +8,16 @@ import FloatingElements from '@/components/FloatingElements';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+interface Course {
+  title: string;
+  icon: string;
+  overview: string;
+  keyConcepts: string[];
+  learningOutcomes: string[];
+}
+
 export default function Grades68Page() {
-  const [selectedCourse, setSelectedCourse] = useState<any>(null);
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   const courses = [
     {

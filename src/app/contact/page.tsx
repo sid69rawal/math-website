@@ -181,7 +181,7 @@ export default function ContactPage() {
             <div className="mb-8">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-4">Contact Us</h1>
               <p className="text-gray-600 text-lg">
-                To explore more about our services and pricing, Please fill out the form below and we'll get back to you shortly
+                To explore more about our services and pricing, Please fill out the form below and we&apos;ll get back to you shortly
               </p>
               
               <div className="mt-6 space-y-2">
@@ -417,7 +417,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                Thank you for reaching out to <span className="font-semibold text-purple-600">Level Up Math Academy</span>! We've received your message and will get back to you shortly.
+                Thank you for reaching out to <span className="font-semibold text-purple-600">Level Up Math Academy</span>! We&apos;ve received your message and will get back to you shortly.
               </motion.p>
               
               {/* Additional Info */}
