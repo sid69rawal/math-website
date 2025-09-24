@@ -114,7 +114,7 @@ export default function ServicesPage() {
       >
         <Link href="/">
           <motion.button
-            className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300"
+            className="flex items-center space-x-2 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:opacity-90" style={{ backgroundColor: '#30519d' }}
             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
             whileTap={{ scale: 0.98 }}
           >
@@ -129,7 +129,7 @@ export default function ServicesPage() {
         elements={['📚', '✏️', '🎯', '💡', '⭐', '🚀', '📊', '🧮', '📐', '📏']}
         count={12}
         size="md"
-        colors={['text-purple-200', 'text-pink-200', 'text-orange-200', 'text-teal-200']}
+        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
       />
 
       {/* Main Content Section */}
@@ -144,13 +144,13 @@ export default function ServicesPage() {
         >
           <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-blue-100 overflow-hidden">
             {/* Background Decorative Elements */}
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-purple-200 rounded-full blur-2xl opacity-30"></div>
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-pink-200 rounded-full blur-2xl opacity-30"></div>
+            <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-200 rounded-full blur-2xl opacity-30"></div>
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-200 rounded-full blur-2xl opacity-30"></div>
             <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-orange-200 rounded-full blur-xl opacity-20"></div>
             
             {/* Floating Educational Icons */}
             <motion.div
-              className="absolute top-6 left-6 text-purple-300 text-2xl"
+              className="absolute top-6 left-6 text-blue-300 text-2xl"
               animate={{ 
                 y: [0, -10, 0],
                 rotate: [0, 5, 0]
@@ -164,7 +164,7 @@ export default function ServicesPage() {
               📚
             </motion.div>
             <motion.div
-              className="absolute top-12 right-8 text-pink-300 text-xl"
+              className="absolute top-12 right-8 text-cyan-300 text-xl"
               animate={{ 
                 y: [0, 8, 0],
                 rotate: [0, -3, 0]
@@ -223,7 +223,7 @@ export default function ServicesPage() {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
                   Our Services
                 </h2>
-                <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
                   <span className="text-white text-sm">📊</span>
                 </div>
               </motion.div>
@@ -234,7 +234,7 @@ export default function ServicesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
-                At <span className="font-semibold text-purple-600">Level Up Math Academy</span>, our curriculum is carefully designed for students from <span className="font-semibold text-pink-600">Grade 3 to Grade 12</span>, providing a <span className="font-semibold text-orange-500">customized learning experience</span> tailored to each student&apos;s unique abilities and pace. Our innovative and interactive programs make math <span className="font-semibold text-teal-600">enjoyable and engaging</span>, fostering academic excellence and lifelong confidence in mathematics.
+                At <span className="font-semibold text-blue-600">Level Up Math Academy</span>, our curriculum is carefully designed for students from <span className="font-semibold text-blue-600">Grade 3 to Grade 12</span>, providing a <span className="font-semibold text-blue-600">customized learning experience</span> tailored to each student&apos;s unique abilities and pace. Our innovative and interactive programs make math <span className="font-semibold text-blue-600">enjoyable and engaging</span>, fostering academic excellence and lifelong confidence in mathematics.
               </motion.p>
               
               {/* Decorative Line */}
@@ -264,9 +264,10 @@ export default function ServicesPage() {
                 onClick={() => setSelectedGrade(grade.id)}
                 className={`relative px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-base transition-all duration-300 border-2 ${
                   selectedGrade === grade.id
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white border-purple-600 shadow-lg transform scale-105'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-purple-300 hover:shadow-md'
+                    ? 'text-white border-blue-600 shadow-lg transform scale-105'
+                    : 'bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:shadow-md'
                 }`}
+                style={selectedGrade === grade.id ? { backgroundColor: '#30519d' } : {}}
                 whileHover={{ scale: selectedGrade === grade.id ? 1.05 : 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -285,7 +286,7 @@ export default function ServicesPage() {
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-purple-600"></div>
+                      <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-blue-600"></div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -335,7 +336,7 @@ export default function ServicesPage() {
                 <ul className="space-y-2 sm:space-y-3">
                   {currentGrade.classFormat.map((format, index) => (
                     <li key={index} className="flex items-start text-gray-700">
-                      <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0" />
+                      <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-600 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0" />
                       <span className="text-xs sm:text-sm">{format}</span>
                     </li>
                   ))}
@@ -376,7 +377,7 @@ export default function ServicesPage() {
         >
           <Link href={currentGrade.link}>
             <motion.button
-              className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition-all duration-300"
+              className="text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition-all duration-300 hover:opacity-90" style={{ backgroundColor: '#30519d' }}
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" }}
               whileTap={{ scale: 0.98 }}
             >

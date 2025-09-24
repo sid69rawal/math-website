@@ -5,43 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
-// Typing Animation Component
-function TypingAnimation({ text, delay = 0, repeatDelay = 3000 }: { text: string, delay?: number, repeatDelay?: number }) {
-  const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(true);
-
-  useEffect(() => {
-    if (isTyping) {
-      const timer = setTimeout(() => {
-        if (currentIndex < text.length) {
-          setDisplayText(prev => prev + text[currentIndex]);
-          setCurrentIndex(prev => prev + 1);
-        } else {
-          // Finished typing, wait then reset
-          setTimeout(() => {
-            setDisplayText('');
-            setCurrentIndex(0);
-            setIsTyping(true);
-          }, repeatDelay);
-        }
-      }, delay + currentIndex * 8); // Ultra fast - 8ms per character
-
-      return () => clearTimeout(timer);
-    }
-  }, [currentIndex, text, delay, isTyping, repeatDelay]);
-
-  return (
-    <span>
-      {displayText}
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.8, repeat: Infinity }}
-        className="inline-block w-1 h-8 bg-gradient-to-r from-green-600 to-emerald-600 ml-1"
-      />
-    </span>
-  );
-}
 
 // Animated Counter Component
 function AnimatedCounter({ end, duration = 2, suffix = "" }: { end: number, duration?: number, suffix?: string }) {
@@ -76,7 +39,7 @@ function AnimatedCounter({ end, duration = 2, suffix = "" }: { end: number, dura
       transition={{ duration: 0.6, type: "spring", bounce: 0.6 }}
       onViewportEnter={() => setIsVisible(true)}
     >
-      <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+      <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
         {count.toLocaleString()}{suffix}
       </span>
     </motion.div>
@@ -90,7 +53,7 @@ export default function HeroSection() {
       id="home" 
       className="relative bg-white py-16 lg:py-24"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -107,15 +70,9 @@ export default function HeroSection() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8, type: "spring", bounce: 0.4 }}
             >
-              <TypingAnimation text="Welcome to " delay={50} repeatDelay={4000} />
-              <motion.span
-                className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-500 bg-clip-text text-transparent block"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.15, duration: 0.3, type: "spring", bounce: 0.5 }}
-              >
-                <TypingAnimation text="Level Up Math Academy" delay={200} repeatDelay={4000} />
-              </motion.span>
+              Welcome to
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl">Level Up Math Academy</span>
             </motion.h1>
             
             <motion.p 
@@ -125,10 +82,10 @@ export default function HeroSection() {
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               A one of a kind math learning center in{' '}
-              <span className="text-purple-600 font-semibold">Mississauga</span>{' '}
+              <span className="text-blue-600 font-semibold">Mississauga</span>{' '}
               offering all the programs both{' '}
-              <span className="text-pink-600 font-semibold">in-person</span> and{' '}
-              <span className="text-orange-500 font-semibold">online!</span>
+              <span className="text-blue-600 font-semibold">in-person</span> and{' '}
+              <span className="text-blue-600 font-semibold">online!</span>
             </motion.p>
 
             <motion.div
@@ -137,12 +94,12 @@ export default function HeroSection() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             >
-              <Link href="/courses" className="w-full sm:w-auto">
+              <Link href="/services" className="w-full sm:w-auto">
                 <motion.div
-                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center"
+                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center hover:opacity-90"
+                  style={{ backgroundColor: '#30519d' }}
                   whileHover={{ 
                     scale: 1.05, 
-                    boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)",
                     y: -2 
                   }}
                   whileTap={{ scale: 0.98 }}
@@ -150,15 +107,15 @@ export default function HeroSection() {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.9, duration: 0.4, type: "spring", bounce: 0.6 }}
                 >
-                  View Our Courses 📚
+                  View Services 📚
                 </motion.div>
               </Link>
               <Link href="/contact" className="w-full sm:w-auto">
                 <motion.div
-                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center"
+                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center hover:opacity-90"
+                  style={{ backgroundColor: '#30519d' }}
                   whileHover={{ 
                     scale: 1.05, 
-                    boxShadow: "0 20px 40px rgba(249, 115, 22, 0.3)",
                     y: -2 
                   }}
                   whileTap={{ scale: 0.98 }}
@@ -192,7 +149,7 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.div 
-                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-pink-100"
+                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(236, 72, 153, 0.2)",
@@ -218,7 +175,7 @@ export default function HeroSection() {
               </motion.div>
 
               <motion.div 
-                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-teal-100"
+                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(20, 184, 166, 0.2)",
@@ -265,7 +222,8 @@ export default function HeroSection() {
 
             {/* Floating Achievement Badges - Mobile Responsive */}
             <motion.div
-              className="absolute top-1 left-1 sm:-top-6 sm:-left-6 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
+              className="absolute top-1 left-1 sm:-top-6 sm:-left-6 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold z-10"
+              style={{ backgroundColor: '#30519d' }}
               initial={{ opacity: 0, scale: 0, rotate: -15 }}
               animate={{ opacity: 1, scale: 1, rotate: -15 }}
               transition={{ delay: 1.2, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -280,7 +238,8 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div
-              className="absolute top-1 right-1 sm:-top-4 sm:-right-8 bg-gradient-to-r from-orange-500 to-pink-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
+              className="absolute top-1 right-1 sm:-top-4 sm:-right-8 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold z-10"
+              style={{ backgroundColor: '#30519d' }}
               initial={{ opacity: 0, scale: 0, rotate: 15 }}
               animate={{ opacity: 1, scale: 1, rotate: 15 }}
               transition={{ delay: 1.4, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -295,7 +254,8 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div
-              className="absolute bottom-1 left-1 sm:-bottom-6 sm:-left-4 bg-gradient-to-r from-teal-500 to-purple-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
+              className="absolute bottom-1 left-1 sm:-bottom-6 sm:-left-4 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
+              style={{ backgroundColor: '#30519d' }}
               initial={{ opacity: 0, scale: 0, rotate: -10 }}
               animate={{ opacity: 1, scale: 1, rotate: -10 }}
               transition={{ delay: 1.6, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -309,7 +269,8 @@ export default function HeroSection() {
             </motion.div>
 
             <motion.div
-              className="absolute bottom-1 right-1 sm:-bottom-4 sm:-right-6 bg-gradient-to-r from-pink-500 to-orange-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
+              className="absolute bottom-1 right-1 sm:-bottom-4 sm:-right-6 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold z-10"
+              style={{ backgroundColor: '#30519d' }}
               initial={{ opacity: 0, scale: 0, rotate: 12 }}
               animate={{ opacity: 1, scale: 1, rotate: 12 }}
               transition={{ delay: 1.8, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -336,9 +297,9 @@ export default function HeroSection() {
           ];
           
           const colors = [
-            'text-green-500', 'text-emerald-500', 'text-teal-500', 'text-green-600', 
-            'text-emerald-600', 'text-teal-600', 'text-green-600', 'text-emerald-600',
-            'text-green-600', 'text-emerald-600', 'text-teal-600', 'text-green-600'
+            'text-blue-500', 'text-cyan-500', 'text-sky-500', 'text-blue-600', 
+            'text-cyan-600', 'text-sky-600', 'text-blue-600', 'text-cyan-600',
+            'text-blue-600', 'text-cyan-600', 'text-sky-600', 'text-blue-600'
           ];
           
           const sizes = ['text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl'];
@@ -411,7 +372,7 @@ export default function HeroSection() {
         </motion.div>
         
         <motion.div
-          className="absolute top-32 right-[12%] text-pink-600 text-3xl font-bold opacity-40"
+          className="absolute top-32 right-[12%] text-blue-600 text-3xl font-bold opacity-40"
           style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
           animate={{
             y: [0, 15, 8, 18, 0],
@@ -451,7 +412,7 @@ export default function HeroSection() {
         </motion.div>
         
         <motion.div
-          className="absolute bottom-24 right-[8%] text-teal-600 text-3xl font-bold opacity-40"
+          className="absolute bottom-24 right-[8%] text-blue-600 text-3xl font-bold opacity-40"
           style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
           animate={{
             y: [0, 18, 10, 22, 0],

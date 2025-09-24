@@ -18,8 +18,8 @@ export default function AboutPage() {
         "Lessons emphasize reasoning, visualization, and real-world connections",
         "Builds a strong foundation for advanced problem-solving"
       ],
-      color: "from-purple-500 to-purple-600",
-      bgColor: "from-purple-50 to-purple-100"
+      color: "from-blue-500 to-blue-600",
+      bgColor: "from-blue-50 to-blue-100"
     },
     {
       icon: Target,
@@ -29,8 +29,8 @@ export default function AboutPage() {
         "Customized learning paths aligned with curriculum and goals",
         "Regular progress reviews to adapt and optimize instruction"
       ],
-      color: "from-pink-500 to-pink-600",
-      bgColor: "from-pink-50 to-pink-100"
+      color: "from-blue-500 to-blue-600",
+      bgColor: "from-blue-50 to-blue-100"
     },
     {
       icon: Users,
@@ -107,7 +107,7 @@ export default function AboutPage() {
         elements={['💡', '👥', '🚀', '🧠', '🎯', '⭐', '💪', '🌟', '📚', '🎓']}
         count={15}
         size="lg"
-        colors={['text-purple-200', 'text-pink-200', 'text-orange-200', 'text-teal-200']}
+        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
       />
 
       {/* Main Content Section */}
@@ -122,13 +122,13 @@ export default function AboutPage() {
         >
           <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-blue-100 overflow-hidden">
             {/* Background Decorative Elements */}
-            <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-200 rounded-full blur-3xl opacity-20"></div>
-            <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-pink-200 rounded-full blur-3xl opacity-20"></div>
+            <div className="absolute -top-20 -left-20 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-20"></div>
+            <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-cyan-200 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-orange-200 rounded-full blur-2xl opacity-15"></div>
             
             {/* Floating Mission Icons */}
             <motion.div
-              className="absolute top-8 left-8 text-purple-300 text-3xl"
+              className="absolute top-8 left-8 text-blue-300 text-3xl"
               animate={{ 
                 y: [0, -15, 0],
                 rotate: [0, 8, 0]
@@ -142,7 +142,7 @@ export default function AboutPage() {
               💡
             </motion.div>
             <motion.div
-              className="absolute top-16 right-12 text-pink-300 text-2xl"
+              className="absolute top-16 right-12 text-cyan-300 text-2xl"
               animate={{ 
                 y: [0, 12, 0],
                 rotate: [0, -5, 0]
@@ -186,7 +186,7 @@ export default function AboutPage() {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
                   Our Mission
                 </h1>
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
                   <Heart className="w-6 h-6 text-white" />
                 </div>
               </motion.div>
@@ -197,25 +197,38 @@ export default function AboutPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8">
-                  At <span className="font-semibold text-purple-600">Level Up Math Academy</span>, we believe math is more than numbers—it&apos;s a <span className="font-semibold text-pink-600">gateway to logical thinking, creativity, and lifelong confidence</span>. Our mission is to help students not only <span className="font-semibold text-orange-500">excel in math</span> but also develop a mindset that <span className="font-semibold text-teal-600">embraces challenges, celebrates curiosity, and builds resilience</span>.
-                </p>
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8">
-                  Whether online or in our <span className="font-semibold text-purple-600">Mississauga learning center</span>, we offer <span className="font-semibold text-pink-600">personalized, curriculum-aligned tutoring</span> that empowers learners from <span className="font-semibold text-orange-500">Grades 3 to 12</span> to thrive academically and beyond.
-                </p>
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed">
-                  We&apos;re not just tutors—we&apos;re <span className="font-semibold text-purple-600">mentors, motivators, and lifelong learners</span> who love to teach, learn, and inspire.
-                </p>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-blue-100">
+                  <p className="text-lg sm:text-xl text-gray-800 leading-relaxed mb-6 font-medium">
+                    At <span className="font-bold text-blue-700">Level Up Math Academy</span>, we believe mathematics is more than numbers—it&apos;s a <span className="font-bold text-blue-700">gateway to logical thinking, creativity, and lifelong confidence</span>. Our mission is to help students not only <span className="font-bold text-blue-700">excel in mathematics</span> but also develop a mindset that <span className="font-bold text-blue-700">embraces challenges, celebrates curiosity, and builds resilience</span>.
+                  </p>
+                  <p className="text-lg sm:text-xl text-gray-800 leading-relaxed mb-6 font-medium">
+                    Whether online or in our <span className="font-bold text-blue-700">Mississauga learning center</span>, we offer <span className="font-bold text-blue-700">personalized, curriculum-aligned tutoring</span> that empowers learners from <span className="font-bold text-blue-700">Grades 3 to 12</span> to thrive academically and beyond.
+                  </p>
+                  <p className="text-lg sm:text-xl text-gray-800 leading-relaxed font-medium">
+                    We&apos;re not just tutors—we&apos;re <span className="font-bold text-blue-700">mentors, motivators, and lifelong learners</span> who are passionate about teaching, learning, and inspiring the next generation of mathematical thinkers.
+                  </p>
+                </div>
               </motion.div>
               
-              {/* Decorative Line */}
+              {/* Professional Stats */}
               <motion.div
-                className="flex justify-center mt-12"
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
               >
-                <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 rounded-full"></div>
+                <div className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
+                  <div className="text-3xl font-bold text-blue-700 mb-2">20+</div>
+                  <div className="text-gray-700 font-medium">Years Combined Experience</div>
+                </div>
+                <div className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
+                  <div className="text-3xl font-bold text-blue-700 mb-2">100%</div>
+                  <div className="text-gray-700 font-medium">Curriculum Aligned</div>
+                </div>
+                <div className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
+                  <div className="text-3xl font-bold text-blue-700 mb-2">Grades 3-12</div>
+                  <div className="text-gray-700 font-medium">Comprehensive Coverage</div>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -259,7 +272,7 @@ export default function AboutPage() {
             >
               {/* Background Pattern */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-30"></div>
-              <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-gradient-to-br from-orange-100 to-pink-100 rounded-full opacity-30"></div>
+              <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-30"></div>
               <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-teal-100 to-blue-100 rounded-full opacity-20"></div>
               
               <div className="relative z-10">
@@ -273,7 +286,11 @@ export default function AboutPage() {
                     <span className="text-white text-4xl">👩‍🏫</span>
                   </motion.div>
                   <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Jyoti Agarwal</h3>
-                  <p className="text-xl text-purple-600 font-semibold">Cofounder and Educator</p>
+                  <p className="text-xl text-blue-700 font-semibold mb-2">Cofounder & Lead Educator</p>
+                  <div className="flex justify-center space-x-4 text-sm text-gray-600">
+                    <span className="bg-blue-50 px-3 py-1 rounded-full">B.E. Computer Science</span>
+                    <span className="bg-blue-50 px-3 py-1 rounded-full">M.S. Georgia State</span>
+                  </div>
                 </div>
                 
                 {/* Content Section */}
@@ -284,7 +301,7 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
                   >
-                    With <span className="font-semibold text-purple-600">20+ years in the IT industry</span> and a deep-rooted passion for education, Jyoti brings a rich blend of <span className="font-semibold text-pink-600">analytical precision and creative instruction</span>.
+                    With <span className="font-bold text-blue-700">20+ years in the IT industry</span> and a deep-rooted passion for education, Jyoti brings a rich blend of <span className="font-bold text-blue-700">analytical precision and creative instruction</span> to every lesson.
                   </motion.p>
                   
                   <motion.p
@@ -302,7 +319,7 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.5 }}
                   >
-                    Her teaching journey spans <span className="font-semibold text-purple-600">India, the USA, and Canada</span>, where she has supported students across all grade levels through both volunteer and professional roles.
+                    Her teaching journey spans <span className="font-bold text-blue-700">India, the USA, and Canada</span>, where she has supported students across all grade levels through both volunteer and professional roles.
                   </motion.p>
                   
                   <motion.p
@@ -311,7 +328,7 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.0, duration: 0.5 }}
                   >
-                    Jyoti specializes in <span className="font-semibold text-pink-600">mental math, algebra, trigonometry, advanced functions</span>, and <span className="font-semibold text-orange-500">math contest preparation</span> (Waterloo, Math League, SAT, GMAT, GRE).
+                    Jyoti specializes in <span className="font-bold text-blue-700">mental math, algebra, trigonometry, advanced functions</span>, and <span className="font-bold text-blue-700">math contest preparation</span> (Waterloo, Math League, SAT, GMAT, GRE).
                   </motion.p>
                   
                   <motion.p
@@ -320,7 +337,7 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.1, duration: 0.5 }}
                   >
-                    Her approach transforms math into a <span className="font-semibold text-purple-600">playful, pattern-rich experience</span> that sparks curiosity and builds deep conceptual understanding.
+                    Her approach transforms mathematics into a <span className="font-bold text-blue-700">playful, pattern-rich experience</span> that sparks curiosity and builds deep conceptual understanding.
                   </motion.p>
                 </div>
               </div>
@@ -335,7 +352,7 @@ export default function AboutPage() {
               whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
             >
               {/* Background Pattern */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-pink-100 to-orange-100 rounded-full opacity-30"></div>
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-30"></div>
               <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-gradient-to-br from-teal-100 to-blue-100 rounded-full opacity-30"></div>
               <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-20"></div>
               
@@ -343,14 +360,18 @@ export default function AboutPage() {
                 {/* Header Section */}
                 <div className="text-center mb-8">
                   <motion.div
-                    className="w-24 h-24 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                    className="w-24 h-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
                     <span className="text-white text-4xl">👨‍🏫</span>
                   </motion.div>
                   <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Kunal Agarwal</h3>
-                  <p className="text-xl text-pink-600 font-semibold">Cofounder and Educator</p>
+                  <p className="text-xl text-blue-700 font-semibold mb-2">Cofounder & Senior Educator</p>
+                  <div className="flex justify-center space-x-4 text-sm text-gray-600">
+                    <span className="bg-blue-50 px-3 py-1 rounded-full">IT & Banking Expert</span>
+                    <span className="bg-blue-50 px-3 py-1 rounded-full">20+ Years Experience</span>
+                  </div>
                 </div>
                 
                 {/* Content Section */}
@@ -361,7 +382,7 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
                   >
-                    Kunal brings <span className="font-semibold text-pink-600">20+ years of experience in IT and banking</span>, plus a sharp eye for numbers and student growth.
+                    Kunal brings <span className="font-bold text-blue-700">20+ years of experience in IT and banking</span>, plus a sharp eye for numbers and student growth.
                   </motion.p>
                   
                   <motion.p
@@ -379,7 +400,7 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.5 }}
                   >
-                    His teaching strengths include <span className="font-semibold text-purple-600">Grades 5–12: algebra, geometry, trigonometry, calculus, vectors</span>, and <span className="font-semibold text-pink-600">competitive math exams</span>.
+                    His teaching strengths include <span className="font-bold text-blue-700">Grades 5–12: algebra, geometry, trigonometry, calculus, vectors</span>, and <span className="font-bold text-blue-700">competitive math exams</span>.
                   </motion.p>
                   
                   <motion.p
@@ -397,7 +418,7 @@ export default function AboutPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.1, duration: 0.5 }}
                   >
-                    His goal is to help students see math not as a hurdle, but as a <span className="font-semibold text-purple-600">skill they can master and enjoy</span>.
+                    His goal is to help students see mathematics not as a hurdle, but as a <span className="font-bold text-blue-700">skill they can master and enjoy</span>.
                   </motion.p>
                 </div>
               </div>
@@ -425,14 +446,14 @@ export default function AboutPage() {
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
                 Our Unique Teaching Approach
               </h2>
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
                 <Star className="w-6 h-6 text-white" />
               </div>
             </motion.div>
           </div>
 
           {/* Teaching Approach Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {teachingApproaches.map((approach, index) => {
               const IconComponent = approach.icon;
               return (

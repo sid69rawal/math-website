@@ -15,7 +15,7 @@ export default function FloatingElements({
   count = 6,
   className = '',
   size = 'md',
-  colors = ['text-blue-300', 'text-cyan-300', 'text-sky-300', 'text-teal-300']
+  colors = ['text-blue-300', 'text-cyan-300', 'text-sky-300', 'text-blue-300']
 }: FloatingElementsProps) {
   
   const sizeClasses = {

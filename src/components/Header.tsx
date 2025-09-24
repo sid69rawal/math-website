@@ -13,41 +13,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Announcement Banner - Continuous Loop */}
-      <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white py-2 overflow-hidden">
-        <div className="relative h-6">
-          <motion.div
-            className="absolute whitespace-nowrap text-xs sm:text-sm font-medium flex items-center h-full"
-            animate={{
-              x: [0, -1000]
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-              repeatDelay: 0
-            }}
-            style={{ 
-              willChange: 'transform',
-              transform: 'translate3d(0,0,0)'
-            }}
-          >
-            <span className="mx-8">
-              🎯 First Month Guarantee: If you&apos;re not satisfied after the first month, you&apos;ll receive a full refund
-            </span>
-            <span className="mx-8">
-              📚 Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus &amp; Vectors, Math Competitions etc.
-            </span>
-            <span className="mx-8">
-              🎯 First Month Guarantee: If you&apos;re not satisfied after the first month, you&apos;ll receive a full refund
-            </span>
-            <span className="mx-8">
-              📚 Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus &amp; Vectors, Math Competitions etc.
-            </span>
-          </motion.div>
-        </div>
-      </div>
-
       {/* Main Navigation */}
       <motion.nav 
         className="bg-white shadow-sm sticky top-0 z-50"
@@ -55,7 +20,7 @@ export default function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="max-w-7xl mx-auto px-4 py-2">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link href="/">
@@ -66,8 +31,8 @@ export default function Header() {
                 <Image
                   src="/logo.png"
                   alt="Level Up Math Academy Logo"
-                  width={90}
-                  height={90}
+                  width={80}
+                  height={80}
                   className="rounded-lg"
                 />
               </motion.div>
@@ -75,6 +40,15 @@ export default function Header() {
             
                     {/* Desktop Navigation Menu */}
                     <div className="hidden lg:flex items-center space-x-8">
+                      {/* Home Link */}
+                      <Link href="/">
+                        <motion.a
+                          className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          Home
+                        </motion.a>
+                      </Link>
                       {/* Courses Dropdown */}
                       <div 
                         className="relative"
@@ -82,7 +56,7 @@ export default function Header() {
                         onMouseLeave={() => setCoursesDropdownOpen(false)}
                       >
                         <motion.div
-                          className="flex items-center space-x-1 text-gray-700 hover:text-pink-600 transition-colors font-medium cursor-pointer"
+                          className="flex items-center space-x-1 text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
                           whileHover={{ scale: 1.05 }}
                         >
                           <span>Courses</span>
@@ -102,7 +76,7 @@ export default function Header() {
                         >
                           <Link href="/courses/grades-3-5">
                             <motion.div
-                              className="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors cursor-pointer"
+                              className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
                               whileHover={{ x: 5 }}
                             >
                               Grades 3-5
@@ -110,7 +84,7 @@ export default function Header() {
                           </Link>
                           <Link href="/courses/grades-6-8">
                             <motion.div
-                              className="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors cursor-pointer"
+                              className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
                               whileHover={{ x: 5 }}
                             >
                               Grades 6-8
@@ -118,7 +92,7 @@ export default function Header() {
                           </Link>
                           <Link href="/courses/grades-9-12">
                             <motion.div
-                              className="px-4 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition-colors cursor-pointer"
+                              className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
                               whileHover={{ x: 5 }}
                             >
                               Grades 9-12
@@ -128,7 +102,7 @@ export default function Header() {
                       </div>
                       <Link href="/services">
                         <motion.a
-                          className="text-gray-700 hover:text-teal-600 transition-colors font-medium cursor-pointer"
+                          className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
                           whileHover={{ scale: 1.05 }}
                         >
                           Our Services
@@ -136,7 +110,7 @@ export default function Header() {
                       </Link>
                       <Link href="/about">
                         <motion.a
-                          className="text-gray-700 hover:text-orange-600 transition-colors font-medium cursor-pointer"
+                          className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
                           whileHover={{ scale: 1.05 }}
                         >
                           About Us
@@ -159,7 +133,7 @@ export default function Header() {
                   href={contactConfig.socialMedia.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-pink-600 transition-colors"
+                  className="text-gray-500 hover:text-blue-600 transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -169,7 +143,8 @@ export default function Header() {
               
               <Link href="/contact">
                 <motion.button
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 cursor-pointer"
+                  className="text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
+                  style={{ backgroundColor: '#30519d' }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -203,7 +178,7 @@ export default function Header() {
               {/* Mobile Courses Dropdown */}
               <div>
                 <motion.div 
-                  className="flex items-center justify-between text-gray-700 hover:text-pink-600 transition-colors font-medium py-2 cursor-pointer"
+                  className="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
                   onClick={() => setCoursesDropdownOpen(!coursesDropdownOpen)}
                   whileHover={{ x: 5 }}
                 >
@@ -224,7 +199,7 @@ export default function Header() {
                   <div className="pl-4 space-y-2 mt-2">
                     <Link href="/courses/grades-3-5">
                       <motion.div 
-                        className="block text-gray-600 hover:text-pink-600 transition-colors font-medium py-2 cursor-pointer"
+                        className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
                         onClick={() => {
                           setMobileMenuOpen(false);
                           setCoursesDropdownOpen(false);
@@ -236,7 +211,7 @@ export default function Header() {
                     </Link>
                     <Link href="/courses/grades-6-8">
                       <motion.div 
-                        className="block text-gray-600 hover:text-pink-600 transition-colors font-medium py-2 cursor-pointer"
+                        className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
                         onClick={() => {
                           setMobileMenuOpen(false);
                           setCoursesDropdownOpen(false);
@@ -248,7 +223,7 @@ export default function Header() {
                     </Link>
                     <Link href="/courses/grades-9-12">
                       <motion.div 
-                        className="block text-gray-600 hover:text-pink-600 transition-colors font-medium py-2 cursor-pointer"
+                        className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
                         onClick={() => {
                           setMobileMenuOpen(false);
                           setCoursesDropdownOpen(false);
@@ -261,9 +236,18 @@ export default function Header() {
                   </div>
                 </motion.div>
               </div>
+              <Link href="/">
+                <motion.div 
+                  className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  whileHover={{ x: 5 }}
+                >
+                  Home
+                </motion.div>
+              </Link>
               <Link href="/services">
                 <motion.div 
-                  className="block text-gray-700 hover:text-teal-600 transition-colors font-medium py-2 cursor-pointer"
+                  className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
                   onClick={() => setMobileMenuOpen(false)}
                   whileHover={{ x: 5 }}
                 >
@@ -272,7 +256,7 @@ export default function Header() {
               </Link>
               <Link href="/about">
                 <motion.div 
-                  className="block text-gray-700 hover:text-orange-600 transition-colors font-medium py-2 cursor-pointer"
+                  className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
                   onClick={() => setMobileMenuOpen(false)}
                   whileHover={{ x: 5 }}
                 >
@@ -294,7 +278,7 @@ export default function Header() {
                   href={contactConfig.socialMedia.instagram} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-pink-600"
+                  className="text-gray-500 hover:text-blue-600"
                   whileHover={{ scale: 1.2 }}
                 >
                   <Instagram className="w-5 h-5" />
@@ -303,7 +287,8 @@ export default function Header() {
               
               <Link href="/contact">
                 <motion.button
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
+                  className="w-full text-white px-4 py-3 rounded-full font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
+                  style={{ backgroundColor: '#30519d' }}
                   onClick={() => setMobileMenuOpen(false)}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

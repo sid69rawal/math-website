@@ -28,14 +28,14 @@ export default function Footer() {
                 height={90}
                 className="rounded-lg"
               />
-              <div className="text-white font-bold text-xl">
+              <div className="text-white font-bold text-2xl">
                 Level Up Math Academy
               </div>
             </div>
 
             {/* Inspirational Message */}
             <motion.p
-              className="text-gray-300 text-lg font-medium mb-8 leading-relaxed"
+              className="text-gray-300 text-xl font-medium mb-8 leading-relaxed"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -45,7 +45,7 @@ export default function Footer() {
 
             {/* Social Media */}
             <div>
-              <h4 className="text-white font-semibold text-lg mb-4">Follow Us</h4>
+              <h4 className="text-white font-semibold text-xl mb-4">Follow Us</h4>
               <div className="flex justify-center md:justify-start space-x-4">
                 <motion.a
                   href={contactConfig.socialMedia.facebook}
@@ -78,11 +78,11 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <h4 className="text-white font-bold text-xl mb-6">Quick Links</h4>
+            <h4 className="text-white font-bold text-2xl mb-6">Quick Links</h4>
             
             {/* Courses Sub-section */}
             <div className="mb-6">
-              <h5 className="text-white font-semibold text-lg mb-3">Courses</h5>
+              <h5 className="text-white font-semibold text-xl mb-3">Courses</h5>
               <ul className="space-y-2 ml-4">
                 <motion.li
                   initial={{ opacity: 0, x: -20 }}
@@ -91,7 +91,7 @@ export default function Footer() {
                 >
                   <Link href="/courses/grades-3-5">
                     <motion.div
-                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
                       whileHover={{ x: 5 }}
                     >
                       Grades 3-5
@@ -105,7 +105,7 @@ export default function Footer() {
                 >
                   <Link href="/courses/grades-6-8">
                     <motion.div
-                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
                       whileHover={{ x: 5 }}
                     >
                       Grades 6-8
@@ -119,7 +119,7 @@ export default function Footer() {
                 >
                   <Link href="/courses/grades-9-12">
                     <motion.div
-                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
                       whileHover={{ x: 5 }}
                     >
                       Grades 9-12
@@ -131,7 +131,7 @@ export default function Footer() {
 
             {/* Other Links */}
             <div>
-              <h5 className="text-white font-semibold text-lg mb-3">General</h5>
+              <h5 className="text-white font-semibold text-xl mb-3">General</h5>
               <ul className="space-y-2 ml-4">
                 {[
                   { name: "Our Services", href: "/services" },
@@ -147,7 +147,7 @@ export default function Footer() {
                     {link.href.startsWith('/') ? (
                       <Link href={link.href}>
                         <motion.div
-                          className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block"
+                          className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
                           whileHover={{ x: 5 }}
                         >
                           {link.name}
@@ -156,7 +156,7 @@ export default function Footer() {
                     ) : (
                       <motion.a
                         href={link.href}
-                        className="text-gray-300 hover:text-white transition-colors duration-300 inline-block"
+                        className="text-gray-300 hover:text-white transition-colors duration-300 inline-block text-lg"
                         whileHover={{ x: 5 }}
                       >
                         {link.name}
@@ -175,7 +175,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <h4 className="text-white font-bold text-xl mb-6">Contact Info</h4>
+            <h4 className="text-white font-bold text-2xl mb-6">Contact Info</h4>
             <div className="space-y-6">
               
               {/* Email */}
@@ -187,10 +187,10 @@ export default function Footer() {
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-gray-400 text-sm mb-1">Email</p>
+                  <p className="text-gray-400 text-base mb-1">Email</p>
                   <a 
                     href={`mailto:${contactConfig.email}`}
-                    className="text-white hover:text-blue-400 transition-colors break-all"
+                    className="text-white hover:text-blue-400 transition-colors break-all text-lg"
                   >
                     {contactConfig.email}
                   </a>
@@ -202,14 +202,14 @@ export default function Footer() {
                 className="flex items-center justify-center md:justify-start space-x-3"
                 whileHover={{ x: 5 }}
               >
-                <div className="bg-green-600 p-2 rounded-lg flex-shrink-0">
+                <div className="bg-blue-600 p-2 rounded-lg flex-shrink-0">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-gray-400 text-sm mb-1">Phone</p>
+                  <p className="text-gray-400 text-base mb-1">Phone</p>
                   <a 
                     href={`tel:${contactConfig.phoneLink}`}
-                    className="text-white hover:text-blue-400 transition-colors"
+                    className="text-white hover:text-blue-400 transition-colors text-lg"
                   >
                     {contactConfig.phone}
                   </a>
@@ -225,8 +225,8 @@ export default function Footer() {
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-gray-400 text-sm mb-1">Address</p>
-                  <p className="text-white leading-relaxed whitespace-pre-line">
+                  <p className="text-gray-400 text-base mb-1">Address</p>
+                  <p className="text-white leading-relaxed whitespace-pre-line text-lg">
                     {contactConfig.address.full}
                   </p>
                 </div>
@@ -243,10 +243,10 @@ export default function Footer() {
           transition={{ delay: 0.6, duration: 0.8 }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-lg">
               © 2025 Level Up Math Academy. All rights reserved.
             </p>
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-lg">
               Making Mathematics Magical for Every Child! ✨
             </p>
           </div>

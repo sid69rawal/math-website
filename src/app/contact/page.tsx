@@ -115,7 +115,7 @@ export default function ContactPage() {
         elements={['📚', '✏️', '🎯', '💡', '⭐', '🚀', '📊', '🧮', '📐', '📏']}
         count={12}
         size="md"
-        colors={['text-purple-200', 'text-pink-200', 'text-orange-200', 'text-teal-200']}
+        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
       />
 
       {/* Main Contact Section */}
@@ -130,19 +130,19 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
           >
             {/* Decorative Background Elements */}
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-purple-100 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-20 -right-10 w-40 h-40 bg-pink-100 rounded-full blur-xl"></div>
+            <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-100 rounded-full blur-xl"></div>
+            <div className="absolute -bottom-20 -right-10 w-40 h-40 bg-cyan-100 rounded-full blur-xl"></div>
             
             {/* Math Symbol Decorations */}
             <motion.div
-              className="absolute top-10 left-10 text-purple-200 text-4xl font-bold"
+              className="absolute top-10 left-10 text-blue-200 text-4xl font-bold"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
               ∑
             </motion.div>
             <motion.div
-              className="absolute bottom-20 right-20 text-pink-200 text-3xl font-bold"
+              className="absolute bottom-20 right-20 text-cyan-200 text-3xl font-bold"
               animate={{ rotate: -360 }}
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             >
@@ -150,7 +150,7 @@ export default function ContactPage() {
             </motion.div>
             
                     {/* Main Image Container */}
-                    <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-purple-100">
+                    <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-blue-100">
                       <div className="aspect-square rounded-2xl overflow-hidden">
                         <Image
                           src="/contact_us_image.jpg"
@@ -173,7 +173,7 @@ export default function ContactPage() {
 
           {/* Right Side - Contact Form */}
           <motion.div
-            className="bg-white rounded-3xl p-8 shadow-xl border border-pink-100"
+            className="bg-white rounded-3xl p-8 shadow-xl border border-blue-100"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -187,14 +187,14 @@ export default function ContactPage() {
               <div className="mt-6 space-y-2">
                 <motion.a 
                   href={`mailto:${contactConfig.email}`}
-                  className="block text-purple-600 hover:text-pink-600 transition-colors font-medium"
+                  className="block text-blue-600 hover:text-blue-700 transition-colors font-medium"
                   whileHover={{ x: 5 }}
                 >
                   📧 {contactConfig.email}
                 </motion.a>
                 <motion.a 
                   href={`tel:${contactConfig.phoneLink}`}
-                  className="block text-purple-600 hover:text-pink-600 transition-colors font-medium"
+                  className="block text-blue-600 hover:text-blue-700 transition-colors font-medium"
                   whileHover={{ x: 5 }}
                 >
                   📞 {contactConfig.phone}
@@ -207,7 +207,7 @@ export default function ContactPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    First Name <span className="text-purple-600">(required)</span>
+                    First Name <span className="text-blue-600">(required)</span>
                   </label>
                   <input
                     type="text"
@@ -215,13 +215,13 @@ export default function ContactPage() {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="Enter first name"
                   />
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Last Name <span className="text-purple-600">(required)</span>
+                    Last Name <span className="text-blue-600">(required)</span>
                   </label>
                   <input
                     type="text"
@@ -229,7 +229,7 @@ export default function ContactPage() {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="Enter last name"
                   />
                 </div>
@@ -238,7 +238,7 @@ export default function ContactPage() {
               {/* Email */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
-                  Email <span className="text-purple-600">(required)</span>
+                  Email <span className="text-blue-600">(required)</span>
                 </label>
                 <input
                   type="email"
@@ -269,7 +269,7 @@ export default function ContactPage() {
               {/* Grade Level Dropdown */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
-                  Grade Level <span className="text-purple-600">(required)</span>
+                  Grade Level <span className="text-blue-600">(required)</span>
                 </label>
                 <select
                   name="gradeLevel"
@@ -290,7 +290,7 @@ export default function ContactPage() {
               {/* Message */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
-                  Message <span className="text-purple-600">(required)</span>
+                  Message <span className="text-blue-600">(required)</span>
                 </label>
                 <textarea
                   name="message"
@@ -306,7 +306,7 @@ export default function ContactPage() {
               {/* Preferences Radio Buttons */}
               <div>
                 <label className="block text-gray-700 font-medium mb-3">
-                  What are you most interested in? <span className="text-purple-600">(required)</span>
+                  What are you most interested in? <span className="text-blue-600">(required)</span>
                 </label>
                 <div className="space-y-3">
                   {[
@@ -325,7 +325,7 @@ export default function ContactPage() {
                         value={option}
                         checked={formData.preference === option}
                         onChange={handleInputChange}
-                        className="w-5 h-5 border-2 border-gray-300 bg-gray-50 text-purple-600 focus:ring-2 focus:ring-purple-500 mr-3"
+                        className="w-5 h-5 border-2 border-gray-300 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 mr-3"
                       />
                       <span className="text-gray-700">{option}</span>
                     </motion.label>
@@ -365,7 +365,7 @@ export default function ContactPage() {
           onClick={() => setShowSuccess(false)}
         >
           <motion.div
-            className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-purple-100 relative"
+            className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-blue-100 relative"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
@@ -417,7 +417,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                Thank you for reaching out to <span className="font-semibold text-purple-600">Level Up Math Academy</span>! We&apos;ve received your message and will get back to you shortly.
+                Thank you for reaching out to <span className="font-semibold text-blue-600">Level Up Math Academy</span>! We&apos;ve received your message and will get back to you shortly.
               </motion.p>
               
               {/* Additional Info */}
@@ -428,10 +428,10 @@ export default function ContactPage() {
                 transition={{ delay: 0.5 }}
               >
                 <p className="text-sm text-gray-700 mb-2">
-                  <span className="font-semibold text-purple-600">📧 Email:</span> levelupmathacademy@gmail.com
+                  <span className="font-semibold text-blue-600">📧 Email:</span> levelupmathacademy@gmail.com
                 </p>
                 <p className="text-sm text-gray-700">
-                  <span className="font-semibold text-pink-600">📞 Phone:</span> (647) 1111111
+                  <span className="font-semibold text-blue-600">📞 Phone:</span> (647) 1111111
                 </p>
               </motion.div>
               
@@ -453,7 +453,7 @@ export default function ContactPage() {
                 
                 <motion.a
                   href="/"
-                  className="flex-1 bg-white border-2 border-purple-200 hover:border-purple-300 text-purple-600 py-3 px-6 rounded-full font-semibold transition-all duration-300 text-center"
+                  className="flex-1 bg-white border-2 border-blue-200 hover:border-blue-300 text-blue-600 py-3 px-6 rounded-full font-semibold transition-all duration-300 text-center"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

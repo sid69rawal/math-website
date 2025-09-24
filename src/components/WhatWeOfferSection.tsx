@@ -20,24 +20,24 @@ export default function WhatWeOfferSection() {
       emoji: "🎯", 
       title: "Mastery-Focused Weekly Sessions",
       points: [
-        "2 hours of interactive instruction per week",
+        "2 hours of interactive classes per week",
         "Combines guided teaching with in-class practice",
         "Builds lasting understanding through concept mastery"
       ],
       gradient: "from-blue-500 to-cyan-500"
     },
     {
-      emoji: "💰",
+      emoji: "🤝",
       title: "Affordable & Risk-Free Pricing", 
       points: [
-        "$200+HST per month for 8 hours of instruction",
-        "First Month Money-Back Guarantee if not satisfied",
+        "$200+HST per month for 8 hours of classes",
+        "First Month Money-Back Guarantee, if not satisfied",
         "Exceptional value for quality math learning"
       ],
-      gradient: "from-green-500 to-emerald-500"
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
-      emoji: "✏️",
+      emoji: "📝",
       title: "Daily Practice Problems",
       points: [
         "Homework after every class",
@@ -47,7 +47,7 @@ export default function WhatWeOfferSection() {
       gradient: "from-orange-500 to-red-500"
     },
     {
-      emoji: "🗓️",
+      emoji: "⏰",
       title: "Flexible Scheduling Options",
       points: [
         "Choose between two 1-hour or one 2-hour session per week",
@@ -69,12 +69,12 @@ export default function WhatWeOfferSection() {
   ];
 
   return (
-    <section id="what-we-offer" className="relative py-16 lg:py-24 bg-gray-50">
+    <section id="what-we-offer" className="relative py-16 lg:py-24 bg-blue-50">
       <FloatingElements 
         elements={['📚', '✏️', '🎯', '💡', '⭐', '🚀']}
         count={8}
         size="md"
-        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-teal-200']}
+        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
       />
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -84,18 +84,18 @@ export default function WhatWeOfferSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            📚 What We Offer
+            🎁 What We Offer
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl font-bold text-gray-800 whitespace-nowrap">
             Comprehensive math education programs designed to help students excel at every level
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group"
+              className="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -108,30 +108,30 @@ export default function WhatWeOfferSection() {
               }}
             >
               {/* Card Header */}
-              <div className="text-center mb-6">
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-center mb-8">
+                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
                   {offer.emoji}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                <h3 className="text-2xl font-bold text-gray-900 leading-tight">
                   {offer.title}
                 </h3>
               </div>
 
               {/* Bullet Points */}
-              <ul className="space-y-4">
+              <ul className="space-y-6">
                 {offer.points.map((point, pointIndex) => (
                   <li
                     key={pointIndex}
                     className="flex items-start text-gray-700"
                   >
-                    <span className="w-2 h-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mr-3 mt-2 flex-shrink-0" />
-                    <span className="text-sm leading-relaxed">{point}</span>
+                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-3 flex-shrink-0" />
+                    <span className="text-base leading-relaxed font-medium">{point}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Card Bottom Decoration */}
-              <div className="mt-6 h-1 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full" />
+              <div className="mt-6 h-1 bg-blue-200 rounded-full" />
             </motion.div>
           ))}
         </div>
@@ -145,14 +145,14 @@ export default function WhatWeOfferSection() {
         >
           <Link href="/contact">
             <motion.div
-              className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-10 py-4 rounded-full font-semibold text-xl shadow-lg cursor-pointer transition-all duration-300"
+              className="inline-block text-white px-10 py-4 rounded-full font-semibold text-xl cursor-pointer transition-all duration-300 hover:opacity-90"
+              style={{ backgroundColor: '#30519d' }}
               whileHover={{ 
-                scale: 1.05, 
-                boxShadow: "0 15px 30px rgba(147, 51, 234, 0.4)"
+                scale: 1.05
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Get Started Today! 🚀
+              Contact Us
             </motion.div>
           </Link>
         </motion.div>
