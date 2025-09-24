@@ -24,7 +24,7 @@ export default function WhatWeOfferSection() {
         "Combines guided teaching with in-class practice",
         "Builds lasting understanding through concept mastery"
       ],
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
       emoji: "💰",
@@ -64,7 +64,7 @@ export default function WhatWeOfferSection() {
         "Encourages participation and collaboration",
         "Support beyond class for maximum progress"
       ],
-      gradient: "from-pink-500 to-rose-500"
+      gradient: "from-sky-500 to-blue-500"
     }
   ];
 
@@ -74,7 +74,7 @@ export default function WhatWeOfferSection() {
         elements={['📚', '✏️', '🎯', '💡', '⭐', '🚀']}
         count={8}
         size="md"
-        colors={['text-purple-200', 'text-pink-200', 'text-orange-200', 'text-teal-200']}
+        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-teal-200']}
       />
       <div className="container mx-auto px-4 relative z-10">
         <motion.div

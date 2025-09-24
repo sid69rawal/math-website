@@ -37,7 +37,7 @@ function TypingAnimation({ text, delay = 0, repeatDelay = 3000 }: { text: string
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Infinity }}
-        className="inline-block w-1 h-8 bg-gradient-to-r from-purple-600 to-pink-600 ml-1"
+        className="inline-block w-1 h-8 bg-gradient-to-r from-green-600 to-emerald-600 ml-1"
       />
     </span>
   );
@@ -76,7 +76,7 @@ function AnimatedCounter({ end, duration = 2, suffix = "" }: { end: number, dura
       transition={{ duration: 0.6, type: "spring", bounce: 0.6 }}
       onViewportEnter={() => setIsVisible(true)}
     >
-      <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+      <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
         {count.toLocaleString()}{suffix}
       </span>
     </motion.div>
@@ -90,7 +90,7 @@ export default function HeroSection() {
       id="home" 
       className="relative bg-white py-16 lg:py-24"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -109,7 +109,7 @@ export default function HeroSection() {
             >
               <TypingAnimation text="Welcome to " delay={50} repeatDelay={4000} />
               <motion.span
-                className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent block"
+                className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-500 bg-clip-text text-transparent block"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.15, duration: 0.3, type: "spring", bounce: 0.5 }}
@@ -139,7 +139,7 @@ export default function HeroSection() {
             >
               <Link href="/courses" className="w-full sm:w-auto">
                 <motion.div
-                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center"
+                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center"
                   whileHover={{ 
                     scale: 1.05, 
                     boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)",
@@ -265,7 +265,7 @@ export default function HeroSection() {
 
             {/* Floating Achievement Badges - Mobile Responsive */}
             <motion.div
-              className="absolute top-1 left-1 sm:-top-6 sm:-left-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
+              className="absolute top-1 left-1 sm:-top-6 sm:-left-6 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
               initial={{ opacity: 0, scale: 0, rotate: -15 }}
               animate={{ opacity: 1, scale: 1, rotate: -15 }}
               transition={{ delay: 1.2, duration: 0.6, type: "spring", bounce: 0.7 }}
@@ -336,9 +336,9 @@ export default function HeroSection() {
           ];
           
           const colors = [
-            'text-purple-500', 'text-pink-500', 'text-orange-500', 'text-teal-500', 
-            'text-blue-500', 'text-indigo-500', 'text-rose-500', 'text-amber-500',
-            'text-purple-600', 'text-pink-600', 'text-orange-600', 'text-teal-600'
+            'text-green-500', 'text-emerald-500', 'text-teal-500', 'text-green-600', 
+            'text-emerald-600', 'text-teal-600', 'text-green-600', 'text-emerald-600',
+            'text-green-600', 'text-emerald-600', 'text-teal-600', 'text-green-600'
           ];
           
           const sizes = ['text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl'];

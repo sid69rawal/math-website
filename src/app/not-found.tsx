@@ -14,21 +14,21 @@ export default function NotFound() {
       description: "Return to our main page",
       href: "/",
       icon: Home,
-      color: "from-purple-500 to-purple-600"
+      color: "from-blue-500 to-blue-600"
     },
     {
       title: "Courses",
       description: "Explore our math programs",
       href: "/courses",
       icon: BookOpen,
-      color: "from-pink-500 to-pink-600"
+      color: "from-cyan-500 to-cyan-600"
     },
     {
       title: "Contact",
       description: "Get in touch with us",
       href: "/contact",
       icon: Search,
-      color: "from-orange-500 to-orange-600"
+      color: "from-sky-500 to-sky-600"
     }
   ];
 
@@ -42,7 +42,7 @@ export default function NotFound() {
         elements={['❓', '🔍', '📚', '🏠', '💡', '🎯']}
         count={6}
         size="lg"
-        colors={['text-purple-200', 'text-pink-200', 'text-orange-200', 'text-teal-200']}
+        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-teal-200']}
       />
 
       {/* Main 404 Section */}
@@ -55,7 +55,7 @@ export default function NotFound() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
           >
-            <h1 className="text-9xl md:text-[12rem] font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent leading-none">
+            <h1 className="text-9xl md:text-[12rem] font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent leading-none">
               404
             </h1>
           </motion.div>
@@ -86,7 +86,7 @@ export default function NotFound() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/">
                 <motion.button
-                  className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition-all duration-300"
+                  className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition-all duration-300"
                   whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -97,7 +97,7 @@ export default function NotFound() {
               
               <motion.button
                 onClick={() => window.history.back()}
-                className="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition-all duration-300"
+                className="flex items-center space-x-2 bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition-all duration-300"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(249, 115, 22, 0.3)" }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -153,7 +153,7 @@ export default function NotFound() {
 
           {/* Fun Math Fact */}
           <motion.div
-            className="bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 rounded-3xl p-8 md:p-12 shadow-lg border border-gray-200 max-w-4xl mx-auto"
+            className="bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-3xl p-8 md:p-12 shadow-lg border border-gray-200 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.3, duration: 0.8 }}

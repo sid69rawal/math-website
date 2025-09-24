@@ -100,7 +100,7 @@ export default function ContactPage() {
       >
         <Link href="/">
           <motion.button
-            className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300"
+            className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300"
             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
             whileTap={{ scale: 0.98 }}
           >
@@ -179,7 +179,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="mb-8">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent mb-4">Contact Us</h1>
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent mb-4">Contact Us</h1>
               <p className="text-gray-600 text-lg">
                 To explore more about our services and pricing, Please fill out the form below and we&apos;ll get back to you shortly
               </p>
@@ -337,7 +337,7 @@ export default function ContactPage() {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-4 px-8 rounded-full font-bold text-lg shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-4 px-8 rounded-full font-bold text-lg shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
@@ -373,7 +373,7 @@ export default function ContactPage() {
           >
             {/* Background Decorative Elements */}
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full blur-2xl opacity-50"></div>
-            <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-xl opacity-50"></div>
+            <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full blur-xl opacity-50"></div>
             
             {/* Close Button */}
             <button
@@ -422,7 +422,7 @@ export default function ContactPage() {
               
               {/* Additional Info */}
               <motion.div
-                className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-4 mb-6"
+                className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-4 mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
@@ -444,7 +444,7 @@ export default function ContactPage() {
               >
                 <motion.button
                   onClick={() => setShowSuccess(false)}
-                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 px-6 rounded-full font-semibold transition-all duration-300"
+                  className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3 px-6 rounded-full font-semibold transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

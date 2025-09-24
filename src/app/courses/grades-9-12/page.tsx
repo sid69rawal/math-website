@@ -173,7 +173,7 @@ export default function Grades912Page() {
       >
         <Link href="/" className="inline-block">
           <motion.button
-            className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
+            className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
             whileTap={{ scale: 0.98 }}
           >
@@ -201,7 +201,7 @@ export default function Grades912Page() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <div className="relative bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-purple-100 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-blue-100 overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute -top-10 -left-10 w-32 h-32 bg-purple-200 rounded-full blur-2xl opacity-30"></div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-pink-200 rounded-full blur-2xl opacity-30"></div>
@@ -276,10 +276,10 @@ export default function Grades912Page() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
                   <span className="text-white text-xl">🎓</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
                   Grades 9-12 Math
                 </h2>
                 <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg flex items-center justify-center">
@@ -303,7 +303,7 @@ export default function Grades912Page() {
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
               >
-                <div className="w-24 h-1 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 rounded-full"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 rounded-full"></div>
               </motion.div>
             </div>
           </div>
@@ -327,7 +327,7 @@ export default function Grades912Page() {
               }}
             >
               {/* Round Picture - Compact */}
-              <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                 <div className="text-2xl sm:text-3xl lg:text-4xl">{course.icon}</div>
               </div>
 
@@ -339,7 +339,7 @@ export default function Grades912Page() {
               {/* Learn More Button - Compact */}
               <button
                 onClick={() => setSelectedCourse(course)}
-                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 hover:shadow-lg"
+                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 hover:shadow-lg"
               >
                 Learn More
               </button>
@@ -354,7 +354,7 @@ export default function Grades912Page() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 shadow-lg border border-gray-200">
+          <div className="bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 shadow-lg border border-gray-200">
             <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
               Ready to Achieve Mathematical Mastery? 🚀
             </h2>
@@ -363,7 +363,7 @@ export default function Grades912Page() {
               Master calculus, functions, and vectors with confidence!
             </p>
             <Link href="/contact">
-              <button className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-200">
+              <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-200">
                 Enroll Now! 📝
               </button>
             </Link>
@@ -396,7 +396,7 @@ export default function Grades912Page() {
               {/* Modal Header - Compact */}
               <div className="flex justify-between items-start sm:items-center mb-4 sm:mb-6">
                 <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <div className="text-lg sm:text-xl">{selectedCourse.icon}</div>
                   </div>
                   <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 truncate">{selectedCourse.title}</h2>
@@ -429,7 +429,7 @@ export default function Grades912Page() {
                   <ul className="space-y-1.5 sm:space-y-2">
                     {selectedCourse.keyConcepts.map((concept, index) => (
                       <li key={index} className="flex items-start text-gray-700">
-                        <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0" />
+                        <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0" />
                         <span className="text-xs sm:text-sm">{concept}</span>
                       </li>
                     ))}
@@ -455,7 +455,7 @@ export default function Grades912Page() {
                 {/* Contact Button - Compact */}
                 <div className="text-center pt-3 sm:pt-4 border-t border-gray-200">
                   <Link href="/contact">
-                    <button className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-200">
+                    <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-200">
                       Enroll Now! 📝
                     </button>
                   </Link>

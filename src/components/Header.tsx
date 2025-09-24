@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <>
       {/* Top Announcement Banner - Continuous Loop */}
-      <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 text-white py-2 overflow-hidden">
+      <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white py-2 overflow-hidden">
         <div className="relative h-6">
           <motion.div
             className="absolute whitespace-nowrap text-xs sm:text-sm font-medium flex items-center h-full"

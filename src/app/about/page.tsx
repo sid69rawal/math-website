@@ -92,7 +92,7 @@ export default function AboutPage() {
       >
         <Link href="/" className="inline-block">
           <motion.button
-            className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
+            className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
             whileTap={{ scale: 0.98 }}
           >
@@ -120,7 +120,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <div className="relative bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-purple-100 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-blue-100 overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-200 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-pink-200 rounded-full blur-3xl opacity-20"></div>
@@ -180,10 +180,10 @@ export default function AboutPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
                   <Lightbulb className="w-8 h-8 text-white" />
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
                   Our Mission
                 </h1>
                 <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl flex items-center justify-center">
@@ -215,7 +215,7 @@ export default function AboutPage() {
                 animate={{ opacity: 1, scaleX: 1 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
               >
-                <div className="w-32 h-1 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 rounded-full"></div>
+                <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 rounded-full"></div>
               </motion.div>
             </div>
           </div>
@@ -235,10 +235,10 @@ export default function AboutPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
                 Who We Are
               </h2>
               <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl flex items-center justify-center">
@@ -258,7 +258,7 @@ export default function AboutPage() {
               whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
             >
               {/* Background Pattern */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full opacity-30"></div>
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-30"></div>
               <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-gradient-to-br from-orange-100 to-pink-100 rounded-full opacity-30"></div>
               <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-teal-100 to-blue-100 rounded-full opacity-20"></div>
               
@@ -266,7 +266,7 @@ export default function AboutPage() {
                 {/* Header Section */}
                 <div className="text-center mb-8">
                   <motion.div
-                    className="w-24 h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                    className="w-24 h-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
@@ -337,7 +337,7 @@ export default function AboutPage() {
               {/* Background Pattern */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-pink-100 to-orange-100 rounded-full opacity-30"></div>
               <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-gradient-to-br from-teal-100 to-blue-100 rounded-full opacity-30"></div>
-              <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full opacity-20"></div>
+              <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-20"></div>
               
               <div className="relative z-10">
                 {/* Header Section */}
@@ -419,10 +419,10 @@ export default function AboutPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
                 <Zap className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
                 Our Unique Teaching Approach
               </h2>
               <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl flex items-center justify-center">
@@ -445,7 +445,7 @@ export default function AboutPage() {
                 >
                   {/* Connection Lines */}
                   {index < teachingApproaches.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-purple-300 to-pink-300 transform -translate-y-1/2 z-0"></div>
+                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-cyan-300 transform -translate-y-1/2 z-0"></div>
                   )}
                   
                   <motion.div
