@@ -135,117 +135,28 @@ export default function ServicesPage() {
       {/* Main Content Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
 
-        {/* Section 1 - Enhanced Main Message */}
+        {/* Section 1 - Main Message */}
         <motion.div
           className="mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-xl border border-blue-100 overflow-hidden">
-            {/* Background Decorative Elements */}
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-200 rounded-full blur-2xl opacity-30"></div>
-            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-cyan-200 rounded-full blur-2xl opacity-30"></div>
-            <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-orange-200 rounded-full blur-xl opacity-20"></div>
-            
-            {/* Floating Educational Icons */}
-            <motion.div
-              className="absolute top-6 left-6 text-blue-300 text-2xl"
-              animate={{ 
-                y: [0, -10, 0],
-                rotate: [0, 5, 0]
-              }}
-              transition={{ 
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              📚
-            </motion.div>
-            <motion.div
-              className="absolute top-12 right-8 text-cyan-300 text-xl"
-              animate={{ 
-                y: [0, 8, 0],
-                rotate: [0, -3, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            >
-              ✏️
-            </motion.div>
-            <motion.div
-              className="absolute bottom-8 left-8 text-orange-300 text-lg"
-              animate={{ 
-                y: [0, -6, 0],
-                rotate: [0, 4, 0]
-              }}
-              transition={{ 
-                duration: 3.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 2
-              }}
-            >
-              🎯
-            </motion.div>
-            <motion.div
-              className="absolute bottom-6 right-6 text-teal-300 text-xl"
-              animate={{ 
-                y: [0, 7, 0],
-                rotate: [0, -2, 0]
-              }}
-              transition={{ 
-                duration: 4.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5
-              }}
-            >
-              💡
-            </motion.div>
-            
+          <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
             {/* Main Content */}
-            <div className="relative z-10 text-center">
-              <motion.div
-                className="inline-flex items-center space-x-3 mb-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xl">🎓</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
-                  Our Services
-                </h2>
-                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-sm">📊</span>
-                </div>
-              </motion.div>
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Our Services
+              </h2>
               
-              <motion.p
-                className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-              >
+              <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
                 At <span className="font-semibold text-blue-600">Level Up Math Academy</span>, our curriculum is carefully designed for students from <span className="font-semibold text-blue-600">Grade 3 to Grade 12</span>, providing a <span className="font-semibold text-blue-600">customized learning experience</span> tailored to each student&apos;s unique abilities and pace. Our innovative and interactive programs make math <span className="font-semibold text-blue-600">enjoyable and engaging</span>, fostering academic excellence and lifelong confidence in mathematics.
-              </motion.p>
+              </p>
               
-              {/* Decorative Line */}
-              <motion.div
-                className="flex justify-center mt-8"
-                initial={{ opacity: 0, scaleX: 0 }}
-                animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-              >
-                <div className="w-24 h-1 bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 rounded-full"></div>
-              </motion.div>
+              {/* Simple Divider */}
+              <div className="flex justify-center mt-6">
+                <div className="w-16 h-px bg-gray-300"></div>
+              </div>
             </div>
           </div>
         </motion.div>
