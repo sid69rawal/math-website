@@ -2,10 +2,51 @@
 
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Menu, X, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { contactConfig } from '@/config/contact';
+
+// Ticker component for animated messages
+function Ticker({ messages = [] as string[], cycleDuration = 8 }) {
+  // cycleDuration = how many seconds each message takes to fully travel
+  const [index, setIndex] = useState(0);
+
+  // advance to next message after each animation completes
+  useEffect(() => {
+    if (!messages || messages.length === 0) return;
+    const id = setTimeout(() => {
+      setIndex((i) => (i + 1) % messages.length);
+    }, cycleDuration * 1000);
+    return () => clearTimeout(id);
+  }, [index, messages, cycleDuration]);
+
+  // Guard: show nothing if no messages
+  if (!messages || messages.length === 0) return null;
+
+  return (
+    <div
+      className="ticker-container w-full overflow-hidden"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      style={{ minHeight: 24 }} // tweak as needed (mobile heights)
+    >
+      <motion.div
+        key={index} // new element each message ensures initial anim state runs
+        initial={{ x: '100%' }}            // start fully off-screen right
+        animate={{ x: '-100%' }}           // move to fully off-screen left
+        transition={{ duration: cycleDuration, ease: 'linear' }}
+        className="inline-block whitespace-nowrap font-medium text-xs sm:text-sm"
+        // keep the text visually centered vertically if you add height to container
+        style={{ display: 'inline-block' }}
+      >
+        {/* message content */}
+        <span className="px-2">{messages[index]}</span>
+      </motion.div>
+    </div>
+  );
+}
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,15 +57,9 @@ export default function Header() {
     "Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus & Vectors, Math Competitions etc."
   ];
 
-  // add/replace right after your `messages = [...]` declaration
-  const cycleDuration = 14; // seconds — change to taste
-
   // safe fallbacks if contactConfig is undefined/missing values
   const email = contactConfig?.email ?? 'info@example.com';
   const phone = contactConfig?.phone ?? '+91-0000000000';
-
-  // duplicate messages so CSS loop is seamless
-  const doubledMessages = [...messages, ...messages];
 
   return (
     <>
@@ -55,27 +90,9 @@ export default function Header() {
                 </a>
               </div>
 
-              {/* Messages area - horizontal marquee for all screen sizes */}
+              {/* Messages area - horizontal ticker for all screen sizes */}
               <div className="flex-1 min-w-0 order-2 ml-2">
-                <div className="overflow-hidden">
-                  <div
-                    className="marquee-wrapper whitespace-nowrap"
-                    aria-hidden="false"
-                    role="status"
-                    aria-live="polite"
-                  >
-                    <div
-                      className="marquee inline-flex items-center"
-                      style={{ animationDuration: `${cycleDuration}s`, willChange: 'transform' }}
-                    >
-                      {doubledMessages.map((m, i) => (
-                        <div key={`m-${i}`} className="mr-6 text-center text-xs sm:text-sm font-medium inline-block whitespace-nowrap">
-                          <span>{m}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <Ticker messages={messages} cycleDuration={14 /* seconds per message - adjust */} />
               </div>
             </div>
           </div>
@@ -373,24 +390,12 @@ export default function Header() {
         </motion.nav>
       </div>
       <style jsx>{`
-        /* Horizontal marquee for all screen sizes - duplicated content, translateX from 0 -> -50% */
-        .marquee {
-          display: inline-flex;
-          align-items: center;
-          animation-name: slideX;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-        }
-
-        @keyframes slideX {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-
-        /* Respect user reduced motion */
+        /* remove old marquee styles; you can keep reduced-motion query if you like */
         @media (prefers-reduced-motion: reduce) {
-          .marquee {
-            animation: none !important;
+          .ticker-container > * {
+            transition: none !important;
+            transform: none !important;
+            opacity: 1 !important;
           }
         }
       `}</style>
