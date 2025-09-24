@@ -11,324 +11,389 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
 
+  const messages = [
+    "First Month Guarantee: If you\'re not satisfied after the first month, you\'ll receive a full refund",
+    "Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus & Vectors, Math Competitions etc."
+  ];
+
+  // add/replace right after your `messages = [...]` declaration
+  const cycleDuration = 14; // seconds — change to taste
+
+  // safe fallbacks if contactConfig is undefined/missing values
+  const email = contactConfig?.email ?? 'info@example.com';
+  const phone = contactConfig?.phone ?? '+91-0000000000';
+
+  // duplicate messages so CSS loop is seamless
+  const doubledMessages = [...messages, ...messages];
+
   return (
     <>
       {/* Combined Header with Ribbon */}
       <div className="sticky top-0 z-50">
-        {/* Static Ribbon */}
-        <div className="text-white py-3" style={{ backgroundColor: '#30519d' }}>
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex flex-col sm:flex-row justify-between items-center text-sm space-y-2 sm:space-y-0">
-              {/* Left Side - Contact Info */}
-              <div className="flex items-center space-x-2 sm:space-x-4">
-                <span className="flex items-center space-x-1 text-xs sm:text-sm">
+        {/* Static Ribbon - REPLACE THIS ENTIRE BLOCK */}
+        <div className="text-white py-2 sm:py-3" style={{ backgroundColor: '#30519d' }}>
+          <div className="max-w-7xl mx-auto px-3 sm:px-4">
+            <div className="flex flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+              {/* Contacts - always show values but truncate on very narrow screens */}
+              <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0 order-1">
+                <a
+                  href={`mailto:${email}`}
+                  className="flex items-center space-x-1 text-xs whitespace-nowrap"
+                  aria-label={`Email ${email}`}
+                >
                   <span>📧</span>
-                  <span>{contactConfig.email}</span>
-                </span>
-                <span className="flex items-center space-x-1 text-xs sm:text-sm">
+                  <span className="inline-block truncate max-w-[120px] sm:max-w-none">{email}</span>
+                </a>
+
+                <a
+                  href={`tel:${phone}`}
+                  className="flex items-center space-x-1 text-xs whitespace-nowrap"
+                  aria-label={`Phone ${phone}`}
+                >
                   <span>📞</span>
-                  <span>{contactConfig.phone}</span>
-                </span>
+                  <span className="inline-block truncate max-w-[110px] sm:max-w-none">{phone}</span>
+                </a>
               </div>
-              
-              {/* Right Side - Guarantee Message */}
-              <div className="text-center sm:text-right">
-                <span className="font-medium text-xs sm:text-sm">
-                  First Month Guarantee: If you&apos;re not satisfied after the first month, you&apos;ll receive a full refund
-                </span>
+
+              {/* Messages area - horizontal marquee for all screen sizes */}
+              <div className="flex-1 min-w-0 order-2 ml-2">
+                <div className="overflow-hidden">
+                  <div
+                    className="marquee-wrapper whitespace-nowrap"
+                    aria-hidden="false"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    <div
+                      className="marquee inline-flex items-center"
+                      style={{ animationDuration: `${cycleDuration}s`, willChange: 'transform' }}
+                    >
+                      {doubledMessages.map((m, i) => (
+                        <div key={`m-${i}`} className="mr-6 text-center text-xs sm:text-sm font-medium inline-block whitespace-nowrap">
+                          <span>{m}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        {/* end replacement */}
 
         {/* Main Navigation */}
         <motion.nav 
           className="bg-white shadow-sm"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <Link href="/">
-              <motion.div 
-                className="flex items-center"
-                whileHover={{ scale: 1.02 }}
-              >
-                <Image
-                  src="/logo.png"
-                  alt="Level Up Math Academy Logo"
-                  width={100}
-                  height={100}
-                  className="rounded-lg"
-                />
-              </motion.div>
-            </Link>
-            
-                    {/* Desktop Navigation Menu */}
-                    <div className="hidden lg:flex items-center space-x-8">
-                      {/* Home Link */}
-                      <Link href="/">
-                        <motion.a
-                          className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          Home
-                        </motion.a>
-                      </Link>
-                      {/* Courses Dropdown */}
-                      <div 
-                        className="relative"
-                        onMouseEnter={() => setCoursesDropdownOpen(true)}
-                        onMouseLeave={() => setCoursesDropdownOpen(false)}
-                      >
-                        <motion.div
-                          className="flex items-center space-x-1 text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          <span>Courses</span>
-                          <ChevronDown className="w-4 h-4" />
-                        </motion.div>
-                        
-                        {/* Dropdown Menu */}
-                        <motion.div
-                          className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[200px] z-50"
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ 
-                            opacity: coursesDropdownOpen ? 1 : 0, 
-                            y: coursesDropdownOpen ? 0 : -10 
-                          }}
-                          transition={{ duration: 0.2 }}
-                          style={{ pointerEvents: coursesDropdownOpen ? 'auto' : 'none' }}
-                        >
-                          <Link href="/courses/grades-3-5">
-                            <motion.div
-                              className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
-                              whileHover={{ x: 5 }}
-                            >
-                              Grades 3-5
-                            </motion.div>
-                          </Link>
-                          <Link href="/courses/grades-6-8">
-                            <motion.div
-                              className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
-                              whileHover={{ x: 5 }}
-                            >
-                              Grades 6-8
-                            </motion.div>
-                          </Link>
-                          <Link href="/courses/grades-9-12">
-                            <motion.div
-                              className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
-                              whileHover={{ x: 5 }}
-                            >
-                              Grades 9-12
-                            </motion.div>
-                          </Link>
-                        </motion.div>
-                      </div>
-                      <Link href="/services">
-                        <motion.a
-                          className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          Our Services
-                        </motion.a>
-                      </Link>
-                      <Link href="/about">
-                        <motion.a
-                          className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          About Us
-                        </motion.a>
-                      </Link>
-              
-              {/* Social Media Icons */}
-              <div className="flex items-center space-x-3 ml-4">
-                <motion.a
-                  href={contactConfig.socialMedia.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-purple-600 transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Facebook className="w-5 h-5" />
-                </motion.a>
-                <motion.a
-                  href={contactConfig.socialMedia.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-blue-600 transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Instagram className="w-5 h-5" />
-                </motion.a>
-              </div>
-              
-              <Link href="/contact">
-                <motion.button
-                  className="text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
-                  style={{ backgroundColor: '#30519d' }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Contact Us
-                </motion.button>
-              </Link>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <motion.button
-              className="lg:hidden text-gray-700 p-2"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </motion.button>
-          </div>
-
-          {/* Mobile Navigation Menu */}
-          <motion.div 
-            className="lg:hidden overflow-hidden"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ 
-              opacity: mobileMenuOpen ? 1 : 0, 
-              height: mobileMenuOpen ? "auto" : 0 
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="mt-4 bg-gray-50 rounded-lg p-4 space-y-3">
-              {/* Mobile Courses Dropdown */}
-              <div>
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="max-w-7xl mx-auto px-4 py-4">
+            <div className="flex justify-between items-center">
+              {/* Logo */}
+              <Link href="/">
                 <motion.div 
-                  className="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
-                  onClick={() => setCoursesDropdownOpen(!coursesDropdownOpen)}
-                  whileHover={{ x: 5 }}
+                  className="flex items-center"
+                  whileHover={{ scale: 1.02 }}
                 >
-                  <span>Courses</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${coursesDropdownOpen ? 'rotate-180' : ''}`} />
+                  <Image
+                    src="/logo.png"
+                    alt="Level Up Math Academy Logo"
+                    width={100}
+                    height={100}
+                    className="rounded-lg"
+                  />
                 </motion.div>
-                
-                {/* Mobile Dropdown Menu */}
-                <motion.div
-                  className="overflow-hidden"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{
-                    opacity: coursesDropdownOpen ? 1 : 0,
-                    height: coursesDropdownOpen ? "auto" : 0
-                  }}
-                  transition={{ duration: 0.3 }}
+              </Link>
+              
+              {/* Desktop Navigation Menu */}
+              <div className="hidden lg:flex items-center space-x-8">
+                {/* Home Link */}
+                <Link href="/">
+                  <motion.a
+                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Home
+                  </motion.a>
+                </Link>
+
+                {/* Courses Dropdown */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => setCoursesDropdownOpen(true)}
+                  onMouseLeave={() => setCoursesDropdownOpen(false)}
                 >
-                  <div className="pl-4 space-y-2 mt-2">
+                  <motion.div
+                    className="flex items-center space-x-1 text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <span>Courses</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </motion.div>
+                  
+                  {/* Dropdown Menu */}
+                  <motion.div
+                    className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[200px] z-50"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ 
+                      opacity: coursesDropdownOpen ? 1 : 0, 
+                      y: coursesDropdownOpen ? 0 : -10 
+                    }}
+                    transition={{ duration: 0.2 }}
+                    style={{ pointerEvents: coursesDropdownOpen ? 'auto' : 'none' }}
+                  >
                     <Link href="/courses/grades-3-5">
-                      <motion.div 
-                        className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          setCoursesDropdownOpen(false);
-                        }}
+                      <motion.div
+                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
                         whileHover={{ x: 5 }}
                       >
                         Grades 3-5
                       </motion.div>
                     </Link>
                     <Link href="/courses/grades-6-8">
-                      <motion.div 
-                        className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          setCoursesDropdownOpen(false);
-                        }}
+                      <motion.div
+                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
                         whileHover={{ x: 5 }}
                       >
                         Grades 6-8
                       </motion.div>
                     </Link>
                     <Link href="/courses/grades-9-12">
-                      <motion.div 
-                        className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          setCoursesDropdownOpen(false);
-                        }}
+                      <motion.div
+                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
                         whileHover={{ x: 5 }}
                       >
                         Grades 9-12
                       </motion.div>
                     </Link>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
+
+                <Link href="/services">
+                  <motion.a
+                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Our Services
+                  </motion.a>
+                </Link>
+                <Link href="/about">
+                  <motion.a
+                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    About Us
+                  </motion.a>
+                </Link>
+                
+                {/* Social Media Icons */}
+                <div className="flex items-center space-x-3 ml-4">
+                  <motion.a
+                    href={contactConfig.socialMedia.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-purple-600 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </motion.a>
+                  <motion.a
+                    href={contactConfig.socialMedia.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-blue-600 transition-colors"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </motion.a>
+                </div>
+                
+                <Link href="/contact">
+                  <motion.button
+                    className="text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
+                    style={{ backgroundColor: '#30519d' }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Contact Us
+                  </motion.button>
+                </Link>
               </div>
-              <Link href="/">
-                <motion.div 
-                  className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
-                  onClick={() => setMobileMenuOpen(false)}
-                  whileHover={{ x: 5 }}
-                >
-                  Home
-                </motion.div>
-              </Link>
-              <Link href="/services">
-                <motion.div 
-                  className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
-                  onClick={() => setMobileMenuOpen(false)}
-                  whileHover={{ x: 5 }}
-                >
-                  Our Services
-                </motion.div>
-              </Link>
-              <Link href="/about">
-                <motion.div 
-                  className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
-                  onClick={() => setMobileMenuOpen(false)}
-                  whileHover={{ x: 5 }}
-                >
-                  About Us
-                </motion.div>
-              </Link>
-              
-              <div className="flex space-x-4 pt-2 pb-2">
-                <motion.a 
-                  href={contactConfig.socialMedia.facebook} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-blue-600"
-                  whileHover={{ scale: 1.2 }}
-                >
-                  <Facebook className="w-5 h-5" />
-                </motion.a>
-                <motion.a 
-                  href={contactConfig.socialMedia.instagram} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-blue-600"
-                  whileHover={{ scale: 1.2 }}
-                >
-                  <Instagram className="w-5 h-5" />
-                </motion.a>
-              </div>
-              
-              <Link href="/contact">
-                <motion.button
-                  className="w-full text-white px-4 py-3 rounded-full font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
-                  style={{ backgroundColor: '#30519d' }}
-                  onClick={() => setMobileMenuOpen(false)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Contact Us
-                </motion.button>
-              </Link>
+
+              {/* Mobile Menu Button */}
+              <motion.button
+                className="lg:hidden text-gray-700 p-2"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </motion.button>
             </div>
-          </motion.div>
-        </div>
-      </motion.nav>
+
+            {/* Mobile Navigation Menu */}
+            <motion.div 
+              className="lg:hidden overflow-hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ 
+                opacity: mobileMenuOpen ? 1 : 0, 
+                height: mobileMenuOpen ? "auto" : 0 
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="mt-4 bg-gray-50 rounded-lg p-4 space-y-3">
+                {/* Mobile Courses Dropdown */}
+                <div>
+                  <motion.div 
+                    className="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
+                    onClick={() => setCoursesDropdownOpen(!coursesDropdownOpen)}
+                    whileHover={{ x: 5 }}
+                  >
+                    <span>Courses</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${coursesDropdownOpen ? 'rotate-180' : ''}`} />
+                  </motion.div>
+                  
+                  {/* Mobile Dropdown Menu */}
+                  <motion.div
+                    className="overflow-hidden"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{
+                      opacity: coursesDropdownOpen ? 1 : 0,
+                      height: coursesDropdownOpen ? "auto" : 0
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="pl-4 space-y-2 mt-2">
+                      <Link href="/courses/grades-3-5">
+                        <motion.div 
+                          className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setCoursesDropdownOpen(false);
+                          }}
+                          whileHover={{ x: 5 }}
+                        >
+                          Grades 3-5
+                        </motion.div>
+                      </Link>
+                      <Link href="/courses/grades-6-8">
+                        <motion.div 
+                          className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setCoursesDropdownOpen(false);
+                          }}
+                          whileHover={{ x: 5 }}
+                        >
+                          Grades 6-8
+                        </motion.div>
+                      </Link>
+                      <Link href="/courses/grades-9-12">
+                        <motion.div 
+                          className="block text-gray-600 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setCoursesDropdownOpen(false);
+                          }}
+                          whileHover={{ x: 5 }}
+                        >
+                          Grades 9-12
+                        </motion.div>
+                      </Link>
+                    </div>
+                  </motion.div>
+                </div>
+                <Link href="/">
+                  <motion.div 
+                    className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    whileHover={{ x: 5 }}
+                  >
+                    Home
+                  </motion.div>
+                </Link>
+                <Link href="/services">
+                  <motion.div 
+                    className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    whileHover={{ x: 5 }}
+                  >
+                    Our Services
+                  </motion.div>
+                </Link>
+                <Link href="/about">
+                  <motion.div 
+                    className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    whileHover={{ x: 5 }}
+                  >
+                    About Us
+                  </motion.div>
+                </Link>
+                
+                <div className="flex space-x-4 pt-2 pb-2">
+                  <motion.a 
+                    href={contactConfig.socialMedia.facebook} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-blue-600"
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </motion.a>
+                  <motion.a 
+                    href={contactConfig.socialMedia.instagram} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-500 hover:text-blue-600"
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </motion.a>
+                </div>
+                
+                <Link href="/contact">
+                  <motion.button
+                    className="w-full text-white px-4 py-3 rounded-full font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
+                    style={{ backgroundColor: '#30519d' }}
+                    onClick={() => setMobileMenuOpen(false)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Contact Us
+                  </motion.button>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+        </motion.nav>
       </div>
+      <style jsx>{`
+        /* Horizontal marquee for all screen sizes - duplicated content, translateX from 0 -> -50% */
+        .marquee {
+          display: inline-flex;
+          align-items: center;
+          animation-name: slideX;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+
+        @keyframes slideX {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+
+        /* Respect user reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          .marquee {
+            animation: none !important;
+          }
+        }
+      `}</style>
     </>
   );
 }
