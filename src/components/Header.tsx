@@ -13,14 +13,42 @@ export default function Header() {
 
   return (
     <>
-      {/* Main Navigation */}
-      <motion.nav 
-        className="bg-white shadow-sm sticky top-0 z-50"
+      {/* Combined Header with Ribbon */}
+      <div className="sticky top-0 z-50">
+        {/* Static Ribbon */}
+        <div className="text-white py-3" style={{ backgroundColor: '#30519d' }}>
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center text-sm space-y-2 sm:space-y-0">
+              {/* Left Side - Contact Info */}
+              <div className="flex items-center space-x-2 sm:space-x-4">
+                <span className="flex items-center space-x-1 text-xs sm:text-sm">
+                  <span>📧</span>
+                  <span>{contactConfig.email}</span>
+                </span>
+                <span className="flex items-center space-x-1 text-xs sm:text-sm">
+                  <span>📞</span>
+                  <span>{contactConfig.phone}</span>
+                </span>
+              </div>
+              
+              {/* Right Side - Guarantee Message */}
+              <div className="text-center sm:text-right">
+                <span className="font-medium text-xs sm:text-sm">
+                  First Month Guarantee: If you&apos;re not satisfied after the first month, you&apos;ll receive a full refund
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Navigation */}
+        <motion.nav 
+          className="bg-white shadow-sm"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="max-w-7xl mx-auto px-4 py-2">
+        <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link href="/">
@@ -31,8 +59,8 @@ export default function Header() {
                 <Image
                   src="/logo.png"
                   alt="Level Up Math Academy Logo"
-                  width={80}
-                  height={80}
+                  width={100}
+                  height={100}
                   className="rounded-lg"
                 />
               </motion.div>
@@ -300,6 +328,7 @@ export default function Header() {
           </motion.div>
         </div>
       </motion.nav>
+      </div>
     </>
   );
 }

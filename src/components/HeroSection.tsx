@@ -56,7 +56,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ x: -50, opacity: 0 }}
@@ -76,7 +76,7 @@ export default function HeroSection() {
             </motion.h1>
             
             <motion.p 
-              className="text-lg text-gray-600 mb-8 leading-relaxed"
+              className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}

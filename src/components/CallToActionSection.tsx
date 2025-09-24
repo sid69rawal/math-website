@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function CallToActionSection() {
   return (
-    <section className="py-16 lg:py-24 bg-blue-50 relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-gray-100 relative overflow-hidden">
       {/* Mathematical Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-10 right-20 text-white text-2xl font-bold">∑</div>
@@ -34,7 +34,7 @@ export default function CallToActionSection() {
         >
           {/* Main Heading */}
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -48,7 +48,7 @@ export default function CallToActionSection() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl text-gray-800 font-medium leading-relaxed mb-8 md:mb-10 max-w-4xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-gray-800 font-medium leading-relaxed mb-6 sm:mb-8 md:mb-10 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}

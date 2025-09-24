@@ -45,7 +45,7 @@ export default function OurApproachSection() {
   ];
 
   return (
-    <section id="our-approach" className="relative py-16 lg:py-24 bg-blue-50 overflow-hidden">
+    <section id="our-approach" className="relative py-16 lg:py-24 bg-white overflow-hidden">
       <FloatingElements 
         elements={['🧠', '⚡', '🎯', '🤝', '🌟', '📋']}
         count={6}
@@ -55,7 +55,7 @@ export default function OurApproachSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <motion.h2 
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -63,7 +63,7 @@ export default function OurApproachSection() {
             🧠 Our Unique Math Approach
           </motion.h2>
           <motion.p
-            className="text-xl font-bold text-gray-800 whitespace-nowrap"
+            className="text-lg sm:text-xl font-bold text-gray-800"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -72,7 +72,7 @@ export default function OurApproachSection() {
           </motion.p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {approaches.map((approach, index) => (
             <motion.div
               key={index}
@@ -82,7 +82,7 @@ export default function OurApproachSection() {
               transition={{ delay: index * 0.05, duration: 0.5 }}
             >
               {/* Background Card */}
-                <div className="relative bg-white border border-gray-200 rounded-2xl p-12 h-full shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                <div className="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 lg:p-12 h-full shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                 {/* Subtle Background Overlay */}
                 <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"></div>
                 

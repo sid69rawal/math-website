@@ -140,7 +140,7 @@ function TestimonialCarousel() {
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-16 lg:py-24 bg-gray-50">
+    <section id="testimonials" className="py-16 lg:py-24 bg-blue-50">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"

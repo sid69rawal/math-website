@@ -69,7 +69,7 @@ export default function WhatWeOfferSection() {
   ];
 
   return (
-    <section id="what-we-offer" className="relative py-16 lg:py-24 bg-blue-50">
+    <section id="what-we-offer" className="relative py-16 lg:py-24 bg-gray-50">
       <FloatingElements 
         elements={['📚', '✏️', '🎯', '💡', '⭐', '🚀']}
         count={8}
@@ -83,19 +83,19 @@ export default function WhatWeOfferSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             🎁 What We Offer
           </h2>
-          <p className="text-xl font-bold text-gray-800 whitespace-nowrap">
+          <p className="text-lg sm:text-xl font-bold text-gray-800">
             Comprehensive math education programs designed to help students excel at every level
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {offers.map((offer, index) => (
             <motion.div
               key={index}
-              className="bg-white p-12 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group"
+              className="bg-blue-50 p-6 sm:p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
