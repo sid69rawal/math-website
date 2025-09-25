@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -12,13 +12,14 @@ import CallToActionSection from '@/components/CallToActionSection';
 
 export default function ServicesPage() {
   const [selectedGrade, setSelectedGrade] = useState('grades-3-5');
+  const [selectedGradeDetails, setSelectedGradeDetails] = useState(null);
 
   const gradeCategories = [
     {
       id: 'grades-3-5',
-      label: 'Grades 3-5',
+      label: 'Grade 3-5 Math Programs',
       title: 'Building Strong Foundations for Lifelong Success',
-      description: 'At Level Up Math Academy, our curriculum is carefully designed for students from Grade 3 to Grade 12, providing a customized learning experience tailored to each student\'s unique abilities and pace. Our innovative and interactive programs make math enjoyable and engaging, fostering academic excellence and lifelong confidence in mathematics.',
+      description: 'Building Strong Foundations for Lifelong Success',
       learningOutcomes: [
         'Master number sense and core math concepts',
         'Solve problems quickly using mental math skills',
@@ -37,9 +38,9 @@ export default function ServicesPage() {
     },
     {
       id: 'grades-6-8',
-      label: 'Grades 6-8',
+      label: 'Grade 6-8 Math Programs',
       title: 'Empowering Students for Academic Excellence and Beyond',
-      description: 'At Level Up Math Academy, our curriculum is carefully designed for students from Grade 3 to Grade 12, providing a customized learning experience tailored to each student\'s unique abilities and pace. Our innovative and interactive programs make math enjoyable and engaging, fostering academic excellence and lifelong confidence in mathematics.',
+      description: 'Empowering Students for Academic Excellence and Beyond',
       learningOutcomes: [
         'Strengthen number sense and problem-solving skills',
         'Comprehensive coverage of the Ontario grade-level curriculum',
@@ -58,9 +59,9 @@ export default function ServicesPage() {
     },
     {
       id: 'grades-9-10',
-      label: 'Grades 9-10',
+      label: 'Grade 9-10 Math Programs',
       title: 'Building Confidence and Readiness for Higher Math',
-      description: 'At Level Up Math Academy, our curriculum is carefully designed for students from Grade 3 to Grade 12, providing a customized learning experience tailored to each student\'s unique abilities and pace. Our innovative and interactive programs make math enjoyable and engaging, fostering academic excellence and lifelong confidence in mathematics.',
+      description: 'Building Confidence and Readiness for Higher Math',
       learningOutcomes: [
         'Build a strong foundation for Grades 11–12 Functions, Advanced Functions, and Calculus & Vectors',
         'Comprehensive coverage of the Ontario curriculum with global grade-level alignment',
@@ -78,9 +79,9 @@ export default function ServicesPage() {
     },
     {
       id: 'grades-11-12',
-      label: 'Grades 11-12',
+      label: 'Grade 11-12 Math Programs',
       title: 'Mastery, Exam Success, and University Readiness',
-      description: 'At Level Up Math Academy, our curriculum is carefully designed for students from Grade 3 to Grade 12, providing a customized learning experience tailored to each student\'s unique abilities and pace. Our innovative and interactive programs make math enjoyable and engaging, fostering academic excellence and lifelong confidence in mathematics.',
+      description: 'Mastery, Exam Success, and University Readiness',
       learningOutcomes: [
         'Master Functions, Advanced Functions, and Calculus & Vectors with confidence',
         'Strengthen exam techniques, time management, and problem-solving strategies',
@@ -143,96 +144,173 @@ export default function ServicesPage() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
-            {/* Main Content */}
-            <div className="text-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              {/* Left Side - Main Content */}
+              <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Our Services
               </h2>
               
-              <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
+                <p className="text-lg text-gray-700 leading-relaxed">
                 At <span className="font-semibold" style={{ color: '#30519d' }}>Level Up Math Academy</span>, our curriculum is carefully designed for students from <span className="font-semibold" style={{ color: '#30519d' }}>Grade 3 to Grade 12</span>, providing a <span className="font-semibold" style={{ color: '#30519d' }}>customized learning experience</span> tailored to each student&apos;s unique abilities and pace. Our innovative and interactive programs make math <span className="font-semibold" style={{ color: '#30519d' }}>enjoyable and engaging</span>, fostering academic excellence and lifelong confidence in mathematics.
               </p>
-              
-              {/* Simple Divider */}
-              <div className="flex justify-center mt-6">
-                <div className="w-16 h-px bg-gray-300"></div>
               </div>
+
+              {/* Right Side - Criteria Box */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 shadow-lg border border-blue-100">
+                <h4 className="text-xl font-bold text-gray-900 mb-6">
+                  All Programs Meet The Following Criteria:
+                </h4>
+                <ul className="space-y-4">
+                  <li className="flex items-start text-gray-700">
+                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-base">Led by founders, not outside tutors</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-base">Online or at our Mississauga center</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-base">Affordable at $25/hour</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Book a Free Assessment Button */}
+            <div className="mt-8 text-center">
+              <Link href="/contact">
+                <motion.button
+                  className="text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-xl transition-all duration-300 hover:opacity-90"
+                  style={{ backgroundColor: '#30519d' }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(48, 81, 157, 0.3)" }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Book a Free Assessment
+                </motion.button>
+              </Link>
             </div>
           </div>
         </motion.div>
 
-        {/* Grade Category Selector */}
+        {/* Math Programs By Grade Category Heading */}
         <motion.div
           className="mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
-            {gradeCategories.map((grade, index) => (
-              <motion.button
-                key={grade.id}
-                onClick={() => setSelectedGrade(grade.id)}
-                className={`relative px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-sm sm:text-base transition-all duration-300 border-2 ${
-                  selectedGrade === grade.id
-                    ? 'text-white border-blue-600 shadow-lg transform scale-105'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-blue-300 hover:shadow-md'
-                }`}
-                style={selectedGrade === grade.id ? { backgroundColor: '#30519d' } : {}}
-                whileHover={{ scale: selectedGrade === grade.id ? 1.05 : 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-              >
-                {grade.label}
-                
-                {/* Downward Arrow for Selected Grade */}
-                <AnimatePresence>
-                  {selectedGrade === grade.id && (
-                    <motion.div
-                      className="absolute -bottom-6 left-1/2 transform -translate-x-1/2"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-blue-600"></div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.button>
-            ))}
+          <div className="text-center">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
+              Math Programs By Grade Category
+            </h2>
           </div>
         </motion.div>
 
-        {/* Content Section */}
+        {/* Grade Categories Vertical Long Boxes */}
         <motion.div
           className="mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
         >
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            {/* Left Side - Content */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {gradeCategories.map((grade, index) => (
+              <motion.div
+                key={grade.id}
+                className="bg-gray-100 rounded-xl p-8 sm:p-10 shadow-lg border border-gray-300 hover:border-blue-500 hover:shadow-xl transition-all duration-200 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  delay: 0.6 + index * 0.1,
+                  duration: 0.4
+                }}
+                whileHover={{ 
+                  y: -2,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                {/* Grade Title */}
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">
+                {grade.label}
+                </h3>
+
+                {/* Grade Description */}
+                <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-10 flex-grow leading-relaxed">
+                  {grade.description}
+                </p>
+
+                {/* Learn More Button */}
+                <button
+                  onClick={() => setSelectedGradeDetails(grade)}
+                  className="w-full text-white px-6 py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-200 hover:opacity-90 mt-auto shadow-md" 
+                  style={{ backgroundColor: '#30519d' }}
+                >
+                  Learn More
+                </button>
+                    </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Section 5 - Let's Learn Together */}
+      <CallToActionSection />
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Grade Details Modal */}
+      <AnimatePresence>
+        {selectedGradeDetails && (
+        <motion.div
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-2 sm:p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setSelectedGradeDetails(null)}
+          >
             <motion.div
-              key={selectedGrade}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
+              className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl"
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-                {currentGrade.title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 sm:mb-8">
-                {currentGrade.description}
-              </p>
+              {/* Modal Header */}
+              <div className="flex justify-between items-start sm:items-center mb-4 sm:mb-6">
+                <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="text-lg sm:text-xl">📚</div>
+                  </div>
+                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 truncate">{selectedGradeDetails.title}</h2>
+                </div>
+                <button
+                  onClick={() => setSelectedGradeDetails(null)}
+                  className="text-gray-500 hover:text-gray-700 transition-colors p-1 flex-shrink-0"
+                >
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="space-y-4 sm:space-y-6">
+                {/* Description */}
+                <div>
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{selectedGradeDetails.description}</p>
+                </div>
 
               {/* Learning Outcomes */}
-              <div className="mb-6 sm:mb-8">
-                <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Learning Outcomes:</h4>
-                <ul className="space-y-2 sm:space-y-3">
-                  {currentGrade.learningOutcomes.map((outcome, index) => (
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
+                    <span className="text-base sm:text-lg mr-2">🎯</span>
+                    Learning Outcomes:
+                  </h3>
+                  <ul className="space-y-1.5 sm:space-y-2">
+                    {selectedGradeDetails.learningOutcomes.map((outcome, index) => (
                     <li key={index} className="flex items-start text-gray-700">
                       <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0" />
                       <span className="text-xs sm:text-sm">{outcome}</span>
@@ -243,9 +321,12 @@ export default function ServicesPage() {
 
               {/* Class Format */}
               <div>
-                <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">Class Format:</h4>
-                <ul className="space-y-2 sm:space-y-3">
-                  {currentGrade.classFormat.map((format, index) => (
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 sm:mb-3 flex items-center">
+                    <span className="text-base sm:text-lg mr-2">📚</span>
+                    Class Format:
+                  </h3>
+                  <ul className="space-y-1.5 sm:space-y-2">
+                    {selectedGradeDetails.classFormat.map((format, index) => (
                     <li key={index} className="flex items-start text-gray-700">
                       <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-600 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0" />
                       <span className="text-xs sm:text-sm">{format}</span>
@@ -253,56 +334,20 @@ export default function ServicesPage() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
 
-            {/* Right Side - Image */}
-            <motion.div
-              key={`image-${selectedGrade}`}
-              className="relative"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src={currentGrade.image}
-                  alt={`${currentGrade.label} Math Learning`}
-                  width={600}
-                  height={400}
-                  className="w-full h-80 object-cover rounded-xl sm:rounded-2xl"
-                  priority
-                />
-                {/* Overlay for better text contrast if needed */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl sm:rounded-2xl"></div>
+                {/* Contact Button */}
+                <div className="text-center pt-3 sm:pt-4 border-t border-gray-200">
+                  <Link href={selectedGradeDetails.link}>
+                    <button className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" style={{ backgroundColor: '#30519d' }}>
+                      View Courses 📝
+                    </button>
+                  </Link>
+                </div>
               </div>
             </motion.div>
-          </div>
         </motion.div>
-
-        {/* View Courses Button */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 0.5 }}
-        >
-          <Link href={currentGrade.link}>
-            <motion.button
-              className="text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl transition-all duration-300 hover:opacity-90" style={{ backgroundColor: '#30519d' }}
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" }}
-              whileTap={{ scale: 0.98 }}
-            >
-              View Courses
-            </motion.button>
-          </Link>
-        </motion.div>
-      </div>
-
-      {/* Section 5 - Let's Learn Together */}
-      <CallToActionSection />
-
-      {/* Footer */}
-      <Footer />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

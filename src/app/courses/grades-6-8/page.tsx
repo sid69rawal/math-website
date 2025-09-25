@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, X } from 'lucide-react';
+import { ArrowLeft, X, Calculator, BookOpen, GraduationCap, PieChart, BarChart3, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 import FloatingElements from '@/components/FloatingElements';
@@ -21,7 +21,7 @@ export default function Grades68Page() {
 
   const courses = [
     {
-      title: 'Grade 6 Math',
+      title: 'Grade 6 Math Program',
       icon: '🔢',
       overview: 'Grade 6 marks a shift toward deeper analytical thinking, multi-step reasoning, and abstract concepts. Students work with larger numbers, complex fractions and decimals, and begin formal algebraic thinking. Real-world applications—like tax, discounts, and surface area—are emphasized to build mathematical fluency and confidence.',
       keyConcepts: [
@@ -48,7 +48,7 @@ export default function Grades68Page() {
       ]
     },
     {
-      title: 'Grade 7 Math',
+      title: 'Grade 7 Math Program',
       icon: '📊',
       overview: 'Grade 7 introduces students to formal algebra, signed numbers, and financial literacy while deepening their understanding of fractions, decimals, and percentages. Students move beyond procedural fluency into conceptual reasoning, multi-step problem solving, and real-world applications across geometry, data, and finance.',
       keyConcepts: [
@@ -73,7 +73,7 @@ export default function Grades68Page() {
       ]
     },
     {
-      title: 'Grade 8 Math',
+      title: 'Grade 8 Math Program',
       icon: '📐',
       overview: 'Grade 8 math prepares students for high school by emphasizing algebraic fluency, linear relationships, and advanced problem-solving. Learners explore powers, square roots, scientific notation, and compound probability while applying math to real-world contexts like finance, measurement, and data analysis.',
       keyConcepts: [
@@ -144,61 +144,123 @@ export default function Grades68Page() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
-            {/* Main Content */}
-            <div className="text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Grades 6-8 Math
-              </h2>
-              
-              <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                Explore our math courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 6 to 8</span>. Each course is designed to empower students with <span className="font-semibold" style={{ color: '#30519d' }}>strong problem-solving, curriculum mastery</span>, <span className="font-semibold" style={{ color: '#30519d' }}>competition readiness</span> and <span className="font-semibold" style={{ color: '#30519d' }}>confidence for academic excellence and beyond</span>.
-              </p>
-              
-              {/* Simple Divider */}
-              <div className="flex justify-center mt-6">
-                <div className="w-16 h-px bg-gray-300"></div>
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              {/* Left Side - Main Content */}
+              <div>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Grades 6-8 Math Program
+                </h2>
+                
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Explore our math courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 6 to 8</span>. Each course is designed to empower students with <span className="font-semibold" style={{ color: '#30519d' }}>strong problem-solving, curriculum mastery</span>, <span className="font-semibold" style={{ color: '#30519d' }}>competition readiness</span> and <span className="font-semibold" style={{ color: '#30519d' }}>confidence for academic excellence and beyond</span>.
+                </p>
               </div>
+
+              {/* Right Side - Criteria Box */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 shadow-lg border border-blue-100">
+                <h4 className="text-xl font-bold text-gray-900 mb-6">
+                  Our Grade 6-8 Math Programs Features:
+                </h4>
+                <ul className="space-y-4">
+                  <li className="flex items-start text-gray-700">
+                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-base">Led by founders, not outside tutors</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-base">Online or at our Mississauga center</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-base">Affordable at $25/hour</span>
+                  </li>
+                  <li className="flex items-start text-gray-700">
+                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                    <span className="text-base">8 hours of interactive classes per month</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Book a Free Assessment Button */}
+            <div className="mt-8 text-center">
+              <Link href="/contact">
+                <motion.button
+                  className="text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-xl transition-all duration-300 hover:opacity-90"
+                  style={{ backgroundColor: '#30519d' }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(48, 81, 157, 0.3)" }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Book a Free Assessment
+                </motion.button>
+              </Link>
             </div>
           </div>
         </motion.div>
 
-        {/* Courses Cards - Compact */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12">
-          {courses.map((course, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-200 group text-center"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                delay: 0.4 + index * 0.1,
-                duration: 0.4
-              }}
-              whileHover={{ 
-                y: -2,
-                transition: { duration: 0.2 }
-              }}
-            >
-              {/* Round Picture - Compact */}
-              <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-3 sm:mb-4 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-                <div className="text-2xl sm:text-3xl lg:text-4xl">{course.icon}</div>
-              </div>
-
-              {/* Course Title - Compact */}
-              <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
-                {course.title}
+        {/* Page Title Section */}
+        <motion.div
+          className="mb-8 sm:mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+        >
+            <div className="text-center">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Programs For Middle-School Students
               </h3>
+            </div>
+        </motion.div>
 
-              {/* Learn More Button - Compact */}
-              <button
-                onClick={() => setSelectedCourse(course)}
-                className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 hover:opacity-90" style={{ backgroundColor: '#30519d' }}
+        {/* Course Cards Vertical Long Boxes */}
+        <motion.div
+          className="mb-8 sm:mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {courses.map((course, index) => (
+              <motion.div
+                key={course.title}
+                className="bg-gray-100 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-300 hover:border-blue-500 hover:shadow-xl transition-all duration-200 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ 
+                  delay: 0.4 + index * 0.1,
+                  duration: 0.4
+                }}
+                whileHover={{ 
+                  y: -2,
+                  transition: { duration: 0.2 }
+                }}
               >
-                Learn More
-              </button>
-            </motion.div>
-          ))}
-        </div>
+                {/* Course Icon */}
+                <div className="flex justify-center mb-4">
+                  {index === 0 && <PieChart className="w-12 h-12 text-blue-600" />}
+                  {index === 1 && <BarChart3 className="w-12 h-12 text-blue-600" />}
+                  {index === 2 && <TrendingUp className="w-12 h-12 text-blue-600" />}
+                </div>
+
+                {/* Course Title - Centered in middle */}
+                <div className="flex-grow flex items-center justify-center">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 text-center">
+                    {course.title}
+                  </h3>
+                </div>
+
+                {/* Learn More Button */}
+                <button
+                  onClick={() => setSelectedCourse(course)}
+                  className="w-full text-white px-4 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 hover:opacity-90 shadow-md" 
+                  style={{ backgroundColor: '#30519d' }}
+                >
+                  Learn More
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Call to Action - Compact */}
         <motion.div
@@ -216,8 +278,8 @@ export default function Grades68Page() {
               Our comprehensive approach prepares them for high school and competitions!
             </p>
             <Link href="/contact">
-              <button className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" style={{ backgroundColor: '#30519d' }}>
-                Enroll Now! 📝
+              <button className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" style={{ backgroundColor: '#30519d' }}>
+                Book a Free Assessment
               </button>
             </Link>
           </div>
@@ -308,8 +370,8 @@ export default function Grades68Page() {
                 {/* Contact Button - Compact */}
                 <div className="text-center pt-3 sm:pt-4 border-t border-gray-200">
                   <Link href="/contact">
-                    <button className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" style={{ backgroundColor: '#30519d' }}>
-                      Enroll Now! 📝
+                    <button className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" style={{ backgroundColor: '#30519d' }}>
+                      Book a Free Assessment
                     </button>
                   </Link>
                 </div>
