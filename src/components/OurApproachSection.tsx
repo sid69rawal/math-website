@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import FloatingElements from './FloatingElements';
 
 export default function OurApproachSection() {
   const approaches = [

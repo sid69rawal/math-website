@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, X, Calculator, BookOpen, GraduationCap, PieChart, BarChart3, TrendingUp, FunctionSquare, Atom, Zap, Layers3 } from 'lucide-react';
+import { ArrowLeft, X, Calculator, FunctionSquare, Atom, Zap, Layers3 } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
 import FloatingElements from '@/components/FloatingElements';

@@ -4,15 +4,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import FloatingElements from '@/components/FloatingElements';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CallToActionSection from '@/components/CallToActionSection';
 
 export default function ServicesPage() {
-  const [selectedGrade, setSelectedGrade] = useState('grades-3-5');
-  const [selectedGradeDetails, setSelectedGradeDetails] = useState(null);
+  const [selectedGradeDetails, setSelectedGradeDetails] = useState<{
+    id: string;
+    label: string;
+    title: string;
+    description: string;
+    learningOutcomes: string[];
+    classFormat: string[];
+    image: string;
+    link: string;
+  } | null>(null);
 
   const gradeCategories = [
     {
@@ -99,7 +106,6 @@ export default function ServicesPage() {
     }
   ];
 
-  const currentGrade = gradeCategories.find(grade => grade.id === selectedGrade) || gradeCategories[0];
 
   return (
     <div className="min-h-screen bg-gray-50">
