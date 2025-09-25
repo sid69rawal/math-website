@@ -84,7 +84,7 @@ export default function WhatWeOfferSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            🎁 What We Offer
+            What We Offer
           </h2>
           <p className="text-lg sm:text-xl font-bold text-gray-800">
             Comprehensive math education programs designed to help students excel at every level
@@ -95,7 +95,7 @@ export default function WhatWeOfferSection() {
           {offers.map((offer, index) => (
             <motion.div
               key={index}
-              className="bg-blue-50 p-6 sm:p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 group"
+              className="bg-blue-50 p-6 sm:p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-500 transition-all duration-300 group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -145,14 +145,14 @@ export default function WhatWeOfferSection() {
         >
           <Link href="/contact">
             <motion.div
-              className="inline-block text-white px-10 py-4 rounded-full font-semibold text-xl cursor-pointer transition-all duration-300 hover:opacity-90"
+              className="inline-block text-white px-10 py-4 rounded-lg font-semibold text-xl cursor-pointer transition-all duration-300 hover:opacity-90"
               style={{ backgroundColor: '#30519d' }}
               whileHover={{ 
                 scale: 1.05
               }}
               whileTap={{ scale: 0.98 }}
             >
-              Contact Us
+              Book a Free Assessment
             </motion.div>
           </Link>
         </motion.div>

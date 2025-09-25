@@ -151,7 +151,7 @@ export default function Grades68Page() {
               </h2>
               
               <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                Explore our math courses for <span className="font-semibold text-blue-600">Grades 6 to 8</span>. Each course is designed to empower students with <span className="font-semibold text-blue-600">strong problem-solving, curriculum mastery</span>, <span className="font-semibold text-blue-600">competition readiness</span> and <span className="font-semibold text-blue-600">confidence for academic excellence and beyond</span>.
+                Explore our math courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 6 to 8</span>. Each course is designed to empower students with <span className="font-semibold" style={{ color: '#30519d' }}>strong problem-solving, curriculum mastery</span>, <span className="font-semibold" style={{ color: '#30519d' }}>competition readiness</span> and <span className="font-semibold" style={{ color: '#30519d' }}>confidence for academic excellence and beyond</span>.
               </p>
               
               {/* Simple Divider */}

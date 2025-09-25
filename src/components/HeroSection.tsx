@@ -39,7 +39,7 @@ function AnimatedCounter({ end, duration = 2, suffix = "" }: { end: number, dura
       transition={{ duration: 0.6, type: "spring", bounce: 0.6 }}
       onViewportEnter={() => setIsVisible(true)}
     >
-      <span className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+      <span className="text-3xl md:text-4xl font-bold" style={{ color: '#30519d' }}>
         {count.toLocaleString()}{suffix}
       </span>
     </motion.div>
@@ -51,9 +51,9 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative bg-white py-16 lg:py-24"
+      className="relative py-16 lg:py-24"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -72,17 +72,17 @@ export default function HeroSection() {
             >
               Welcome to
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent whitespace-nowrap text-3xl sm:text-4xl lg:text-5xl">Level Up Math Academy</span>
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-bold whitespace-nowrap" style={{ color: '#30519d' }}>Level Up Math Academy</span>
             </motion.h1>
             
             <motion.p 
-              className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed"
+              className="text-base sm:text-lg text-gray-800 mb-6 sm:mb-8 leading-relaxed"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
               A one of a kind math learning center in{' '}
-              <span className="text-blue-600 font-semibold">Mississauga</span>{' '}
+              <span>Mississauga</span>{' '}
               offering all the programs both{' '}
               <span className="text-blue-600 font-semibold">in-person</span> and{' '}
               <span className="text-blue-600 font-semibold">online!</span>
@@ -96,7 +96,7 @@ export default function HeroSection() {
             >
               <Link href="/services" className="w-full sm:w-auto">
                 <motion.div
-                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center hover:opacity-90"
+                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-lg transition-all duration-300 cursor-pointer text-center hover:opacity-90"
                   style={{ backgroundColor: '#30519d' }}
                   whileHover={{ 
                     scale: 1.05, 
@@ -107,12 +107,12 @@ export default function HeroSection() {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.9, duration: 0.4, type: "spring", bounce: 0.6 }}
                 >
-                  View Services 📚
+                  View Services
                 </motion.div>
               </Link>
               <Link href="/contact" className="w-full sm:w-auto">
                 <motion.div
-                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center hover:opacity-90"
+                  className="w-full inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-lg transition-all duration-300 cursor-pointer text-center hover:opacity-90"
                   style={{ backgroundColor: '#30519d' }}
                   whileHover={{ 
                     scale: 1.05, 
@@ -123,14 +123,14 @@ export default function HeroSection() {
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 1.1, duration: 0.4, type: "spring", bounce: 0.6 }}
                 >
-                  Contact Us 🚀
+                  Book a Free Assessment
                 </motion.div>
               </Link>
             </motion.div>
 
             {/* Animated Stats Cards */}
             <motion.div 
-              className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-8 sm:mt-12"
+              className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-8 sm:mt-12"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3, duration: 0.8 }}
@@ -170,22 +170,10 @@ export default function HeroSection() {
                 }}
                 transition={{ type: "spring", bounce: 0.6 }}
               >
-                <AnimatedCounter end={5} suffix="+" />
+                <AnimatedCounter end={20} suffix="+" />
                 <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Years Experience</p>
               </motion.div>
 
-              <motion.div 
-                className="text-center p-3 sm:p-4 bg-white/70 backdrop-blur-sm rounded-2xl shadow-lg border border-blue-100"
-                whileHover={{ 
-                  scale: 1.05, 
-                  boxShadow: "0 20px 40px rgba(20, 184, 166, 0.2)",
-                  y: -5 
-                }}
-                transition={{ type: "spring", bounce: 0.6 }}
-              >
-                <AnimatedCounter end={24} suffix="/7" />
-                <p className="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Online Support</p>
-              </motion.div>
             </motion.div>
           </motion.div>
 
@@ -198,90 +186,21 @@ export default function HeroSection() {
           >
             {/* Hero Image */}
             <motion.div
-              className="relative rounded-2xl overflow-hidden shadow-xl"
+              className="relative"
               initial={{ scale: 0.8, opacity: 0, y: 50 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8, type: "spring", bounce: 0.4 }}
-              whileHover={{ 
-                scale: 1.02, 
-                boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
-                transition: { duration: 0.3 }
-              }}
             >
               <Image
-                src="/hero_img.jpeg"
+                src="/hero_img.png"
                 alt="Level Up Math Academy - Professional Math Learning"
-                width={600}
-                height={400}
-                className="w-full h-80 object-cover rounded-2xl"
+                width={800}
+                height={700}
+                className="w-full h-[32rem] object-contain"
                 priority
               />
-              {/* Optional overlay for better text contrast if needed */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"></div>
             </motion.div>
 
-            {/* Floating Achievement Badges - Mobile Responsive */}
-            <motion.div
-              className="absolute top-1 left-1 sm:-top-6 sm:-left-6 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold z-10"
-              style={{ backgroundColor: '#30519d' }}
-              initial={{ opacity: 0, scale: 0, rotate: -15 }}
-              animate={{ opacity: 1, scale: 1, rotate: -15 }}
-              transition={{ delay: 1.2, duration: 0.6, type: "spring", bounce: 0.7 }}
-              whileHover={{ 
-                scale: 1.1, 
-                rotate: -5,
-                boxShadow: "0 10px 30px rgba(147, 51, 234, 0.4)"
-              }}
-            >
-              <span className="hidden sm:inline">🏆 Top Rated</span>
-              <span className="sm:hidden">🏆</span>
-            </motion.div>
-
-            <motion.div
-              className="absolute top-1 right-1 sm:-top-4 sm:-right-8 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold z-10"
-              style={{ backgroundColor: '#30519d' }}
-              initial={{ opacity: 0, scale: 0, rotate: 15 }}
-              animate={{ opacity: 1, scale: 1, rotate: 15 }}
-              transition={{ delay: 1.4, duration: 0.6, type: "spring", bounce: 0.7 }}
-              whileHover={{ 
-                scale: 1.1, 
-                rotate: 5,
-                boxShadow: "0 10px 30px rgba(249, 115, 22, 0.4)"
-              }}
-            >
-              <span className="hidden sm:inline">⭐ 5-Star Reviews</span>
-              <span className="sm:hidden">⭐</span>
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-1 left-1 sm:-bottom-6 sm:-left-4 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg text-xs sm:text-sm font-bold z-10"
-              style={{ backgroundColor: '#30519d' }}
-              initial={{ opacity: 0, scale: 0, rotate: -10 }}
-              animate={{ opacity: 1, scale: 1, rotate: -10 }}
-              transition={{ delay: 1.6, duration: 0.6, type: "spring", bounce: 0.7 }}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.2 }
-              }}
-            >
-              <span className="hidden sm:inline">🎯 Results Guaranteed</span>
-              <span className="sm:hidden">🎯</span>
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-1 right-1 sm:-bottom-4 sm:-right-6 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold z-10"
-              style={{ backgroundColor: '#30519d' }}
-              initial={{ opacity: 0, scale: 0, rotate: 12 }}
-              animate={{ opacity: 1, scale: 1, rotate: 12 }}
-              transition={{ delay: 1.8, duration: 0.6, type: "spring", bounce: 0.7 }}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.2 }
-              }}
-            >
-              <span className="hidden sm:inline">🚀 Fast Progress</span>
-              <span className="sm:hidden">🚀</span>
-            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -291,9 +210,9 @@ export default function HeroSection() {
         {/* Generate optimized floating math symbols */}
         {Array.from({ length: 18 }).map((_, index) => {
           const symbols = [
-            '∫', 'π', '∑', '√', 'α', 'β', '∆', '∞', 'θ', 'λ', 'μ', 'σ', 'φ', 'ψ', 'ω', 'γ', 'δ', 'ε', 'ζ', 'η',
-            '∂', '∇', '∈', '∉', '⊂', '⊃', '∪', '∩', '≠', '≤', '≥', '≈', '≡', '±', '∓', '×', '÷', '∝', '∴', '∵',
-            '∀', '∃', '¬', '∧', '∨', '⟨', '⟩', '⌊', '⌋', '⌈', '⌉', '∘'
+            '+', '-', '×', '÷', '=', '≠', '<', '>', '≤', '≥', '±', '≈', '√', '²', '³', 'π', '∞',
+            'f(x)', 'g(x)', 'h(x)', 'y =', 'x²', 'x³', 'x⁴', 'log', 'sin', 'cos', 'tan', '∫', '∑',
+            'α', 'β', 'γ', 'δ', 'θ', 'λ', 'μ', 'σ', 'φ', 'ψ', 'ω', '∆', '∇', '∈', '∉', '∪', '∩'
           ];
           
           const colors = [
@@ -368,7 +287,7 @@ export default function HeroSection() {
             times: [0, 0.25, 0.5, 0.75, 1],
           }}
         >
-          ∫
+          +
         </motion.div>
         
         <motion.div
@@ -388,7 +307,7 @@ export default function HeroSection() {
             times: [0, 0.25, 0.5, 0.75, 1],
           }}
         >
-          π
+          ×
         </motion.div>
         
         <motion.div
@@ -408,7 +327,7 @@ export default function HeroSection() {
             times: [0, 0.25, 0.5, 0.75, 1],
           }}
         >
-          ∑
+          =
         </motion.div>
         
         <motion.div
@@ -428,7 +347,7 @@ export default function HeroSection() {
             times: [0, 0.25, 0.5, 0.75, 1],
           }}
         >
-          √
+          ÷
         </motion.div>
       </div>
     </section>

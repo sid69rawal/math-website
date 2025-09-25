@@ -209,7 +209,7 @@ export default function Grades912Page() {
               </h2>
               
               <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                Explore our math courses for <span className="font-semibold text-blue-600">Grades 9 to 12</span>. Each course is designed to prepare students for <span className="font-semibold text-blue-600">advanced math, competitions and university</span> by building <span className="font-semibold text-blue-600">strong foundations, mastering senior level concepts</span> and developing <span className="font-semibold text-blue-600">confidence, problem-solving and critical thinking skills</span>.
+                Explore our math courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 9 to 12</span>. Each course is designed to prepare students for <span className="font-semibold" style={{ color: '#30519d' }}>advanced math, competitions and university</span> by building <span className="font-semibold" style={{ color: '#30519d' }}>strong foundations, mastering senior level concepts</span> and developing <span className="font-semibold" style={{ color: '#30519d' }}>confidence, problem-solving and critical thinking skills</span>.
               </p>
               
               {/* Simple Divider */}

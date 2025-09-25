@@ -37,7 +37,7 @@ function Ticker({ messages = [] as string[], cycleDuration = 8 }) {
         initial={{ x: '100%' }}            // start fully off-screen right
         animate={{ x: '-100%' }}           // move to fully off-screen left
         transition={{ duration: cycleDuration, ease: 'linear' }}
-        className="inline-block whitespace-nowrap font-medium text-xs sm:text-sm"
+        className="inline-block whitespace-nowrap font-medium text-sm sm:text-base"
         // keep the text visually centered vertically if you add height to container
         style={{ display: 'inline-block' }}
       >
@@ -68,12 +68,12 @@ export default function Header() {
         {/* Static Ribbon - REPLACE THIS ENTIRE BLOCK */}
         <div className="text-white py-2 sm:py-3" style={{ backgroundColor: '#30519d' }}>
           <div className="max-w-7xl mx-auto px-3 sm:px-4">
-            <div className="flex flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+            <div className="flex flex-row items-center justify-between gap-3 text-base sm:text-lg">
               {/* Contacts - always show values but truncate on very narrow screens */}
               <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0 order-1">
                 <a
                   href={`mailto:${email}`}
-                  className="flex items-center space-x-1 text-xs whitespace-nowrap"
+                  className="flex items-center space-x-1 text-sm sm:text-base whitespace-nowrap"
                   aria-label={`Email ${email}`}
                 >
                   <span>📧</span>
@@ -82,7 +82,7 @@ export default function Header() {
 
                 <a
                   href={`tel:${phone}`}
-                  className="flex items-center space-x-1 text-xs whitespace-nowrap"
+                  className="flex items-center space-x-1 text-sm sm:text-base whitespace-nowrap"
                   aria-label={`Phone ${phone}`}
                 >
                   <span>📞</span>
@@ -106,7 +106,7 @@ export default function Header() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="max-w-7xl mx-auto pl-6 pr-4 py-4">
             <div className="flex justify-between items-center">
               {/* Logo */}
               <Link href="/">
@@ -125,7 +125,7 @@ export default function Header() {
               </Link>
               
               {/* Desktop Navigation Menu */}
-              <div className="hidden lg:flex items-center space-x-8">
+              <div className="hidden lg:flex items-center space-x-12">
                 {/* Home Link */}
                 <Link href="/">
                   <motion.a
@@ -231,7 +231,7 @@ export default function Header() {
                 
                 <Link href="/contact">
                   <motion.button
-                    className="text-white px-6 py-2.5 rounded-full font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
+                    className="text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
                     style={{ backgroundColor: '#30519d' }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
@@ -375,7 +375,7 @@ export default function Header() {
                 
                 <Link href="/contact">
                   <motion.button
-                    className="w-full text-white px-4 py-3 rounded-full font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
+                    className="w-full text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
                     style={{ backgroundColor: '#30519d' }}
                     onClick={() => setMobileMenuOpen(false)}
                     whileHover={{ scale: 1.02 }}

@@ -80,95 +80,100 @@ export default function Footer() {
           >
             <h4 className="text-white font-bold text-2xl mb-6">Quick Links</h4>
             
-            {/* Courses Sub-section */}
-            <div className="mb-6">
-              <h5 className="text-white font-semibold text-xl mb-3">Courses</h5>
-              <ul className="space-y-2 ml-4">
-                <motion.li
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                >
-                  <Link href="/courses/grades-3-5">
-                    <motion.div
-                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
-                      whileHover={{ x: 5 }}
-                    >
-                      Grades 3-5
-                    </motion.div>
-                  </Link>
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                >
-                  <Link href="/courses/grades-6-8">
-                    <motion.div
-                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
-                      whileHover={{ x: 5 }}
-                    >
-                      Grades 6-8
-                    </motion.div>
-                  </Link>
-                </motion.li>
-                <motion.li
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5, duration: 0.5 }}
-                >
-                  <Link href="/courses/grades-9-12">
-                    <motion.div
-                      className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
-                      whileHover={{ x: 5 }}
-                    >
-                      Grades 9-12
-                    </motion.div>
-                  </Link>
-                </motion.li>
-              </ul>
-            </div>
-
-            {/* Other Links */}
-            <div>
-              <h5 className="text-white font-semibold text-xl mb-3">General</h5>
-              <ul className="space-y-2 ml-4">
-                {[
-                  { name: "Our Services", href: "/services" },
-                  { name: "About Us", href: "/about" },
-                  { name: "Contact Us", href: "/contact" }
-                ].map((link, index) => (
+            {/* Two Column Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              
+              {/* Courses Column */}
+              <div>
+                <h5 className="text-white font-semibold text-xl mb-3">Courses</h5>
+                <ul className="space-y-2 ml-4">
                   <motion.li
-                    key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + (index * 0.1), duration: 0.5 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
                   >
-                    {link.href.startsWith('/') ? (
-                      <Link href={link.href}>
-                        <motion.div
-                          className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
+                    <Link href="/courses/grades-3-5">
+                      <motion.div
+                        className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
+                        whileHover={{ x: 5 }}
+                      >
+                        Grades 3-5
+                      </motion.div>
+                    </Link>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  >
+                    <Link href="/courses/grades-6-8">
+                      <motion.div
+                        className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
+                        whileHover={{ x: 5 }}
+                      >
+                        Grades 6-8
+                      </motion.div>
+                    </Link>
+                  </motion.li>
+                  <motion.li
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                  >
+                    <Link href="/courses/grades-9-12">
+                      <motion.div
+                        className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
+                        whileHover={{ x: 5 }}
+                      >
+                        Grades 9-12
+                      </motion.div>
+                    </Link>
+                  </motion.li>
+                </ul>
+              </div>
+
+              {/* General Column */}
+              <div>
+                <h5 className="text-white font-semibold text-xl mb-3">General</h5>
+                <ul className="space-y-2 ml-4">
+                  {[
+                    { name: "Home", href: "/" },
+                    { name: "Our Services", href: "/services" },
+                    { name: "About Us", href: "/about" },
+                    { name: "Contact Us", href: "/contact" }
+                  ].map((link, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.6 + (index * 0.1), duration: 0.5 }}
+                    >
+                      {link.href.startsWith('/') ? (
+                        <Link href={link.href}>
+                          <motion.div
+                            className="text-gray-300 hover:text-white transition-colors duration-300 cursor-pointer inline-block text-lg"
+                            whileHover={{ x: 5 }}
+                          >
+                            {link.name}
+                          </motion.div>
+                        </Link>
+                      ) : (
+                        <motion.a
+                          href={link.href}
+                          className="text-gray-300 hover:text-white transition-colors duration-300 inline-block text-lg"
                           whileHover={{ x: 5 }}
                         >
                           {link.name}
-                        </motion.div>
-                      </Link>
-                    ) : (
-                      <motion.a
-                        href={link.href}
-                        className="text-gray-300 hover:text-white transition-colors duration-300 inline-block text-lg"
-                        whileHover={{ x: 5 }}
-                      >
-                        {link.name}
-                      </motion.a>
-                    )}
-                  </motion.li>
-                ))}
-              </ul>
+                        </motion.a>
+                      )}
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right Side - Contact Info */}
+          {/* Right Side - Contact Info & Map */}
           <motion.div
             className="text-center md:text-left"
             initial={{ opacity: 0, y: 30 }}
@@ -176,7 +181,9 @@ export default function Footer() {
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <h4 className="text-white font-bold text-2xl mb-6">Contact Info</h4>
-            <div className="space-y-6">
+            
+            {/* Contact Info with Icons and Values */}
+            <div className="space-y-4 mb-8">
               
               {/* Email */}
               <motion.div
@@ -186,15 +193,12 @@ export default function Footer() {
                 <div className="bg-blue-600 p-2 rounded-lg flex-shrink-0">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
-                <div className="min-w-0">
-                  <p className="text-gray-400 text-base mb-1">Email</p>
-                  <a 
-                    href={`mailto:${contactConfig.email}`}
-                    className="text-white hover:text-blue-400 transition-colors break-all text-lg"
-                  >
-                    {contactConfig.email}
-                  </a>
-                </div>
+                <a 
+                  href={`mailto:${contactConfig.email}`}
+                  className="text-white hover:text-blue-400 transition-colors break-all text-lg"
+                >
+                  {contactConfig.email}
+                </a>
               </motion.div>
 
               {/* Phone */}
@@ -202,18 +206,15 @@ export default function Footer() {
                 className="flex items-center justify-center md:justify-start space-x-3"
                 whileHover={{ x: 5 }}
               >
-                <div className="bg-blue-600 p-2 rounded-lg flex-shrink-0">
+                <div className="bg-green-600 p-2 rounded-lg flex-shrink-0">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
-                <div className="min-w-0">
-                  <p className="text-gray-400 text-base mb-1">Phone</p>
-                  <a 
-                    href={`tel:${contactConfig.phoneLink}`}
-                    className="text-white hover:text-blue-400 transition-colors text-lg"
-                  >
-                    {contactConfig.phone}
-                  </a>
-                </div>
+                <a 
+                  href={`tel:${contactConfig.phoneLink}`}
+                  className="text-white hover:text-green-400 transition-colors text-lg"
+                >
+                  {contactConfig.phone}
+                </a>
               </motion.div>
 
               {/* Address */}
@@ -224,14 +225,36 @@ export default function Footer() {
                 <div className="bg-purple-600 p-2 rounded-lg flex-shrink-0 mt-1">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
-                <div className="min-w-0">
-                  <p className="text-gray-400 text-base mb-1">Address</p>
-                  <p className="text-white leading-relaxed whitespace-pre-line text-lg">
-                    {contactConfig.address.full}
-                  </p>
-                </div>
+                <a
+                  href={`https://maps.google.com/?q=${encodeURIComponent(contactConfig.address.full)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-purple-400 transition-colors leading-relaxed whitespace-pre-line text-lg"
+                >
+                  {contactConfig.address.full}
+                </a>
               </motion.div>
             </div>
+
+            {/* Google Maps Embed */}
+            <motion.div
+              className="w-full h-64 rounded-lg overflow-hidden shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dOWWg0F0q8x8&q=${encodeURIComponent(contactConfig.address.full)}`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Level Up Math Academy Location"
+                className="w-full h-full"
+              />
+            </motion.div>
           </motion.div>
         </div>
 

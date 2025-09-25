@@ -165,7 +165,7 @@ export default function Grades35Page() {
               </h2>
               
               <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                Explore our math courses for <span className="font-semibold text-blue-600">Grades 3 to 5</span>. Each course is designed to help students build <span className="font-semibold text-blue-600">strong math foundations</span> that develop <span className="font-semibold text-blue-600">fluency, problem-solving, mental math skills</span> and <span className="font-semibold text-blue-600">confidence for long-term success</span>.
+                Explore our math courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 3 to 5</span>. Each course is designed to help students build <span className="font-semibold" style={{ color: '#30519d' }}>strong math foundations</span> that develop <span className="font-semibold" style={{ color: '#30519d' }}>fluency, problem-solving, mental math skills</span> and <span className="font-semibold" style={{ color: '#30519d' }}>confidence for long-term success</span>.
               </p>
               
               {/* Simple Divider */}

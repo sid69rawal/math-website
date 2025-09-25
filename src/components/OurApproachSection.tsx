@@ -8,13 +8,13 @@ export default function OurApproachSection() {
   const approaches = [
     {
       title: "Concept-First Teaching",
-      description: "Master the why behind math for lasting understanding.",
+      description: "Master the why behind math for lasting understanding",
       icon: "🧠",
       color: "from-blue-400 to-indigo-600"
     },
     {
       title: "Personalized Learning Plans",
-      description: "A learning journey tailored to your child's strengths and goals.",
+      description: "A learning journey tailored to your child's strengths and goals",
       icon: "🎯",
       color: "from-purple-400 to-pink-600"
     },
@@ -45,77 +45,117 @@ export default function OurApproachSection() {
   ];
 
   return (
-    <section id="our-approach" className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      <FloatingElements 
-        elements={['🧠', '⚡', '🎯', '🤝', '🌟', '📋']}
-        count={6}
-        size="lg"
-        colors={['text-purple-100', 'text-pink-100', 'text-orange-100', 'text-blue-100']}
-      />
+    <section id="our-approach" className="relative py-16 lg:py-24 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            🧠 Our Unique Math Approach
-          </motion.h2>
-          <motion.p
-            className="text-lg sm:text-xl font-bold text-gray-800"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
-            Building strong minds through smarter math learning.
-          </motion.p>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {approaches.map((approach, index) => (
-            <motion.div
-              key={index}
-              className="group relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05, duration: 0.5 }}
-            >
-              {/* Background Card */}
-                <div className="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8 lg:p-12 h-full shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                {/* Subtle Background Overlay */}
-                <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"></div>
-                
-                {/* Icon */}
-                <div className="text-center mb-8">
-                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl text-5xl mb-6 shadow-md group-hover:scale-105 transition-transform duration-300 ${
-                    approach.icon === "👍" 
-                      ? "bg-gradient-to-br from-orange-400 to-orange-500" 
-                      : "bg-gradient-to-br from-blue-100 to-cyan-100"
-                  }`}>
-                    {approach.icon}
+        <div className="flex flex-col items-center gap-8">
+          {/* Steps 1-3 */}
+          <div className="w-full space-y-6">
+            {approaches.slice(0, 3).map((approach, index) => {
+              // Create ladder pattern for first 3 steps: 0=far left, 1=little right, 2=more right
+              const positions = ['ml-0', 'ml-12', 'ml-24'];
+              const maxWidths = ['max-w-lg', 'max-w-lg', 'max-w-lg'];
+              
+              return (
+                <motion.div
+                  key={index}
+                  className={`flex items-center gap-6 p-6 rounded-2xl ${
+                    index % 2 === 0 
+                      ? 'bg-gray-100' 
+                      : 'bg-blue-50'
+                  } ${positions[index]} ${maxWidths[index]}`}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ 
+                    delay: index * 0.1, 
+                    duration: 0.6 
+                  }}
+                  whileHover={{ 
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {/* Icon */}
+                  <div className="flex-shrink-0">
+                    <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center text-3xl shadow-md">
+                      {approach.icon}
+                    </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="relative z-10 text-center">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 leading-tight">
-                    {approach.title}
-                  </h3>
-                  <p className="text-base font-medium text-gray-800 leading-relaxed whitespace-nowrap">
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      {approach.title}
+                    </h3>
+                  <p className="text-lg text-gray-700 font-medium leading-relaxed whitespace-nowrap">
                     {approach.description}
                   </p>
-                </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
-                {/* Bottom Accent Line */}
-                <div className="absolute bottom-0 left-0 h-1 bg-blue-200 rounded-b-2xl w-full" />
+          {/* Circular Title - Between Steps 3 and 4 */}
+          <motion.div
+            className="flex-shrink-0"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full flex items-center justify-center text-center px-8" style={{ backgroundColor: '#30519d' }}>
+              <h2 className="text-white text-3xl lg:text-4xl font-bold leading-tight">
+                Our Unique<br />Math<br />Approach
+              </h2>
+            </div>
+          </motion.div>
 
-                {/* Decorative Elements */}
-                <div className="absolute top-4 right-4 w-8 h-8 border-2 border-gray-100 rounded-full opacity-50"></div>
-                <div className="absolute bottom-4 left-4 w-6 h-6 border-2 border-gray-100 rounded-full opacity-30"></div>
-              </div>
-            </motion.div>
-          ))}
+          {/* Steps 4-6 */}
+          <div className="w-full space-y-6">
+            {approaches.slice(3, 6).map((approach, index) => {
+              // Create ladder pattern for last 3 steps: 3=center, 4=little left, 5=far left
+              const positions = ['ml-36', 'ml-24', 'ml-12'];
+              const maxWidths = ['max-w-lg', 'max-w-lg', 'max-w-lg'];
+              const actualIndex = index + 3; // Adjust for slice offset
+              
+              return (
+                <motion.div
+                  key={actualIndex}
+                  className={`flex items-center gap-6 p-6 rounded-2xl ${
+                    actualIndex % 2 === 0 
+                      ? 'bg-gray-100' 
+                      : 'bg-blue-50'
+                  } ${positions[index]} ${maxWidths[index]}`}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ 
+                    delay: (actualIndex + 0.5) * 0.1, 
+                    duration: 0.6 
+                  }}
+                  whileHover={{ 
+                    scale: 1.02,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  {/* Icon */}
+                  <div className="flex-shrink-0">
+                    <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center text-3xl shadow-md">
+                      {approach.icon}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      {approach.title}
+                    </h3>
+                  <p className="text-lg text-gray-700 font-medium leading-relaxed whitespace-nowrap">
+                    {approach.description}
+                  </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Bottom Call to Action */}
@@ -131,12 +171,12 @@ export default function OurApproachSection() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            Ready to experience the Level Up Math Academy difference?
+            👍 Ready to experience the Level Up Math Academy difference?
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/services">
               <motion.div
-                className="inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center hover:opacity-90"
+                className="inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-lg transition-all duration-300 cursor-pointer text-center hover:opacity-90"
                 style={{ backgroundColor: '#30519d' }}
                 whileHover={{
                   scale: 1.05,
@@ -144,12 +184,12 @@ export default function OurApproachSection() {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                View Services 📚
+                View Services
               </motion.div>
             </Link>
             <Link href="/contact">
               <motion.div
-                className="inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer text-center hover:opacity-90"
+                className="inline-flex items-center justify-center px-6 py-4 sm:px-8 text-white font-semibold rounded-lg transition-all duration-300 cursor-pointer text-center hover:opacity-90"
                 style={{ backgroundColor: '#30519d' }}
                 whileHover={{
                   scale: 1.05,
@@ -157,7 +197,7 @@ export default function OurApproachSection() {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Contact Us
+                Book a Free Assessment
               </motion.div>
             </Link>
           </div>

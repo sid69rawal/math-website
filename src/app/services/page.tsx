@@ -32,7 +32,7 @@ export default function ServicesPage() {
         'Encouraging atmosphere where every child feels motivated to succeed',
         'Reinforce learning with daily practice sheets designed for fun and skill-building'
       ],
-      image: '/hero_img.jpeg',
+      image: '/hero_img.png',
       link: '/courses/grades-3-5'
     },
     {
@@ -73,7 +73,7 @@ export default function ServicesPage() {
         'Interactive, student-centered, and engaging lessons',
         'Smart practice system with daily problem sets and curated worksheets'
       ],
-      image: '/hero_img.jpeg',
+      image: '/hero_img.png',
       link: '/courses/grades-9-12'
     },
     {
@@ -150,7 +150,7 @@ export default function ServicesPage() {
               </h2>
               
               <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                At <span className="font-semibold text-blue-600">Level Up Math Academy</span>, our curriculum is carefully designed for students from <span className="font-semibold text-blue-600">Grade 3 to Grade 12</span>, providing a <span className="font-semibold text-blue-600">customized learning experience</span> tailored to each student&apos;s unique abilities and pace. Our innovative and interactive programs make math <span className="font-semibold text-blue-600">enjoyable and engaging</span>, fostering academic excellence and lifelong confidence in mathematics.
+                At <span className="font-semibold" style={{ color: '#30519d' }}>Level Up Math Academy</span>, our curriculum is carefully designed for students from <span className="font-semibold" style={{ color: '#30519d' }}>Grade 3 to Grade 12</span>, providing a <span className="font-semibold" style={{ color: '#30519d' }}>customized learning experience</span> tailored to each student&apos;s unique abilities and pace. Our innovative and interactive programs make math <span className="font-semibold" style={{ color: '#30519d' }}>enjoyable and engaging</span>, fostering academic excellence and lifelong confidence in mathematics.
               </p>
               
               {/* Simple Divider */}
