@@ -22,7 +22,7 @@ export default function Footer() {
             {/* Logo and Brand */}
             <div className="flex items-center justify-center md:justify-start space-x-3 mb-6">
               <Image
-                src="/logo.png"
+                src="/logo1.png"
                 alt="Level Up Math Academy Logo"
                 width={90}
                 height={90}

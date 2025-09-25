@@ -1,9 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft, Users, Target, Brain, BookOpen, MessageCircle, Star, Award, Lightbulb, Heart, Zap } from 'lucide-react';
+import { Users, Target, Brain, BookOpen, MessageCircle, Star, Award, Lightbulb, Heart, Zap } from 'lucide-react';
 import Link from 'next/link';
-import FloatingElements from '@/components/FloatingElements';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CallToActionSection from '@/components/CallToActionSection';
@@ -83,156 +82,126 @@ export default function AboutPage() {
       {/* Header with Navigation */}
       <Header />
 
-      {/* Back to Home Button */}
+
+
+      {/* Section 1 - Our Mission - Full Screen */}
       <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-4 pt-6"
-        initial={{ opacity: 0, y: -20 }}
+        className="w-full"
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
       >
-        <Link href="/" className="inline-block">
-          <motion.button
-            className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer"
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Home</span>
-          </motion.button>
-        </Link>
-      </motion.div>
-
-      {/* Floating Math Symbols Background */}
-      <FloatingElements 
-        elements={['💡', '👥', '🚀', '🧠', '🎯', '⭐', '💪', '🌟', '📚', '🎓']}
-        count={15}
-        size="lg"
-        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
-      />
-
-      {/* Main Content Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-
-        {/* Section 1 - Our Mission */}
-        <motion.div
-          className="mb-16 sm:mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-3xl p-8 sm:p-12 lg:p-16 shadow-xl border border-blue-100 overflow-hidden">
+        <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 w-full py-16 sm:py-20 lg:py-24 overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-cyan-200 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-orange-200 rounded-full blur-2xl opacity-15"></div>
             
-            {/* Floating Mission Icons */}
-            <motion.div
-              className="absolute top-8 left-8 text-blue-300 text-3xl"
-              animate={{ 
-                y: [0, -15, 0],
-                rotate: [0, 8, 0]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              💡
-            </motion.div>
-            <motion.div
-              className="absolute top-16 right-12 text-cyan-300 text-2xl"
-              animate={{ 
-                y: [0, 12, 0],
-                rotate: [0, -5, 0]
-              }}
-              transition={{ 
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1
-              }}
-            >
-              🎯
-            </motion.div>
-            <motion.div
-              className="absolute bottom-12 left-12 text-orange-300 text-2xl"
-              animate={{ 
-                y: [0, -10, 0],
-                rotate: [0, 6, 0]
-              }}
-              transition={{ 
-                duration: 4.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 2
-              }}
-            >
-              🌟
-            </motion.div>
             
-            {/* Main Content */}
-            <div className="relative z-10 text-center">
+            {/* Main Content - Two Column Layout */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
+              {/* Centered Mission Title */}
+              <div className="text-center mb-12">
               <motion.div
-                className="inline-flex items-center space-x-4 mb-8"
+                  className="mb-6"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
-                  <Lightbulb className="w-8 h-8 text-white" />
-                </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black">
                   Our Mission
                 </h1>
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-white" />
+                </motion.div>
                 </div>
-              </motion.div>
+              
+              <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+                {/* Left Side - Mission Content */}
+                <div className="lg:col-span-2">
               
               <motion.div
-                className="max-w-5xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-blue-100">
-                  <p className="text-lg sm:text-xl text-gray-800 leading-relaxed mb-6 font-medium">
-                    At <span className="font-bold text-blue-700">Level Up Math Academy</span>, we believe mathematics is more than numbers—it&apos;s a <span className="font-bold text-blue-700">gateway to logical thinking, creativity, and lifelong confidence</span>. Our mission is to help students not only <span className="font-bold text-blue-700">excel in mathematics</span> but also develop a mindset that <span className="font-bold text-blue-700">embraces challenges, celebrates curiosity, and builds resilience</span>.
-                  </p>
-                  <p className="text-lg sm:text-xl text-gray-800 leading-relaxed mb-6 font-medium">
-                    Whether online or in our <span className="font-bold text-blue-700">Mississauga learning center</span>, we offer <span className="font-bold text-blue-700">personalized, curriculum-aligned tutoring</span> that empowers learners from <span className="font-bold text-blue-700">Grades 3 to 12</span> to thrive academically and beyond.
-                  </p>
-                  <p className="text-lg sm:text-xl text-gray-800 leading-relaxed font-medium">
-                    We&apos;re not just tutors—we&apos;re <span className="font-bold text-blue-700">mentors, motivators, and lifelong learners</span> who are passionate about teaching, learning, and inspiring the next generation of mathematical thinkers.
-                  </p>
+                    <p className="text-xl sm:text-2xl text-gray-800 leading-relaxed mb-6 font-medium">
+                      At <span className="font-bold" style={{ color: '#30519d' }}>Level Up Math Academy</span>, we believe mathematics is more than numbers—it&apos;s a gateway to logical thinking, creativity, and lifelong confidence. Our mission is to help students excel in mathematics and develop a mindset that embraces challenges, celebrates curiosity, and builds resilience.
+                    </p>
+                    <p className="text-xl sm:text-2xl text-gray-800 leading-relaxed mb-6 font-medium">
+                      Whether online or in our Mississauga learning center, we offer personalized, curriculum-aligned tutoring that empowers learners from Grades 3 to 12 to thrive academically and beyond.
+                    </p>
+                    <p className="text-xl sm:text-2xl text-gray-800 leading-relaxed font-medium">
+                      We&apos;re not just tutors—we&apos;re mentors, motivators, and lifelong learners who are passionate about teaching, learning, and inspiring the next generation of mathematical thinkers.
+                    </p>
+                  </motion.div>
+                </div>
+
+                {/* Right Side - Criteria Box */}
+                <motion.div
+                  className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-10 shadow-lg border border-blue-100 mt-8"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                >
+                  <h4 className="text-2xl font-bold text-gray-900 mb-8">
+                    Why Choose Level Up Math Academy?
+                  </h4>
+                  <ul className="space-y-6">
+                    <li className="flex items-start text-gray-700">
+                      <span className="w-4 h-4 rounded-full mr-5 mt-1 flex-shrink-0" style={{ backgroundColor: '#30519d' }} />
+                      <span className="text-lg font-medium">Expert-Led, Not Outsourced</span>
+                    </li>
+                    <li className="flex items-start text-gray-700">
+                      <span className="w-4 h-4 rounded-full mr-5 mt-1 flex-shrink-0" style={{ backgroundColor: '#30519d' }} />
+                      <span className="text-lg font-medium">Small Groups, Strong Foundations</span>
+                    </li>
+                    <li className="flex items-start text-gray-700">
+                      <span className="w-4 h-4 rounded-full mr-5 mt-1 flex-shrink-0" style={{ backgroundColor: '#30519d' }} />
+                      <span className="text-lg font-medium">Affordable Coaching, Guaranteed Improvement</span>
+                    </li>
+                  </ul>
+                  
+                  {/* Book a Free Assessment Button */}
+                  <div className="mt-8">
+                    <Link href="/contact">
+                      <motion.button
+                        className="w-full text-white px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-300 cursor-pointer hover:opacity-90"
+                        style={{ backgroundColor: '#30519d' }}
+                        whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(48, 81, 157, 0.3)" }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Book a Free Assessment
+                      </motion.button>
+                    </Link>
                 </div>
               </motion.div>
+              </div>
               
               {/* Professional Stats */}
               <motion.div
-                className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
+                transition={{ delay: 1.0, duration: 0.8 }}
               >
-                <div className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
-                  <div className="text-3xl font-bold text-blue-700 mb-2">20+</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#30519d' }}>20+</div>
                   <div className="text-gray-700 font-medium">Years Combined Experience</div>
                 </div>
-                <div className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
-                  <div className="text-3xl font-bold text-blue-700 mb-2">100%</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#30519d' }}>100%</div>
                   <div className="text-gray-700 font-medium">Curriculum Aligned</div>
                 </div>
-                <div className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
-                  <div className="text-3xl font-bold text-blue-700 mb-2">Grades 3-12</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#30519d' }}>Grades 3-12</div>
                   <div className="text-gray-700 font-medium">Comprehensive Coverage</div>
                 </div>
               </motion.div>
             </div>
           </div>
         </motion.div>
+
+      {/* Main Content Section */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
 
         {/* Section 2 - Who We Are */}
         <motion.div
@@ -243,20 +212,14 @@ export default function AboutPage() {
         >
           <div className="text-center mb-12">
             <motion.div
-              className="inline-flex items-center space-x-4 mb-6"
+              className="mb-6"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
-                <Users className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black">
                 Who We Are
               </h2>
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl flex items-center justify-center">
-                <Award className="w-6 h-6 text-white" />
-              </div>
             </motion.div>
           </div>
 
@@ -276,69 +239,70 @@ export default function AboutPage() {
               <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-teal-100 to-blue-100 rounded-full opacity-20"></div>
               
               <div className="relative z-10">
-                {/* Header Section */}
-                <div className="text-center mb-8">
+                <div className="flex flex-col lg:flex-row items-center gap-8">
+                  {/* Profile Picture - Left Side */}
+                  <div className="flex-shrink-0">
                   <motion.div
-                    className="w-24 h-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                      className="w-32 h-32 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <span className="text-white text-4xl">👩‍🏫</span>
+                      <span className="text-white text-5xl">👩‍🏫</span>
                   </motion.div>
-                  <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Jyoti Agarwal</h3>
-                  <p className="text-xl text-blue-700 font-semibold mb-2">Cofounder & Lead Educator</p>
-                  <div className="flex justify-center space-x-4 text-sm text-gray-600">
-                    <span className="bg-blue-50 px-3 py-1 rounded-full">B.E. Computer Science</span>
-                    <span className="bg-blue-50 px-3 py-1 rounded-full">M.S. Georgia State</span>
                   </div>
-                </div>
+                  
+                  {/* Content - Right Side */}
+                  <div className="flex-1">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Jyoti Agarwal</h3>
+                    <p className="text-xl font-semibold mb-6" style={{ color: '#30519d' }}>Cofounder and Educator</p>
                 
-                {/* Content Section */}
-                <div className="max-w-4xl mx-auto space-y-6 text-gray-700">
+                    <div className="space-y-4 text-gray-700">
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
                   >
-                    With <span className="font-bold text-blue-700">20+ years in the IT industry</span> and a deep-rooted passion for education, Jyoti brings a rich blend of <span className="font-bold text-blue-700">analytical precision and creative instruction</span> to every lesson.
+                        With <span className="font-bold" style={{ color: '#30519d' }}>20+ years in the IT industry</span> and a deep-rooted passion for education, Jyoti brings a rich blend of <span className="font-bold" style={{ color: '#30519d' }}>analytical precision and creative instruction</span>.
                   </motion.p>
                   
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.5 }}
                   >
-                    She holds a <span className="font-semibold text-orange-500">B.E. in Computer Science from NIT Jamshedpur</span> and an <span className="font-semibold text-teal-600">M.S. from Georgia State University</span>.
+                        She holds a B.E. in Computer Science from NIT Jamshedpur, India and an M.S. from Georgia State University, USA.
                   </motion.p>
                   
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.5 }}
                   >
-                    Her teaching journey spans <span className="font-bold text-blue-700">India, the USA, and Canada</span>, where she has supported students across all grade levels through both volunteer and professional roles.
+                        Her teaching journey spans <span className="font-bold" style={{ color: '#30519d' }}>India, the USA, and Canada</span>, where she has supported students across all grade levels through both volunteer and professional roles.
                   </motion.p>
                   
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.0, duration: 0.5 }}
                   >
-                    Jyoti specializes in <span className="font-bold text-blue-700">mental math, algebra, trigonometry, advanced functions</span>, and <span className="font-bold text-blue-700">math contest preparation</span> (Waterloo, Math League, SAT, GMAT, GRE).
+                        Jyoti specializes in <span className="font-bold" style={{ color: '#30519d' }}>mental math, algebra, trigonometry, functions, advanced functions, calculus, vectors</span>, and <span className="font-bold" style={{ color: '#30519d' }}>math contest preparation</span> (Waterloo, Math League, SAT, GMAT, GRE).
                   </motion.p>
                   
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.1, duration: 0.5 }}
                   >
-                    Her approach transforms mathematics into a <span className="font-bold text-blue-700">playful, pattern-rich experience</span> that sparks curiosity and builds deep conceptual understanding.
+                        Her approach transforms math into a <span className="font-bold" style={{ color: '#30519d' }}>playful, pattern-rich experience</span> that sparks curiosity and builds deep conceptual understanding. She believes that when students see math as a tool for solving real problems, it becomes one of their most empowering subjects.
                   </motion.p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -357,69 +321,70 @@ export default function AboutPage() {
               <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-20"></div>
               
               <div className="relative z-10">
-                {/* Header Section */}
-                <div className="text-center mb-8">
+                <div className="flex flex-col lg:flex-row-reverse items-center gap-8">
+                  {/* Profile Picture - Right Side */}
+                  <div className="flex-shrink-0">
                   <motion.div
-                    className="w-24 h-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                      className="w-32 h-32 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <span className="text-white text-4xl">👨‍🏫</span>
+                      <span className="text-white text-5xl">👨‍🏫</span>
                   </motion.div>
-                  <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Kunal Agarwal</h3>
-                  <p className="text-xl text-blue-700 font-semibold mb-2">Cofounder & Senior Educator</p>
-                  <div className="flex justify-center space-x-4 text-sm text-gray-600">
-                    <span className="bg-blue-50 px-3 py-1 rounded-full">IT & Banking Expert</span>
-                    <span className="bg-blue-50 px-3 py-1 rounded-full">20+ Years Experience</span>
                   </div>
-                </div>
+                  
+                  {/* Content - Left Side */}
+                  <div className="flex-1">
+                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Kunal Agarwal</h3>
+                    <p className="text-xl font-semibold mb-6" style={{ color: '#30519d' }}>Cofounder and Educator</p>
                 
-                {/* Content Section */}
-                <div className="max-w-4xl mx-auto space-y-6 text-gray-700">
+                    <div className="space-y-4 text-gray-700">
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
                   >
-                    Kunal brings <span className="font-bold text-blue-700">20+ years of experience in IT and banking</span>, plus a sharp eye for numbers and student growth.
+                        Kunal brings <span className="font-bold" style={{ color: '#30519d' }}>20+ years of experience in IT and banking</span>, plus a sharp eye for numbers and student growth.
                   </motion.p>
                   
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.5 }}
                   >
-                    He holds a <span className="font-semibold text-orange-500">B.E. in Computer Science from BIT Mesra</span> and an <span className="font-semibold text-teal-600">M.S. in Quantitative Finance from Georgia Tech</span>.
+                        He holds a B.E. in Computer Science from BIT Mesra, India and an M.S. in Quantitative Finance from Georgia Institute of Technology, USA.
                   </motion.p>
                   
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9, duration: 0.5 }}
                   >
-                    His teaching strengths include <span className="font-bold text-blue-700">Grades 5–12: algebra, geometry, trigonometry, calculus, vectors</span>, and <span className="font-bold text-blue-700">competitive math exams</span>.
+                        His teaching strengths include <span className="font-bold" style={{ color: '#30519d' }}>Grades 5–12: algebra, geometry, trigonometry, probability, functions, advanced functions, calculus, vectors</span>, and <span className="font-bold" style={{ color: '#30519d' }}>competitive math exams</span>.
                   </motion.p>
                   
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.0, duration: 0.5 }}
                   >
-                    Kunal&apos;s strength lies in making <span className="font-semibold text-orange-500">complex concepts accessible</span> through engaging, personalized instruction that builds confidence and curiosity.
+                        Kunal&apos;s strength lies in making complex concepts accessible through engaging, personalized instruction that builds confidence and curiosity.
                   </motion.p>
                   
                   <motion.p
-                    className="text-lg sm:text-xl leading-relaxed"
+                        className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.1, duration: 0.5 }}
                   >
-                    His goal is to help students see mathematics not as a hurdle, but as a <span className="font-bold text-blue-700">skill they can master and enjoy</span>.
+                        His goal is to help students see math not as a hurdle, but as a <span className="font-bold" style={{ color: '#30519d' }}>skill they can master and enjoy</span>. With a strategic mindset and a passion for mentorship, he ensures every learner gets the support they need to level up.
                   </motion.p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -428,101 +393,82 @@ export default function AboutPage() {
 
         {/* Section 3 - Our Unique Teaching Approach */}
         <motion.div
-          className="mb-16 sm:mb-20"
+          className="mb-16 sm:mb-20 bg-white py-16 sm:py-20 lg:py-24"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
+          <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <motion.div
-              className="inline-flex items-center space-x-4 mb-6"
+                className="mb-6 text-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center">
-                <Zap className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-4">
                 Our Unique Teaching Approach
               </h2>
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                <Star className="w-6 h-6 text-white" />
-              </div>
+                <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+                  At Level Up Math Academy, we shape sharper thinkers by combining smarter math strategies with clear, structured learning
+                </p>
             </motion.div>
           </div>
 
-          {/* Teaching Approach Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {/* Teaching Approach Cards - 2x3 Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {teachingApproaches.map((approach, index) => {
-              const IconComponent = approach.icon;
               return (
                 <motion.div
                   key={index}
-                  className="relative group"
+                  className="bg-gray-100 rounded-xl p-8 sm:p-10 shadow-lg border border-gray-300 hover:border-blue-500 hover:shadow-xl transition-all duration-200 group flex flex-col min-h-[500px] sm:min-h-[550px]"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 + index * 0.1, duration: 0.6 }}
+                  transition={{ 
+                    delay: 0.6 + index * 0.1,
+                    duration: 0.4
+                  }}
+                  whileHover={{ 
+                    y: -2,
+                    transition: { duration: 0.2 }
+                  }}
                 >
-                  {/* Connection Lines */}
-                  {index < teachingApproaches.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-cyan-300 transform -translate-y-1/2 z-0"></div>
-                  )}
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
+                    {approach.title}
+                  </h3>
                   
-                  <motion.div
-                    className={`relative bg-gradient-to-br ${approach.bgColor} rounded-2xl p-6 shadow-lg border border-gray-100 overflow-hidden`}
-                    whileHover={{ 
-                      y: -8, 
-                      scale: 1.02,
-                      boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {/* Background Decorative Elements */}
-                    <div className="absolute -top-6 -right-6 w-20 h-20 bg-white rounded-full opacity-20"></div>
-                    <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-white rounded-full opacity-15"></div>
-                    
-                    {/* Icon */}
+                  {/* Description and Details as Bullet Points */}
+                  <div className="space-y-4 flex-grow">
+                    {/* Description as first bullet point */}
                     <motion.div
-                      className={`w-16 h-16 bg-gradient-to-r ${approach.color} rounded-full flex items-center justify-center mb-4 mx-auto`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
+                      className="flex items-start space-x-4 text-sm sm:text-base text-gray-600"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.7 + index * 0.1 }}
                     >
-                      <IconComponent className="w-8 h-8 text-white" />
+                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="leading-relaxed">{approach.description}</span>
                     </motion.div>
                     
-                    {/* Content */}
-                    <div className="text-center">
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">
-                        {approach.title}
-                      </h3>
-                      <p className="text-gray-700 mb-4 leading-relaxed">
-                        {approach.description}
-                      </p>
-                      
-                      {/* Details */}
-                      <div className="space-y-2">
+                    {/* Details as additional bullet points */}
                         {approach.details.map((detail, detailIndex) => (
                           <motion.div
                             key={detailIndex}
-                            className="flex items-start space-x-2 text-sm text-gray-600"
+                        className="flex items-start space-x-4 text-sm sm:text-base text-gray-600"
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.8 + index * 0.1 + detailIndex * 0.1 }}
                           >
-                            <div className={`w-1.5 h-1.5 bg-gradient-to-r ${approach.color} rounded-full mt-2 flex-shrink-0`}></div>
+                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
                             <span className="leading-relaxed">{detail}</span>
                           </motion.div>
                         ))}
                       </div>
-                    </div>
-                    
-                    {/* Hover Effect Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-                  </motion.div>
                 </motion.div>
               );
             })}
+            </div>
           </div>
         </motion.div>
       </div>

@@ -115,7 +115,7 @@ export default function Header() {
                   whileHover={{ scale: 1.02 }}
                 >
                   <Image
-                    src="/logo.png"
+                    src="/logo1.png"
                     alt="Level Up Math Academy Logo"
                     width={100}
                     height={100}
