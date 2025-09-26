@@ -7,6 +7,7 @@ import WhatWeOfferSection from '@/components/WhatWeOfferSection';
 import OurApproachSection from '@/components/OurApproachSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CallToActionSection from '@/components/CallToActionSection';
+import FloatingActionButton from '@/components/FloatingActionButton';
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -31,6 +32,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Action Button */}
+      <FloatingActionButton />
     </div>
   );
 }

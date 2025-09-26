@@ -5,6 +5,7 @@ import { Users, Target, Brain, BookOpen, MessageCircle, Star, Award, Lightbulb, 
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FloatingActionButton from '@/components/FloatingActionButton';
 import CallToActionSection from '@/components/CallToActionSection';
 
 export default function AboutPage() {
@@ -478,6 +479,9 @@ export default function AboutPage() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Action Button */}
+      <FloatingActionButton />
     </div>
   );
 }

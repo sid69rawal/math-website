@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import FloatingElements from './FloatingElements';
+import Image from 'next/image';
 
 export default function WhatWeOfferSection() {
   const offers = [
@@ -34,7 +35,8 @@ export default function WhatWeOfferSection() {
         "First Month Money-Back Guarantee, if not satisfied",
         "Exceptional value for quality math learning"
       ],
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-blue-500 to-cyan-500",
+      customIcon: true
     },
     {
       emoji: "📝",
@@ -110,7 +112,17 @@ export default function WhatWeOfferSection() {
               {/* Card Header */}
               <div className="text-center mb-8">
                 <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {offer.emoji}
+                  {offer.customIcon ? (
+                    <Image
+                      src="/pricetag2.svg"
+                      alt="Price tag icon"
+                      width={80}
+                      height={80}
+                      className="mx-auto"
+                    />
+                  ) : (
+                    offer.emoji
+                  )}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 leading-tight">
                   {offer.title}

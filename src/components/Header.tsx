@@ -51,6 +51,7 @@ function Ticker({ messages = [] as string[], cycleDuration = 8 }) {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const messages = [
     "First Month Guarantee: If you\'re not satisfied after the first month, you\'ll receive a full refund",
@@ -60,6 +61,17 @@ export default function Header() {
   // safe fallbacks if contactConfig is undefined/missing values
   const email = contactConfig?.email ?? 'info@example.com';
   const phone = contactConfig?.phone ?? '+91-0000000000';
+
+  // Handle scroll to shrink header
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -103,10 +115,20 @@ export default function Header() {
         <motion.nav 
           className="bg-white shadow-sm"
           initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          animate={{ 
+            y: 0, 
+            opacity: 1
+          }}
           transition={{ duration: 0.6 }}
         >
-          <div className="max-w-7xl mx-auto pl-6 pr-4 py-4">
+          <motion.div 
+            className="max-w-7xl mx-auto px-4 sm:px-6"
+            animate={{
+              paddingTop: isScrolled ? '0.75rem' : '1rem',
+              paddingBottom: isScrolled ? '0.75rem' : '1rem'
+            }}
+            transition={{ duration: 0.3 }}
+          >
             <div className="flex justify-between items-center">
               {/* Logo */}
               <Link href="/">
@@ -114,13 +136,19 @@ export default function Header() {
                   className="flex items-center"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <Image
-                    src="/logo1.png"
-                    alt="Level Up Math Academy Logo"
-                    width={100}
-                    height={100}
-                    className="rounded-lg"
-                  />
+                  <motion.div
+                    animate={{
+                      scale: isScrolled ? 0.8 : 1
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src="/logo.png"
+                      alt="Level Up Math Academy Logo"
+                      width={100}
+                      height={100}
+                    />
+                  </motion.div>
                 </motion.div>
               </Link>
               
@@ -386,7 +414,7 @@ export default function Header() {
                 </Link>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.nav>
       </div>
       <style jsx>{`

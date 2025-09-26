@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function OurApproachSection() {
   const approaches = [
@@ -9,18 +10,21 @@ export default function OurApproachSection() {
       title: "Concept-First Teaching",
       description: "Master the why behind math for lasting understanding",
       icon: "🧠",
+      customIcon: "/teacher.svg",
       color: "from-blue-400 to-indigo-600"
     },
     {
       title: "Personalized Learning Plans",
       description: "A learning journey tailored to your child's strengths and goals",
       icon: "🎯",
+      customIcon: "/studying-teacher.svg",
       color: "from-purple-400 to-pink-600"
     },
     {
       title: "Interactive & Engaging Sessions",
       description: "Active, student-centered lessons that make math come alive.",
       icon: "⚡",
+      customIcon: "/cultural-exchange.png",
       color: "from-blue-400 to-cyan-600"
     },
     {
@@ -39,6 +43,7 @@ export default function OurApproachSection() {
       title: "Confidence Building & Growth Mindset",
       description: "From math anxiety to math confidence—watch your child thrive.",
       icon: "🌟",
+      customIcon: "/confidence.png",
       color: "from-yellow-400 to-orange-600"
     }
   ];
@@ -47,28 +52,24 @@ export default function OurApproachSection() {
     <section id="our-approach" className="relative py-16 lg:py-24 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center gap-8">
-          {/* Steps 1-3 */}
+          {/* Steps 1-3 (now slanting right toward the circle) */}
           <div className="w-full space-y-6">
             {approaches.slice(0, 3).map((approach, index) => {
-              // Create ladder pattern for first 3 steps: 0=far left, 1=little right, 2=more right
-              const positions = ['ml-0', 'ml-12', 'ml-24'];
+              // Top three: increasing indent to the right (mirror of original)
+              const positions = ['ml-24', 'ml-36', 'ml-48'];
               const maxWidths = ['max-w-lg', 'max-w-lg', 'max-w-lg'];
-              
+
               return (
                 <motion.div
                   key={index}
-                  className={`flex items-center gap-6 p-6 rounded-2xl ${
-                    index % 2 === 0 
-                      ? 'bg-gray-100' 
-                      : 'bg-blue-50'
-                  } ${positions[index]} ${maxWidths[index]}`}
-                  initial={{ opacity: 0, x: 50 }}
+                  className={`flex items-center gap-6 p-6 rounded-2xl ${index % 2 === 0 ? 'bg-gray-100' : 'bg-blue-50'} ${positions[index]} ${maxWidths[index]}`}
+                  initial={{ opacity: 0, x: 50 }}       // slide in from right
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ 
-                    delay: index * 0.1, 
-                    duration: 0.6 
+                  transition={{
+                    delay: index * 0.1,
+                    duration: 0.6
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.02,
                     transition: { duration: 0.2 }
                   }}
@@ -76,7 +77,17 @@ export default function OurApproachSection() {
                   {/* Icon */}
                   <div className="flex-shrink-0">
                     <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center text-3xl shadow-md">
-                      {approach.icon}
+                      {approach.customIcon ? (
+                        <Image
+                          src={approach.customIcon}
+                          alt={`${approach.title} icon`}
+                          width={48}
+                          height={48}
+                          className="object-contain"
+                        />
+                      ) : (
+                        approach.icon
+                      )}
                     </div>
                   </div>
 
@@ -85,9 +96,10 @@ export default function OurApproachSection() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">
                       {approach.title}
                     </h3>
-                  <p className="text-lg text-gray-700 font-medium leading-relaxed whitespace-nowrap">
-                    {approach.description}
-                  </p>
+                    {/* allow wrapping for long descriptions */}
+                    <p className="text-lg text-gray-700 font-medium leading-relaxed">
+                      {approach.description}
+                    </p>
                   </div>
                 </motion.div>
               );
@@ -108,29 +120,25 @@ export default function OurApproachSection() {
             </div>
           </motion.div>
 
-          {/* Steps 4-6 */}
+          {/* Steps 4-6 (now stepping left away from the circle) */}
           <div className="w-full space-y-6">
             {approaches.slice(3, 6).map((approach, index) => {
-              // Create ladder pattern for last 3 steps: 3=center, 4=little left, 5=far left
-              const positions = ['ml-36', 'ml-24', 'ml-12'];
+              // Bottom three: start slightly right and then step back leftwards
+              const positions = ['ml-36', 'ml-24', 'ml-0'];
               const maxWidths = ['max-w-lg', 'max-w-lg', 'max-w-lg'];
               const actualIndex = index + 3; // Adjust for slice offset
-              
+
               return (
                 <motion.div
                   key={actualIndex}
-                  className={`flex items-center gap-6 p-6 rounded-2xl ${
-                    actualIndex % 2 === 0 
-                      ? 'bg-gray-100' 
-                      : 'bg-blue-50'
-                  } ${positions[index]} ${maxWidths[index]}`}
-                  initial={{ opacity: 0, x: 50 }}
+                  className={`flex items-center gap-6 p-6 rounded-2xl ${actualIndex % 2 === 0 ? 'bg-gray-100' : 'bg-blue-50'} ${positions[index]} ${maxWidths[index]}`}
+                  initial={{ opacity: 0, x: -50 }}    // slide in from left (mirrored)
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ 
-                    delay: (actualIndex + 0.5) * 0.1, 
-                    duration: 0.6 
+                  transition={{
+                    delay: (actualIndex + 0.5) * 0.1,
+                    duration: 0.6
                   }}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.02,
                     transition: { duration: 0.2 }
                   }}
@@ -138,7 +146,17 @@ export default function OurApproachSection() {
                   {/* Icon */}
                   <div className="flex-shrink-0">
                     <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center text-3xl shadow-md">
-                      {approach.icon}
+                      {approach.customIcon ? (
+                        <Image
+                          src={approach.customIcon}
+                          alt={`${approach.title} icon`}
+                          width={48}
+                          height={48}
+                          className="object-contain"
+                        />
+                      ) : (
+                        approach.icon
+                      )}
                     </div>
                   </div>
 
@@ -147,9 +165,9 @@ export default function OurApproachSection() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-3">
                       {approach.title}
                     </h3>
-                  <p className="text-lg text-gray-700 font-medium leading-relaxed whitespace-nowrap">
-                    {approach.description}
-                  </p>
+                    <p className="text-lg text-gray-700 font-medium leading-relaxed">
+                      {approach.description}
+                    </p>
                   </div>
                 </motion.div>
               );

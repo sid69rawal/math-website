@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import FloatingElements from '@/components/FloatingElements';
+import FloatingActionButton from '@/components/FloatingActionButton';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { contactConfig } from '@/config/contact';
@@ -91,36 +91,11 @@ export default function ContactPage() {
       {/* Header with Navigation */}
       <Header />
 
-      {/* Back to Home Button */}
-      <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-4 pt-6"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Link href="/">
-          <motion.button
-            className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300"
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Home</span>
-          </motion.button>
-        </Link>
-      </motion.div>
 
-      {/* Floating Math Symbols Background */}
-      <FloatingElements 
-        elements={['📚', '✏️', '🎯', '💡', '⭐', '🚀', '📊', '🧮', '📐', '📏']}
-        count={12}
-        size="md"
-        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
-      />
 
       {/* Main Contact Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-3 gap-12 items-start">
           
           {/* Left Side - Image and Decorative Elements */}
           <motion.div
@@ -129,77 +104,119 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Decorative Background Elements */}
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-100 rounded-full blur-xl"></div>
-            <div className="absolute -bottom-20 -right-10 w-40 h-40 bg-cyan-100 rounded-full blur-xl"></div>
-            
-            {/* Math Symbol Decorations */}
-            <motion.div
-              className="absolute top-10 left-10 text-blue-200 text-4xl font-bold"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            >
-              ∑
-            </motion.div>
-            <motion.div
-              className="absolute bottom-20 right-20 text-cyan-200 text-3xl font-bold"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            >
-              π
-            </motion.div>
-            
                     {/* Main Image Container */}
-                    <div className="relative bg-white rounded-3xl p-8 shadow-xl border border-blue-100">
-                      <div className="aspect-square rounded-2xl overflow-hidden">
+                    <div className="relative bg-white rounded-3xl p-6 shadow-xl border border-blue-100">
+                      <div className="aspect-[4/3] rounded-2xl overflow-hidden">
                         <Image
-                          src="/contact_us_image.jpg"
+                          src="/customer-service.svg"
                           alt="Level Up Math Academy - Contact Us"
                           width={600}
                           height={600}
-                          className="w-full h-full object-cover rounded-2xl"
+                          className="w-full h-full object-contain rounded-2xl"
                           priority
                         />
-                        {/* Overlay with text */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl flex items-end justify-center pb-8">
-                          <div className="text-center text-white">
-                            <h3 className="text-3xl font-bold mb-2">Let&apos;s Connect!</h3>
-                            <p className="text-xl">Ready to start your math journey?</p>
-                          </div>
-                        </div>
                       </div>
                     </div>
+
+            {/* Contact Info Section */}
+            <motion.div
+              className="mt-8 bg-white rounded-2xl p-6 shadow-lg border border-blue-100"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h3 className="text-xl font-bold mb-6" style={{ color: '#30519d' }}>Contact Information</h3>
+              
+              <div className="space-y-3">
+                {/* Email */}
+                <motion.div
+                  className="flex items-center space-x-4"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="bg-blue-600 p-2 rounded-lg flex-shrink-0">
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <a
+                    href={`mailto:${contactConfig.email}`}
+                    className="text-base font-medium hover:opacity-80 transition-colors"
+                    style={{ color: '#30519d' }}
+                  >
+                    {contactConfig.email}
+                  </a>
+                </motion.div>
+
+                {/* Phone */}
+                <motion.div
+                  className="flex items-center space-x-4"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="bg-green-600 p-2 rounded-lg flex-shrink-0">
+                    <Phone className="w-5 h-5 text-white" />
+                  </div>
+                  <a
+                    href={`tel:${contactConfig.phoneLink}`}
+                    className="text-base font-medium hover:opacity-80 transition-colors"
+                    style={{ color: '#30519d' }}
+                  >
+                    {contactConfig.phone}
+                  </a>
+                </motion.div>
+
+                {/* Address */}
+                <motion.div
+                  className="flex items-start space-x-4"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="bg-purple-600 p-2 rounded-lg flex-shrink-0 mt-1">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(contactConfig.address.full)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-medium hover:opacity-80 transition-colors leading-relaxed whitespace-pre-line"
+                    style={{ color: '#30519d' }}
+                  >
+                    {contactConfig.address.full}
+                  </a>
+                </motion.div>
+              </div>
+
+              {/* Google Maps Embed */}
+              <motion.div
+                className="w-full h-48 rounded-lg overflow-hidden shadow-lg mt-6"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              >
+                <iframe
+                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dOWWg0F0q8x8&q=${encodeURIComponent(contactConfig.address.full)}`}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Level Up Math Academy Location"
+                />
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Right Side - Contact Form */}
           <motion.div
-            className="bg-white rounded-3xl p-8 shadow-xl border border-blue-100"
+            className="bg-white rounded-3xl p-8 shadow-xl border border-blue-100 lg:col-span-2"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="mb-8">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 via-cyan-600 to-sky-500 bg-clip-text text-transparent mb-4">Contact Us</h1>
+              <h1 className="text-4xl font-bold mb-4" style={{ color: '#30519d' }}>Contact Us</h1>
               <p className="text-gray-600 text-lg">
                 To explore more about our services and pricing, Please fill out the form below and we&apos;ll get back to you shortly
               </p>
               
-              <div className="mt-6 space-y-2">
-                <motion.a 
-                  href={`mailto:${contactConfig.email}`}
-                  className="block text-blue-600 hover:text-blue-700 transition-colors font-medium"
-                  whileHover={{ x: 5 }}
-                >
-                  📧 {contactConfig.email}
-                </motion.a>
-                <motion.a 
-                  href={`tel:${contactConfig.phoneLink}`}
-                  className="block text-blue-600 hover:text-blue-700 transition-colors font-medium"
-                  whileHover={{ x: 5 }}
-                >
-                  📞 {contactConfig.phone}
-                </motion.a>
-              </div>
+              
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -207,7 +224,7 @@ export default function ContactPage() {
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    First Name <span className="text-blue-600">(required)</span>
+                    First Name <span style={{ color: '#30519d' }}>(required)</span>
                   </label>
                   <input
                     type="text"
@@ -221,7 +238,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Last Name <span className="text-blue-600">(required)</span>
+                    Last Name <span style={{ color: '#30519d' }}>(required)</span>
                   </label>
                   <input
                     type="text"
@@ -238,7 +255,7 @@ export default function ContactPage() {
               {/* Email */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
-                  Email <span className="text-blue-600">(required)</span>
+                  Email <span style={{ color: '#30519d' }}>(required)</span>
                 </label>
                 <input
                   type="email"
@@ -269,7 +286,7 @@ export default function ContactPage() {
               {/* Grade Level Dropdown */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
-                  Grade Level <span className="text-blue-600">(required)</span>
+                  Grade Level <span style={{ color: '#30519d' }}>(required)</span>
                 </label>
                 <select
                   name="gradeLevel"
@@ -290,7 +307,7 @@ export default function ContactPage() {
               {/* Message */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
-                  Message <span className="text-blue-600">(required)</span>
+                  Message <span style={{ color: '#30519d' }}>(required)</span>
                 </label>
                 <textarea
                   name="message"
@@ -306,7 +323,7 @@ export default function ContactPage() {
               {/* Preferences Radio Buttons */}
               <div>
                 <label className="block text-gray-700 font-medium mb-3">
-                  What are you most interested in? <span className="text-blue-600">(required)</span>
+                  What are you most interested in? <span style={{ color: '#30519d' }}>(required)</span>
                 </label>
                 <div className="space-y-3">
                   {[
@@ -337,7 +354,8 @@ export default function ContactPage() {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-4 px-8 rounded-full font-bold text-lg shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                className="w-full text-white py-4 px-8 rounded-lg font-bold text-lg shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:opacity-90"
+                style={{ backgroundColor: '#30519d' }}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
@@ -347,7 +365,7 @@ export default function ContactPage() {
                     <span>Sending...</span>
                   </div>
                 ) : (
-                  'Send Message 🚀'
+                  'Send Message'
                 )}
               </motion.button>
             </form>
@@ -371,10 +389,6 @@ export default function ContactPage() {
             exit={{ scale: 0.8, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Background Decorative Elements */}
-            <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full blur-2xl opacity-50"></div>
-            <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full blur-xl opacity-50"></div>
-            
             {/* Close Button */}
             <button
               onClick={() => setShowSuccess(false)}
@@ -417,7 +431,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                Thank you for reaching out to <span className="font-semibold text-blue-600">Level Up Math Academy</span>! We&apos;ve received your message and will get back to you shortly.
+                Thank you for reaching out to <span className="font-semibold" style={{ color: '#30519d' }}>Level Up Math Academy</span>! We&apos;ve received your message and will get back to you shortly.
               </motion.p>
               
               {/* Additional Info */}
@@ -428,10 +442,10 @@ export default function ContactPage() {
                 transition={{ delay: 0.5 }}
               >
                 <p className="text-sm text-gray-700 mb-2">
-                  <span className="font-semibold text-blue-600">📧 Email:</span> levelupmathacademy@gmail.com
+                  <span className="font-semibold" style={{ color: '#30519d' }}>📧 Email:</span> levelupmathacademy@gmail.com
                 </p>
                 <p className="text-sm text-gray-700">
-                  <span className="font-semibold text-blue-600">📞 Phone:</span> (647) 1111111
+                  <span className="font-semibold" style={{ color: '#30519d' }}>📞 Phone:</span> (647) 1111111
                 </p>
               </motion.div>
               
@@ -444,7 +458,8 @@ export default function ContactPage() {
               >
                 <motion.button
                   onClick={() => setShowSuccess(false)}
-                  className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3 px-6 rounded-full font-semibold transition-all duration-300"
+                  className="flex-1 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:opacity-90"
+                  style={{ backgroundColor: '#30519d' }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -453,7 +468,8 @@ export default function ContactPage() {
                 
                 <motion.a
                   href="/"
-                  className="flex-1 bg-white border-2 border-blue-200 hover:border-blue-300 text-blue-600 py-3 px-6 rounded-full font-semibold transition-all duration-300 text-center"
+                  className="flex-1 bg-white border-2 hover:border-opacity-80 py-3 px-6 rounded-lg font-semibold transition-all duration-300 text-center"
+                  style={{ borderColor: '#30519d', color: '#30519d' }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -467,6 +483,9 @@ export default function ContactPage() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Action Button */}
+      <FloatingActionButton />
     </div>
   );
 }

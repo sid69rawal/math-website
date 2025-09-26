@@ -51,7 +51,7 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative py-16 lg:py-24"
+      className="relative py-8 lg:py-16"
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400"></div>
       
@@ -59,13 +59,14 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
+            className="-mt-4"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
           >
 
             <motion.h1 
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 leading-tight"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8, type: "spring", bounce: 0.4 }}
@@ -76,7 +77,7 @@ export default function HeroSection() {
             </motion.h1>
             
             <motion.p 
-              className="text-base sm:text-lg text-gray-800 mb-6 sm:mb-8 leading-relaxed"
+              className="text-base sm:text-lg text-gray-800 mb-3 sm:mb-4 leading-relaxed"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
@@ -89,7 +90,7 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3"
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
@@ -130,7 +131,7 @@ export default function HeroSection() {
 
             {/* Animated Stats Cards */}
             <motion.div 
-              className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-8 sm:mt-12"
+              className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mt-4 sm:mt-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3, duration: 0.8 }}
@@ -195,8 +196,8 @@ export default function HeroSection() {
                 src="/hero_img.png"
                 alt="Level Up Math Academy - Professional Math Learning"
                 width={800}
-                height={700}
-                className="w-full h-[32rem] object-contain"
+                height={1500}
+                className="w-full h-[44rem] object-contain"
                 priority
               />
             </motion.div>

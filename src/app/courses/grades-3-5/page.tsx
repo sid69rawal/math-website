@@ -5,6 +5,7 @@ import { ArrowLeft, X, Calculator, BookOpen, GraduationCap } from 'lucide-react'
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FloatingActionButton from '@/components/FloatingActionButton';
 import FloatingElements from '@/components/FloatingElements';
 import { useState } from 'react';
 
@@ -394,6 +395,9 @@ export default function Grades35Page() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Floating Action Button */}
+      <FloatingActionButton />
     </div>
   );
 }

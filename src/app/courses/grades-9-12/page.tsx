@@ -7,6 +7,7 @@ import Link from 'next/link';
 import FloatingElements from '@/components/FloatingElements';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FloatingActionButton from '@/components/FloatingActionButton';
 
 interface Course {
   title: string;
@@ -440,6 +441,9 @@ export default function Grades912Page() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Floating Action Button */}
+      <FloatingActionButton />
     </div>
   );
 }

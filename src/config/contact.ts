@@ -1,14 +1,14 @@
 export const contactConfig = {
   email: "levelupmathacademy@gmail.com",
-  phone: "(647) 1111111",
-  phoneLink: "+16471111111", // For tel: links
+  phone: "(416) 802-4713",
+  phoneLink: "+14168024713", // For tel: links
   address: {
-    street: "123",
+    street: "1426 Pate Court",
     city: "Mississauga",
     province: "ON",
-    postalCode: "L11111",
+    postalCode: "L5V 2Y8",
     country: "Canada",
-    full: "123\nMississauga, ON L11111\nCanada"
+    full: "1426 Pate Court\nMississauga, ON L5V 2Y8\nCanada"
   },
   socialMedia: {
     facebook: "https://facebook.com/levelupmathacademy",
