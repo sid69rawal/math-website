@@ -78,10 +78,13 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <h4 className="text-white font-bold text-2xl mb-6">Quick Links</h4>
-            
-            {/* Two Column Layout */}
+            {/* Two Column Layout with Centered Header */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              
+              {/* Quick Links Header - Centered above both columns */}
+              <div className="md:col-span-2 text-center mb-6">
+                <h4 className="text-white font-bold text-2xl">Quick Links</h4>
+              </div>
               
               {/* Courses Column */}
               <div>

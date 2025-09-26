@@ -1,12 +1,11 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, X, Calculator, BookOpen, GraduationCap } from 'lucide-react';
+import { X, Calculator, BookOpen, GraduationCap } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActionButton from '@/components/FloatingActionButton';
-import FloatingElements from '@/components/FloatingElements';
 import { useState } from 'react';
 
 interface Course {
@@ -121,99 +120,77 @@ export default function Grades35Page() {
       {/* Header with Navigation */}
       <Header />
 
-      {/* Back to Home Button */}
-      <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-4 pt-6"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Link href="/" className="inline-block">
-          <motion.button
-            className="flex items-center space-x-2 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer hover:opacity-90" style={{ backgroundColor: '#30519d' }}
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
-            whileTap={{ scale: 0.98 }}
+
+      {/* Main Content Section with Gradient Background */}
+      <div className="relative">
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
+          {/* Main Message Section */}
+          <motion.div
+            className="mb-8 sm:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Home</span>
-          </motion.button>
-        </Link>
-      </motion.div>
-
-      {/* Floating Math Symbols Background */}
-      <FloatingElements 
-        elements={['🔢', '📊', '🧮', '🎯', '👥', '✏️', '📈', '⭐', '🚀', '💡']}
-        count={12}
-        size="md"
-        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
-      />
-
-      {/* Main Content Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-
-        {/* Main Message Section */}
-        <motion.div
-          className="mb-8 sm:mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-              {/* Left Side - Main Content */}
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Grades 3-5 Math Program
-                </h2>
-                
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  Explore our math courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 3 to 5</span>. Each course is designed to help students build <span className="font-semibold" style={{ color: '#30519d' }}>strong math foundations</span> that develop <span className="font-semibold" style={{ color: '#30519d' }}>fluency, problem-solving, mental math skills</span> and <span className="font-semibold" style={{ color: '#30519d' }}>confidence for long-term success</span>.
-                </p>
-              </div>
-
-              {/* Right Side - Criteria Box */}
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 shadow-lg border border-blue-100">
-                <h4 className="text-xl font-bold text-gray-900 mb-6">
-                  Our Grade 3-5 Math Programs Features:
-                </h4>
-                <ul className="space-y-4">
-                  <li className="flex items-start text-gray-700">
-                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                    <span className="text-base">Led by founders, not outside tutors</span>
-                  </li>
-                  <li className="flex items-start text-gray-700">
-                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                    <span className="text-base">In-person at our Mississauga center</span>
-                  </li>
-                  <li className="flex items-start text-gray-700">
-                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                    <span className="text-base">Affordable at $25/hour</span>
-                  </li>
-                  <li className="flex items-start text-gray-700">
-                    <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                    <span className="text-base">8 hours of interactive classes per month</span>
-                  </li>
-                </ul>
-              </div>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left Side - Main Content */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Grades 3-5 Math Program
+              </h2>
+              
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Explore our math courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 3 to 5</span>. Each course is designed to help students build <span className="font-semibold" style={{ color: '#30519d' }}>strong math foundations</span> that develop <span className="font-semibold" style={{ color: '#30519d' }}>fluency, problem-solving, mental math skills</span> and <span className="font-semibold" style={{ color: '#30519d' }}>confidence for long-term success</span>.
+              </p>
             </div>
 
-            {/* Book a Free Assessment Button */}
-            <div className="mt-8 text-center">
-              <Link href="/contact">
-                <motion.button
-                  className="text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-xl transition-all duration-300 hover:opacity-90"
-                  style={{ backgroundColor: '#30519d' }}
-                  whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(48, 81, 157, 0.3)" }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Book a Free Assessment
-                </motion.button>
-              </Link>
+            {/* Right Side - Criteria Box */}
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 shadow-lg border border-blue-100 transition-all duration-300 hover:bg-gray-200 hover:from-gray-200 hover:to-gray-200 hover:border-blue-600 hover:shadow-xl hover:scale-105">
+              <h4 className="text-xl font-bold text-gray-900 mb-6">
+                Our Grade 3-5 Math Programs Features:
+              </h4>
+              <ul className="space-y-4">
+                <li className="flex items-start text-gray-700">
+                  <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                  <span className="text-base">Led by founders, not outside tutors</span>
+                </li>
+                <li className="flex items-start text-gray-700">
+                  <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                  <span className="text-base">In-person at our Mississauga center</span>
+                </li>
+                <li className="flex items-start text-gray-700">
+                  <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                  <span className="text-base">Affordable at $25/hour</span>
+                </li>
+                <li className="flex items-start text-gray-700">
+                  <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                  <span className="text-base">8 hours of interactive classes per month</span>
+                </li>
+              </ul>
             </div>
           </div>
-        </motion.div>
 
-        {/* Page Title Section */}
+          {/* Book a Free Assessment Button */}
+          <div className="mt-8 text-center">
+            <Link href="/contact">
+              <motion.button
+                className="text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-xl transition-all duration-300 hover:opacity-90"
+                style={{ backgroundColor: '#30519d' }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(48, 81, 157, 0.3)" }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Book a Free Assessment
+              </motion.button>
+            </Link>
+          </div>
+        </motion.div>
+        </div>
+      </div>
+
+      {/* Page Title Section */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
         <motion.div
           className="mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -237,7 +214,7 @@ export default function Grades35Page() {
             {courses.map((course, index) => (
               <motion.div
                 key={course.title}
-                className="bg-gray-100 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-300 hover:border-blue-500 hover:shadow-xl transition-all duration-200 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
+                className="bg-gray-200 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 

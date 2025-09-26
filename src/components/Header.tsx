@@ -81,8 +81,8 @@ export default function Header() {
         <div className="text-white py-2 sm:py-3" style={{ backgroundColor: '#30519d' }}>
           <div className="max-w-7xl mx-auto px-3 sm:px-4">
             <div className="flex flex-row items-center justify-between gap-3 text-base sm:text-lg">
-              {/* Contacts - always show values but truncate on very narrow screens */}
-              <div className="flex items-center space-x-3 sm:space-x-4 flex-shrink-0 order-1">
+              {/* Contacts - moved further to the left with minimal spacing */}
+              <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 order-1 mr-6">
                 <a
                   href={`mailto:${email}`}
                   className="flex items-center space-x-1 text-sm sm:text-base whitespace-nowrap"
@@ -102,9 +102,9 @@ export default function Header() {
                 </a>
               </div>
 
-              {/* Messages area - horizontal ticker for all screen sizes */}
-              <div className="flex-1 min-w-0 order-2 ml-2">
-                <Ticker messages={messages} cycleDuration={14 /* seconds per message - adjust */} />
+              {/* Messages area - horizontal ticker for all screen sizes with more space */}
+              <div className="flex-1 min-w-0 order-2">
+                <Ticker messages={messages} cycleDuration={25 /* seconds per message - much slower animation */} />
               </div>
             </div>
           </div>
@@ -124,8 +124,8 @@ export default function Header() {
           <motion.div 
             className="max-w-7xl mx-auto px-4 sm:px-6"
             animate={{
-              paddingTop: isScrolled ? '0.75rem' : '1rem',
-              paddingBottom: isScrolled ? '0.75rem' : '1rem'
+              paddingTop: '0.75rem',
+              paddingBottom: '0.75rem'
             }}
             transition={{ duration: 0.3 }}
           >
@@ -136,19 +136,14 @@ export default function Header() {
                   className="flex items-center"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <motion.div
-                    animate={{
-                      scale: isScrolled ? 0.8 : 1
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
+                  <div>
                     <Image
                       src="/logo.png"
                       alt="Level Up Math Academy Logo"
-                      width={100}
-                      height={100}
+                      width={140}
+                      height={140}
                     />
-                  </motion.div>
+                  </div>
                 </motion.div>
               </Link>
               
@@ -157,7 +152,7 @@ export default function Header() {
                 {/* Home Link */}
                 <Link href="/">
                   <motion.a
-                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg"
                     whileHover={{ scale: 1.05 }}
                   >
                     Home
@@ -171,7 +166,7 @@ export default function Header() {
                   onMouseLeave={() => setCoursesDropdownOpen(false)}
                 >
                   <motion.div
-                    className="flex items-center space-x-1 text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                    className="flex items-center space-x-1 text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg"
                     whileHover={{ scale: 1.05 }}
                   >
                     <span>Courses</span>
@@ -191,7 +186,7 @@ export default function Header() {
                   >
                     <Link href="/courses/grades-3-5">
                       <motion.div
-                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
+                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer text-lg"
                         whileHover={{ x: 5 }}
                       >
                         Grades 3-5
@@ -199,7 +194,7 @@ export default function Header() {
                     </Link>
                     <Link href="/courses/grades-6-8">
                       <motion.div
-                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
+                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer text-lg"
                         whileHover={{ x: 5 }}
                       >
                         Grades 6-8
@@ -207,7 +202,7 @@ export default function Header() {
                     </Link>
                     <Link href="/courses/grades-9-12">
                       <motion.div
-                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer"
+                        className="px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-pointer text-lg"
                         whileHover={{ x: 5 }}
                       >
                         Grades 9-12
@@ -218,7 +213,7 @@ export default function Header() {
 
                 <Link href="/services">
                   <motion.a
-                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg"
                     whileHover={{ scale: 1.05 }}
                   >
                     Our Services
@@ -226,7 +221,7 @@ export default function Header() {
                 </Link>
                 <Link href="/about">
                   <motion.a
-                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer"
+                    className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg"
                     whileHover={{ scale: 1.05 }}
                   >
                     About Us

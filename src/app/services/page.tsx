@@ -1,10 +1,9 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
-import FloatingElements from '@/components/FloatingElements';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActionButton from '@/components/FloatingActionButton';
@@ -113,44 +112,20 @@ export default function ServicesPage() {
       {/* Header with Navigation */}
       <Header />
 
-      {/* Back to Home Button */}
-      <motion.div 
-        className="relative z-10 max-w-7xl mx-auto px-4 pt-6"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Link href="/">
-          <motion.button
-            className="flex items-center space-x-2 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:opacity-90" style={{ backgroundColor: '#30519d' }}
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(147, 51, 234, 0.3)" }}
-            whileTap={{ scale: 0.98 }}
+
+      {/* Main Content Section with Gradient Background */}
+      <div className="relative">
+        {/* Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
+          {/* Section 1 - Main Message */}
+          <motion.div
+            className="mb-8 sm:mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <ArrowLeft className="w-5 h-5" />
-            <span>Back to Home</span>
-          </motion.button>
-        </Link>
-      </motion.div>
-
-      {/* Floating Math Symbols Background */}
-      <FloatingElements 
-        elements={['📚', '✏️', '🎯', '💡', '⭐', '🚀', '📊', '🧮', '📐', '📏']}
-        count={12}
-        size="md"
-        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
-      />
-
-      {/* Main Content Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-
-        {/* Section 1 - Main Message */}
-        <motion.div
-          className="mb-8 sm:mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Left Side - Main Content */}
               <div>
@@ -164,7 +139,7 @@ export default function ServicesPage() {
               </div>
 
               {/* Right Side - Criteria Box */}
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 shadow-lg border border-blue-100">
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 shadow-lg border border-blue-100 transition-all duration-300 hover:bg-gray-200 hover:from-gray-200 hover:to-gray-200 hover:border-blue-600 hover:shadow-xl hover:scale-105">
                 <h4 className="text-xl font-bold text-gray-900 mb-6">
                   All Programs Meet The Following Criteria:
                 </h4>
@@ -198,8 +173,12 @@ export default function ServicesPage() {
                 </motion.button>
               </Link>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Math Programs By Grade Category Heading */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
 
         {/* Math Programs By Grade Category Heading */}
         <motion.div
@@ -226,7 +205,7 @@ export default function ServicesPage() {
             {gradeCategories.map((grade, index) => (
               <motion.div
                 key={grade.id}
-                className="bg-gray-100 rounded-xl p-8 sm:p-10 shadow-lg border border-gray-300 hover:border-blue-500 hover:shadow-xl transition-all duration-200 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
+                className="bg-gray-200 rounded-xl p-8 sm:p-10 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
