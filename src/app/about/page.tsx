@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Target, Brain, BookOpen, MessageCircle, Star, Award, Lightbulb, Heart, Zap } from 'lucide-react';
+import { Users, Target, Brain, BookOpen, MessageCircle, Star } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';

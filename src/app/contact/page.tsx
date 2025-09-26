@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import FloatingElements from '@/components/FloatingElements';
 import FloatingActionButton from '@/components/FloatingActionButton';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
