@@ -444,7 +444,7 @@ export default function ContactPage() {
                   <span className="font-semibold" style={{ color: '#30519d' }}>📧 Email:</span> levelupmathacademy@gmail.com
                 </p>
                 <p className="text-sm text-gray-700">
-                  <span className="font-semibold" style={{ color: '#30519d' }}>📞 Phone:</span> (647) 1111111
+                  <span className="font-semibold" style={{ color: '#30519d' }}>📞 Phone:</span> (416) 802-4713
                 </p>
               </motion.div>
               
