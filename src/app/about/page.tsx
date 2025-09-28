@@ -201,16 +201,14 @@ export default function AboutPage() {
           </div>
         </motion.div>
 
-      {/* Main Content Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-
-        {/* Section 2 - Who We Are */}
-        <motion.div
-          className="mb-16 sm:mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
+      {/* Section 2 - Who We Are */}
+      <motion.div
+        className="mb-16 sm:mb-20 bg-white py-16 sm:py-20"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+      >
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <motion.div
               className="mb-6"
@@ -390,15 +388,17 @@ export default function AboutPage() {
               </div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
+      </motion.div>
 
-        {/* Section 3 - Our Unique Teaching Approach */}
-        <motion.div
-          className="mb-16 sm:mb-20 bg-gray-50 py-16 sm:py-20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-        >
+      {/* Section 3 - Our Unique Teaching Approach */}
+      <motion.div
+        className="mb-16 sm:mb-20 bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 py-16 sm:py-20"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+      >
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <motion.div
                 className="mb-6 text-center"
@@ -469,8 +469,8 @@ export default function AboutPage() {
               );
             })}
             </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
 
       {/* Section 5 - Let's Learn Together */}
       <CallToActionSection />
