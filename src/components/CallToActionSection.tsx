@@ -83,6 +83,102 @@ export default function CallToActionSection() {
           <text x="520" y="300" fontSize="14">∇·E = ρ/ε₀</text>
           <text x="560" y="320" fontSize="14">(x₁, y₁)</text>
           <text x="440" y="340" fontSize="14">F₁ ≠ F₂</text>
+
+          {/* Additional Elementary Math */}
+          <text x="150" y="300" fontSize="18">2 + 3 = 5</text>
+          <text x="250" y="320" fontSize="16">4 × 5 = 20</text>
+          <text x="350" y="300" fontSize="14">1/2 + 1/4 = 3/4</text>
+          <text x="450" y="320" fontSize="18">10 - 7 = 3</text>
+          <text x="550" y="300" fontSize="16">6 ÷ 2 = 3</text>
+          <text x="650" y="320" fontSize="14">3² = 9</text>
+          <text x="750" y="300" fontSize="18">√16 = 4</text>
+          <text x="850" y="320" fontSize="16">2³ = 8</text>
+
+          {/* More Geometry */}
+          <text x="100" y="450" fontSize="16">A = πr²</text>
+          <text x="200" y="470" fontSize="14">C = 2πr</text>
+          <text x="300" y="450" fontSize="18">V = l × w × h</text>
+          <text x="400" y="470" fontSize="16">P = 2(l + w)</text>
+          <text x="500" y="450" fontSize="14">A = (1/2)bh</text>
+          <text x="600" y="470" fontSize="18">V = (4/3)πr³</text>
+          <text x="700" y="450" fontSize="16">S = 4πr²</text>
+          <text x="800" y="470" fontSize="14">∠A + ∠B + ∠C = 180°</text>
+
+          {/* More Algebra */}
+          <text x="900" y="450" fontSize="16">x + 5 = 12</text>
+          <text x="1000" y="470" fontSize="14">y = 2x + 3</text>
+          <text x="1100" y="450" fontSize="18">ax + by = c</text>
+          <text x="1200" y="470" fontSize="16">x² - 4 = 0</text>
+          <text x="1300" y="450" fontSize="14">(x + 2)(x - 3) = 0</text>
+          <text x="1400" y="470" fontSize="18">f(x) = x² + 2x + 1</text>
+
+          {/* More Trigonometry */}
+          <text x="100" y="520" fontSize="16">sin(30°) = 1/2</text>
+          <text x="250" y="540" fontSize="14">cos(60°) = 1/2</text>
+          <text x="400" y="520" fontSize="18">tan(45°) = 1</text>
+          <text x="550" y="540" fontSize="16">sin(A + B) = sin A cos B + cos A sin B</text>
+          <text x="800" y="520" fontSize="14">cos(A + B) = cos A cos B - sin A sin B</text>
+          <text x="1100" y="540" fontSize="18">sin²θ + cos²θ = 1</text>
+
+          {/* More Calculus */}
+          <text x="100" y="580" fontSize="16">∫ x dx = x²/2 + C</text>
+          <text x="300" y="600" fontSize="14">d/dx [sin(x)] = cos(x)</text>
+          <text x="500" y="580" fontSize="18">d/dx [cos(x)] = -sin(x)</text>
+          <text x="700" y="600" fontSize="16">∫ sin(x) dx = -cos(x) + C</text>
+          <text x="950" y="580" fontSize="14">lim (x→0) (1-cos x)/x² = 1/2</text>
+          <text x="1200" y="600" fontSize="18">∫₀^∞ e^(-x²) dx = √π/2</text>
+
+          {/* More Advanced Math Symbols */}
+          <text x="200" y="50" fontSize="24" fontWeight="700">∂</text>
+          <text x="300" y="50" fontSize="22" fontWeight="700">∇</text>
+          <text x="400" y="50" fontSize="20" fontWeight="700">∏</text>
+          <text x="500" y="50" fontSize="18" fontWeight="700">ℂ</text>
+          <text x="600" y="50" fontSize="22" fontWeight="700">ℝ</text>
+          <text x="700" y="50" fontSize="20" fontWeight="700">ℤ</text>
+          <text x="800" y="50" fontSize="18" fontWeight="700">ℕ</text>
+          <text x="900" y="50" fontSize="22" fontWeight="700">ℚ</text>
+          <text x="1000" y="50" fontSize="20" fontWeight="700">∈</text>
+          <text x="1100" y="50" fontSize="18" fontWeight="700">∉</text>
+          <text x="1200" y="50" fontSize="22" fontWeight="700">⊂</text>
+          <text x="1300" y="50" fontSize="20" fontWeight="700">⊃</text>
+          <text x="1400" y="50" fontSize="18" fontWeight="700">∪</text>
+
+          {/* More Basic Math Symbols */}
+          <text x="100" y="150" fontSize="26" fontWeight="700">+</text>
+          <text x="200" y="150" fontSize="24" fontWeight="700">-</text>
+          <text x="300" y="150" fontSize="22" fontWeight="700">×</text>
+          <text x="400" y="150" fontSize="20" fontWeight="700">÷</text>
+          <text x="500" y="150" fontSize="18" fontWeight="700">=</text>
+          <text x="600" y="150" fontSize="22" fontWeight="700">≠</text>
+          <text x="700" y="150" fontSize="20" fontWeight="700">≈</text>
+          <text x="800" y="150" fontSize="18" fontWeight="700">±</text>
+          <text x="900" y="150" fontSize="24" fontWeight="700">√</text>
+          <text x="1000" y="150" fontSize="22" fontWeight="700">π</text>
+          <text x="1100" y="150" fontSize="20" fontWeight="700">∞</text>
+          <text x="1200" y="150" fontSize="18" fontWeight="700">≤</text>
+          <text x="1300" y="150" fontSize="22" fontWeight="700">≥</text>
+          <text x="1400" y="150" fontSize="20" fontWeight="700">&lt;</text>
+          <text x="1500" y="150" fontSize="18" fontWeight="700">&gt;</text>
+
+          {/* More Complex Formulas */}
+          <text x="100" y="250" fontSize="14">log(a) + log(b) = log(ab)</text>
+          <text x="350" y="270" fontSize="16">log(a) - log(b) = log(a/b)</text>
+          <text x="600" y="250" fontSize="18">a^log_a(x) = x</text>
+          <text x="800" y="270" fontSize="14">e^(ln x) = x</text>
+          <text x="1000" y="250" fontSize="16">ln(e^x) = x</text>
+          <text x="1200" y="270" fontSize="18">∑{'{'}{'k=0'}{'}'}{'{'}{'n'}{'}'} C(n,k) = 2^n</text>
+
+          {/* More Physics */}
+          <text x="100" y="350" fontSize="16">E = hf</text>
+          <text x="200" y="370" fontSize="14">p = mv</text>
+          <text x="300" y="350" fontSize="18">KE = (1/2)mv²</text>
+          <text x="500" y="370" fontSize="16">PE = mgh</text>
+          <text x="700" y="350" fontSize="14">W = Fd</text>
+          <text x="800" y="370" fontSize="18">P = W/t</text>
+          <text x="950" y="350" fontSize="16">V = IR</text>
+          <text x="1100" y="370" fontSize="14">P = IV</text>
+          <text x="1250" y="350" fontSize="18">Q = mcΔT</text>
+          <text x="1400" y="370" fontSize="16">PV = nRT</text>
         </g>
 
         {/* delicate small chalk accents */}
