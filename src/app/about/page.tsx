@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Target, Brain, BookOpen, MessageCircle, Star } from 'lucide-react';
+// Removed unused imports: Users, Target, Brain, BookOpen, MessageCircle, Star
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';

@@ -183,7 +183,11 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
+            
             <h4 className="text-white font-bold text-2xl mb-6">Contact Info</h4>
+            
+            {/* Blank space between Contact Info heading and email */}
+            <div className="h-4 md:h-6"></div>
             
             {/* Contact Info with Icons and Values */}
             <div className="space-y-4 mb-8">
@@ -247,7 +251,7 @@ export default function Footer() {
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dOWWg0F0q8x8&q=${encodeURIComponent(contactConfig.address.full)}`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${encodeURIComponent(contactConfig.address.full)}`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

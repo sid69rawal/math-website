@@ -189,7 +189,7 @@ export default function ContactPage() {
                 transition={{ delay: 0.6, duration: 0.8 }}
               >
                 <iframe
-                  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dOWWg0F0q8x8&q=${encodeURIComponent(contactConfig.address.full)}`}
+                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${encodeURIComponent(contactConfig.address.full)}`}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Level Up Math Academy - Where Math Becomes Easy & Learning Becomes Fun",
-  description: "Professional math tutoring in Mississauga offering in-person and online programs. Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus & Vectors, Math Competitions. First Month Guarantee!",
+  description: "Professional math tutoring in Mississauga offering in-person and online programs. Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus & Vectors, Math Competitions. First Month Money-Back Guarantee!",
   keywords: "math tutoring, Mississauga, online math, algebra, geometry, trigonometry, calculus, math competitions, Level Up Math Academy",
   authors: [{ name: "Level Up Math Academy" }],
   openGraph: {
