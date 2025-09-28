@@ -97,7 +97,7 @@ export default function WhatWeOfferSection() {
           {offers.map((offer, index) => (
             <motion.div
               key={index}
-              className="bg-blue-50 p-6 sm:p-8 lg:p-12 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-500 transition-all duration-300 group"
+              className="bg-blue-50 p-3 sm:p-5 lg:p-12 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-500 transition-all duration-300 group"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ 

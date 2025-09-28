@@ -138,26 +138,26 @@ export default function AboutPage() {
 
                 {/* Right Side - Criteria Box */}
                 <motion.div
-                  className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-10 shadow-lg border border-blue-100 mt-8"
+                  className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 shadow-lg border border-gray-200 mt-8 transition-all duration-300 hover:bg-gray-200 hover:from-gray-200 hover:to-gray-200 hover:border-blue-600 hover:shadow-xl hover:scale-105"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.8, duration: 0.8 }}
                 >
-                  <h4 className="text-2xl font-bold text-gray-900 mb-8">
+                  <h4 className="text-xl font-bold text-gray-900 mb-6">
                     Why Choose Level Up Math Academy?
                   </h4>
-                  <ul className="space-y-6">
+                  <ul className="space-y-4">
                     <li className="flex items-start text-gray-700">
-                      <span className="w-4 h-4 rounded-full mr-5 mt-1 flex-shrink-0" style={{ backgroundColor: '#30519d' }} />
-                      <span className="text-lg font-medium">Expert-Led, Not Outsourced</span>
+                      <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                      <span className="text-base">Expert-Led, Not Outsourced</span>
                     </li>
                     <li className="flex items-start text-gray-700">
-                      <span className="w-4 h-4 rounded-full mr-5 mt-1 flex-shrink-0" style={{ backgroundColor: '#30519d' }} />
-                      <span className="text-lg font-medium">Small Groups, Strong Foundations</span>
+                      <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                      <span className="text-base">Small Groups, Strong Foundations</span>
                     </li>
                     <li className="flex items-start text-gray-700">
-                      <span className="w-4 h-4 rounded-full mr-5 mt-1 flex-shrink-0" style={{ backgroundColor: '#30519d' }} />
-                      <span className="text-lg font-medium">Affordable Coaching, Guaranteed Improvement</span>
+                      <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
+                      <span className="text-base">Affordable Coaching, Guaranteed Improvement</span>
                     </li>
                   </ul>
                   
@@ -421,7 +421,7 @@ export default function AboutPage() {
               return (
                 <motion.div
                   key={index}
-                  className="bg-gray-100 rounded-xl p-8 sm:p-10 shadow-lg border border-gray-300 hover:border-blue-500 hover:shadow-xl transition-all duration-200 group flex flex-col min-h-[500px] sm:min-h-[550px]"
+                  className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-200 transition-all duration-300 hover:bg-gray-200 hover:from-gray-200 hover:to-gray-200 hover:border-blue-600 hover:shadow-xl hover:scale-105 group flex flex-col min-h-[400px] sm:min-h-[450px]"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ 
