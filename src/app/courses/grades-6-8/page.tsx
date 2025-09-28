@@ -246,29 +246,111 @@ export default function Grades68Page() {
           </div>
         </motion.div>
 
-        {/* Call to Action - Compact */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+      </div>
+
+      {/* Full-Screen Call to Action - Chalkboard Style */}
+      <motion.section
+        className="py-8 lg:py-12 relative overflow-hidden bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.5 }}
+      >
+        {/* Inline SVG chalk overlay */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none z-10"
+          viewBox="0 0 1600 600"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+          style={{ display: 'block' }}
         >
-          <div className="bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6 shadow-lg border border-gray-200">
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
+          <defs>
+            {/* very subtle roughness for chalky stroke */}
+            <filter id="chalkGrainCTA68" x="-30%" y="-30%" width="160%" height="160%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="1" stitchTiles="stitch" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" />
+              <feGaussianBlur stdDeviation="0.5" />
+            </filter>
+
+            <filter id="softBlurCTA68" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="1.4" />
+            </filter>
+          </defs>
+
+          {/* formulas and symbols group - dark text on light background */}
+          <g
+            fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, monospace"
+            fill="#0a3b5a"
+            fillOpacity="0.3"
+            style={{ fontVariantLigatures: 'none' }}
+          >
+            {/* Middle school math formulas */}
+            <text x="100" y="80" fontSize="24">ax² + bx + c = 0</text>
+            <text x="300" y="100" fontSize="18">y = mx + b</text>
+            <text x="500" y="80" fontSize="16">sin²θ + cos²θ = 1</text>
+            <text x="700" y="100" fontSize="20">a² + b² = c²</text>
+            
+            <text x="900" y="80" fontSize="18">V = πr²h</text>
+            <text x="1100" y="100" fontSize="16">A = πr²</text>
+            <text x="1300" y="80" fontSize="20">P = 2πr</text>
+            
+            <text x="150" y="200" fontSize="18">f(x) = ax + b</text>
+            <text x="350" y="220" fontSize="16">log(a) + log(b) = log(ab)</text>
+            <text x="600" y="200" fontSize="20">√(a² + b²)</text>
+            
+            <text x="800" y="220" fontSize="18">lim (x→0) sin(x)/x = 1</text>
+            <text x="1100" y="200" fontSize="16">d/dx [xⁿ] = nxⁿ⁻¹</text>
+            <text x="1300" y="220" fontSize="20">∫ f(x) dx</text>
+            
+            {/* Lower row */}
+            <text x="100" y="320" fontSize="16">∠A + ∠B + ∠C = 180°</text>
+            <text x="300" y="340" fontSize="18">△ABC ~ △DEF</text>
+            <text x="500" y="320" fontSize="16">AB² = AC² + BC²</text>
+            <text x="700" y="340" fontSize="20">sin(A)/a = sin(B)/b</text>
+            
+            <text x="900" y="320" fontSize="18">V = (4/3)πr³</text>
+            <text x="1100" y="340" fontSize="16">S = 4πr²</text>
+            <text x="1300" y="320" fontSize="20">A = (1/2)bh</text>
+            
+            {/* Math symbols */}
+            <text x="200" y="450" fontSize="28" fontWeight="700">∑</text>
+            <text x="300" y="450" fontSize="26" fontWeight="700">∫</text>
+            <text x="400" y="450" fontSize="24" fontWeight="700">√</text>
+            <text x="500" y="450" fontSize="22" fontWeight="700">π</text>
+            <text x="600" y="450" fontSize="20" fontWeight="700">∞</text>
+            <text x="700" y="450" fontSize="18" fontWeight="700">±</text>
+            <text x="800" y="450" fontSize="22" fontWeight="700">≈</text>
+            <text x="900" y="450" fontSize="20" fontWeight="700">≠</text>
+            <text x="1000" y="450" fontSize="24" fontWeight="700">≤</text>
+            <text x="1100" y="450" fontSize="22" fontWeight="700">≥</text>
+            <text x="1200" y="450" fontSize="20" fontWeight="700">∈</text>
+          </g>
+
+          {/* delicate small chalk accents */}
+          <g stroke="#0b4a76" strokeOpacity="0.15" strokeWidth="1.0" strokeLinecap="round" fill="none">
+            <path d="M300 150 q20 -15 40 -6" />
+            <path d="M800 120 q15 10 30 6" />
+            <path d="M1200 180 q25 -12 50 -4" />
+          </g>
+        </svg>
+
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-20">
+          <div className="text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Ready to Empower Your Middle School Student? 🚀
             </h2>
-            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-gray-800 font-medium leading-relaxed mb-4 sm:mb-6 max-w-2xl mx-auto">
               Give your middle school student the advanced skills they need to excel in mathematics and beyond. 
               Our comprehensive approach prepares them for high school and competitions!
             </p>
             <Link href="/contact">
-              <button className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" style={{ backgroundColor: '#30519d' }}>
+              <button className="text-white px-6 py-3 rounded-lg font-semibold text-base shadow-lg transition-all duration-300 hover:opacity-90" style={{ backgroundColor: '#30519d' }}>
                 Book a Free Assessment
               </button>
             </Link>
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.section>
 
       {/* Footer */}
       <Footer />
