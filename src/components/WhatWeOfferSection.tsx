@@ -88,7 +88,7 @@ export default function WhatWeOfferSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             What We Offer
           </h2>
-          <p className="text-lg sm:text-xl font-bold text-gray-800">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
             Comprehensive math education programs designed to help students excel at every level
           </p>
         </motion.div>

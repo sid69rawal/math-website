@@ -51,23 +51,21 @@ export default function Footer() {
                   href={contactConfig.socialMedia.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors duration-300"
-                  style={{ color: '#1877F2' }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="bg-gray-800 p-3 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Facebook className="w-6 h-6" />
+                  <Facebook className="w-6 h-6 text-white" />
                 </motion.a>
                 <motion.a
                   href={contactConfig.socialMedia.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors duration-300"
-                  style={{ color: '#E4405F' }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="bg-gray-800 p-3 rounded-lg hover:bg-pink-600 transition-colors duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Instagram className="w-6 h-6" />
+                  <Instagram className="w-6 h-6 text-white" />
                 </motion.a>
               </div>
             </div>
@@ -91,7 +89,7 @@ export default function Footer() {
               {/* Courses Column */}
               <div>
                 <h5 className="text-white font-semibold text-xl mb-3">Courses</h5>
-                <ul className="space-y-2 ml-4">
+                <ul className="space-y-2">
                   <motion.li
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -140,7 +138,7 @@ export default function Footer() {
               {/* General Column */}
               <div>
                 <h5 className="text-white font-semibold text-xl mb-3">General</h5>
-                <ul className="space-y-2 ml-4">
+                <ul className="space-y-2">
                   {[
                     { name: "Home", href: "/" },
                     { name: "Our Services", href: "/services" },
