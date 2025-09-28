@@ -136,12 +136,12 @@ export default function AboutPage() {
                   </ul>
                   
                   {/* Book a Free Assessment Button */}
-                  <div>
+                  <div className="text-center">
                     <Link href="/contact">
                       <motion.button
-                        className="w-full text-white px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-300 cursor-pointer hover:opacity-90"
+                        className="text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 cursor-pointer hover:opacity-90"
                         style={{ backgroundColor: '#30519d' }}
-                        whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(48, 81, 157, 0.3)" }}
+                        whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
                       >
                         Book a Free Assessment
