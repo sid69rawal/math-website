@@ -1,9 +1,10 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Calculator, FunctionSquare, Atom, Zap, Layers3 } from 'lucide-react';
+import { X } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActionButton from '@/components/FloatingActionButton';
@@ -18,6 +19,24 @@ interface Course {
 
 export default function Grades912Page() {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+
+  // Function to get the correct image path for each course
+  const getCourseImage = (courseTitle: string) => {
+    switch (courseTitle) {
+      case 'Grade 9 Math Program':
+        return '/grade-9.png';
+      case 'Grade 10 Math Program':
+        return '/grade-10.jpg';
+      case 'Grade 11 Functions Program':
+        return '/grade-11.jpg';
+      case 'Grade 12 Advanced Functions Program':
+        return '/grade-12_advanced.png';
+      case 'Grade 12 Calculus & Vectors':
+        return '/grade-12_calculus.png';
+      default:
+        return '/grade-9.png';
+    }
+  };
 
   const courses = [
     {
@@ -259,7 +278,7 @@ export default function Grades912Page() {
             {courses.map((course, index) => (
               <motion.div
                 key={course.title}
-                className="bg-gray-200 rounded-xl p-6 sm:p-8 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
+                className="bg-gray-200 rounded-xl p-4 sm:p-6 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[350px] sm:min-h-[380px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
@@ -271,13 +290,17 @@ export default function Grades912Page() {
                   transition: { duration: 0.2 }
                 }}
               >
-                {/* Course Icon */}
+                {/* Course Image */}
                 <div className="flex justify-center mb-4">
-                  {index === 0 && <FunctionSquare className="w-12 h-12 text-blue-600" />}
-                  {index === 1 && <Atom className="w-12 h-12 text-blue-600" />}
-                  {index === 2 && <Zap className="w-12 h-12 text-blue-600" />}
-                  {index === 3 && <Calculator className="w-12 h-12 text-blue-600" />}
-                  {index === 4 && <Layers3 className="w-12 h-12 text-blue-600" />}
+                  <div className="w-28 h-28 rounded-xl overflow-hidden shadow-md bg-white p-2">
+                    <Image
+                      src={getCourseImage(course.title)}
+                      alt={`${course.title} image`}
+                      width={96}
+                      height={96}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
 
                 {/* Course Title - Centered in middle */}
@@ -349,8 +372,14 @@ export default function Grades912Page() {
               {/* Modal Header - Compact */}
               <div className="flex justify-between items-start sm:items-center mb-4 sm:mb-6">
                 <div className="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <div className="text-lg sm:text-xl">{selectedCourse.icon}</div>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-xl overflow-hidden shadow-md flex items-center justify-center flex-shrink-0 p-1">
+                    <Image
+                      src={getCourseImage(selectedCourse.title)}
+                      alt={`${selectedCourse.title} image`}
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 truncate">{selectedCourse.title}</h2>
                 </div>

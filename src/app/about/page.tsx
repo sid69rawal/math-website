@@ -394,12 +394,11 @@ export default function AboutPage() {
 
         {/* Section 3 - Our Unique Teaching Approach */}
         <motion.div
-          className="mb-16 sm:mb-20 bg-white py-16 sm:py-20 lg:py-24"
+          className="mb-16 sm:mb-20 bg-gray-50 py-16 sm:py-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
-          <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <motion.div
                 className="mb-6 text-center"
@@ -470,7 +469,6 @@ export default function AboutPage() {
               );
             })}
             </div>
-          </div>
         </motion.div>
       </div>
 

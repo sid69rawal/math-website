@@ -8,7 +8,7 @@ import { contactConfig } from '@/config/contact';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 py-16">
+    <footer className="bg-gray-900 py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
           
@@ -20,15 +20,15 @@ export default function Footer() {
             transition={{ duration: 0.8 }}
           >
             {/* Logo and Brand */}
-            <div className="flex items-center justify-center md:justify-start space-x-3 mb-6">
+            <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
               <Image
                 src="/logo1.png"
                 alt="Level Up Math Academy Logo"
-                width={90}
-                height={90}
-                className="rounded-lg"
+                width={70}
+                height={70}
+                className="rounded-lg object-contain"
               />
-              <div className="text-white font-bold text-2xl">
+              <div className="text-white font-bold text-xl">
                 Level Up Math Academy
               </div>
             </div>

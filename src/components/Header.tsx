@@ -124,8 +124,8 @@ export default function Header() {
           <motion.div 
             className="max-w-7xl mx-auto px-4 sm:px-6"
             animate={{
-              paddingTop: '0.75rem',
-              paddingBottom: '0.75rem'
+              paddingTop: '0.25rem',
+              paddingBottom: '0.25rem'
             }}
             transition={{ duration: 0.3 }}
           >
@@ -136,14 +136,13 @@ export default function Header() {
                   className="flex items-center"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div>
-                    <Image
-                      src="/logo.png"
-                      alt="Level Up Math Academy Logo"
-                      width={140}
-                      height={140}
-                    />
-                  </div>
+                  <Image
+                    src="/logo.png"
+                    alt="Level Up Math Academy Logo"
+                    width={120}
+                    height={120}
+                    className="object-contain"
+                  />
                 </motion.div>
               </Link>
               

@@ -111,13 +111,13 @@ export default function WhatWeOfferSection() {
             >
               {/* Card Header */}
               <div className="text-center mb-8">
-                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                   {offer.customIcon ? (
                     <Image
-                      src="/pricetag2.svg"
-                      alt="Price tag icon"
-                      width={80}
-                      height={80}
+                      src="/affordable.png"
+                      alt="Affordable pricing icon"
+                      width={50}
+                      height={50}
                       className="mx-auto"
                     />
                   ) : (
