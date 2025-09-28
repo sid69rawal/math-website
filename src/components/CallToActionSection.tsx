@@ -33,7 +33,7 @@ export default function CallToActionSection() {
         <g
           fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, monospace"
           fill="#0a3b5a"
-          fillOpacity="0.4" /* subtle visibility on light background */
+          fillOpacity="0.25" /* subtle visibility on light background */
           style={{ fontVariantLigatures: 'none' }}
         >
           {/* Row - right area */}
