@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Users, Target, Brain, BookOpen, MessageCircle, Star } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActionButton from '@/components/FloatingActionButton';
@@ -11,70 +12,63 @@ import CallToActionSection from '@/components/CallToActionSection';
 export default function AboutPage() {
   const teachingApproaches = [
     {
-      icon: Brain,
       title: "Concept-First Teaching",
       description: "Students learn the why behind mathematical concepts",
       details: [
         "Lessons emphasize reasoning, visualization, and real-world connections",
         "Builds a strong foundation for advanced problem-solving"
       ],
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100"
+      icon: "🧠",
+      customIcon: "/concept.png"
     },
     {
-      icon: Target,
       title: "Personalized Learning Plans",
       description: "Diagnostic assessments identify strengths and areas for growth",
       details: [
         "Customized learning paths aligned with curriculum and goals",
         "Regular progress reviews to adapt and optimize instruction"
       ],
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100"
+      icon: "🎯",
+      customIcon: "/personalized.png"
     },
     {
-      icon: Users,
       title: "Interactive & Engaging Sessions",
       description: "Sessions are hands-on, discussion-based, and tailored to each learner",
       details: [
         "Encourages exploration, critical thinking, and creativity",
         "Available both online and in person with equal impact"
       ],
-      color: "from-orange-500 to-orange-600",
-      bgColor: "from-orange-50 to-orange-100"
+      icon: "⚡",
+      customIcon: "/interactive.jpg"
     },
     {
-      icon: BookOpen,
       title: "Curriculum-Aligned & Exam-Ready",
       description: "Aligned with all grade-level provincial curriculum",
       details: [
         "Focus on strategic thinking, time management, and exam techniques",
         "Includes practice tests, review sessions, and performance tracking"
       ],
-      color: "from-teal-500 to-teal-600",
-      bgColor: "from-teal-50 to-teal-100"
+      icon: "📋"
     },
     {
-      icon: MessageCircle,
       title: "Support Beyond the Session",
       description: "Students can reach out between sessions for quick help or clarification",
       details: [
         "Parents receive regular updates and strategies to support learning at home",
         "We're committed to being a consistent academic partner"
       ],
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100"
+      icon: "👍",
+      customIcon: "/support.png"
     },
     {
-      icon: Star,
       title: "Confidence Building & Growth Mindset",
       description: "Encouragement and mindset coaching woven into every session",
       details: [
         "Celebrate progress, effort, and resilience—not just correct answers",
         "Builds self-esteem and reduces math anxiety over time"
       ],
-      color: "from-green-500 to-green-600",
-      bgColor: "from-green-50 to-green-100"
+      icon: "🌟",
+      customIcon: "/confidence.png"
     }
   ];
 
@@ -113,10 +107,7 @@ export default function AboutPage() {
                       Our Mission
                     </h1>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                      At <span className="font-semibold" style={{ color: '#30519d' }}>Level Up Math Academy</span>, we believe mathematics is more than numbers—it&apos;s a gateway to logical thinking, creativity, and lifelong confidence. Our mission is to help students excel in mathematics and develop a mindset that embraces challenges, celebrates curiosity, and builds resilience.
-                    </p>
-                    <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                      Whether online or in our Mississauga learning center, we offer personalized, curriculum-aligned tutoring that empowers learners from <span className="font-semibold" style={{ color: '#30519d' }}>Grades 3 to 12</span> to thrive academically and beyond.
+                      At <span className="font-semibold" style={{ color: '#30519d' }}>Level Up Math Academy</span>, we believe mathematics is more than numbers—it&apos;s a gateway to logical thinking, creativity, and lifelong confidence. Our mission is to help students excel in mathematics and develop a mindset that embraces challenges, celebrates curiosity, and builds resilience. Whether online or in our Mississauga learning center, we offer personalized, curriculum-aligned tutoring that empowers learners from <span className="font-semibold" style={{ color: '#30519d' }}>Grades 3 to 12</span> to thrive academically and beyond.
                     </p>
                     <p className="text-lg text-gray-700 leading-relaxed">
                       We&apos;re not just tutors—we&apos;re mentors, motivators, and lifelong learners who are passionate about teaching, learning, and inspiring the next generation of mathematical thinkers.
@@ -186,7 +177,7 @@ export default function AboutPage() {
 
       {/* Section 2 - Who We Are */}
       <motion.div
-        className="mb-16 sm:mb-20 bg-white py-16 sm:py-20"
+        className="bg-white py-16 sm:py-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
@@ -209,43 +200,38 @@ export default function AboutPage() {
           <div className="space-y-12">
             {/* Jyoti Agarwal - First */}
             <motion.div
-              className="relative bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 overflow-hidden"
+              className="relative p-8 sm:p-12 overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
             >
-              {/* Background Pattern */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-30"></div>
-              <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-30"></div>
-              <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-teal-100 to-blue-100 rounded-full opacity-20"></div>
               
               <div className="relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-8">
                   {/* Profile Picture - Left Side */}
                   <div className="flex-shrink-0">
                   <motion.div
-                      className="w-32 h-32 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto"
+                      className="w-80 h-80 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                      <span className="text-white text-5xl">👩‍🏫</span>
+                      <span className="text-white text-9xl">👩‍🏫</span>
                   </motion.div>
                   </div>
                   
                   {/* Content - Right Side */}
                   <div className="flex-1">
-                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Jyoti Agarwal</h3>
-                    <p className="text-xl font-semibold mb-6" style={{ color: '#30519d' }}>Cofounder and Educator</p>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Jyoti Agarwal</h3>
+                    <p className="text-lg font-semibold mb-8" style={{ color: '#30519d' }}>Cofounder and Educator</p>
                 
-                    <div className="space-y-4 text-gray-700">
+                    <div className="space-y-6 text-gray-700">
                   <motion.p
                         className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
                   >
-                        With <span className="font-bold" style={{ color: '#30519d' }}>20+ years in the IT industry</span> and a deep-rooted passion for education, Jyoti brings a rich blend of <span className="font-bold" style={{ color: '#30519d' }}>analytical precision and creative instruction</span>.
+                        With <span className="font-bold" style={{ color: '#30519d' }}>20+ years in the IT industry</span> and a deep-rooted passion for education, Jyoti brings a rich blend of <span className="font-bold" style={{ color: '#30519d' }}>analytical precision and creative instruction</span>. She holds a B.E. in Computer Science from NIT Jamshedpur, India and an M.S. from Georgia State University, USA. Her teaching journey spans <span className="font-bold" style={{ color: '#30519d' }}>India, the USA, and Canada</span>, where she has supported students across all grade levels through both volunteer and professional roles. Jyoti specializes in <span className="font-bold" style={{ color: '#30519d' }}>mental math, algebra, trigonometry, functions, advanced functions, calculus, vectors</span>, and <span className="font-bold" style={{ color: '#30519d' }}>math contest preparation</span> (Waterloo, Math League, SAT, GMAT, GRE).
                   </motion.p>
                   
                   <motion.p
@@ -253,33 +239,6 @@ export default function AboutPage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.5 }}
-                  >
-                        She holds a B.E. in Computer Science from NIT Jamshedpur, India and an M.S. from Georgia State University, USA.
-                  </motion.p>
-                  
-                  <motion.p
-                        className="text-lg leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9, duration: 0.5 }}
-                  >
-                        Her teaching journey spans <span className="font-bold" style={{ color: '#30519d' }}>India, the USA, and Canada</span>, where she has supported students across all grade levels through both volunteer and professional roles.
-                  </motion.p>
-                  
-                  <motion.p
-                        className="text-lg leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.0, duration: 0.5 }}
-                  >
-                        Jyoti specializes in <span className="font-bold" style={{ color: '#30519d' }}>mental math, algebra, trigonometry, functions, advanced functions, calculus, vectors</span>, and <span className="font-bold" style={{ color: '#30519d' }}>math contest preparation</span> (Waterloo, Math League, SAT, GMAT, GRE).
-                  </motion.p>
-                  
-                  <motion.p
-                        className="text-lg leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.1, duration: 0.5 }}
                   >
                         Her approach transforms math into a <span className="font-bold" style={{ color: '#30519d' }}>playful, pattern-rich experience</span> that sparks curiosity and builds deep conceptual understanding. She believes that when students see math as a tool for solving real problems, it becomes one of their most empowering subjects.
                   </motion.p>
@@ -291,43 +250,38 @@ export default function AboutPage() {
 
             {/* Kunal Agarwal - Second */}
             <motion.div
-              className="relative bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-gray-100 overflow-hidden"
+              className="relative p-8 sm:p-12 overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
             >
-              {/* Background Pattern */}
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-30"></div>
-              <div className="absolute -bottom-20 -left-20 w-32 h-32 bg-gradient-to-br from-teal-100 to-blue-100 rounded-full opacity-30"></div>
-              <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-20"></div>
               
               <div className="relative z-10">
                 <div className="flex flex-col lg:flex-row-reverse items-center gap-8">
                   {/* Profile Picture - Right Side */}
                   <div className="flex-shrink-0">
                   <motion.div
-                      className="w-32 h-32 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto"
+                      className="w-80 h-80 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto"
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                      <span className="text-white text-5xl">👨‍🏫</span>
+                      <span className="text-white text-9xl">👨‍🏫</span>
                   </motion.div>
                   </div>
                   
                   {/* Content - Left Side */}
                   <div className="flex-1">
-                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Kunal Agarwal</h3>
-                    <p className="text-xl font-semibold mb-6" style={{ color: '#30519d' }}>Cofounder and Educator</p>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Kunal Agarwal</h3>
+                    <p className="text-lg font-semibold mb-6" style={{ color: '#30519d' }}>Cofounder and Educator</p>
                 
-                    <div className="space-y-4 text-gray-700">
+                    <div className="space-y-6 text-gray-700">
                   <motion.p
                         className="text-lg leading-relaxed"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7, duration: 0.5 }}
                   >
-                        Kunal brings <span className="font-bold" style={{ color: '#30519d' }}>20+ years of experience in IT and banking</span>, plus a sharp eye for numbers and student growth.
+                        Kunal brings <span className="font-bold" style={{ color: '#30519d' }}>20+ years of experience in IT and banking</span>, plus a sharp eye for numbers and student growth. He holds a B.E. in Computer Science from BIT Mesra, India and an M.S. in Quantitative Finance from Georgia Institute of Technology, USA. His teaching strengths include <span className="font-bold" style={{ color: '#30519d' }}>Grades 5–12: algebra, geometry, trigonometry, probability, functions, advanced functions, calculus, vectors</span>, and <span className="font-bold" style={{ color: '#30519d' }}>competitive math exams</span>. Kunal&apos;s strength lies in making complex concepts accessible through engaging, personalized instruction that builds confidence and curiosity.
                   </motion.p>
                   
                   <motion.p
@@ -335,33 +289,6 @@ export default function AboutPage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.5 }}
-                  >
-                        He holds a B.E. in Computer Science from BIT Mesra, India and an M.S. in Quantitative Finance from Georgia Institute of Technology, USA.
-                  </motion.p>
-                  
-                  <motion.p
-                        className="text-lg leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9, duration: 0.5 }}
-                  >
-                        His teaching strengths include <span className="font-bold" style={{ color: '#30519d' }}>Grades 5–12: algebra, geometry, trigonometry, probability, functions, advanced functions, calculus, vectors</span>, and <span className="font-bold" style={{ color: '#30519d' }}>competitive math exams</span>.
-                  </motion.p>
-                  
-                  <motion.p
-                        className="text-lg leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.0, duration: 0.5 }}
-                  >
-                        Kunal&apos;s strength lies in making complex concepts accessible through engaging, personalized instruction that builds confidence and curiosity.
-                  </motion.p>
-                  
-                  <motion.p
-                        className="text-lg leading-relaxed"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.1, duration: 0.5 }}
                   >
                         His goal is to help students see math not as a hurdle, but as a <span className="font-bold" style={{ color: '#30519d' }}>skill they can master and enjoy</span>. With a strategic mindset and a passion for mentorship, he ensures every learner gets the support they need to level up.
                   </motion.p>
@@ -376,7 +303,7 @@ export default function AboutPage() {
 
       {/* Section 3 - Our Unique Teaching Approach */}
       <motion.div
-        className="mb-16 sm:mb-20 bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 py-16 sm:py-20"
+        className="bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-100 py-16 sm:py-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.5 }}
@@ -416,6 +343,23 @@ export default function AboutPage() {
                     transition: { duration: 0.2 }
                   }}
                 >
+                  {/* Icon */}
+                  <div className="flex justify-center mb-6">
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl flex items-center justify-center text-3xl shadow-md">
+                      {approach.customIcon ? (
+                        <Image
+                          src={approach.customIcon}
+                          alt={`${approach.title} icon`}
+                          width={48}
+                          height={48}
+                          className="object-contain"
+                        />
+                      ) : (
+                        approach.icon
+                      )}
+                    </div>
+                  </div>
+
                   {/* Title */}
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
                     {approach.title}
