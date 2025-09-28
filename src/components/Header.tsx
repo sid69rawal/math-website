@@ -57,7 +57,7 @@ function Ticker({
     if (!mounted) return;
     measure();
 
-    const ro = new (window as any).ResizeObserver(() => measure());
+    const ro = new ResizeObserver(() => measure());
     if (containerRef.current) ro.observe(containerRef.current);
     if (textRef.current) ro.observe(textRef.current);
 
@@ -67,7 +67,6 @@ function Ticker({
       ro.disconnect();
       window.removeEventListener('resize', onResize);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mounted, index, messages]);
 
   // keep index valid if messages change
@@ -204,7 +203,7 @@ export default function Header() {
               {/* Logo */}
               <Link href="/">
                 <motion.div className="flex items-center" whileHover={{ scale: 1.02 }}>
-                  <Image src="/logo1.png" alt="Level Up Math Academy Logo" width={90} height={90} className="object-contain" />
+                  <Image src="/logo_3.png" alt="Level Up Math Academy Logo" width={90} height={90} className="object-contain" />
                 </motion.div>
               </Link>
 
