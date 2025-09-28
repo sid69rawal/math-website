@@ -36,23 +36,36 @@ export default function CallToActionSection() {
           fillOpacity="0.25" /* subtle visibility on light background */
           style={{ fontVariantLigatures: 'none' }}
         >
+          {/* Safe zone masks to hide symbols behind text */}
+          <defs>
+            <mask id="textSafeZone">
+              <rect width="1600" height="600" fill="white" />
+              {/* Much larger text safe zones */}
+              <rect x="0" y="0" width="800" height="300" fill="black" />
+              <rect x="0" y="400" width="1000" height="200" fill="black" />
+            </mask>
+          </defs>
           {/* Row - right area */}
           <text x="1120" y="100" fontSize="34">ax² + bx + c = 0</text>
           <text x="1160" y="140" fontSize="18">sin²α + cos²α = 1</text>
           <text x="1200" y="180" fontSize="16">Δy/Δx</text>
           <text x="1240" y="200" fontSize="16">y = mx + b</text>
 
-          {/* Left cluster */}
-          <text x="80" y="120" fontSize="20">∫ f(x) dx</text>
-          <text x="90" y="150" fontSize="16">e^(iπ) + 1 = 0</text>
-          <text x="60" y="200" fontSize="18">y = x²</text>
-          <text x="60" y="240" fontSize="14">45°</text>
+          {/* Left cluster - masked to avoid text interference */}
+          <g mask="url(#textSafeZone)">
+            <text x="80" y="120" fontSize="20">∫ f(x) dx</text>
+            <text x="90" y="150" fontSize="16">e^(iπ) + 1 = 0</text>
+            <text x="60" y="200" fontSize="18">y = x²</text>
+            <text x="60" y="240" fontSize="14">45°</text>
+          </g>
 
-          {/* center cluster */}
-          <text x="400" y="90" fontSize="18">√(a² + b²)</text>
-          <text x="500" y="120" fontSize="14">lim (x→0) sin(x)/x = 1</text>
-          <text x="420" y="140" fontSize="16">d/dx [xⁿ] = n xⁿ⁻¹</text>
-          <text x="460" y="170" fontSize="16">∑{'{'}{'n=1'}{'}'}{'{'}{'∞'}{'}'} 1/n² = π²/6</text>
+          {/* center cluster - masked to avoid text interference */}
+          <g mask="url(#textSafeZone)">
+            <text x="400" y="90" fontSize="18">√(a² + b²)</text>
+            <text x="500" y="120" fontSize="14">lim (x→0) sin(x)/x = 1</text>
+            <text x="420" y="140" fontSize="16">d/dx [xⁿ] = n xⁿ⁻¹</text>
+            <text x="460" y="170" fontSize="16">∑{'{'}{'n=1'}{'}'}{'{'}{'∞'}{'}'} 1/n² = π²/6</text>
+          </g>
 
           {/* lower-left */}
           <text x="200" y="380" fontSize="16">A ∪ B</text>
@@ -79,20 +92,24 @@ export default function CallToActionSection() {
           <text x="700" y="520" fontSize="14">F = ma</text>
           <text x="780" y="500" fontSize="14">C₆H₆</text>
 
-          {/* small functional and vector notations */}
-          <text x="520" y="300" fontSize="14">∇·E = ρ/ε₀</text>
-          <text x="560" y="320" fontSize="14">(x₁, y₁)</text>
-          <text x="440" y="340" fontSize="14">F₁ ≠ F₂</text>
+          {/* small functional and vector notations - masked to avoid text interference */}
+          <g mask="url(#textSafeZone)">
+            <text x="520" y="300" fontSize="14">∇·E = ρ/ε₀</text>
+            <text x="560" y="320" fontSize="14">(x₁, y₁)</text>
+            <text x="440" y="340" fontSize="14">F₁ ≠ F₂</text>
+          </g>
 
-          {/* Additional Elementary Math */}
-          <text x="150" y="300" fontSize="18">2 + 3 = 5</text>
-          <text x="250" y="320" fontSize="16">4 × 5 = 20</text>
-          <text x="350" y="300" fontSize="14">1/2 + 1/4 = 3/4</text>
-          <text x="450" y="320" fontSize="18">10 - 7 = 3</text>
-          <text x="550" y="300" fontSize="16">6 ÷ 2 = 3</text>
-          <text x="650" y="320" fontSize="14">3² = 9</text>
-          <text x="750" y="300" fontSize="18">√16 = 4</text>
-          <text x="850" y="320" fontSize="16">2³ = 8</text>
+          {/* Additional Elementary Math - masked to avoid text interference */}
+          <g mask="url(#textSafeZone)">
+            <text x="150" y="300" fontSize="18">2 + 3 = 5</text>
+            <text x="250" y="320" fontSize="16">4 × 5 = 20</text>
+            <text x="350" y="300" fontSize="14">1/2 + 1/4 = 3/4</text>
+            <text x="450" y="320" fontSize="18">10 - 7 = 3</text>
+            <text x="550" y="300" fontSize="16">6 ÷ 2 = 3</text>
+            <text x="650" y="320" fontSize="14">3² = 9</text>
+            <text x="750" y="300" fontSize="18">√16 = 4</text>
+            <text x="850" y="320" fontSize="16">2³ = 8</text>
+          </g>
 
           {/* More Geometry */}
           <text x="100" y="450" fontSize="16">A = πr²</text>
@@ -128,57 +145,65 @@ export default function CallToActionSection() {
           <text x="950" y="580" fontSize="14">lim (x→0) (1-cos x)/x² = 1/2</text>
           <text x="1200" y="600" fontSize="18">∫₀^∞ e^(-x²) dx = √π/2</text>
 
-          {/* More Advanced Math Symbols */}
-          <text x="200" y="50" fontSize="24" fontWeight="700">∂</text>
-          <text x="300" y="50" fontSize="22" fontWeight="700">∇</text>
-          <text x="400" y="50" fontSize="20" fontWeight="700">∏</text>
-          <text x="500" y="50" fontSize="18" fontWeight="700">ℂ</text>
-          <text x="600" y="50" fontSize="22" fontWeight="700">ℝ</text>
-          <text x="700" y="50" fontSize="20" fontWeight="700">ℤ</text>
-          <text x="800" y="50" fontSize="18" fontWeight="700">ℕ</text>
-          <text x="900" y="50" fontSize="22" fontWeight="700">ℚ</text>
-          <text x="1000" y="50" fontSize="20" fontWeight="700">∈</text>
-          <text x="1100" y="50" fontSize="18" fontWeight="700">∉</text>
-          <text x="1200" y="50" fontSize="22" fontWeight="700">⊂</text>
-          <text x="1300" y="50" fontSize="20" fontWeight="700">⊃</text>
-          <text x="1400" y="50" fontSize="18" fontWeight="700">∪</text>
+          {/* More Advanced Math Symbols - masked to avoid heading interference */}
+          <g mask="url(#textSafeZone)">
+            <text x="200" y="50" fontSize="24" fontWeight="700">∂</text>
+            <text x="300" y="50" fontSize="22" fontWeight="700">∇</text>
+            <text x="400" y="50" fontSize="20" fontWeight="700">∏</text>
+            <text x="500" y="50" fontSize="18" fontWeight="700">ℂ</text>
+            <text x="600" y="50" fontSize="22" fontWeight="700">ℝ</text>
+            <text x="700" y="50" fontSize="20" fontWeight="700">ℤ</text>
+            <text x="800" y="50" fontSize="18" fontWeight="700">ℕ</text>
+            <text x="900" y="50" fontSize="22" fontWeight="700">ℚ</text>
+            <text x="1000" y="50" fontSize="20" fontWeight="700">∈</text>
+            <text x="1100" y="50" fontSize="18" fontWeight="700">∉</text>
+            <text x="1200" y="50" fontSize="22" fontWeight="700">⊂</text>
+            <text x="1300" y="50" fontSize="20" fontWeight="700">⊃</text>
+            <text x="1400" y="50" fontSize="18" fontWeight="700">∪</text>
+          </g>
 
-          {/* More Basic Math Symbols */}
-          <text x="100" y="150" fontSize="26" fontWeight="700">+</text>
-          <text x="200" y="150" fontSize="24" fontWeight="700">-</text>
-          <text x="300" y="150" fontSize="22" fontWeight="700">×</text>
-          <text x="400" y="150" fontSize="20" fontWeight="700">÷</text>
-          <text x="500" y="150" fontSize="18" fontWeight="700">=</text>
-          <text x="600" y="150" fontSize="22" fontWeight="700">≠</text>
-          <text x="700" y="150" fontSize="20" fontWeight="700">≈</text>
-          <text x="800" y="150" fontSize="18" fontWeight="700">±</text>
-          <text x="900" y="150" fontSize="24" fontWeight="700">√</text>
-          <text x="1000" y="150" fontSize="22" fontWeight="700">π</text>
-          <text x="1100" y="150" fontSize="20" fontWeight="700">∞</text>
-          <text x="1200" y="150" fontSize="18" fontWeight="700">≤</text>
-          <text x="1300" y="150" fontSize="22" fontWeight="700">≥</text>
-          <text x="1400" y="150" fontSize="20" fontWeight="700">&lt;</text>
-          <text x="1500" y="150" fontSize="18" fontWeight="700">&gt;</text>
+          {/* More Basic Math Symbols - masked to avoid text interference */}
+          <g mask="url(#textSafeZone)">
+            <text x="100" y="150" fontSize="26" fontWeight="700">+</text>
+            <text x="200" y="150" fontSize="24" fontWeight="700">-</text>
+            <text x="300" y="150" fontSize="22" fontWeight="700">×</text>
+            <text x="400" y="150" fontSize="20" fontWeight="700">÷</text>
+            <text x="500" y="150" fontSize="18" fontWeight="700">=</text>
+            <text x="600" y="150" fontSize="22" fontWeight="700">≠</text>
+            <text x="700" y="150" fontSize="20" fontWeight="700">≈</text>
+            <text x="800" y="150" fontSize="18" fontWeight="700">±</text>
+            <text x="900" y="150" fontSize="24" fontWeight="700">√</text>
+            <text x="1000" y="150" fontSize="22" fontWeight="700">π</text>
+            <text x="1100" y="150" fontSize="20" fontWeight="700">∞</text>
+            <text x="1200" y="150" fontSize="18" fontWeight="700">≤</text>
+            <text x="1300" y="150" fontSize="22" fontWeight="700">≥</text>
+            <text x="1400" y="150" fontSize="20" fontWeight="700">&lt;</text>
+            <text x="1500" y="150" fontSize="18" fontWeight="700">&gt;</text>
+          </g>
 
-          {/* More Complex Formulas */}
-          <text x="100" y="250" fontSize="14">log(a) + log(b) = log(ab)</text>
-          <text x="350" y="270" fontSize="16">log(a) - log(b) = log(a/b)</text>
-          <text x="600" y="250" fontSize="18">a^log_a(x) = x</text>
-          <text x="800" y="270" fontSize="14">e^(ln x) = x</text>
-          <text x="1000" y="250" fontSize="16">ln(e^x) = x</text>
-          <text x="1200" y="270" fontSize="18">∑{'{'}{'k=0'}{'}'}{'{'}{'n'}{'}'} C(n,k) = 2^n</text>
+          {/* More Complex Formulas - masked to avoid text interference */}
+          <g mask="url(#textSafeZone)">
+            <text x="100" y="250" fontSize="14">log(a) + log(b) = log(ab)</text>
+            <text x="350" y="270" fontSize="16">log(a) - log(b) = log(a/b)</text>
+            <text x="600" y="250" fontSize="18">a^log_a(x) = x</text>
+            <text x="800" y="270" fontSize="14">e^(ln x) = x</text>
+            <text x="1000" y="250" fontSize="16">ln(e^x) = x</text>
+            <text x="1200" y="270" fontSize="18">∑{'{'}{'k=0'}{'}'}{'{'}{'n'}{'}'} C(n,k) = 2^n</text>
+          </g>
 
-          {/* More Physics */}
-          <text x="100" y="350" fontSize="16">E = hf</text>
-          <text x="200" y="370" fontSize="14">p = mv</text>
-          <text x="300" y="350" fontSize="18">KE = (1/2)mv²</text>
-          <text x="500" y="370" fontSize="16">PE = mgh</text>
-          <text x="700" y="350" fontSize="14">W = Fd</text>
-          <text x="800" y="370" fontSize="18">P = W/t</text>
-          <text x="950" y="350" fontSize="16">V = IR</text>
-          <text x="1100" y="370" fontSize="14">P = IV</text>
-          <text x="1250" y="350" fontSize="18">Q = mcΔT</text>
-          <text x="1400" y="370" fontSize="16">PV = nRT</text>
+          {/* More Physics - masked to avoid button interference */}
+          <g mask="url(#textSafeZone)">
+            <text x="100" y="350" fontSize="16">E = hf</text>
+            <text x="200" y="370" fontSize="14">p = mv</text>
+            <text x="300" y="350" fontSize="18">KE = (1/2)mv²</text>
+            <text x="500" y="370" fontSize="16">PE = mgh</text>
+            <text x="700" y="350" fontSize="14">W = Fd</text>
+            <text x="800" y="370" fontSize="18">P = W/t</text>
+            <text x="950" y="350" fontSize="16">V = IR</text>
+            <text x="1100" y="370" fontSize="14">P = IV</text>
+            <text x="1250" y="350" fontSize="18">Q = mcΔT</text>
+            <text x="1400" y="370" fontSize="16">PV = nRT</text>
+          </g>
         </g>
 
         {/* delicate small chalk accents */}
