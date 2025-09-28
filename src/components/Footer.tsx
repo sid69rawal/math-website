@@ -28,7 +28,7 @@ export default function Footer() {
                 height={70}
                 className="rounded-lg object-contain"
               />
-              <div className="text-white font-bold text-xl">
+              <div className="text-white font-bold text-2xl">
                 Level Up Math Academy
               </div>
             </div>

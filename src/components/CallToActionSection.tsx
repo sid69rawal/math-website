@@ -199,7 +199,7 @@ export default function CallToActionSection() {
             transition={{ duration: 0.8 }}
           >
             <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -255,9 +255,9 @@ export default function CallToActionSection() {
             <Image
               src="/level_up.png"
               alt="Level Up Math Academy"
-              width={400}
-              height={320}
-              className="max-w-full h-auto max-h-72 lg:max-h-80 object-contain relative z-0"
+              width={320}
+              height={220}
+              className="h-auto object-contain relative z-0"
               style={{
                 filter: 'brightness(1.1) contrast(0.9) saturate(0.8)',
                 mixBlendMode: 'multiply'

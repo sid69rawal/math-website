@@ -45,7 +45,7 @@ export default function Grades912Page() {
         return '/grade-11.jpg';
       case 'Grade 12 Advanced Functions Program':
         return '/grade-12_advanced.png';
-      case 'Grade 12 Calculus & Vectors':
+      case 'Grade 12 Calculus & Vectors Program':
         return '/grade-12_calculus.png';
       default:
         return '/grade-9.png';
@@ -167,7 +167,7 @@ export default function Grades912Page() {
       ]
     },
     {
-      title: 'Grade 12 Calculus & Vectors',
+      title: 'Grade 12 Calculus & Vectors Program',
       icon: '⚡',
       overview: 'This university preparation course equips students with essential calculus and vector skills for success in STEM, business, and competitive academic programs. Learners explore limits, derivatives, optimization, and motion problems alongside vector geometry in two and three dimensions. Emphasis is placed on modeling, reasoning, and solving real-world problems using advanced mathematical tools.',
       keyConcepts: [
@@ -393,7 +393,7 @@ export default function Grades912Page() {
                 {/* Learn More Button */}
                 <button
                   onClick={() => setSelectedCourse(course)}
-                  className="w-full text-white px-4 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 hover:opacity-90 shadow-md" 
+                  className="w-full text-white px-4 py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 hover:opacity-90 shadow-md mt-auto" 
                   style={{ backgroundColor: '#30519d' }}
                 >
                   Learn More
