@@ -21,7 +21,7 @@ export default function WhatWeOfferSection() {
       emoji: "🎯", 
       title: "Mastery-Focused Weekly Sessions",
       points: [
-        "2 hours of interactive classes per week",
+        "2-4 hours of interactive classes per week",
         "Combines guided teaching with in-class practice",
         "Builds lasting understanding through concept mastery"
       ],
