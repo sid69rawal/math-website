@@ -118,38 +118,39 @@ export default function AboutPage() {
                 {/* Right Side - Criteria Box */}
                 <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 shadow-lg border border-blue-100 transition-all duration-300 hover:bg-gray-200 hover:from-gray-200 hover:to-gray-200 hover:border-blue-600 hover:shadow-xl hover:scale-105">
                   <h4 className="text-xl font-bold text-gray-900 mb-6">
-                    All Programs Meet The Following Criteria:
+                    Why Choose Level Up Math Academy?
                   </h4>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 mb-8">
                     <li className="flex items-start text-gray-700">
                       <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                      <span className="text-base">Led by founders, not outside tutors</span>
+                      <span className="text-base">Expert-Led, Not Outsourced</span>
                     </li>
                     <li className="flex items-start text-gray-700">
                       <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                      <span className="text-base">Online or at our Mississauga center</span>
+                      <span className="text-base">Small Groups, Strong Foundations</span>
                     </li>
                     <li className="flex items-start text-gray-700">
                       <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                      <span className="text-base">Affordable at $25/hour</span>
+                      <span className="text-base">Affordable Coaching, Guaranteed Improvement</span>
                     </li>
                   </ul>
+                  
+                  {/* Book a Free Assessment Button */}
+                  <div>
+                    <Link href="/contact">
+                      <motion.button
+                        className="w-full text-white px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-300 cursor-pointer hover:opacity-90"
+                        style={{ backgroundColor: '#30519d' }}
+                        whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(48, 81, 157, 0.3)" }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        Book a Free Assessment
+                      </motion.button>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
-              {/* Book a Free Assessment Button */}
-              <div className="mt-8 text-center">
-                <Link href="/contact">
-                  <motion.button
-                    className="text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-xl transition-all duration-300 hover:opacity-90"
-                    style={{ backgroundColor: '#30519d' }}
-                    whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(48, 81, 157, 0.3)" }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Book a Free Assessment
-                  </motion.button>
-                </Link>
-              </div>
               
               {/* Professional Stats */}
               <motion.div
@@ -398,6 +399,13 @@ export default function AboutPage() {
             </div>
         </div>
       </motion.div>
+
+      {/* Section Separator */}
+      <div className="bg-white py-4">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="border-t border-gray-100"></div>
+        </div>
+      </div>
 
       {/* Section 5 - Let's Learn Together */}
       <CallToActionSection />
