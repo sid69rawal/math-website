@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -20,6 +20,20 @@ export default function ServicesPage() {
     image: string;
     link: string;
   } | null>(null);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedGradeDetails) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedGradeDetails]);
 
   const gradeCategories = [
     {
