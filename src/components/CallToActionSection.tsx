@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CallToActionSection() {
   return (
@@ -155,9 +156,11 @@ export default function CallToActionSection() {
             {/* Subtle overlay to blend with background */}
             <div className="absolute inset-0 bg-gradient-to-l from-blue-200/20 to-transparent rounded-lg pointer-events-none z-10"></div>
             
-            <img
+            <Image
               src="/level_up.png"
               alt="Level Up Math Academy"
+              width={400}
+              height={320}
               className="max-w-full h-auto max-h-72 lg:max-h-80 object-contain relative z-0"
               style={{
                 filter: 'brightness(1.1) contrast(0.9) saturate(0.8)',

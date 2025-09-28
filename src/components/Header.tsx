@@ -51,7 +51,6 @@ function Ticker({ messages = [] as string[], cycleDuration = 8 }) {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const messages = [
     "First Month Guarantee: If you\'re not satisfied after the first month, you\'ll receive a full refund",
@@ -62,16 +61,6 @@ export default function Header() {
   const email = contactConfig?.email ?? 'info@example.com';
   const phone = contactConfig?.phone ?? '+91-0000000000';
 
-  // Handle scroll to shrink header
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <>
