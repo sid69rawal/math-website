@@ -446,7 +446,7 @@ export default function Grades912Page() {
             <text x="700" y="80" fontSize="16">∇ · F = div(F)</text>
             <text x="1000" y="100" fontSize="20">lim (x→0) (1-cos x)/x² = 1/2</text>
             
-            <text x="100" y="200" fontSize="18">f'(x) = lim[h→0] [f(x+h)-f(x)]/h</text>
+            <text x="100" y="200" fontSize="18">f&apos;(x) = lim[h→0] [f(x+h)-f(x)]/h</text>
             <text x="500" y="220" fontSize="16">∫ u dv = uv - ∫ v du</text>
             <text x="800" y="200" fontSize="20">e^(iπ) + 1 = 0</text>
             <text x="1100" y="220" fontSize="18">∑{'{'}{'n=0'}{'}'}{'{'}{'∞'}{'}'} xⁿ/n! = eˣ</text>

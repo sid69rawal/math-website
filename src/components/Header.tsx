@@ -136,7 +136,7 @@ export default function Header() {
               </Link>
               
               {/* Desktop Navigation Menu */}
-              <div className="hidden lg:flex items-center space-x-12">
+              <div className="hidden lg:flex items-center space-x-18 ml-36">
                 {/* Home Link */}
                 <Link href="/">
                   <motion.a
