@@ -92,7 +92,7 @@ export default function AboutPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
-        <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 w-full py-16 sm:py-20 lg:py-24 overflow-hidden">
+        <div className="relative bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400 w-full py-16 sm:py-20 lg:py-24 overflow-hidden">
             {/* Background Decorative Elements */}
             <div className="absolute -top-20 -left-20 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute -bottom-20 -right-20 w-48 h-48 bg-cyan-200 rounded-full blur-3xl opacity-20"></div>
@@ -101,80 +101,63 @@ export default function AboutPage() {
             
             {/* Main Content - Two Column Layout */}
             <div className="relative z-10 max-w-7xl mx-auto px-6">
-              {/* Centered Mission Title */}
-              <div className="text-center mb-12">
-              <motion.div
-                  className="mb-6"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
-                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black">
-                  Our Mission
-                </h1>
-                </motion.div>
-                </div>
-              
-              <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                 {/* Left Side - Mission Content */}
-                <div className="lg:col-span-2">
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-              >
-                    <p className="text-xl sm:text-2xl text-gray-800 leading-relaxed mb-6 font-medium">
-                      At <span className="font-bold" style={{ color: '#30519d' }}>Level Up Math Academy</span>, we believe mathematics is more than numbers—it&apos;s a gateway to logical thinking, creativity, and lifelong confidence. Our mission is to help students excel in mathematics and develop a mindset that embraces challenges, celebrates curiosity, and builds resilience.
+                <div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                  >
+                    <h1 className="text-3xl font-bold text-gray-900 mb-6">
+                      Our Mission
+                    </h1>
+                    <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                      At <span className="font-semibold" style={{ color: '#30519d' }}>Level Up Math Academy</span>, we believe mathematics is more than numbers—it&apos;s a gateway to logical thinking, creativity, and lifelong confidence. Our mission is to help students excel in mathematics and develop a mindset that embraces challenges, celebrates curiosity, and builds resilience.
                     </p>
-                    <p className="text-xl sm:text-2xl text-gray-800 leading-relaxed mb-6 font-medium">
-                      Whether online or in our Mississauga learning center, we offer personalized, curriculum-aligned tutoring that empowers learners from Grades 3 to 12 to thrive academically and beyond.
+                    <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                      Whether online or in our Mississauga learning center, we offer personalized, curriculum-aligned tutoring that empowers learners from <span className="font-semibold" style={{ color: '#30519d' }}>Grades 3 to 12</span> to thrive academically and beyond.
                     </p>
-                    <p className="text-xl sm:text-2xl text-gray-800 leading-relaxed font-medium">
+                    <p className="text-lg text-gray-700 leading-relaxed">
                       We&apos;re not just tutors—we&apos;re mentors, motivators, and lifelong learners who are passionate about teaching, learning, and inspiring the next generation of mathematical thinkers.
                     </p>
                   </motion.div>
                 </div>
 
                 {/* Right Side - Criteria Box */}
-                <motion.div
-                  className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-8 shadow-lg border border-gray-200 mt-8 transition-all duration-300 hover:bg-gray-200 hover:from-gray-200 hover:to-gray-200 hover:border-blue-600 hover:shadow-xl hover:scale-105"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.8, duration: 0.8 }}
-                >
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-8 shadow-lg border border-blue-100 transition-all duration-300 hover:bg-gray-200 hover:from-gray-200 hover:to-gray-200 hover:border-blue-600 hover:shadow-xl hover:scale-105">
                   <h4 className="text-xl font-bold text-gray-900 mb-6">
-                    Why Choose Level Up Math Academy?
+                    All Programs Meet The Following Criteria:
                   </h4>
                   <ul className="space-y-4">
                     <li className="flex items-start text-gray-700">
                       <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                      <span className="text-base">Expert-Led, Not Outsourced</span>
+                      <span className="text-base">Led by founders, not outside tutors</span>
                     </li>
                     <li className="flex items-start text-gray-700">
                       <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                      <span className="text-base">Small Groups, Strong Foundations</span>
+                      <span className="text-base">Online or at our Mississauga center</span>
                     </li>
                     <li className="flex items-start text-gray-700">
                       <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                      <span className="text-base">Affordable Coaching, Guaranteed Improvement</span>
+                      <span className="text-base">Affordable at $25/hour</span>
                     </li>
                   </ul>
-                  
-                  {/* Book a Free Assessment Button */}
-                  <div className="mt-8">
-                    <Link href="/contact">
-                      <motion.button
-                        className="w-full text-white px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-300 cursor-pointer hover:opacity-90"
-                        style={{ backgroundColor: '#30519d' }}
-                        whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(48, 81, 157, 0.3)" }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        Book a Free Assessment
-                      </motion.button>
-                    </Link>
                 </div>
-              </motion.div>
+              </div>
+
+              {/* Book a Free Assessment Button */}
+              <div className="mt-8 text-center">
+                <Link href="/contact">
+                  <motion.button
+                    className="text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-xl transition-all duration-300 hover:opacity-90"
+                    style={{ backgroundColor: '#30519d' }}
+                    whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(48, 81, 157, 0.3)" }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Book a Free Assessment
+                  </motion.button>
+                </Link>
               </div>
               
               {/* Professional Stats */}
@@ -185,16 +168,16 @@ export default function AboutPage() {
                 transition={{ delay: 1.0, duration: 0.8 }}
               >
                 <div className="text-center">
-                  <div className="text-3xl font-bold mb-2" style={{ color: '#30519d' }}>20+</div>
-                  <div className="text-gray-700 font-medium">Years Combined Experience</div>
+                  <div className="text-lg font-bold mb-2" style={{ color: '#30519d' }}>20+</div>
+                  <div className="text-base text-gray-700 font-medium">Years Combined Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold mb-2" style={{ color: '#30519d' }}>100%</div>
-                  <div className="text-gray-700 font-medium">Curriculum Aligned</div>
+                  <div className="text-lg font-bold mb-2" style={{ color: '#30519d' }}>100%</div>
+                  <div className="text-base text-gray-700 font-medium">Curriculum Aligned</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold mb-2" style={{ color: '#30519d' }}>Grades 3-12</div>
-                  <div className="text-gray-700 font-medium">Comprehensive Coverage</div>
+                  <div className="text-lg font-bold mb-2" style={{ color: '#30519d' }}>Grades 3-12</div>
+                  <div className="text-base text-gray-700 font-medium">Comprehensive Coverage</div>
                 </div>
               </motion.div>
             </div>
