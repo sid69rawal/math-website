@@ -51,21 +51,21 @@ export default function Footer() {
                   href={contactConfig.socialMedia.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-800 p-3 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+                  className="p-3 rounded-lg hover:bg-gray-800 transition-colors duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Facebook className="w-6 h-6 text-white" />
+                  <Facebook className="w-6 h-6" style={{ color: '#1877F2' }} />
                 </motion.a>
                 <motion.a
                   href={contactConfig.socialMedia.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-800 p-3 rounded-lg hover:bg-pink-600 transition-colors duration-300"
+                  className="p-3 rounded-lg hover:bg-gray-800 transition-colors duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Instagram className="w-6 h-6 text-white" />
+                  <Instagram className="w-6 h-6" style={{ color: '#E4405F' }} />
                 </motion.a>
               </div>
             </div>

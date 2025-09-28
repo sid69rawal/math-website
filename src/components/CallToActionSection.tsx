@@ -215,7 +215,7 @@ export default function CallToActionSection() {
 
       {/* content (heading + CTA) */}
       <div className="container mx-auto px-4 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left side - Text and CTA */}
           <motion.div
             className="text-center lg:text-left"

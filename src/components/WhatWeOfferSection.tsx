@@ -52,7 +52,7 @@ export default function WhatWeOfferSection() {
       emoji: "⏰",
       title: "Flexible Scheduling Options",
       points: [
-        "2-4 hours classes per week",
+        "Choose between 1-hour and 2-hour sessions",
         "Available Online or In-center at our Mississauga location",
         "Designed to fit your child's schedule"
       ],
