@@ -50,7 +50,7 @@ export default function OurApproachSection() {
   ];
 
   return (
-    <section id="our-approach" className="relative py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
+    <section id="our-approach" className="relative py-16 lg:py-24 bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-100 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
         <motion.div

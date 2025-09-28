@@ -274,23 +274,13 @@ export default function CallToActionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            {/* Subtle overlay to blend with background */}
-            <div className="absolute inset-0 bg-gradient-to-l from-blue-200/20 to-transparent rounded-lg pointer-events-none z-10"></div>
-            
             <Image
               src="/level_up1.png"
               alt="Level Up Math Academy"
               width={320}
               height={220}
-              className="h-auto object-contain relative z-0"
-              style={{
-                filter: 'brightness(1.1) contrast(0.9) saturate(0.8)',
-                mixBlendMode: 'multiply'
-              }}
+              className="h-auto object-contain"
             />
-            
-            {/* Additional subtle shadow for depth */}
-            <div className="absolute inset-0 bg-blue-300/10 rounded-lg blur-sm -z-10 scale-105"></div>
           </motion.div>
         </div>
       </div>

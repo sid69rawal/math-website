@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { contactConfig } from '@/config/contact';
 
 // Ticker component for animated messages
-function Ticker({ messages = [] as string[], cycleDuration = 8 }) {
+function Ticker({ messages = [] as string[], cycleDuration = 12}) {
   // cycleDuration = how many seconds each message takes to fully travel
   const [index, setIndex] = useState(0);
 
@@ -93,7 +93,7 @@ export default function Header() {
 
               {/* Messages area - horizontal ticker for all screen sizes with more space */}
               <div className="flex-1 min-w-0 order-2">
-                <Ticker messages={messages} cycleDuration={12 /* seconds per message - reduced duration for faster cycling */} />
+                <Ticker messages={messages} cycleDuration={16 /* seconds per message - reduced duration for faster cycling */} />
               </div>
             </div>
           </div>

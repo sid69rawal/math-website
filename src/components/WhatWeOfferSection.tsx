@@ -11,9 +11,9 @@ export default function WhatWeOfferSection() {
       emoji: "📚",
       title: "Tailored Math Curriculum (Grades 3–12)",
       points: [
-        "Grade-specific programs blending provincial and advanced curriculum",
+        "Grade-specific Advanced Curriculum",
         "Strengthens logical thinking and problem-solving skills", 
-        "Prepares students for higher grades and competitive exams"
+        "Prepare for Higher Grades & Competitive Exams"
       ],
       gradient: "from-blue-500 to-cyan-500"
     },
@@ -52,8 +52,8 @@ export default function WhatWeOfferSection() {
       emoji: "⏰",
       title: "Flexible Scheduling Options",
       points: [
-        "Choose between two 1-hour or one 2-hour session per week",
-        "Available online or in-center at our Mississauga location",
+        "2-4 hours classes per week",
+        "Available Online or In-center at our Mississauga location",
         "Designed to fit your child's schedule"
       ],
       gradient: "from-indigo-500 to-blue-500"
