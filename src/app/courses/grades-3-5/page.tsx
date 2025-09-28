@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActionButton from '@/components/FloatingActionButton';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface Course {
   title: string;
@@ -23,6 +23,20 @@ interface Course {
 
 export default function Grades35Page() {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedCourse) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedCourse]);
 
   const courses = [
     {
@@ -215,7 +229,7 @@ export default function Grades35Page() {
             {courses.map((course, index) => (
               <motion.div
                 key={course.title}
-                className="bg-gray-200 rounded-xl p-4 sm:p-6 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[350px] sm:min-h-[380px]"
+                className="bg-gray-200 rounded-xl p-4 sm:p-6 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
@@ -247,6 +261,48 @@ export default function Grades35Page() {
                   </h3>
                 </div>
 
+                {/* Bullet Points */}
+                <div className="mb-12">
+                  <ul className="space-y-2 text-base text-gray-700">
+                      {course.title === "Grade 3 Math Program" && (
+                        <>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Build Strong Foundation
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Boost Math Confidence
+                          </li>
+                        </>
+                      )}
+                      {course.title === "Grade 4 Math Program" && (
+                        <>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Advance Core Skills
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Apply Math Concepts
+                          </li>
+                        </>
+                      )}
+                      {course.title === "Grade 5 Math Program" && (
+                        <>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Strengthen Complex Skills
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Explore Algebra & Data
+                          </li>
+                        </>
+                      )}
+                  </ul>
+                </div>
+
                 {/* Learn More Button */}
                 <button
                   onClick={() => setSelectedCourse(course)}
@@ -266,10 +322,10 @@ export default function Grades35Page() {
       {/* Full-Screen Call to Action - Chalkboard Style */}
       <motion.section
         className="py-8 lg:py-12 relative overflow-hidden bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
-      >
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
         {/* Inline SVG chalk overlay */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none z-10"
@@ -364,7 +420,7 @@ export default function Grades35Page() {
               </button>
             </Link>
           </div>
-        </div>
+      </div>
       </motion.section>
 
       {/* Footer */}

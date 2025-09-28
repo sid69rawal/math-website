@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
@@ -19,6 +19,20 @@ interface Course {
 
 export default function Grades912Page() {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (selectedCourse) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedCourse]);
 
   // Function to get the correct image path for each course
   const getCourseImage = (courseTitle: string) => {
@@ -278,7 +292,7 @@ export default function Grades912Page() {
             {courses.map((course, index) => (
               <motion.div
                 key={course.title}
-                className="bg-gray-200 rounded-xl p-4 sm:p-6 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[350px] sm:min-h-[380px]"
+                className="bg-gray-200 rounded-xl p-4 sm:p-6 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
@@ -308,6 +322,72 @@ export default function Grades912Page() {
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 text-center">
                     {course.title}
                   </h3>
+                </div>
+
+                {/* Bullet Points */}
+                <div className="mb-12">
+                  <ul className="space-y-2 text-base text-gray-700">
+                      {course.title === "Grade 9 Math Program" && (
+                        <>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Strengthen Algebra & Geometry
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Prepare for Advanced Math
+                          </li>
+                        </>
+                      )}
+                      {course.title === "Grade 10 Math Program" && (
+                        <>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Explore Linear & Quadratic
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Inequalities & Factorization
+                          </li>
+                        </>
+                      )}
+                      {course.title === "Grade 11 Functions Program" && (
+                        <>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Master Functions & Graphs
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Explore Analytic Geometry
+                          </li>
+                        </>
+                      )}
+                      {course.title === "Grade 12 Advanced Functions Program" && (
+                        <>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Function Operations
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Trigonometric Equations
+                          </li>
+                        </>
+                      )}
+                      {course.title === "Grade 12 Calculus & Vectors Program" && (
+                        <>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Derivatives
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2 flex-shrink-0"></span>
+                            Vector Operations
+                          </li>
+                        </>
+                      )}
+                  </ul>
                 </div>
 
                 {/* Learn More Button */}
