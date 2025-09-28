@@ -253,7 +253,7 @@ export default function CallToActionSection() {
             <div className="absolute inset-0 bg-gradient-to-l from-blue-200/20 to-transparent rounded-lg pointer-events-none z-10"></div>
             
             <Image
-              src="/level_up.png"
+              src="/level_up1.png"
               alt="Level Up Math Academy"
               width={320}
               height={220}

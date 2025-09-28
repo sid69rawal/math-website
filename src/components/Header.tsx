@@ -93,7 +93,7 @@ export default function Header() {
 
               {/* Messages area - horizontal ticker for all screen sizes with more space */}
               <div className="flex-1 min-w-0 order-2">
-                <Ticker messages={messages} cycleDuration={25 /* seconds per message - much slower animation */} />
+                <Ticker messages={messages} cycleDuration={12 /* seconds per message - reduced duration for faster cycling */} />
               </div>
             </div>
           </div>
@@ -222,7 +222,8 @@ export default function Header() {
                     href={contactConfig.socialMedia.facebook}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-purple-600 transition-colors"
+                    className="transition-colors"
+                    style={{ color: '#1877F2' }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -232,7 +233,8 @@ export default function Header() {
                     href={contactConfig.socialMedia.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-blue-600 transition-colors"
+                    className="transition-colors"
+                    style={{ color: '#E4405F' }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -368,7 +370,8 @@ export default function Header() {
                     href={contactConfig.socialMedia.facebook} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-blue-600"
+                    className=""
+                    style={{ color: '#1877F2' }}
                     whileHover={{ scale: 1.2 }}
                   >
                     <Facebook className="w-5 h-5" />
@@ -377,7 +380,8 @@ export default function Header() {
                     href={contactConfig.socialMedia.instagram} 
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-blue-600"
+                    className=""
+                    style={{ color: '#E4405F' }}
                     whileHover={{ scale: 1.2 }}
                   >
                     <Instagram className="w-5 h-5" />
