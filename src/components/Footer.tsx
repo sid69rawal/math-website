@@ -190,57 +190,58 @@ export default function Footer() {
             <div className="h-4 md:h-6"></div>
             
             {/* Contact Info with Icons and Values */}
-            <div className="space-y-4 mb-8">
-              
-              {/* Email */}
-              <motion.div
-                className="flex items-center justify-center md:justify-start space-x-3"
-                whileHover={{ x: 5 }}
-              >
-                <div className="bg-blue-600 p-2 rounded-lg flex-shrink-0">
-                  <Mail className="w-5 h-5 text-white" />
-                </div>
-                <a 
-                  href={`mailto:${contactConfig.email}`}
-                  className="text-white hover:text-blue-400 transition-colors break-all text-lg"
+            <div className="space-y-4 mb-8 flex flex-col items-center">
+              <div className="flex flex-col space-y-4 w-full max-w-sm">
+                {/* Email */}
+                <motion.div
+                  className="flex items-center justify-start space-x-3"
+                  whileHover={{ x: 5 }}
                 >
-                  {contactConfig.email}
-                </a>
-              </motion.div>
+                  <div className="bg-blue-600 p-2 rounded-lg flex-shrink-0">
+                    <Mail className="w-5 h-5 text-white" />
+                  </div>
+                  <a 
+                    href={`mailto:${contactConfig.email}`}
+                    className="text-white hover:text-blue-400 transition-colors break-all text-lg"
+                  >
+                    {contactConfig.email}
+                  </a>
+                </motion.div>
 
-              {/* Phone */}
-              <motion.div
-                className="flex items-center justify-center md:justify-start space-x-3"
-                whileHover={{ x: 5 }}
-              >
-                <div className="bg-green-600 p-2 rounded-lg flex-shrink-0">
-                  <Phone className="w-5 h-5 text-white" />
-                </div>
-                <a 
-                  href={`tel:${contactConfig.phoneLink}`}
-                  className="text-white hover:text-green-400 transition-colors text-lg"
+                {/* Phone */}
+                <motion.div
+                  className="flex items-center justify-start space-x-3"
+                  whileHover={{ x: 5 }}
                 >
-                  {contactConfig.phone}
-                </a>
-              </motion.div>
+                  <div className="bg-green-600 p-2 rounded-lg flex-shrink-0">
+                    <Phone className="w-5 h-5 text-white" />
+                  </div>
+                  <a 
+                    href={`tel:${contactConfig.phoneLink}`}
+                    className="text-white hover:text-green-400 transition-colors text-lg"
+                  >
+                    {contactConfig.phone}
+                  </a>
+                </motion.div>
 
-              {/* Address */}
-              <motion.div
-                className="flex items-start justify-center md:justify-start space-x-3"
-                whileHover={{ x: 5 }}
-              >
-                <div className="bg-purple-600 p-2 rounded-lg flex-shrink-0 mt-1">
-                  <MapPin className="w-5 h-5 text-white" />
-                </div>
-                <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(contactConfig.address.full)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-purple-400 transition-colors leading-relaxed whitespace-pre-line text-lg"
+                {/* Address */}
+                <motion.div
+                  className="flex items-start justify-start space-x-3"
+                  whileHover={{ x: 5 }}
                 >
-                  {contactConfig.address.full}
-                </a>
-              </motion.div>
+                  <div className="bg-purple-600 p-2 rounded-lg flex-shrink-0 mt-1">
+                    <MapPin className="w-5 h-5 text-white" />
+                  </div>
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(contactConfig.address.full)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-purple-400 transition-colors leading-relaxed whitespace-pre-line text-lg"
+                  >
+                    {contactConfig.address.full}
+                  </a>
+                </motion.div>
+              </div>
             </div>
 
             {/* Google Maps Embed */}

@@ -10,30 +10,30 @@ import { contactConfig } from '@/config/contact';
 /**
  * Ticker
  * - measures container and text widths using useLayoutEffect for first-paint accuracy
- * - waits until measurement is ready before mounting animated motion element
- * - animates from containerWidth -> -textWidth
- * - advances index in onAnimationComplete so next message starts immediately
- * - honors prefers-reduced-motion (renders static first message)
+ * - uses a pixelsPerSecond speed (so long messages take longer and remain readable)
+ * - waits until measurement is ready before starting the animated element
+ * - shows a static, readable fallback while measuring
+ * - respects prefers-reduced-motion
  */
 function Ticker({
   messages = [] as string[],
-  cycleDuration = 8, // seconds per message (full travel)
+  pixelsPerSecond = 70, // how many pixels per second the text travels (lower = slower)
+  minDuration = 4,      // minimum seconds per message (prevents too-fast for tiny text)
 }: {
   messages?: string[];
-  cycleDuration?: number;
+  pixelsPerSecond?: number;
+  minDuration?: number;
 }) {
   const [index, setIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const textRef = useRef<HTMLDivElement | null>(null);
+  const measureRef = useRef<HTMLDivElement | null>(null);
 
   const [containerWidth, setContainerWidth] = useState<number>(0);
   const [textWidth, setTextWidth] = useState<number>(0);
   const [measured, setMeasured] = useState(false);
-
-  // Respect reduced motion
   const [reduceMotion, setReduceMotion] = useState(false);
 
-  // Detect reduced-motion on mount
+  // detect reduced motion (accessibility)
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const mq = window.matchMedia?.('(prefers-reduced-motion: reduce)');
@@ -43,44 +43,62 @@ function Ticker({
     return () => mq?.removeEventListener?.('change', onChange);
   }, []);
 
-  // measure helper
+  // measurement helper (call inside layout effect)
   const measure = () => {
     const c = containerRef.current;
-    const t = textRef.current;
-    if (!c || !t) return;
+    const m = measureRef.current;
+    if (!c || !m) return;
     const cw = Math.ceil(c.getBoundingClientRect().width);
-    const tw = Math.ceil(t.getBoundingClientRect().width);
+    const tw = Math.ceil(m.getBoundingClientRect().width);
     setContainerWidth(cw);
     setTextWidth(tw);
   };
 
-  // First paint measurement (synchronous-ish) so we get correct widths before the animation starts
+  // useLayoutEffect to measure synchronously after DOM paint (prevents initial-mid-screen issue)
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return;
+    // measure once synchronously
     measure();
-    setMeasured(true);
 
-     // observe resizes so we stay accurate
-     let ro: ResizeObserver | null = null;
-     try {
-       ro = new ResizeObserver(() => {
-         measure();
-       });
-       if (containerRef.current) ro.observe(containerRef.current);
-       if (textRef.current) ro.observe(textRef.current);
-     } catch {
-       // ResizeObserver not available — fall back to window resize listener
-       const onResize = () => measure();
-       window.addEventListener('resize', onResize);
-       return () => window.removeEventListener('resize', onResize);
-     }
+    // also measure after fonts load (helps prevent layout shifts)
+    if ((document as any).fonts?.ready) {
+      (document as any).fonts.ready.then(() => {
+        // measure on next animation frame
+        requestAnimationFrame(() => {
+          measure();
+          setMeasured(true);
+        });
+      });
+    } else {
+      // no font API, measure and mark measured
+      requestAnimationFrame(() => {
+        measure();
+        setMeasured(true);
+      });
+    }
+
+    // ResizeObserver for live updates
+    let ro: ResizeObserver | null = null;
+    try {
+      ro = new (window as any).ResizeObserver(() => {
+        measure();
+      });
+      if (containerRef.current) ro.observe(containerRef.current);
+      if (measureRef.current) ro.observe(measureRef.current);
+    } catch (e) {
+      // fallback to window resize
+      const onResize = () => measure();
+      window.addEventListener('resize', onResize);
+      return () => window.removeEventListener('resize', onResize);
+    }
 
     return () => {
       ro?.disconnect();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
 
-  // keep index valid if messages change
+  // ensure index valid if messages length changes
   useEffect(() => {
     if (!messages || messages.length === 0) return;
     if (index >= messages.length) setIndex(0);
@@ -88,7 +106,7 @@ function Ticker({
 
   if (!messages || messages.length === 0) return null;
 
-  // If reduced motion, return the first message statically (accessible)
+  // Accessibility: reduced motion -> static message (announced by aria-live)
   if (reduceMotion) {
     return (
       <div
@@ -96,20 +114,20 @@ function Ticker({
         role="status"
         aria-live="polite"
         aria-atomic="true"
-        style={{ minHeight: 24 }}
+        style={{ minHeight: 28 }}
         ref={containerRef}
       >
-        <div className="inline-block whitespace-nowrap font-medium text-sm sm:text-base" ref={textRef}>
+        <div className="inline-block whitespace-nowrap font-medium text-sm sm:text-base leading-tight">
           <span className="px-2">{messages[index]}</span>
         </div>
       </div>
     );
   }
 
-  // only animate when we have measurements; if not ready, render the container + hidden measure text
+  // only animate when we have measurements
   const canAnimate = measured && containerWidth > 0 && textWidth > 0;
-  const fromX = canAnimate ? containerWidth : 0;
-  const toX = canAnimate ? -textWidth : 0;
+  // compute duration based on pixelsPerSecond
+  const computedDuration = Math.max(minDuration, (containerWidth + textWidth) / Math.max(1, pixelsPerSecond));
 
   return (
     <div
@@ -117,25 +135,38 @@ function Ticker({
       role="status"
       aria-live="polite"
       aria-atomic="true"
-      style={{ minHeight: 24 }}
+      style={{ minHeight: 32 }}
       ref={containerRef}
     >
-      {/* Hidden text for measurement / fallback (always present but motion element will mount only when measured) */}
-      <div className="sr-only" aria-hidden="true" ref={textRef}>
-        {messages[index]}
+      {/* Hidden measure element - kept in DOM to provide accurate measurements */}
+      <div
+        ref={measureRef}
+        aria-hidden="true"
+        style={{ position: 'absolute', left: -9999, top: -9999, whiteSpace: 'nowrap', visibility: 'hidden' }}
+        className="font-medium text-sm sm:text-base"
+      >
+        {/* Use the longest message for stable measurement so that animation duration is stable for that message */}
+        {messages.reduce((a, b) => (a.length > b.length ? a : b))}
       </div>
 
-      {/* Render the animated element only after we measured widths so the first run is correct */}
+      {/* Fallback visible static message while measuring so users see content immediately (centered/truncated) */}
+      {!canAnimate && (
+        <div className="inline-block whitespace-nowrap font-medium text-sm sm:text-base truncate px-2" style={{ maxWidth: '100%' }}>
+          {messages[index]}
+        </div>
+      )}
+
+      {/* Animated element — only mount when we have accurate measurements */}
       {canAnimate && (
         <motion.div
           key={index}
-          initial={{ x: fromX }}
-          animate={{ x: toX }}
-          transition={{ duration: cycleDuration, ease: 'linear' }}
-          className="inline-block whitespace-nowrap font-medium text-sm sm:text-base"
+          initial={{ x: containerWidth }}
+          animate={{ x: -textWidth }}
+          transition={{ duration: computedDuration, ease: 'linear' }}
+          className="inline-block whitespace-nowrap font-medium text-sm sm:text-base leading-tight"
           style={{ display: 'inline-block' }}
           onAnimationComplete={() => {
-            // advance exactly when animation completes
+            // Advance to the next message exactly when animation finishes.
             setIndex((i) => (i + 1) % messages.length);
           }}
         >
@@ -167,23 +198,27 @@ export default function Header() {
         {/* Ribbon */}
         <div className="text-white py-2 sm:py-3" style={{ backgroundColor: '#30519d' }}>
           <div className="max-w-7xl mx-auto px-3 sm:px-4">
-            <div className="flex flex-row items-center justify-between gap-3 text-base sm:text-lg">
-              {/* Phone Number */}
-              <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 order-1 mr-6">
+            <div className="flex flex-row items-center gap-3 text-base sm:text-lg">
+              {/* Phone Number: hide label on xs to save space but keep icon */}
+              <div className="flex items-center space-x-2 flex-shrink-0 mr-3">
                 <a
                   href={`tel:${phone}`}
-                  className="flex items-center space-x-1 text-sm sm:text-base whitespace-nowrap"
+                  className="flex items-center space-x-1 text-xs sm:text-sm whitespace-nowrap"
                   aria-label={`Phone ${phone}`}
                 >
-                  <span>📞</span>
-                  <span className="inline-block truncate max-w-[110px] sm:max-w-none">{phone}</span>
+                  <span className="text-sm">📞</span>
+                  <span className="hidden sm:inline-block truncate max-w-[160px]">{phone}</span>
                 </a>
               </div>
 
-              {/* Messages area - ticker */}
-              <div className="flex-1 min-w-0 order-2">
-                <Ticker messages={messages} cycleDuration={10 /* seconds per message */} />
+              {/* Messages area - ticker (flex-1 so it takes remaining width) */}
+              <div className="flex-1 min-w-0">
+                {/* Pass a slightly lower px/sec for small screens (mobile readability) */}
+                <Ticker messages={messages} pixelsPerSecond={70} minDuration={4} />
               </div>
+
+              {/* Optional small right spacing (keeps ticker from touching edge on tiny screens) */}
+              <div className="hidden sm:block w-3" aria-hidden="true" />
             </div>
           </div>
         </div>
@@ -383,12 +418,20 @@ export default function Header() {
       </div>
 
       <style jsx>{`
+        /* keep ticker accessible for reduced-motion users */
         @media (prefers-reduced-motion: reduce) {
           .ticker-container > * {
             transition: none !important;
             transform: none !important;
             opacity: 1 !important;
           }
+        }
+
+        /* Small visual polish: ensure ticker text doesn't wrap and remains legible */
+        .ticker-container span {
+          display: inline-block;
+          padding-left: 6px;
+          padding-right: 6px;
         }
       `}</style>
     </>
