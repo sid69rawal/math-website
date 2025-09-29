@@ -179,11 +179,11 @@ export default function Header() {
 
   const messages = [
     'First Month Money-Back Guarantee',
-    'Algebra, Geometry, Trigonometry, Functions, Advanced Functions, Calculus & Vectors, Math Competitions etc.',
+    'Affordable Programs - Only $25/hour',
   ];
 
   // safe fallbacks if contactConfig is undefined/missing values
-  const phone = contactConfig?.phone ?? '+91-0000000000';
+  const phone = contactConfig?.phone ?? '+1-0000000000';
   const facebook = contactConfig?.socialMedia?.facebook ?? '#';
   const instagram = contactConfig?.socialMedia?.instagram ?? '#';
 
