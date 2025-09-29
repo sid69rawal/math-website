@@ -9,31 +9,33 @@ import { contactConfig } from '@/config/contact';
 
 /**
  * Ticker
- * - measures container and text widths using useLayoutEffect for first-paint accuracy
- * - uses a pixelsPerSecond speed (so long messages take longer and remain readable)
- * - waits until measurement is ready before starting the animated element
- * - shows a static, readable fallback while measuring
+ * - measures container and current-message widths using useLayoutEffect
+ * - computes duration per message: duration = clamp((container + msg)/pxPerSec, minDuration, maxDuration)
+ * - waits until measurement ready before animating (prevents mid-screen start)
+ * - fallback static message while measuring
  * - respects prefers-reduced-motion
  */
 function Ticker({
   messages = [] as string[],
-  pixelsPerSecond = 70, // how many pixels per second the text travels (lower = slower)
-  minDuration = 4,      // minimum seconds per message (prevents too-fast for tiny text)
+  pixelsPerSecond = 70, // px/sec visual speed
+  minDuration = 3,      // seconds minimum for any message
+  maxDuration = 8,      // seconds maximum for any message (prevents very-long delays)
 }: {
   messages?: string[];
   pixelsPerSecond?: number;
   minDuration?: number;
+  maxDuration?: number;
 }) {
   const [index, setIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const measureRef = useRef<HTMLDivElement | null>(null);
+  const currentMeasureRef = useRef<HTMLDivElement | null>(null);
 
   const [containerWidth, setContainerWidth] = useState<number>(0);
-  const [textWidth, setTextWidth] = useState<number>(0);
+  const [currentTextWidth, setCurrentTextWidth] = useState<number>(0);
   const [measured, setMeasured] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
 
-  // detect reduced motion (accessibility)
+  // reduced motion
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const mq = window.matchMedia?.('(prefers-reduced-motion: reduce)');
@@ -43,61 +45,57 @@ function Ticker({
     return () => mq?.removeEventListener?.('change', onChange);
   }, []);
 
-  // measurement helper (call inside layout effect)
   const measure = () => {
     const c = containerRef.current;
-    const m = measureRef.current;
+    const m = currentMeasureRef.current;
     if (!c || !m) return;
     const cw = Math.ceil(c.getBoundingClientRect().width);
     const tw = Math.ceil(m.getBoundingClientRect().width);
     setContainerWidth(cw);
-    setTextWidth(tw);
+    setCurrentTextWidth(tw);
   };
 
-  // useLayoutEffect to measure synchronously after DOM paint (prevents initial-mid-screen issue)
+  // measure after paint and whenever index/messages change
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return;
-    // measure once synchronously
+
+    // synchronous-ish measure
     measure();
 
-    // also measure after fonts load (helps prevent layout shifts)
-    if (typeof document !== 'undefined' && 'fonts' in document && document.fonts?.ready) {
-      document.fonts.ready.then(() => {
-        // measure on next animation frame
+    // try to wait until fonts ready to reduce layout-shift
+    if (typeof document !== 'undefined' && (document as any).fonts?.ready) {
+      (document as any).fonts.ready.then(() => {
         requestAnimationFrame(() => {
           measure();
           setMeasured(true);
         });
       });
     } else {
-      // no font API, measure and mark measured
       requestAnimationFrame(() => {
         measure();
         setMeasured(true);
       });
     }
 
-    // ResizeObserver for live updates
+    // ResizeObserver to keep measurements current
     let ro: ResizeObserver | null = null;
     try {
       ro = new ResizeObserver(() => {
         measure();
       });
       if (containerRef.current) ro.observe(containerRef.current);
-      if (measureRef.current) ro.observe(measureRef.current);
+      if (currentMeasureRef.current) ro.observe(currentMeasureRef.current);
     } catch {
-      // fallback to window resize
       const onResize = () => measure();
       window.addEventListener('resize', onResize);
       return () => window.removeEventListener('resize', onResize);
     }
 
-    return () => {
-      ro?.disconnect();
-    };
-  }, [messages]);
+    return () => ro?.disconnect();
+    // re-run when current message changes so we measure it
+  }, [index, messages]);
 
-  // ensure index valid if messages length changes
+  // keep index valid if messages change
   useEffect(() => {
     if (!messages || messages.length === 0) return;
     if (index >= messages.length) setIndex(0);
@@ -105,7 +103,6 @@ function Ticker({
 
   if (!messages || messages.length === 0) return null;
 
-  // Accessibility: reduced motion -> static message (announced by aria-live)
   if (reduceMotion) {
     return (
       <div
@@ -123,10 +120,12 @@ function Ticker({
     );
   }
 
-  // only animate when we have measurements
-  const canAnimate = measured && containerWidth > 0 && textWidth > 0;
-  // compute duration based on pixelsPerSecond
-  const computedDuration = Math.max(minDuration, (containerWidth + textWidth) / Math.max(1, pixelsPerSecond));
+  // can animate only after we've measured both container and current text
+  const canAnimate = measured && containerWidth > 0 && currentTextWidth > 0;
+
+  // compute duration for THIS message (clamped)
+  const rawDuration = (containerWidth + currentTextWidth) / Math.max(1, pixelsPerSecond);
+  const computedDuration = Math.max(minDuration, Math.min(maxDuration, rawDuration));
 
   return (
     <div
@@ -137,35 +136,33 @@ function Ticker({
       style={{ minHeight: 32 }}
       ref={containerRef}
     >
-      {/* Hidden measure element - kept in DOM to provide accurate measurements */}
+      {/* Hidden element that contains the current message (used for accurate measurement) */}
       <div
-        ref={measureRef}
+        ref={currentMeasureRef}
         aria-hidden="true"
         style={{ position: 'absolute', left: -9999, top: -9999, whiteSpace: 'nowrap', visibility: 'hidden' }}
         className="font-medium text-sm sm:text-base"
       >
-        {/* Use the longest message for stable measurement so that animation duration is stable for that message */}
-        {messages.reduce((a, b) => (a.length > b.length ? a : b))}
+        {messages[index]}
       </div>
 
-      {/* Fallback visible static message while measuring so users see content immediately (centered/truncated) */}
+      {/* Fallback static message while measuring */}
       {!canAnimate && (
         <div className="inline-block whitespace-nowrap font-medium text-sm sm:text-base truncate px-2" style={{ maxWidth: '100%' }}>
           {messages[index]}
         </div>
       )}
 
-      {/* Animated element — only mount when we have accurate measurements */}
+      {/* Animated message (only mounts when measurement ready) */}
       {canAnimate && (
         <motion.div
           key={index}
           initial={{ x: containerWidth }}
-          animate={{ x: -textWidth }}
+          animate={{ x: -currentTextWidth }}
           transition={{ duration: computedDuration, ease: 'linear' }}
           className="inline-block whitespace-nowrap font-medium text-sm sm:text-base leading-tight"
           style={{ display: 'inline-block' }}
           onAnimationComplete={() => {
-            // Advance to the next message exactly when animation finishes.
             setIndex((i) => (i + 1) % messages.length);
           }}
         >
@@ -198,7 +195,7 @@ export default function Header() {
         <div className="text-white py-2 sm:py-3" style={{ backgroundColor: '#30519d' }}>
           <div className="max-w-7xl mx-auto px-3 sm:px-4">
             <div className="flex flex-row items-center gap-3 text-base sm:text-lg">
-              {/* Phone Number: hide label on xs to save space but keep icon */}
+              {/* Phone Number: visible on mobile, truncated to prevent overflow */}
               <div className="flex items-center space-x-2 flex-shrink-0 mr-3">
                 <a
                   href={`tel:${phone}`}
@@ -206,17 +203,23 @@ export default function Header() {
                   aria-label={`Phone ${phone}`}
                 >
                   <span className="text-sm">📞</span>
-                  <span className="hidden sm:inline-block truncate max-w-[160px]">{phone}</span>
+                  {/* show small truncated number on xs; full (more space) on sm+ */}
+                  <span className="inline-block truncate max-w-[90px] sm:max-w-[160px] text-xs sm:text-sm">{phone}</span>
                 </a>
               </div>
 
               {/* Messages area - ticker (flex-1 so it takes remaining width) */}
               <div className="flex-1 min-w-0">
-                {/* Pass a slightly lower px/sec for small screens (mobile readability) */}
-                <Ticker messages={messages} pixelsPerSecond={70} minDuration={4} />
+                {/* Use slightly faster px/sec on very small screens for snappier transitions */}
+                <Ticker
+                  messages={messages}
+                  pixelsPerSecond={70} // you can increase to 90 for faster motion
+                  minDuration={2.5}
+                  maxDuration={8}
+                />
               </div>
 
-              {/* Optional small right spacing (keeps ticker from touching edge on tiny screens) */}
+              {/* Right spacer for small screens so text doesn't butt up against edge */}
               <div className="hidden sm:block w-3" aria-hidden="true" />
             </div>
           </div>
