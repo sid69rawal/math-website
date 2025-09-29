@@ -214,7 +214,7 @@ export default function CallToActionSection() {
       </svg>
 
       {/* content (heading + CTA) */}
-      <div className="container mx-auto px-4 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           {/* Left side - Text and CTA */}
           <motion.div
@@ -280,6 +280,7 @@ export default function CallToActionSection() {
               width={320}
               height={220}
               className="h-auto object-contain"
+              style={{ width: "auto", height: "auto" }}
             />
           </motion.div>
         </div>

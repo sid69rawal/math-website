@@ -51,12 +51,15 @@ export default function HeroSection() {
   return (
     <section 
       id="home" 
-      className="relative py-8 lg:py-16"
+      className="relative py-8 lg:py-16 w-full full-width-section"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400"></div>
+      {/* Full-width background that extends edge-to-edge */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-400 w-full"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      {/* Content container with proper constraints */}
+      <div className="relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             className="-mt-4"
@@ -204,153 +207,9 @@ export default function HeroSection() {
 
           </motion.div>
         </div>
+        </div>
       </div>
 
-      {/* Rich Mathematical Background - 50+ Symbols */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Generate optimized floating math symbols */}
-        {Array.from({ length: 18 }).map((_, index) => {
-          const symbols = [
-            '+', '-', '×', '÷', '=', '≠', '<', '>', '≤', '≥', '±', '≈', '√', '²', '³', 'π', '∞',
-            'f(x)', 'g(x)', 'h(x)', 'y =', 'x²', 'x³', 'x⁴', 'log', 'sin', 'cos', 'tan', '∫', '∑',
-            'α', 'β', 'γ', 'δ', 'θ', 'λ', 'μ', 'σ', 'φ', 'ψ', 'ω', '∆', '∇', '∈', '∉', '∪', '∩'
-          ];
-          
-          const colors = [
-            'text-blue-500', 'text-cyan-500', 'text-sky-500', 'text-blue-600', 
-            'text-cyan-600', 'text-sky-600', 'text-blue-600', 'text-cyan-600',
-            'text-blue-600', 'text-cyan-600', 'text-sky-600', 'text-blue-600'
-          ];
-          
-          const sizes = ['text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl'];
-          const opacities = ['opacity-30', 'opacity-35', 'opacity-40', 'opacity-45'];
-          
-          const symbol = symbols[index % symbols.length];
-          const color = colors[index % colors.length];
-          const size = sizes[index % sizes.length];
-          const opacity = opacities[index % opacities.length];
-          
-          // Generate random positions
-          const top = Math.random() * 90 + 5; // 5% to 95%
-          const left = Math.random() * 90 + 5; // 5% to 95%
-          
-          // Generate random animation values for more dynamic floating
-          const yMovement = (Math.random() - 0.5) * 60; // -30 to 30
-          const xMovement = (Math.random() - 0.5) * 40; // -20 to 20
-          const rotation = (Math.random() - 0.5) * 90; // -45 to 45
-          const scaleVariation = 0.8 + Math.random() * 0.4; // 0.8 to 1.2
-          const duration = 6 + Math.random() * 8; // 6 to 14 seconds
-          const delay = Math.random() * 8; // 0 to 8 seconds
-          
-          return (
-            <motion.div
-              key={index}
-              className={`absolute ${color} ${size} ${opacity} font-bold select-none`}
-              style={{
-                top: `${top}%`,
-                left: `${left}%`,
-                willChange: 'transform',
-                transform: 'translate3d(0,0,0)' // Force hardware acceleration
-              }}
-              animate={{
-                y: [0, yMovement, -yMovement * 0.5, yMovement * 0.3, 0], // Multi-point floating
-                x: [0, xMovement, -xMovement * 0.7, xMovement * 0.4, 0], // Horizontal drift
-                rotate: [0, rotation, -rotation * 0.6, rotation * 0.3, 0], // Gentle rotation
-                scale: [1, scaleVariation, 1, scaleVariation * 0.9, 1], // Subtle scaling
-              }}
-              transition={{
-                duration: duration,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: delay,
-                times: [0, 0.25, 0.5, 0.75, 1], // Smooth transitions between keyframes
-              }}
-            >
-              {symbol}
-            </motion.div>
-          );
-        })}
-
-        {/* Simplified Featured Symbols */}
-        <motion.div
-          className="absolute top-20 left-[8%] text-purple-600 text-4xl font-bold opacity-40"
-          style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
-          animate={{
-            y: [0, -20, -10, -25, 0],
-            x: [0, 5, -3, 8, 0],
-            rotate: [0, 5, -3, 8, 0],
-            scale: [1, 1.1, 0.95, 1.05, 1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-            times: [0, 0.25, 0.5, 0.75, 1],
-          }}
-        >
-          +
-        </motion.div>
-        
-        <motion.div
-          className="absolute top-32 right-[12%] text-blue-600 text-3xl font-bold opacity-40"
-          style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
-          animate={{
-            y: [0, 15, 8, 18, 0],
-            x: [0, -8, 4, -12, 0],
-            rotate: [0, -8, 4, -12, 0],
-            scale: [1, 0.9, 1.15, 0.95, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-            times: [0, 0.25, 0.5, 0.75, 1],
-          }}
-        >
-          ×
-        </motion.div>
-        
-        <motion.div
-          className="absolute bottom-32 left-[15%] text-orange-600 text-4xl font-bold opacity-40"
-          style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
-          animate={{
-            y: [0, -22, -12, -28, 0],
-            x: [0, 6, -4, 10, 0],
-            rotate: [0, 6, -4, 10, 0],
-            scale: [1, 1.05, 0.9, 1.1, 1],
-          }}
-          transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 4,
-            times: [0, 0.25, 0.5, 0.75, 1],
-          }}
-        >
-          =
-        </motion.div>
-        
-        <motion.div
-          className="absolute bottom-24 right-[8%] text-blue-600 text-3xl font-bold opacity-40"
-          style={{ willChange: 'transform', transform: 'translate3d(0,0,0)' }}
-          animate={{
-            y: [0, 18, 10, 22, 0],
-            x: [0, -6, 3, -9, 0],
-            rotate: [0, -6, 3, -9, 0],
-            scale: [1, 0.95, 1.1, 0.9, 1],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-            times: [0, 0.25, 0.5, 0.75, 1],
-          }}
-        >
-          ÷
-        </motion.div>
-      </div>
     </section>
   );
 }

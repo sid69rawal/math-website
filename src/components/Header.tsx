@@ -248,16 +248,24 @@ export default function Header() {
               {/* Logo */}
               <Link href="/">
                 <motion.div className="flex items-center" whileHover={{ scale: 1.02 }}>
-                  <Image src="/logo_3.png" alt="Level Up Math Academy Logo" width={90} height={90} className="object-contain" />
+                  <Image 
+                    src="/logo_3.png" 
+                    alt="Level Up Math Academy Logo" 
+                    width={90} 
+                    height={90} 
+                    className="object-contain" 
+                    priority
+                    style={{ width: "auto", height: "auto" }}
+                  />
                 </motion.div>
               </Link>
 
               {/* Desktop Navigation Menu */}
               <div className="hidden lg:flex items-center space-x-18 ml-36">
                 <Link href="/">
-                  <motion.a className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
+                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
                     Home
-                  </motion.a>
+                  </motion.span>
                 </Link>
 
                 {/* Courses Dropdown */}
@@ -297,14 +305,14 @@ export default function Header() {
                 </div>
 
                 <Link href="/services">
-                  <motion.a className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
+                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
                     Our Services
-                  </motion.a>
+                  </motion.span>
                 </Link>
                 <Link href="/about">
-                  <motion.a className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
+                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
                     About Us
-                  </motion.a>
+                  </motion.span>
                 </Link>
 
                 {/* Social Media Icons */}

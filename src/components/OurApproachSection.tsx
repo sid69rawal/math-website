@@ -51,7 +51,7 @@ export default function OurApproachSection() {
 
   return (
     <section id="our-approach" className="relative py-16 lg:py-24 bg-gradient-to-br from-slate-100 via-blue-100 to-indigo-100 overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Title */}
         <motion.div
           className="text-center mb-16"
@@ -95,6 +95,7 @@ export default function OurApproachSection() {
                       width={48}
                       height={48}
                       className="object-contain"
+                      style={{ width: "auto", height: "auto" }}
                     />
                   ) : (
                     approach.icon

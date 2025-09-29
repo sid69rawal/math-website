@@ -5,7 +5,6 @@ import { Home, ArrowLeft, Search, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import FloatingElements from '@/components/FloatingElements';
 
 export default function NotFound() {
   const quickLinks = [
@@ -36,14 +35,6 @@ export default function NotFound() {
     <div className="min-h-screen bg-gray-50">
       {/* Header with Navigation */}
       <Header />
-
-      {/* Floating Math Symbols Background */}
-      <FloatingElements 
-        elements={['❓', '🔍', '📚', '🏠', '💡', '🎯']}
-        count={6}
-        size="lg"
-        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-teal-200']}
-      />
 
       {/* Main 404 Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">

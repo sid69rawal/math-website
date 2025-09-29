@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import FloatingElements from './FloatingElements';
 import Image from 'next/image';
 
 export default function WhatWeOfferSection() {
@@ -72,13 +71,7 @@ export default function WhatWeOfferSection() {
 
   return (
     <section id="what-we-offer" className="relative py-16 lg:py-24 bg-gray-50">
-      <FloatingElements 
-        elements={['📚', '✏️', '🎯', '💡', '⭐', '🚀']}
-        count={8}
-        size="md"
-        colors={['text-blue-200', 'text-cyan-200', 'text-sky-200', 'text-blue-200']}
-      />
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}

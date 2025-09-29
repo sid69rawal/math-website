@@ -29,3 +29,23 @@ body {
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+/* Ensure full-width sections work consistently across all browsers */
+.full-width-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+/* Fix for Edge browser container behavior */
+@supports (-ms-ime-align: auto) {
+  .container {
+    max-width: none !important;
+    width: 100% !important;
+  }
+}
+
+/* Ensure consistent box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
