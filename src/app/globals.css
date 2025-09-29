@@ -35,6 +35,32 @@ body {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
+  position: relative;
+}
+
+/* Fix for mobile devices to prevent horizontal overflow */
+@media (max-width: 768px) {
+  .full-width-section {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Ensure no horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Fix for specific mobile viewports */
+  @media (max-width: 480px) {
+    .full-width-section {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
+  }
 }
 
 /* Fix for Edge browser container behavior */
@@ -45,7 +71,134 @@ body {
   }
 }
 
-/* Ensure consistent box-sizing */
+/* Ensure consistent box-sizing and prevent horizontal overflow */
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Fix for Samsung Galaxy S8+ and similar devices */
+@media (max-width: 360px) {
+  .full-width-section {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Fix for Galaxy Z Fold 5 and similar foldable devices */
+@media (max-width: 280px) {
+  .full-width-section {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Additional fixes for mobile viewport issues */
+@media (max-width: 414px) {
+  /* Samsung Galaxy S8+ specific fixes */
+  .full-width-section {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+  }
+  
+  /* Ensure containers don't overflow but still have proper padding */
+  .max-w-7xl {
+    max-width: 100%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Ensure text doesn't get cut off */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+  .full-width-section {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  /* Reduce padding on very small screens */
+  .px-4 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Make text smaller on very small screens to prevent cutoff */
+  .text-4xl {
+    font-size: 1.875rem; /* 30px */
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem; /* 24px */
+  }
+}
+
+/* Specific fixes for Samsung Galaxy S8+ (360px) */
+@media (max-width: 360px) {
+  /* Ensure proper text wrapping */
+  .whitespace-nowrap {
+    white-space: normal !important;
+  }
+  
+  /* Adjust text sizes for better fit */
+  .text-4xl {
+    font-size: 1.75rem; /* 28px */
+  }
+  
+  .text-3xl {
+    font-size: 1.375rem; /* 22px */
+  }
+  
+  /* Ensure buttons don't get cut off */
+  .flex-col {
+    gap: 0.75rem;
+  }
+  
+  /* Reduce button padding on small screens */
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Additional mobile fixes */
+@media (max-width: 480px) {
+  /* Ensure content fits within viewport */
+  .max-w-7xl {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  /* Make sure buttons are full width on mobile */
+  .w-full {
+    width: 100% !important;
+  }
+  
+  /* Contact page specific fixes */
+  .rounded-3xl {
+    border-radius: 1rem; /* Reduce border radius on mobile */
+  }
+  
+  .p-8 {
+    padding: 1rem; /* Reduce padding on mobile */
+  }
+  
+  .p-6 {
+    padding: 0.75rem; /* Reduce padding on mobile */
+  }
+  
 }

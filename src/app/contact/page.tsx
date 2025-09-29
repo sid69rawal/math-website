@@ -86,15 +86,13 @@ export default function ContactPage() {
   const gradeOptions = Array.from({ length: 10 }, (_, i) => `Grade ${i + 3}`);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       {/* Header with Navigation */}
       <Header />
 
-
-
       {/* Main Contact Section */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-        <div className="grid lg:grid-cols-3 gap-12 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
           
           {/* Left Side - Image and Decorative Elements */}
           <motion.div
@@ -210,7 +208,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="mb-8">
-              <h1 className="text-4xl font-bold mb-4" style={{ color: '#30519d' }}>Contact Us</h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4" style={{ color: '#30519d' }}>Contact Us</h1>
               <p className="text-gray-600 text-lg">
                 To explore more about our services and pricing, Please fill out the form below and we&apos;ll get back to you shortly
               </p>

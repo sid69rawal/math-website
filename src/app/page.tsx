@@ -10,7 +10,7 @@ import CallToActionSection from '@/components/CallToActionSection';
 import FloatingActionButton from '@/components/FloatingActionButton';
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
 
       {/* Header with Navigation */}
       <Header />

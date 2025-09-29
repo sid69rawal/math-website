@@ -59,7 +59,7 @@ export default function HeroSection() {
       {/* Content container with proper constraints */}
       <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             className="-mt-4"
@@ -76,7 +76,7 @@ export default function HeroSection() {
             >
               Welcome to
               <br />
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-bold whitespace-nowrap" style={{ color: '#30519d' }}>Level Up Math Academy</span>
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-bold" style={{ color: '#30519d' }}>Level Up Math Academy</span>
             </motion.h1>
             
             <motion.p 
