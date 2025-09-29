@@ -191,7 +191,7 @@ export default function Footer() {
             <div className="h-4 md:h-6"></div>
             
             {/* Contact Info with Icons and Values */}
-            <div className="space-y-4 mb-8 flex flex-col items-center">
+            <div className="space-y-4 mb-8 flex flex-col items-start">
               <div className="flex flex-col space-y-4 w-full max-w-sm">
                 {/* Email */}
                 <motion.div
@@ -230,14 +230,14 @@ export default function Footer() {
                   className="flex items-start justify-start space-x-3"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="bg-purple-600 p-2 rounded-lg flex-shrink-0 mt-1">
+                  <div className="bg-purple-600 p-2 rounded-lg flex-shrink-0 mt-0.5">
                     <MapPin className="w-5 h-5 text-white" />
                   </div>
                   <a
                     href={`https://maps.google.com/?q=${encodeURIComponent(contactConfig.address.full)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-purple-400 transition-colors leading-relaxed whitespace-pre-line text-lg"
+                    className="text-white hover:text-purple-400 transition-colors leading-relaxed whitespace-pre-line text-lg text-left"
                   >
                     {contactConfig.address.full}
                   </a>

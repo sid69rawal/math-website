@@ -116,7 +116,7 @@ export default function Grades68Page() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pt-32">
       {/* Header with Navigation */}
       <Header />
 

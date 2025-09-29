@@ -73,7 +73,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pt-32">
       {/* Header with Navigation */}
       <Header />
 

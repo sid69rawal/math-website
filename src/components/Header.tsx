@@ -190,7 +190,7 @@ export default function Header() {
   return (
     <>
       {/* Combined Header with Ribbon */}
-      <div className="sticky top-0 z-50">
+      <div className="fixed top-0 left-0 right-0 z-50">
         {/* Ribbon */}
         <div className="text-white py-2 sm:py-3" style={{ backgroundColor: '#30519d' }}>
           <div className="max-w-7xl mx-auto px-3 sm:px-4">
@@ -239,8 +239,8 @@ export default function Header() {
           <motion.div
             className="max-w-7xl mx-auto px-4 sm:px-6"
             animate={{
-              paddingTop: '0.125rem',
-              paddingBottom: '0.125rem',
+              paddingTop: '0.0625rem',
+              paddingBottom: '0.0625rem',
             }}
             transition={{ duration: 0.3 }}
           >
@@ -251,8 +251,8 @@ export default function Header() {
                   <Image 
                     src="/logo_3.png" 
                     alt="Level Up Math Academy Logo" 
-                    width={90} 
-                    height={90} 
+                    width={75} 
+                    height={75} 
                     className="object-contain" 
                     priority
                     style={{ width: "auto", height: "auto" }}
