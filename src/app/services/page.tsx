@@ -219,7 +219,7 @@ export default function ServicesPage() {
             {gradeCategories.map((grade, index) => (
               <motion.div
                 key={grade.id}
-                className="bg-gray-200 rounded-xl p-8 sm:p-10 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[400px] sm:min-h-[450px]"
+                className="bg-gray-200 rounded-xl p-4 sm:p-8 lg:p-10 shadow-lg border border-gray-300 hover:bg-gray-300 hover:border-blue-600 hover:shadow-xl hover:scale-105 transition-all duration-300 group text-center flex flex-col min-h-[300px] sm:min-h-[450px]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ 
@@ -232,19 +232,19 @@ export default function ServicesPage() {
                 }}
               >
                 {/* Grade Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 lg:mb-8">
                 {grade.label}
                 </h3>
 
                 {/* Grade Description */}
-                <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-10 flex-grow leading-relaxed">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 lg:mb-10 flex-grow leading-relaxed">
                   {grade.description}
                 </p>
 
                 {/* Learn More Button */}
                 <button
                   onClick={() => setSelectedGradeDetails(grade)}
-                  className="w-full text-white px-6 py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-200 hover:opacity-90 mt-auto shadow-md" 
+                  className="w-full text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition-all duration-200 hover:opacity-90 mt-auto shadow-md" 
                   style={{ backgroundColor: '#30519d' }}
                 >
                   Learn More
