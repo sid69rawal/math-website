@@ -61,8 +61,8 @@ function Ticker({
     measure();
 
     // also measure after fonts load (helps prevent layout shifts)
-    if ((document as any).fonts?.ready) {
-      (document as any).fonts.ready.then(() => {
+    if (typeof document !== 'undefined' && 'fonts' in document && document.fonts?.ready) {
+      document.fonts.ready.then(() => {
         // measure on next animation frame
         requestAnimationFrame(() => {
           measure();
@@ -80,12 +80,12 @@ function Ticker({
     // ResizeObserver for live updates
     let ro: ResizeObserver | null = null;
     try {
-      ro = new (window as any).ResizeObserver(() => {
+      ro = new ResizeObserver(() => {
         measure();
       });
       if (containerRef.current) ro.observe(containerRef.current);
       if (measureRef.current) ro.observe(measureRef.current);
-    } catch (e) {
+    } catch {
       // fallback to window resize
       const onResize = () => measure();
       window.addEventListener('resize', onResize);
@@ -95,7 +95,6 @@ function Ticker({
     return () => {
       ro?.disconnect();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
 
   // ensure index valid if messages length changes
