@@ -2,15 +2,16 @@
 
 import { motion } from 'framer-motion';
 import { Facebook, Instagram, Menu, X, ChevronDown } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { contactConfig } from '@/config/contact';
 
 /**
  * Ticker
- * - measures container and text widths
- * - animates text from right (containerWidth) -> left (-textWidth)
+ * - measures container and text widths using useLayoutEffect for first-paint accuracy
+ * - waits until measurement is ready before mounting animated motion element
+ * - animates from containerWidth -> -textWidth
  * - advances index in onAnimationComplete so next message starts immediately
  * - honors prefers-reduced-motion (renders static first message)
  */
@@ -27,14 +28,15 @@ function Ticker({
 
   const [containerWidth, setContainerWidth] = useState<number>(0);
   const [textWidth, setTextWidth] = useState<number>(0);
-  const [mounted, setMounted] = useState(false);
+  const [measured, setMeasured] = useState(false);
 
   // Respect reduced motion
   const [reduceMotion, setReduceMotion] = useState(false);
 
+  // Detect reduced-motion on mount
   useEffect(() => {
-    setMounted(true);
-    const mq = window?.matchMedia?.('(prefers-reduced-motion: reduce)');
+    if (typeof window === 'undefined') return;
+    const mq = window.matchMedia?.('(prefers-reduced-motion: reduce)');
     setReduceMotion(!!mq?.matches);
     const onChange = () => setReduceMotion(!!mq?.matches);
     mq?.addEventListener?.('change', onChange);
@@ -52,22 +54,31 @@ function Ticker({
     setTextWidth(tw);
   };
 
-  // measure on mount, index/message change and on resize
-  useEffect(() => {
-    if (!mounted) return;
+  // First paint measurement (synchronous-ish) so we get correct widths before the animation starts
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
     measure();
+    setMeasured(true);
 
-    const ro = new ResizeObserver(() => measure());
-    if (containerRef.current) ro.observe(containerRef.current);
-    if (textRef.current) ro.observe(textRef.current);
+     // observe resizes so we stay accurate
+     let ro: ResizeObserver | null = null;
+     try {
+       ro = new ResizeObserver(() => {
+         measure();
+       });
+       if (containerRef.current) ro.observe(containerRef.current);
+       if (textRef.current) ro.observe(textRef.current);
+     } catch {
+       // ResizeObserver not available — fall back to window resize listener
+       const onResize = () => measure();
+       window.addEventListener('resize', onResize);
+       return () => window.removeEventListener('resize', onResize);
+     }
 
-    const onResize = () => measure();
-    window.addEventListener('resize', onResize);
     return () => {
-      ro.disconnect();
-      window.removeEventListener('resize', onResize);
+      ro?.disconnect();
     };
-  }, [mounted, index, messages]);
+  }, [messages]);
 
   // keep index valid if messages change
   useEffect(() => {
@@ -77,7 +88,7 @@ function Ticker({
 
   if (!messages || messages.length === 0) return null;
 
-  // If reduced motion, return the first message statically
+  // If reduced motion, return the first message statically (accessible)
   if (reduceMotion) {
     return (
       <div
@@ -95,8 +106,8 @@ function Ticker({
     );
   }
 
-  // only animate when we have measurements; if not ready, render the element but with no movement
-  const canAnimate = containerWidth > 0 && textWidth > 0;
+  // only animate when we have measurements; if not ready, render the container + hidden measure text
+  const canAnimate = measured && containerWidth > 0 && textWidth > 0;
   const fromX = canAnimate ? containerWidth : 0;
   const toX = canAnimate ? -textWidth : 0;
 
@@ -109,21 +120,28 @@ function Ticker({
       style={{ minHeight: 24 }}
       ref={containerRef}
     >
-      <motion.div
-        key={index}
-        ref={textRef}
-        initial={{ x: fromX }}
-        animate={{ x: toX }}
-        transition={{ duration: canAnimate ? cycleDuration : 0, ease: 'linear' }}
-        className="inline-block whitespace-nowrap font-medium text-sm sm:text-base"
-        style={{ display: 'inline-block' }}
-        onAnimationComplete={() => {
-          // advance exactly when animation completes
-          setIndex((i) => (i + 1) % messages.length);
-        }}
-      >
-        <span className="px-2">{messages[index]}</span>
-      </motion.div>
+      {/* Hidden text for measurement / fallback (always present but motion element will mount only when measured) */}
+      <div className="sr-only" aria-hidden="true" ref={textRef}>
+        {messages[index]}
+      </div>
+
+      {/* Render the animated element only after we measured widths so the first run is correct */}
+      {canAnimate && (
+        <motion.div
+          key={index}
+          initial={{ x: fromX }}
+          animate={{ x: toX }}
+          transition={{ duration: cycleDuration, ease: 'linear' }}
+          className="inline-block whitespace-nowrap font-medium text-sm sm:text-base"
+          style={{ display: 'inline-block' }}
+          onAnimationComplete={() => {
+            // advance exactly when animation completes
+            setIndex((i) => (i + 1) % messages.length);
+          }}
+        >
+          <span className="px-2">{messages[index]}</span>
+        </motion.div>
+      )}
     </div>
   );
 }
@@ -138,7 +156,6 @@ export default function Header() {
   ];
 
   // safe fallbacks if contactConfig is undefined/missing values
-  const email = contactConfig?.email ?? 'info@example.com';
   const phone = contactConfig?.phone ?? '+91-0000000000';
   const facebook = contactConfig?.socialMedia?.facebook ?? '#';
   const instagram = contactConfig?.socialMedia?.instagram ?? '#';
@@ -151,17 +168,8 @@ export default function Header() {
         <div className="text-white py-2 sm:py-3" style={{ backgroundColor: '#30519d' }}>
           <div className="max-w-7xl mx-auto px-3 sm:px-4">
             <div className="flex flex-row items-center justify-between gap-3 text-base sm:text-lg">
-              {/* Contacts */}
+              {/* Phone Number */}
               <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0 order-1 mr-6">
-                <a
-                  href={`mailto:${email}`}
-                  className="flex items-center space-x-1 text-sm sm:text-base whitespace-nowrap"
-                  aria-label={`Email ${email}`}
-                >
-                  <span>📧</span>
-                  <span className="inline-block truncate max-w-[120px] sm:max-w-none">{email}</span>
-                </a>
-
                 <a
                   href={`tel:${phone}`}
                   className="flex items-center space-x-1 text-sm sm:text-base whitespace-nowrap"
@@ -288,9 +296,15 @@ export default function Header() {
             {/* Mobile Navigation Menu */}
             <motion.div className="lg:hidden overflow-hidden" initial={{ opacity: 0, height: 0 }} animate={{ opacity: mobileMenuOpen ? 1 : 0, height: mobileMenuOpen ? 'auto' : 0 }} transition={{ duration: 0.3 }}>
               <div className="mt-4 bg-gray-50 rounded-lg p-4 space-y-3">
+                <Link href="/">
+                  <motion.div className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer" onClick={() => setMobileMenuOpen(false)} whileHover={{ x: 5 }}>
+                    Home
+                  </motion.div>
+                </Link>
+
                 {/* Mobile Courses Dropdown */}
                 <div>
-                  <motion.div className="flex items-center justify-between text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 cursor-pointer" onClick={() => setCoursesDropdownOpen(!coursesDropdownOpen)} whileHover={{ x: 5 }}>
+                  <motion.div className="flex items-center justify-between text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer" onClick={() => setCoursesDropdownOpen(!coursesDropdownOpen)} whileHover={{ x: 5 }}>
                     <span>Courses</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${coursesDropdownOpen ? 'rotate-180' : ''}`} />
                   </motion.div>
@@ -337,12 +351,6 @@ export default function Header() {
                     </div>
                   </motion.div>
                 </div>
-
-                <Link href="/">
-                  <motion.div className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer" onClick={() => setMobileMenuOpen(false)} whileHover={{ x: 5 }}>
-                    Home
-                  </motion.div>
-                </Link>
                 <Link href="/services">
                   <motion.div className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer" onClick={() => setMobileMenuOpen(false)} whileHover={{ x: 5 }}>
                     Our Services

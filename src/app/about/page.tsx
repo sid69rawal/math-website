@@ -212,11 +212,17 @@ export default function AboutPage() {
                   {/* Profile Picture - Left Side */}
                   <div className="flex-shrink-0">
                   <motion.div
-                      className="w-80 h-80 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto"
-                    whileHover={{ scale: 1.1, rotate: 360 }}
+                      className="w-80 h-80 rounded-full overflow-hidden mx-auto shadow-lg"
+                    whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
-                      <span className="text-white text-9xl">👩‍🏫</span>
+                      <Image
+                        src="/jyoti.png"
+                        alt="Jyoti Agarwal - Cofounder and Educator"
+                        width={320}
+                        height={320}
+                        className="w-full h-full object-cover"
+                      />
                   </motion.div>
                   </div>
                   
@@ -262,11 +268,17 @@ export default function AboutPage() {
                   {/* Profile Picture - Right Side */}
                   <div className="flex-shrink-0">
                   <motion.div
-                      className="w-80 h-80 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto"
-                    whileHover={{ scale: 1.1, rotate: 360 }}
+                      className="w-80 h-80 rounded-full overflow-hidden mx-auto shadow-lg"
+                    whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
-                      <span className="text-white text-9xl">👨‍🏫</span>
+                      <Image
+                        src="/kunal.png"
+                        alt="Kunal Agarwal - Cofounder and Educator"
+                        width={320}
+                        height={320}
+                        className="w-full h-full object-cover"
+                      />
                   </motion.div>
                   </div>
                   

@@ -10,39 +10,63 @@ function TestimonialCarousel() {
 
   const testimonials = [
     {
-      text: "Level Up Math Academy completely transformed my daughter's relationship with math! She went from dreading math homework to actually enjoying it. The personalized approach and patient teachers made all the difference. Her grades improved from C+ to A- in just 3 months!",
-      author: "Sarah Chen",
-      role: "Parent of Grade 8 Student",
+      text: "Level Up helped me understand advanced topics like algebra and functions with ease. I'm no longer stressed about math and now feel sure I can score high and get into the program I want at university.",
+      author: "Heera",
+      role: "Grade 11 Student",
       rating: 5
     },
     {
-      text: "I was struggling with calculus and thought I'd never understand it. The teachers at Level Up Math Academy broke down complex concepts into simple steps. Their concept-first teaching really works! I'm now confident going into my final exams.",
-      author: "Alex Kumar",
-      role: "Grade 12 Student", 
+      text: "We've seen a huge transformation. My daughter not only improved her math grades but also gained the confidence that she can succeed in any competitive exam. Level Up has truly prepared her for university.",
+      author: "Manya",
+      role: "Parent of Grade 12 Student",
       rating: 5
     },
     {
-      text: "The flexibility of online and in-person sessions was perfect for our busy schedule. My son loves the small group setting - he gets the attention he needs without feeling overwhelmed. The support beyond class hours is exceptional!",
-      author: "Michelle Rodriguez",
-      role: "Parent of Grade 10 Student",
-      rating: 5
-    },
-    {
-      text: "As a parent, I was amazed by how quickly my child's confidence grew. The teachers don't just teach math; they build self-esteem and problem-solving skills. The investment is worth every penny - highly recommend!",
-      author: "David Thompson", 
-      role: "Parent of Grade 6 Student",
-      rating: 5
-    },
-    {
-      text: "I've tried other tutoring centers, but Level Up Math Academy is different. They actually care about understanding the 'why' behind math, not just memorizing formulas. My algebra skills have improved tremendously!",
-      author: "Emma Zhang",
+      text: "I used to feel nervous about math, but after joining Level Up Math Academy, everything makes sense now. My test scores improved quickly, and I feel confident tackling even tough problems.",
+      author: "Nihaal",
       role: "Grade 9 Student",
       rating: 5
     },
     {
-      text: "The curriculum-aligned approach helped my daughter excel in her EQAO tests. The teachers prepared her not just for exams but for real understanding. She's now helping her friends with math - what a turnaround!",
-      author: "Robert Singh",
-      role: "Parent of Grade 7 Student", 
+      text: "My daughter went from struggling with fractions to scoring above 90%. Level Up Math Academy teachers make math simple and enjoyable and she's finally excited to learn!",
+      author: "Dave",
+      role: "Parent of Grade 6 Student",
+      rating: 5
+    },
+    {
+      text: "My son's grades jumped within weeks of starting here. Jyoti madam explain concepts so clearly that he is no longer afraid of math. He's motivated and confident about doing well in school exams.",
+      author: "Pradeep",
+      role: "Parent of Grade 10 Student",
+      rating: 5
+    },
+    {
+      text: "I used to be scared of word problems, but now I solve them with confidence. My marks went up fast, and math feels easy.",
+      author: "Manit",
+      role: "Grade 7 Student",
+      rating: 5
+    },
+    {
+      text: "Before Level Up Math Academy, I thought university-level math would be out of reach. Now I feel fully prepared for exams and confident about getting into my dream program.",
+      author: "Varun",
+      role: "Grade 12 Student",
+      rating: 5
+    },
+    {
+      text: "I've tried other tutoring centers, but Level Up Math Academy is different. They actually care about understanding the 'why' behind math, not just memorizing formulas. My daughter's math skills have improved tremendously!",
+      author: "Sonia",
+      role: "Parent of Grade 9 Student",
+      rating: 5
+    },
+    {
+      text: "I was struggling with calculus and thought I'd never understand it. The teachers at Level Up Math Academy broke down complex concepts into simple steps. Their concept-first teaching really works! I'm now confident going into my final exams.",
+      author: "Roshan",
+      role: "Grade 12 Student",
+      rating: 5
+    },
+    {
+      text: "As a parent, I was amazed by how quickly my child's confidence grew. The teachers don't just teach math; they build self-esteem and problem-solving skills. The investment is worth every penny - highly recommend!",
+      author: "Leigh",
+      role: "Parent of Grade 6 Student",
       rating: 5
     }
   ];
