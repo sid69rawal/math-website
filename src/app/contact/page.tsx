@@ -77,7 +77,7 @@ export default function ContactPage() {
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('Sorry, there was an error sending your message. Please try again or contact us directly at levelupmathacademy@gmail.com');
+      alert('Sorry, there was an error sending your message. Please try again or contact us directly at ' + contactConfig.email);
     } finally {
       setIsSubmitting(false);
     }
@@ -439,10 +439,10 @@ export default function ContactPage() {
                 transition={{ delay: 0.5 }}
               >
                 <p className="text-sm text-gray-700 mb-2">
-                  <span className="font-semibold" style={{ color: '#30519d' }}>📧 Email:</span> levelupmathacademy@gmail.com
+                  <span className="font-semibold" style={{ color: '#30519d' }}>📧 Email:</span> {contactConfig.email}
                 </p>
                 <p className="text-sm text-gray-700">
-                  <span className="font-semibold" style={{ color: '#30519d' }}>📞 Phone:</span> (416) 802-4713
+                  <span className="font-semibold" style={{ color: '#30519d' }}>📞 Phone:</span> {contactConfig.phone}
                 </p>
               </motion.div>
               
