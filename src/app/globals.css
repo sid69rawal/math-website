@@ -97,6 +97,11 @@ html, body {
     margin-left: 0;
     margin-right: 0;
   }
+  
+  /* Center align ticker text when it wraps */
+  .ticker-container .text-center {
+    text-align: center !important;
+  }
 }
 
 /* Additional fixes for mobile viewport issues */
@@ -107,6 +112,11 @@ html, body {
     margin-left: 0;
     margin-right: 0;
     position: relative;
+  }
+  
+  /* Center align ticker text when it wraps on mobile */
+  .ticker-container .text-center {
+    text-align: center !important;
   }
   
   /* Ensure containers don't overflow but still have proper padding */
@@ -152,6 +162,11 @@ html, body {
   /* Ensure proper text wrapping */
   .whitespace-nowrap {
     white-space: normal !important;
+  }
+  
+  /* Center align ticker text when it wraps */
+  .ticker-container .text-center {
+    text-align: center !important;
   }
   
   /* Adjust text sizes for better fit */

@@ -113,7 +113,7 @@ function Ticker({
         style={{ minHeight: 28 }}
         ref={containerRef}
       >
-        <div className="inline-block whitespace-nowrap font-medium text-sm sm:text-base leading-tight">
+        <div className="inline-block whitespace-nowrap font-medium text-sm sm:text-base leading-tight text-center sm:text-left">
           <span className="px-2">{messages[index]}</span>
         </div>
       </div>
@@ -148,7 +148,7 @@ function Ticker({
 
       {/* Fallback static message while measuring */}
       {!canAnimate && (
-        <div className="inline-block whitespace-nowrap font-medium text-sm sm:text-base truncate px-2" style={{ maxWidth: '100%' }}>
+        <div className="inline-block whitespace-nowrap font-medium text-sm sm:text-base truncate px-2 text-center sm:text-left" style={{ maxWidth: '100%' }}>
           {messages[index]}
         </div>
       )}
@@ -160,7 +160,7 @@ function Ticker({
           initial={{ x: containerWidth }}
           animate={{ x: -currentTextWidth }}
           transition={{ duration: computedDuration, ease: 'linear' }}
-          className="inline-block whitespace-nowrap font-medium text-sm sm:text-base leading-tight"
+          className="inline-block whitespace-nowrap font-medium text-sm sm:text-base leading-tight text-center sm:text-left"
           style={{ display: 'inline-block' }}
           onAnimationComplete={() => {
             setIndex((i) => (i + 1) % messages.length);
