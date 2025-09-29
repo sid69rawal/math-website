@@ -63,8 +63,8 @@ function Ticker({
     measure();
 
     // try to wait until fonts ready to reduce layout-shift
-    if (typeof document !== 'undefined' && (document as any).fonts?.ready) {
-      (document as any).fonts.ready.then(() => {
+    if (typeof document !== 'undefined' && 'fonts' in document && document.fonts?.ready) {
+      document.fonts.ready.then(() => {
         requestAnimationFrame(() => {
           measure();
           setMeasured(true);
