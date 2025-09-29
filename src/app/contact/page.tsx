@@ -20,7 +20,6 @@ export default function ContactPage() {
     preference: '' as string
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -32,56 +31,6 @@ export default function ContactPage() {
   };
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // Create form data for formsubmit.co
-      const formDataToSend = new FormData();
-      formDataToSend.append('_subject', `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
-      formDataToSend.append('_replyto', formData.email);
-      formDataToSend.append('_captcha', 'false');
-      formDataToSend.append('_next', window.location.href);
-      
-      // Add form fields
-      formDataToSend.append('firstName', formData.firstName);
-      formDataToSend.append('lastName', formData.lastName);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('phone', formData.phone || 'Not provided');
-      formDataToSend.append('gradeLevel', formData.gradeLevel);
-      formDataToSend.append('preference', formData.preference);
-      formDataToSend.append('message', formData.message);
-      
-      // Submit form using formsubmit.co
-      const response = await fetch('https://formsubmit.co/levelupmathacademy@gmail.com', {
-        method: 'POST',
-        body: formDataToSend
-      });
-      
-      if (response.ok) {
-        setShowSuccess(true);
-        
-        // Reset form
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          gradeLevel: '',
-          message: '',
-          preference: ''
-        });
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Sorry, there was an error sending your message. Please try again or contact us directly at ' + contactConfig.email);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const gradeOptions = Array.from({ length: 10 }, (_, i) => `Grade ${i + 3}`);
 
@@ -179,24 +128,26 @@ export default function ContactPage() {
                 </motion.div>
               </div>
 
-              {/* Google Maps Embed */}
-              <motion.div
-                className="w-full h-48 rounded-lg overflow-hidden shadow-lg mt-6"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-              >
-                <iframe
-                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_API_KEY}&q=${encodeURIComponent(contactConfig.address.full)}`}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Level Up Math Academy Location"
-                />
-              </motion.div>
+              {/* Google Maps Embed - Only show if API key is available */}
+              {process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY && (
+                <motion.div
+                  className="w-full h-48 rounded-lg overflow-hidden shadow-lg mt-6"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6, duration: 0.8 }}
+                >
+                  <iframe
+                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(contactConfig.address.full)}`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Level Up Math Academy Location"
+                  />
+                </motion.div>
+              )}
             </motion.div>
           </motion.div>
 
@@ -216,7 +167,16 @@ export default function ContactPage() {
               
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              action="https://formsubmit.co/lumathacademy@gmail.com" 
+              method="POST" 
+              className="space-y-6"
+            >
+              {/* Hidden FormSubmit.co fields */}
+              <input type="hidden" name="_subject" value="New Contact Form Submission" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
+              
               {/* Name Fields */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
@@ -350,20 +310,12 @@ export default function ContactPage() {
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full text-white py-4 px-8 rounded-lg font-bold text-lg shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:opacity-90"
+                className="w-full text-white py-4 px-8 rounded-lg font-bold text-lg shadow-xl transition-all hover:opacity-90"
                 style={{ backgroundColor: '#30519d' }}
-                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {isSubmitting ? (
-                  <div className="flex items-center justify-center space-x-2">
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                    <span>Sending...</span>
-                  </div>
-                ) : (
-                  'Send Message'
-                )}
+                Send Message
               </motion.button>
             </form>
           </motion.div>
