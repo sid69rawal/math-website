@@ -1,6 +1,22 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Elementary Math Tutoring Grades 3-5 | Mississauga Math Academy",
+  description: "Elementary math tutoring for Grades 3-5 in Mississauga. Build strong foundations in addition, multiplication, fractions & geometry. Small groups, expert tutors.",
+  keywords: "elementary math tutoring Mississauga, grade 3 math help, grade 4 math tutoring, grade 5 math programs, primary math tutoring Ontario, EQAO math prep",
+  openGraph: {
+    title: "Elementary Math Tutoring Grades 3-5 | Mississauga",
+    description: "Elementary math tutoring for Grades 3-5 in Mississauga. Build strong foundations with expert tutors.",
+    type: "website",
+    url: "https://levelupmathacademy.com/courses/grades-3-5",
+  },
+  alternates: {
+    canonical: "https://levelupmathacademy.com/courses/grades-3-5",
+  },
+};
 import { X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -22,6 +38,45 @@ interface Course {
 }
 
 export default function Grades35Page() {
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Elementary Math Tutoring (Grades 3-5)",
+    "description": "Elementary math tutoring for Grades 3-5 in Mississauga. Build strong foundations in addition, multiplication, fractions & geometry.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Level Up Math Academy",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mississauga",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      }
+    },
+    "courseMode": ["blended", "onsite"],
+    "educationalLevel": "Elementary",
+    "inLanguage": "en-CA",
+    "offers": {
+      "@type": "Offer",
+      "price": "200",
+      "priceCurrency": "CAD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "200",
+        "priceCurrency": "CAD",
+        "unitText": "per month"
+      }
+    },
+    "teaches": [
+      "Addition and Subtraction",
+      "Multiplication Basics", 
+      "Fractions Introduction",
+      "Geometry Basics",
+      "Measurement",
+      "Data & Graphs"
+    ]
+  };
+
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   // Lock body scroll when modal is open
@@ -155,6 +210,14 @@ export default function Grades35Page() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-32">
+      {/* Schema markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(courseSchema),
+        }}
+      />
+      
       {/* Header with Navigation */}
       <Header />
 

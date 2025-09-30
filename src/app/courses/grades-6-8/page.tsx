@@ -1,6 +1,22 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Middle School Math Tutoring Grades 6-8 | Mississauga Math Academy",
+  description: "Middle school math tutoring for Grades 6-8 in Mississauga. Algebra, geometry, fractions & EQAO prep. Expert tutors, small groups, proven results.",
+  keywords: "middle school math tutoring Mississauga, grade 6 math help, grade 7 math tutoring, grade 8 math programs, EQAO math prep Ontario, algebra tutoring",
+  openGraph: {
+    title: "Middle School Math Tutoring Grades 6-8 | Mississauga",
+    description: "Middle school math tutoring for Grades 6-8 in Mississauga. Algebra, geometry & EQAO prep.",
+    type: "website",
+    url: "https://levelupmathacademy.com/courses/grades-6-8",
+  },
+  alternates: {
+    canonical: "https://levelupmathacademy.com/courses/grades-6-8",
+  },
+};
 import { X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -18,6 +34,45 @@ interface Course {
 }
 
 export default function Grades68Page() {
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Middle School Math Tutoring (Grades 6-8)",
+    "description": "Middle school math tutoring for Grades 6-8 in Mississauga. Algebra, geometry, fractions & EQAO prep.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Level Up Math Academy",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mississauga",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      }
+    },
+    "courseMode": ["blended", "onsite", "online"],
+    "educationalLevel": "Middle School",
+    "inLanguage": "en-CA",
+    "offers": {
+      "@type": "Offer",
+      "price": "200",
+      "priceCurrency": "CAD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "200",
+        "priceCurrency": "CAD",
+        "unitText": "per month"
+      }
+    },
+    "teaches": [
+      "Algebra",
+      "Geometry",
+      "Fractions and Decimals",
+      "EQAO Preparation",
+      "Problem Solving",
+      "Data Analysis"
+    ]
+  };
+
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   // Lock body scroll when modal is open
@@ -140,6 +195,14 @@ export default function Grades68Page() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-32">
+      {/* Schema markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(courseSchema),
+        }}
+      />
+      
       {/* Header with Navigation */}
       <Header />
 

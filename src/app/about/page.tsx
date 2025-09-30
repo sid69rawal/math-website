@@ -1,6 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Level Up Math Academy | Expert Math Tutors Mississauga",
+  description: "Meet our expert math tutors in Mississauga. 20+ years experience, personalized teaching approach, Grades 3-12. Learn about our mission and teaching philosophy.",
+  keywords: "about Level Up Math Academy, math tutors Mississauga, expert math teachers, math tutoring experience, personalized math instruction",
+  openGraph: {
+    title: "About Level Up Math Academy | Expert Math Tutors",
+    description: "Meet our expert math tutors with 20+ years experience. Personalized teaching approach for Grades 3-12.",
+    type: "website",
+    url: "https://levelupmathacademy.com/about",
+  },
+  alternates: {
+    canonical: "https://levelupmathacademy.com/about",
+  },
+};
 // Removed unused imports: Users, Target, Brain, BookOpen, MessageCircle, Star
 import Link from 'next/link';
 import Image from 'next/image';
@@ -10,6 +26,50 @@ import FloatingActionButton from '@/components/FloatingActionButton';
 import CallToActionSection from '@/components/CallToActionSection';
 
 export default function AboutPage() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Level Up Math Academy",
+    "description": "Meet our expert math tutors in Mississauga. 20+ years experience, personalized teaching approach, Grades 3-12.",
+    "mainEntity": {
+      "@type": "EducationalOrganization",
+      "name": "Level Up Math Academy",
+      "description": "Professional math tutoring center in Mississauga offering programs for Grades 3-12",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mississauga",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      },
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Jyoti Agarwal",
+          "jobTitle": "Cofounder and Educator",
+          "description": "20+ years in IT industry with deep-rooted passion for education"
+        },
+        {
+          "@type": "Person", 
+          "name": "Kunal Agarwal",
+          "jobTitle": "Cofounder and Educator",
+          "description": "20+ years of experience in IT and banking with sharp eye for numbers and student growth"
+        }
+      ],
+      "employee": [
+        {
+          "@type": "Person",
+          "name": "Jyoti Agarwal",
+          "jobTitle": "Math Tutor"
+        },
+        {
+          "@type": "Person",
+          "name": "Kunal Agarwal", 
+          "jobTitle": "Math Tutor"
+        }
+      ]
+    }
+  };
+
   const teachingApproaches = [
     {
       title: "Concept-First Teaching",
@@ -74,6 +134,14 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-32">
+      {/* Schema markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutSchema),
+        }}
+      />
+      
       {/* Header with Navigation */}
       <Header />
 

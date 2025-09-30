@@ -1,6 +1,22 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Math Tutoring Services Mississauga | Grades 3-12 Programs | Level Up Math Academy",
+  description: "Comprehensive math tutoring services in Mississauga for Grades 3-12. Elementary, middle school & high school programs. In-person & online options available.",
+  keywords: "math tutoring services Mississauga, grade 3-12 math programs, elementary math tutoring, high school math help, math tutoring Ontario, online math tutoring Canada",
+  openGraph: {
+    title: "Math Tutoring Services Mississauga | Level Up Math Academy",
+    description: "Comprehensive math tutoring services for Grades 3-12 in Mississauga. Expert tutors, small groups, proven results.",
+    type: "website",
+    url: "https://levelupmathacademy.com/services",
+  },
+  alternates: {
+    canonical: "https://levelupmathacademy.com/services",
+  },
+};
 import { X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -10,6 +26,32 @@ import FloatingActionButton from '@/components/FloatingActionButton';
 import CallToActionSection from '@/components/CallToActionSection';
 
 export default function ServicesPage() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Math Tutoring Services",
+    "description": "Professional math tutoring for Grades 3-12 in Mississauga",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Level Up Math Academy"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Mississauga"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "25",
+      "priceCurrency": "CAD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "25",
+        "priceCurrency": "CAD",
+        "unitText": "per hour"
+      }
+    }
+  };
+
   const [selectedGradeDetails, setSelectedGradeDetails] = useState<{
     id: string;
     label: string;
@@ -146,6 +188,14 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-32">
+      {/* Schema markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceSchema),
+        }}
+      />
+      
       {/* Header with Navigation */}
       <Header />
 
