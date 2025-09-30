@@ -56,7 +56,7 @@ export default function Footer() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Facebook className="w-6 h-6" style={{ color: '#1877F2' }} />
+                  <Facebook className="w-7 h-7" style={{ color: '#1877F2' }} />
                 </motion.a>
                 <motion.a
                   href={contactConfig.socialMedia.instagram}
@@ -66,7 +66,7 @@ export default function Footer() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Instagram className="w-6 h-6" style={{ color: '#E4405F' }} />
+                  <Instagram className="w-7 h-7" style={{ color: '#E4405F' }} />
                 </motion.a>
               </div>
             </div>

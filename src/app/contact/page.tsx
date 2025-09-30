@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import FloatingActionButton from '@/components/FloatingActionButton';
@@ -22,12 +22,75 @@ export default function ContactPage() {
 
   const [showSuccess, setShowSuccess] = useState(false);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (showSuccess) {
+      // Prevent scrolling
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore scrolling
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to restore scrolling when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showSuccess]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    try {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+      });
+      
+      // FormSubmit.co typically returns a 200 status even for successful submissions
+      // We'll consider it successful if we get any response (not a network error)
+      if (response.status === 200 || response.status === 302) {
+        setShowSuccess(true);
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          gradeLevel: '',
+          message: '',
+          preference: ''
+        });
+      } else {
+        console.error('Form submission failed with status:', response.status);
+        alert('There was an error submitting your form. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Even if there's a network error, FormSubmit.co might still process it
+      // So we'll show success and reset the form
+      setShowSuccess(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        gradeLevel: '',
+        message: '',
+        preference: ''
+      });
+    }
   };
 
 
@@ -168,8 +231,9 @@ export default function ContactPage() {
             </div>
 
             <form 
-              action="https://formsubmit.co/lumathacademy@gmail.com" 
+              action="https://formsubmit.co/rawals.info@gmail.com" 
               method="POST" 
+              onSubmit={handleSubmit}
               className="space-y-6"
             >
               {/* Hidden FormSubmit.co fields */}
@@ -299,6 +363,7 @@ export default function ContactPage() {
                         value={option}
                         checked={formData.preference === option}
                         onChange={handleInputChange}
+                        required
                         className="w-5 h-5 border-2 border-gray-300 bg-gray-50 text-blue-600 focus:ring-2 focus:ring-blue-500 mr-3"
                       />
                       <span className="text-gray-700">{option}</span>

@@ -318,10 +318,10 @@ export default function Header() {
                 {/* Social Media Icons */}
                 <div className="flex items-center space-x-3 ml-4">
                   <motion.a href={facebook} target="_blank" rel="noopener noreferrer" className="transition-colors" style={{ color: '#1877F2' }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Facebook className="w-5 h-5" />
+                    <Facebook className="w-7 h-7" />
                   </motion.a>
                   <motion.a href={instagram} target="_blank" rel="noopener noreferrer" className="transition-colors" style={{ color: '#E4405F' }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Instagram className="w-5 h-5" />
+                    <Instagram className="w-7 h-7" />
                   </motion.a>
                 </div>
 
@@ -409,10 +409,10 @@ export default function Header() {
 
                 <div className="flex space-x-4 pt-2 pb-2">
                   <motion.a href={facebook} target="_blank" rel="noopener noreferrer" className="" style={{ color: '#1877F2' }} whileHover={{ scale: 1.2 }}>
-                    <Facebook className="w-5 h-5" />
+                    <Facebook className="w-7 h-7" />
                   </motion.a>
                   <motion.a href={instagram} target="_blank" rel="noopener noreferrer" className="" style={{ color: '#E4405F' }} whileHover={{ scale: 1.2 }}>
-                    <Instagram className="w-5 h-5" />
+                    <Instagram className="w-7 h-7" />
                   </motion.a>
                 </div>
 
