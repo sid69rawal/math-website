@@ -437,7 +437,7 @@ export default function ContactPage() {
           onClick={() => setShowSuccess(false)}
         >
           <motion.div
-            className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full max-h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto shadow-2xl border border-blue-100 relative"
+            className="bg-white p-6 sm:p-8 max-w-md w-full max-h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto shadow-2xl border border-blue-100 relative"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
