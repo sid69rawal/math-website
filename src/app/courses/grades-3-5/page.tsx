@@ -461,7 +461,7 @@ export default function Grades35Page() {
             onClick={() => setSelectedCourse(null)}
           >
             <motion.div
-              className="bg-white p-3 sm:p-4 lg:p-6 w-full max-w-4xl max-h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto shadow-2xl"
+              className="bg-white p-3 sm:p-4 lg:p-6 w-full max-w-4xl max-h-[calc(100vh-10rem)] sm:max-h-[calc(100vh-4rem)] overflow-y-auto shadow-2xl"
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
@@ -534,7 +534,7 @@ export default function Grades35Page() {
                 </div>
 
                 {/* Contact Button - Compact */}
-                <div className="text-center pt-3 sm:pt-4 border-t border-gray-200">
+                <div className="text-center pt-3 sm:pt-4 pb-4 sm:pb-6 border-t border-gray-200">
                   <Link href="/contact">
                     <button className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" style={{ backgroundColor: '#30519d' }}>
                       Book a Free Assessment
