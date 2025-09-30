@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { Phone, MessageCircle, X } from 'lucide-react';
+import { Phone, MessageCircle, X, Plus } from 'lucide-react';
 import { contactConfig } from '@/config/contact';
 
 export default function FloatingActionButton() {
@@ -65,7 +65,7 @@ export default function FloatingActionButton() {
         style={{ backgroundColor: '#30519d' }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        animate={{ rotate: isOpen ? 45 : 0 }}
+        animate={{ rotate: isOpen ? 0 : 0 }}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
@@ -80,13 +80,13 @@ export default function FloatingActionButton() {
             </motion.div>
           ) : (
             <motion.div
-              key="phone"
-              initial={{ rotate: 45, opacity: 0 }}
+              key="plus"
+              initial={{ rotate: -45, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -45, opacity: 0 }}
+              exit={{ rotate: 45, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <Phone className="w-6 h-6" />
+              <Plus className="w-6 h-6" />
             </motion.div>
           )}
         </AnimatePresence>

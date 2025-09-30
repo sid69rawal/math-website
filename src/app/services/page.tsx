@@ -53,6 +53,9 @@ export default function ServicesPage() {
       // Get current scroll position
       const scrollY = window.scrollY;
       
+      // Store scroll position in a data attribute for restoration
+      document.body.setAttribute('data-scroll-y', scrollY.toString());
+      
       // Prevent scrolling on both html and body
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
@@ -61,16 +64,17 @@ export default function ServicesPage() {
       document.body.style.width = '100%';
     } else {
       // Restore scrolling
-      const scrollY = document.body.style.top;
+      const scrollY = document.body.getAttribute('data-scroll-y');
       document.documentElement.style.overflow = 'unset';
       document.body.style.overflow = 'unset';
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
+      document.body.removeAttribute('data-scroll-y');
       
       // Restore scroll position
       if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        window.scrollTo(0, parseInt(scrollY));
       }
     }
 
@@ -81,6 +85,7 @@ export default function ServicesPage() {
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
+      document.body.removeAttribute('data-scroll-y');
     };
   }, [selectedGradeDetails]);
 
@@ -88,7 +93,7 @@ export default function ServicesPage() {
     {
       id: 'grades-3-5',
       label: 'Grade 3-5 Math Programs',
-      title: 'Building Strong Foundations for Lifelong Success',
+      title: 'Grade 3-5 Math Programs',
       description: 'Building Strong Foundations for Lifelong Success',
       learningOutcomes: [
         'Master number sense and core math concepts',
@@ -109,7 +114,7 @@ export default function ServicesPage() {
     {
       id: 'grades-6-8',
       label: 'Grade 6-8 Math Programs',
-      title: 'Empowering Students for Academic Excellence and Beyond',
+      title: 'Grade 6-8 Math Programs',
       description: 'Empowering Students for Academic Excellence and Beyond',
       learningOutcomes: [
         'Strengthen number sense and problem-solving skills',
@@ -130,7 +135,7 @@ export default function ServicesPage() {
     {
       id: 'grades-9-10',
       label: 'Grade 9-10 Math Programs',
-      title: 'Building Confidence and Readiness for Higher Math',
+      title: 'Grade 9-10 Math Programs',
       description: 'Building Confidence and Readiness for Higher Math',
       learningOutcomes: [
         'Build a strong foundation for Grades 11–12 Functions, Advanced Functions, and Calculus & Vectors',
@@ -150,7 +155,7 @@ export default function ServicesPage() {
     {
       id: 'grades-11-12',
       label: 'Grade 11-12 Math Programs',
-      title: 'Mastery, Exam Success, and University Readiness',
+      title: 'Grade 11-12 Math Programs',
       description: 'Mastery, Exam Success, and University Readiness',
       learningOutcomes: [
         'Master Functions, Advanced Functions, and Calculus & Vectors with confidence',
@@ -289,7 +294,7 @@ export default function ServicesPage() {
                 }}
               >
                 {/* Grade Title */}
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-6 sm:mb-6 lg:mb-8">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-6 sm:mb-6 lg:mb-8">
                 {grade.label}
                 </h3>
 
@@ -343,7 +348,7 @@ export default function ServicesPage() {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <div className="text-lg sm:text-xl">📚</div>
                   </div>
-                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 truncate">{selectedGradeDetails.title}</h2>
+                  <h2 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900">{selectedGradeDetails.title}</h2>
                 </div>
                 <button
                   onClick={() => setSelectedGradeDetails(null)}
