@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Middle School Math Tutoring Grades 6-8 | Mississauga",
     description: "Middle school math tutoring for Grades 6-8 in Mississauga. Algebra, geometry & EQAO prep.",
     type: "website",
-    url: "https://levelupmathacademy.com/courses/grades-6-8",
+    url: "https://levelupmathacademy.ca/courses/grades-6-8",
   },
   alternates: {
-    canonical: "https://levelupmathacademy.com/courses/grades-6-8",
+    canonical: "https://levelupmathacademy.ca/courses/grades-6-8",
   },
 };
 import { X } from 'lucide-react';

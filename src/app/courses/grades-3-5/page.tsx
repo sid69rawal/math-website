@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Elementary Math Tutoring Grades 3-5 | Mississauga",
     description: "Elementary math tutoring for Grades 3-5 in Mississauga. Build strong foundations with expert tutors.",
     type: "website",
-    url: "https://levelupmathacademy.com/courses/grades-3-5",
+    url: "https://levelupmathacademy.ca/courses/grades-3-5",
   },
   alternates: {
-    canonical: "https://levelupmathacademy.com/courses/grades-3-5",
+    canonical: "https://levelupmathacademy.ca/courses/grades-3-5",
   },
 };
 import { X } from 'lucide-react';

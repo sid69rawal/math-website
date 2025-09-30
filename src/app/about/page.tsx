@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "About Level Up Math Academy | Expert Math Tutors",
     description: "Meet our expert math tutors with 20+ years experience. Personalized teaching approach for Grades 3-12.",
     type: "website",
-    url: "https://levelupmathacademy.com/about",
+    url: "https://levelupmathacademy.ca/about",
   },
   alternates: {
-    canonical: "https://levelupmathacademy.com/about",
+    canonical: "https://levelupmathacademy.ca/about",
   },
 };
 // Removed unused imports: Users, Target, Brain, BookOpen, MessageCircle, Star

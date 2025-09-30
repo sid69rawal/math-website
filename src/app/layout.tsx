@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     siteName: "Level Up Math Academy",
-    url: "https://levelupmathacademy.com",
+    url: "https://levelupmathacademy.ca",
     images: [
       {
-        url: "https://levelupmathacademy.com/hero_img.png",
+        url: "https://levelupmathacademy.ca/hero_img.png",
         width: 800,
         height: 600,
         alt: "Level Up Math Academy - Professional Math Learning",
@@ -52,10 +52,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Level Up Math Academy - Math Tutoring Mississauga",
     description: "Expert math tutoring for Grades 3-12. In-person & online programs.",
-    images: ["https://levelupmathacademy.com/hero_img.png"],
+    images: ["https://levelupmathacademy.ca/hero_img.png"],
   },
   alternates: {
-    canonical: "https://levelupmathacademy.com",
+    canonical: "https://levelupmathacademy.ca",
   },
   verification: {
     google: "your-google-verification-code", // Replace with actual verification code
@@ -72,15 +72,17 @@ export default function RootLayout({
     "@type": "EducationalOrganization",
     "name": "Level Up Math Academy",
     "description": "Professional math tutoring center in Mississauga offering programs for Grades 3-12",
-    "url": "https://levelupmathacademy.com",
-    "logo": "https://levelupmathacademy.com/logo_3.png",
+    "url": "https://levelupmathacademy.ca",
+    "logo": "https://levelupmathacademy.ca/logo_3.png",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "1426 Pate Court",
       "addressLocality": "Mississauga",
       "addressRegion": "ON",
+      "postalCode": "L5V 2Y8",
       "addressCountry": "CA"
     },
-    "telephone": "+1-416-123-4567",
+    "telephone": "(416) 802-4713",
     "email": "lumathacademy@gmail.com",
     "sameAs": [
       "https://facebook.com/levelupmathacademy",

@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Math Tutoring Services Mississauga | Level Up Math Academy",
     description: "Comprehensive math tutoring services for Grades 3-12 in Mississauga. Expert tutors, small groups, proven results.",
     type: "website",
-    url: "https://levelupmathacademy.com/services",
+    url: "https://levelupmathacademy.ca/services",
   },
   alternates: {
-    canonical: "https://levelupmathacademy.com/services",
+    canonical: "https://levelupmathacademy.ca/services",
   },
 };
 import { X } from 'lucide-react';

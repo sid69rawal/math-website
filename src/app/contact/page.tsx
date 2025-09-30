@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: "Contact Level Up Math Academy | Book Free Assessment",
     description: "Contact us for math tutoring in Mississauga. Book your free assessment today.",
     type: "website",
-    url: "https://levelupmathacademy.com/contact",
+    url: "https://levelupmathacademy.ca/contact",
   },
   alternates: {
-    canonical: "https://levelupmathacademy.com/contact",
+    canonical: "https://levelupmathacademy.ca/contact",
   },
 };
 import { useState, useEffect } from 'react';
@@ -36,13 +36,15 @@ export default function ContactPage() {
       "name": "Level Up Math Academy",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "1426 Pate Court",
         "addressLocality": "Mississauga",
         "addressRegion": "ON",
+        "postalCode": "L5V 2Y8",
         "addressCountry": "CA"
       },
-      "telephone": "+1-416-123-4567",
+      "telephone": "(416) 802-4713",
       "email": "lumathacademy@gmail.com",
-      "url": "https://levelupmathacademy.com"
+      "url": "https://levelupmathacademy.ca"
     }
   };
 
