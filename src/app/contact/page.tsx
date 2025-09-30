@@ -25,25 +25,57 @@ export default function ContactPage() {
   // Lock body scroll when modal is open
   useEffect(() => {
     if (showSuccess) {
-      // Prevent scrolling
+      // Get current scroll position
+      const scrollY = window.scrollY;
+      
+      // Prevent scrolling on both html and body
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
     } else {
       // Restore scrolling
+      const scrollY = document.body.style.top;
+      document.documentElement.style.overflow = 'unset';
       document.body.style.overflow = 'unset';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      
+      // Restore scroll position
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     }
 
     // Cleanup function to restore scrolling when component unmounts
     return () => {
+      document.documentElement.style.overflow = 'unset';
       document.body.style.overflow = 'unset';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
     };
   }, [showSuccess]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    
+    // Special handling for phone number - only allow digits and limit to 10
+    if (name === 'phone') {
+      const digitsOnly = value.replace(/\D/g, ''); // Remove all non-digits
+      const limitedDigits = digitsOnly.slice(0, 10); // Limit to 10 digits
+      setFormData(prev => ({
+        ...prev,
+        [name]: limitedDigits
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -231,7 +263,7 @@ export default function ContactPage() {
             </div>
 
             <form 
-              action="https://formsubmit.co/rawals.info@gmail.com" 
+              action="https://formsubmit.co/lumathacademy@gmail.com" 
               method="POST" 
               onSubmit={handleSubmit}
               className="space-y-6"
@@ -292,16 +324,24 @@ export default function ContactPage() {
               {/* Phone */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
-                  Phone
+                  Phone <span className="text-gray-500 text-sm">(10 digits only)</span>
                 </label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  pattern="[0-9]{10}"
+                  maxLength={10}
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                  placeholder="Enter phone number (optional)"
+                  placeholder="Enter 10-digit phone number (optional)"
+                  title="Please enter exactly 10 digits"
                 />
+                {formData.phone && formData.phone.length !== 10 && (
+                  <p className="text-red-500 text-sm mt-1">
+                    Phone number must be exactly 10 digits
+                  </p>
+                )}
               </div>
 
               {/* Grade Level Dropdown */}

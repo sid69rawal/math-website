@@ -24,14 +24,37 @@ export default function ServicesPage() {
   // Lock body scroll when modal is open
   useEffect(() => {
     if (selectedGradeDetails) {
+      // Get current scroll position
+      const scrollY = window.scrollY;
+      
+      // Prevent scrolling on both html and body
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
     } else {
+      // Restore scrolling
+      const scrollY = document.body.style.top;
+      document.documentElement.style.overflow = 'unset';
       document.body.style.overflow = 'unset';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      
+      // Restore scroll position
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     }
 
-    // Cleanup function to restore scroll when component unmounts
+    // Cleanup function to restore scrolling when component unmounts
     return () => {
+      document.documentElement.style.overflow = 'unset';
       document.body.style.overflow = 'unset';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
     };
   }, [selectedGradeDetails]);
 
