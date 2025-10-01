@@ -76,7 +76,7 @@ export default function HeroSection() {
             >
               Welcome to
               <br />
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-bold" style={{ color: '#30519d' }}>Level Up Math Academy</span>
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-bold" style={{ color: '#30519d' }}>Level Up Math Academy!</span>
             </motion.h1>
             
             <motion.p 
@@ -87,7 +87,7 @@ export default function HeroSection() {
             >
               A one of a kind math learning center in{' '}
               <span>Mississauga</span>{' '}
-              offering all the programs both{' '}
+              offering all the programs from grade 3-12 both{' '}
               <span className="text-blue-600 font-semibold">in-person</span> and{' '}
               <span className="text-blue-600 font-semibold">online!</span>
             </motion.p>

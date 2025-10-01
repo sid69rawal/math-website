@@ -8,7 +8,7 @@ export default function WhatWeOfferSection() {
   const offers = [
     {
       emoji: "📚",
-      title: "Tailored Math Curriculum (Grades 3–12)",
+      title: "Tailored Math Curriculum",
       points: [
         "Grade-specific Advanced Curriculum",
         "Strengthens logical thinking and problem-solving skills", 

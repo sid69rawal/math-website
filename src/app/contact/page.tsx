@@ -529,7 +529,10 @@ export default function ContactPage() {
                   <span className="font-semibold" style={{ color: '#30519d' }}>📧 Email:</span> {contactConfig.email}
                 </p>
                 <p className="text-sm text-gray-700">
-                  <span className="font-semibold" style={{ color: '#30519d' }}>📞 Phone:</span> {contactConfig.phone}
+                  <span className="font-semibold flex items-center" style={{ color: '#30519d' }}>
+                    <Phone className="w-4 h-4 mr-1 text-red-500" />
+                    Phone:
+                  </span> {contactConfig.phone}
                 </p>
               </motion.div>
               

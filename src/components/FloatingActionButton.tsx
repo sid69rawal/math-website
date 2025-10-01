@@ -80,13 +80,13 @@ export default function FloatingActionButton() {
             </motion.div>
           ) : (
             <motion.div
-              key="plus"
+              key="phone"
               initial={{ rotate: -45, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: 45, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <Plus className="w-6 h-6" />
+              <Phone className="w-6 h-6" />
             </motion.div>
           )}
         </AnimatePresence>

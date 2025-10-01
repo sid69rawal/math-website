@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Facebook, Instagram, Menu, X, ChevronDown } from 'lucide-react';
+import { Facebook, Instagram, Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -202,7 +202,7 @@ export default function Header() {
                   className="flex items-center space-x-1 text-xs sm:text-sm whitespace-nowrap"
                   aria-label={`Phone ${phone}`}
                 >
-                  <span className="text-sm">📞</span>
+                  <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-red-500" />
                   {/* show small truncated number on xs; full (more space) on sm+ */}
                   <span className="inline-block truncate max-w-[90px] sm:max-w-[160px] text-xs sm:text-sm">{phone}</span>
                 </a>
