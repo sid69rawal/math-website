@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
@@ -18,6 +18,8 @@ interface Course {
 }
 
 export default function Grades68Page() {
+  const scrollYRef = useRef<number | null>(null);
+  
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -61,38 +63,57 @@ export default function Grades68Page() {
 
   // Lock body scroll when modal is open
   useEffect(() => {
+    // only apply when modal open/close changes
     if (selectedCourse) {
-      // Get current scroll position
-      const scrollY = window.scrollY;
-      
-      // Prevent scrolling on both html and body
+      // Save current scroll position
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      scrollYRef.current = scrollY;
+
+      // Prevent layout shift by compensating for scrollbar width
+      const scrollBarComp = window.innerWidth - document.documentElement.clientWidth;
+      if (scrollBarComp > 0) {
+        document.body.style.paddingRight = `${scrollBarComp}px`;
+      }
+
+      // Lock scroll visually
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = '100%';
-    } else {
-      // Restore scrolling
-      const scrollY = document.body.style.top;
-      document.documentElement.style.overflow = 'unset';
-      document.body.style.overflow = 'unset';
+    } else if (scrollYRef.current !== null) {
+      // Only restore if we previously saved a scroll position
+      const restoreY = scrollYRef.current;
+
+      // Remove locking styles first
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
-      
-      // Restore scroll position
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
+      document.body.style.paddingRight = '';
+
+      // Wait for next paint/layout then restore scroll
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: restoreY, left: 0 });
+        scrollYRef.current = null;
+      });
     }
 
-    // Cleanup function to restore scrolling when component unmounts
+    // Cleanup on unmount: ensure no leftover styles and restore scroll if needed
     return () => {
-      document.documentElement.style.overflow = 'unset';
-      document.body.style.overflow = 'unset';
+      const maybeY = scrollYRef.current;
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
+      document.body.style.paddingRight = '';
+      if (maybeY !== null) {
+        // restore synchronously as a last resort
+        window.scrollTo({ top: maybeY, left: 0 });
+        scrollYRef.current = null;
+      }
     };
   }, [selectedCourse]);
 
