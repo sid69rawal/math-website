@@ -8,6 +8,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingActionButton from '@/components/FloatingActionButton';
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface Course {
   title: string;
@@ -23,6 +24,7 @@ interface Course {
 
 export default function Grades35Page() {
   const scrollYRef = useRef<number | null>(null);
+  const router = useRouter();
   
   const courseSchema = {
     "@context": "https://schema.org",
@@ -64,6 +66,12 @@ export default function Grades35Page() {
   };
 
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+
+  // Helper function for modal navigation
+  const navigateFromModal = (path: string) => {
+    setSelectedCourse(null); // Close modal first
+    router.push(path); // Navigate to new page
+  };
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -603,11 +611,13 @@ export default function Grades35Page() {
 
                 {/* Contact Button - Compact */}
                 <div className="text-center pt-3 sm:pt-4 pb-4 sm:pb-6 border-t border-gray-200">
-                  <Link href="/contact">
-                    <button className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" style={{ backgroundColor: '#30519d' }}>
-                      Book a Free Assessment
-                    </button>
-                  </Link>
+                  <button 
+                    onClick={() => navigateFromModal('/contact')}
+                    className="w-full sm:w-auto text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base shadow-lg hover:opacity-90 transition-all duration-200" 
+                    style={{ backgroundColor: '#30519d' }}
+                  >
+                    Book a Free Assessment
+                  </button>
                 </div>
               </div>
             </motion.div>
