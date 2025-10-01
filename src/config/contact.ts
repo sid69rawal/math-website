@@ -11,7 +11,7 @@ export const contactConfig = {
     full: "1426 Pate Court\nMississauga, ON L5V 2Y8\nCanada"
   },
   socialMedia: {
-    facebook: "https://facebook.com/levelupmathacademy",
+    facebook: "https://www.facebook.com/profile.php?id=61581712106555",
     instagram: "https://instagram.com/levelupmathacademy"
   }
 } as const;
