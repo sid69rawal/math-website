@@ -32,7 +32,29 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
         person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
         capture_pageview: false, // Disable automatic pageview capture, as we capture manually
+        capture_pageleave: true, // Enable pageleave tracking for accurate bounce rate and session duration
+        capture_heatmaps: true, // Enable heatmaps
+        capture_performance: true, // Enable performance monitoring
+        session_recording: {
+          recordCrossOriginIframes: false, // Don't record cross-origin iframes for privacy
+        },
+        loaded: (posthog) => {
+          if (process.env.NODE_ENV === 'development') console.log('PostHog loaded')
+        }
       })
+    }
+
+    // Ensure page leave events are captured on page unload
+    const handleBeforeUnload = () => {
+      if (posthog.__loaded) {
+        posthog.capture('$pageleave')
+      }
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload)
     }
   }, [])
 
