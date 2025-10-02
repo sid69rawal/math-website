@@ -3,6 +3,19 @@
 import { useEffect, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import posthog from 'posthog-js'
+import { onCLS, onINP, onFCP, onLCP, onTTFB, Metric } from 'web-vitals'
+
+function sendToPostHog(metric: Metric) {
+  if (posthog.__loaded) {
+    posthog.capture('$web_vitals', {
+      name: metric.name,
+      value: metric.value,
+      rating: metric.rating,
+      delta: metric.delta,
+      id: metric.id,
+    })
+  }
+}
 
 function PostHogPageView() {
   const pathname = usePathname()
@@ -38,8 +51,15 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
         session_recording: {
           recordCrossOriginIframes: false, // Don't record cross-origin iframes for privacy
         },
-        loaded: (posthog) => {
+        loaded: () => {
           if (process.env.NODE_ENV === 'development') console.log('PostHog loaded')
+          
+          // Initialize Web Vitals tracking
+          onCLS(sendToPostHog)
+          onINP(sendToPostHog) // Interaction to Next Paint (replaces FID)
+          onFCP(sendToPostHog)
+          onLCP(sendToPostHog)
+          onTTFB(sendToPostHog)
         }
       })
     }
