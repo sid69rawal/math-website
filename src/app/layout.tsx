@@ -58,6 +58,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://levelupmathacademy.ca",
   },
+  metadataBase: new URL('https://levelupmathacademy.ca'),
   verification: {
     google: "your-google-verification-code", // Replace with actual verification code
   },
