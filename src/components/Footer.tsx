@@ -144,6 +144,7 @@ export default function Footer() {
                     { name: "Home", href: "/" },
                     { name: "Our Services", href: "/services" },
                     { name: "About Us", href: "/about" },
+                    { name: "Blog", href: "/blog" },
                     { name: "Contact Us", href: "/contact" }
                   ].map((link, index) => (
                     <motion.li
