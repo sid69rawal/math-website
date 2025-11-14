@@ -239,8 +239,8 @@ export default function Header() {
           <motion.div
             className="max-w-7xl mx-auto px-4 sm:px-6"
             animate={{
-              paddingTop: '0.0625rem',
-              paddingBottom: '0.0625rem',
+              paddingTop: '1rem',
+              paddingBottom: '1rem',
             }}
             transition={{ duration: 0.3 }}
           >
@@ -251,8 +251,8 @@ export default function Header() {
                   <Image 
                     src="/logo_3.png" 
                     alt="Level Up Math Academy Logo" 
-                    width={75} 
-                    height={75} 
+                    width={100} 
+                    height={100} 
                     className="object-contain" 
                     priority
                     style={{ width: "auto", height: "auto" }}
@@ -261,18 +261,18 @@ export default function Header() {
               </Link>
 
               {/* Desktop Navigation Menu */}
-              <div className="hidden lg:flex items-center space-x-18 ml-36">
+              <div className="hidden lg:flex items-center space-x-8 ml-36">
                 <Link href="/">
-                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
+                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-xl" whileHover={{ scale: 1.05 }}>
                     Home
                   </motion.span>
                 </Link>
 
                 {/* Courses Dropdown */}
                 <div className="relative" onMouseEnter={() => setCoursesDropdownOpen(true)} onMouseLeave={() => setCoursesDropdownOpen(false)}>
-                  <motion.div className="flex items-center space-x-1 text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
+                  <motion.div className="flex items-center space-x-1 text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-xl" whileHover={{ scale: 1.05 }}>
                     <span>Courses</span>
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-5 h-5" />
                   </motion.div>
 
                   {/* Dropdown Menu */}
@@ -305,28 +305,33 @@ export default function Header() {
                 </div>
 
                 <Link href="/services">
-                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
+                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-xl whitespace-nowrap" whileHover={{ scale: 1.05 }}>
                     Our Services
                   </motion.span>
                 </Link>
                 <Link href="/about">
-                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-lg" whileHover={{ scale: 1.05 }}>
+                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-xl whitespace-nowrap" whileHover={{ scale: 1.05 }}>
                     About Us
+                  </motion.span>
+                </Link>
+                <Link href="/blog">
+                  <motion.span className="text-gray-800 hover:text-blue-600 transition-colors font-semibold cursor-pointer text-xl" whileHover={{ scale: 1.05 }}>
+                    Blog
                   </motion.span>
                 </Link>
 
                 {/* Social Media Icons */}
-                <div className="flex items-center space-x-3 ml-4">
+                <div className="flex items-center space-x-4 ml-6">
                   <motion.a href={facebook} target="_blank" rel="noopener noreferrer" className="transition-colors" style={{ color: '#1877F2' }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Facebook className="w-7 h-7" />
+                    <Facebook className="w-8 h-8" />
                   </motion.a>
                   <motion.a href={instagram} target="_blank" rel="noopener noreferrer" className="transition-colors" style={{ color: '#E4405F' }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Instagram className="w-7 h-7" />
+                    <Instagram className="w-8 h-8" />
                   </motion.a>
                 </div>
 
                 <Link href="/contact">
-                  <motion.button className="text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 cursor-pointer hover:opacity-90" style={{ backgroundColor: '#30519d' }} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                  <motion.button className="text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 cursor-pointer hover:opacity-90 whitespace-nowrap" style={{ backgroundColor: '#30519d' }} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
                     Contact Us
                   </motion.button>
                 </Link>
@@ -404,6 +409,11 @@ export default function Header() {
                 <Link href="/about">
                   <motion.div className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer" onClick={() => setMobileMenuOpen(false)} whileHover={{ x: 5 }}>
                     About Us
+                  </motion.div>
+                </Link>
+                <Link href="/blog">
+                  <motion.div className="block text-gray-800 hover:text-blue-600 transition-colors font-semibold py-2 cursor-pointer" onClick={() => setMobileMenuOpen(false)} whileHover={{ x: 5 }}>
+                    Blog
                   </motion.div>
                 </Link>
 
