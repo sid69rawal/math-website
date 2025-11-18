@@ -179,7 +179,7 @@ export default function Header() {
 
   const messages = [
     'First Month Money-Back Guarantee',
-    'Affordable Programs - Only $25/hour',
+    'Classes Starting from $135 per month',
   ];
 
   // safe fallbacks if contactConfig is undefined/missing values
