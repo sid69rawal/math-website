@@ -17,6 +17,13 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
+    slug: 'top-10-math-skills-every-student-must-master-before-grade-9',
+    title: 'Top 10 Math Skills Every Student Must Master Before Grade 9',
+    excerpt: 'Grade 9 marks a major leap in mathematical thinking — from arithmetic to algebra, from numbers to variables. To thrive in high school math, students need more than just basic operations. They need fluency, logic, and confidence.',
+    date: '2025-11-20',
+    readTime: '8 min read'
+  },
+  {
     slug: 'why-young-students-should-avoid-calculators',
     title: 'Why Young Students Should Avoid Calculators — And Embrace Mental Math',
     excerpt: 'In today\'s tech-saturated world, calculators are everywhere. But when it comes to building strong math foundations, especially in elementary and middle school, relying on calculators too early can short-circuit a child\'s growth in critical thinking, number sense, and confidence.',
