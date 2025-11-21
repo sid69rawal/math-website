@@ -1,8 +1,17 @@
 import { MetadataRoute } from 'next'
+import { allBlogPosts } from './app/blog/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://levelupmathacademy.ca'
   const currentDate = new Date().toISOString().split('T')[0]
+
+  // Generate blog post URLs dynamically
+  const blogPostUrls: MetadataRoute.Sitemap = allBlogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.date,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
 
   return [
     {
@@ -53,11 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/blog/why-young-students-should-avoid-calculators`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+    ...blogPostUrls,
   ]
 }
