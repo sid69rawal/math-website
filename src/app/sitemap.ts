@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { allBlogPosts } from './app/blog/posts'
+import { allBlogPosts } from './blog/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://levelupmathacademy.ca'
