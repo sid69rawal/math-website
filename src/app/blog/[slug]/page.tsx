@@ -20,7 +20,7 @@ const blogPosts: Record<string, BlogPost> = {
   'top-10-math-skills-every-student-must-master-before-grade-9': {
     slug: 'top-10-math-skills-every-student-must-master-before-grade-9',
     title: 'Top 10 Math Skills Every Student Must Master Before Grade 9',
-    date: '2025-11-19',
+    date: '2025-11-20',
     readTime: '8 min read',
     content: (
       <div className="prose prose-lg max-w-none">
