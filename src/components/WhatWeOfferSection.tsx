@@ -30,7 +30,7 @@ export default function WhatWeOfferSection() {
       emoji: "🤝",
       title: "Affordable & Risk-Free Pricing", 
       points: [
-        "$200+HST per month for 8 hours of classes",
+        "Starting from $135+HST per month",
         "First Month Money-Back Guarantee, if not satisfied",
         "Exceptional value for quality math learning"
       ],

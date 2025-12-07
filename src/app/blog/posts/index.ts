@@ -2,9 +2,11 @@ import { BlogPost } from './types';
 import { top10MathSkills } from './top-10-math-skills';
 import { whyYoungStudentsShouldAvoidCalculators } from './why-young-students-should-avoid-calculators';
 import { whyCanadaShouldEmbraceStandardizedTesting } from './why-canada-should-embrace-standardized-testing';
+import { whyStudentsStruggleInMath } from './why-students-struggle-in-math';
 
 // Export all blog posts
 export const allBlogPosts: BlogPost[] = [
+  whyStudentsStruggleInMath,
   whyCanadaShouldEmbraceStandardizedTesting,
   top10MathSkills,
   whyYoungStudentsShouldAvoidCalculators,
@@ -20,5 +22,5 @@ export const blogPostsBySlug: Record<string, BlogPost> = allBlogPosts.reduce(
 );
 
 // Export individual posts for convenience
-export { top10MathSkills, whyYoungStudentsShouldAvoidCalculators, whyCanadaShouldEmbraceStandardizedTesting };
+export { top10MathSkills, whyYoungStudentsShouldAvoidCalculators, whyCanadaShouldEmbraceStandardizedTesting, whyStudentsStruggleInMath };
 
