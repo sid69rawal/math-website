@@ -4,7 +4,7 @@ export const whyStudentsStruggleInMath: BlogPost = {
   slug: 'why-students-struggle-in-math-and-how-to-fix-it-early',
   title: 'Why Students Struggle in Math — And How to Fix It Early',
   excerpt: 'Math is one of the most important subjects for academic and real-world success — yet it\'s also one of the most misunderstood. Many students who struggle in math aren\'t "bad at numbers". Instead, they\'re missing critical foundations or haven\'t been taught in a way that truly supports deep understanding.',
-  date: '2025-12-05',
+  date: '2025-12-07',
   readTime: '7 min read',
   content: (
     <div className="prose prose-lg max-w-none">
