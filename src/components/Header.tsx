@@ -250,7 +250,7 @@ export default function Header() {
                 <motion.div className="flex items-center" whileHover={{ scale: 1.02 }}>
                   <Image 
                     src="/logo_3.png" 
-                    alt="Level Up Math Academy Logo" 
+                    alt="Math Tutor Mississauga - Level Up Math Academy Logo" 
                     width={100} 
                     height={100} 
                     className="object-contain" 

@@ -197,7 +197,7 @@ export default function HeroSection() {
             >
               <Image
                 src="/hero_img.png"
-                alt="Level Up Math Academy - Professional Math Learning"
+                alt="Math Tutor Mississauga - Level Up Math Academy Professional Math Tutoring Services"
                 width={800}
                 height={1500}
                 className="w-full h-[44rem] object-contain"
