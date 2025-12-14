@@ -85,9 +85,9 @@ export default function HeroSection() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              A one of a kind math learning center in{' '}
+              A one of a kind math tutoring center in{' '}
               <span>Mississauga</span>{' '}
-              offering all the programs from grade 3-12 both{' '}
+              offering all the programs from grade 3-12 including Advanced Functions and Calculus and Vectors, both{' '}
               <span className="text-blue-600 font-semibold">in-person</span> and{' '}
               <span className="text-blue-600 font-semibold">online!</span>
             </motion.p>

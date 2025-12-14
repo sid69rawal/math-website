@@ -78,7 +78,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
             <meta itemProp="datePublished" content={post.date} />
             <meta itemProp="dateModified" content={post.date} />
             <div itemProp="articleBody">
-              {post.content}
+            {post.content}
             </div>
           </motion.div>
         </div>

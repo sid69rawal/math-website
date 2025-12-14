@@ -82,7 +82,7 @@ export default function WhatWeOfferSection() {
             What We Offer
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive math education programs designed to help students excel at every level
+            Comprehensive math tutoring programs designed to help students excel at every level, from elementary math to Advanced Functions and Calculus and Vectors
           </p>
         </motion.div>
         

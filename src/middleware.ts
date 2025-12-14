@@ -5,6 +5,18 @@ export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || ''
   const url = request.nextUrl
   
+  // Skip redirects for localhost and development environments
+  if (
+    hostname.includes('localhost') ||
+    hostname.includes('127.0.0.1') ||
+    hostname.includes('0.0.0.0') ||
+    hostname.startsWith('192.168.') ||
+    hostname.startsWith('10.') ||
+    hostname.includes('.local')
+  ) {
+    return NextResponse.next()
+  }
+  
   // Check protocol from multiple sources (some hosting platforms vary)
   const forwardedProto = request.headers.get('x-forwarded-proto') || ''
   const urlProtocol = url.protocol
@@ -13,9 +25,9 @@ export function middleware(request: NextRequest) {
   // Check if hostname has www
   const hasWww = hostname.startsWith('www.')
   
-  // Check if we need to redirect
+  // Check if we need to redirect (only for production domain)
   // Redirect if: has www OR is HTTP OR hostname is not the canonical domain
-  if (hasWww || isHttp || hostname !== 'levelupmathacademy.ca') {
+  if (hostname !== 'levelupmathacademy.ca' && (hasWww || isHttp || hostname.includes('levelupmathacademy.ca'))) {
     // Build canonical URL: https://levelupmathacademy.ca + path + query
     const pathWithQuery = url.pathname + (url.search || '')
     const canonicalUrl = new URL(pathWithQuery, 'https://levelupmathacademy.ca')

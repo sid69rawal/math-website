@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Level Up Math Academy - Professional Math Tutoring in Mississauga | Grades 3-12",
-  description: "Expert math tutor and math tutoring in Mississauga for Grades 3-12. Professional math tutor services. In-person & online programs. Algebra, Calculus, EQAO prep. Starting from $135/month with money-back guarantee. Book free assessment!",
-  keywords: "math tutor Mississauga, math tutoring Mississauga, math tutor Ontario, math tutoring Ontario, online math tutoring Canada, Level Up Math Academy, algebra tutoring, calculus tutoring, EQAO prep, math competitions, elementary math tutoring, high school math help, best math tutor Mississauga, math tutor near me",
+  description: "Expert math tutoring in Mississauga for Grades 3-12. Professional math tutoring services including Advanced Functions and Calculus and Vectors. In-person & online programs. Algebra, Calculus, EQAO prep. Starting from $135/month with money-back guarantee. Book free assessment!",
+  keywords: "math tutor Mississauga, math tutoring Mississauga, math tutoring, math tutor Ontario, math tutoring Ontario, online math tutoring Canada, Level Up Math Academy, Advanced Functions, Calculus and Vectors, Advanced Functions tutoring, Calculus Vectors tutoring, algebra tutoring, calculus tutoring, EQAO prep, math competitions, elementary math tutoring, high school math help, best math tutor Mississauga, math tutor near me",
   authors: [{ name: "Level Up Math Academy" }],
   creator: "Level Up Math Academy",
   publisher: "Level Up Math Academy",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Level Up Math Academy - Professional Math Tutoring Mississauga",
-    description: "Expert math tutoring for Grades 3-12 in Mississauga. In-person & online programs with money-back guarantee.",
+    description: "Expert math tutoring for Grades 3-12 in Mississauga. Advanced Functions and Calculus and Vectors tutoring. In-person & online programs with money-back guarantee.",
     type: "website",
     locale: "en_CA",
     siteName: "Level Up Math Academy",
@@ -76,7 +76,7 @@ export default function RootLayout({
     "@id": "https://levelupmathacademy.ca/#localbusiness",
     "name": "Level Up Math Academy",
     "alternateName": "Math Tutor Mississauga",
-    "description": "Expert math tutor and math tutoring services in Mississauga. Professional math tutor for Grades 3-12. In-person and online math tutoring available.",
+    "description": "Expert math tutor and math tutoring services in Mississauga. Professional math tutoring including Advanced Functions and Calculus and Vectors. Math tutor for Grades 3-12. In-person and online math tutoring available.",
     "url": "https://levelupmathacademy.ca",
     "logo": "https://levelupmathacademy.ca/logo_3.png",
     "image": "https://levelupmathacademy.ca/hero_img.png",
@@ -125,8 +125,8 @@ export default function RootLayout({
           "@type": "Offer",
           "itemOffered": {
             "@type": "Course", 
-            "name": "High School Math Tutoring (Grades 9-12)",
-            "description": "Functions, Calculus, and university preparation"
+            "name": "High School Math Tutoring (Grades 9-12) - Advanced Functions & Calculus and Vectors",
+            "description": "Advanced Functions, Calculus and Vectors tutoring. Functions, Calculus, and university preparation"
           }
         }
       ]

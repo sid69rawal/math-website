@@ -162,7 +162,7 @@ export default function ServicesPage() {
       title: 'Grade 9-10 Math Programs',
       description: 'Building Confidence and Readiness for Higher Math',
       learningOutcomes: [
-        'Build a strong foundation for Grades 11–12 Functions, Advanced Functions, and Calculus & Vectors',
+        'Build a strong foundation for Grades 11–12 Functions, Advanced Functions, and Calculus and Vectors',
         'Comprehensive coverage of the Ontario curriculum with global grade-level alignment',
         'Supports students in preparing for math competitions like Waterloo and other national/international contests',
         'Develop fluency, confidence, and critical thinking in advanced mathematical concepts'
@@ -182,7 +182,7 @@ export default function ServicesPage() {
       title: 'Grade 11-12 Math Programs',
       description: 'Mastery, Exam Success, and University Readiness',
       learningOutcomes: [
-        'Master Functions, Advanced Functions, and Calculus & Vectors with confidence',
+        'Master Functions, Advanced Functions, and Calculus and Vectors with confidence',
         'Strengthen exam techniques, time management, and problem-solving strategies',
         'Build critical thinking skills for STEM, business, and real-world applications',
         'Develop university-level readiness with advanced math fluency'

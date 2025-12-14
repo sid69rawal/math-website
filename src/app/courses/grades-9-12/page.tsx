@@ -244,8 +244,55 @@ export default function Grades912Page() {
     }
   ];
 
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "High School Math Tutoring (Grades 9-12) - Advanced Functions & Calculus and Vectors",
+    "description": "Expert math tutoring for Grades 9-12 in Mississauga. Advanced Functions tutoring and Calculus and Vectors tutoring. Functions, university prep.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "Level Up Math Academy",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mississauga",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      }
+    },
+    "courseMode": ["blended", "onsite"],
+    "educationalLevel": "High School",
+    "inLanguage": "en-CA",
+    "teaches": [
+      "Advanced Functions",
+      "Calculus and Vectors",
+      "Functions",
+      "Algebra",
+      "Trigonometry",
+      "Calculus",
+      "Vectors"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "135",
+      "priceCurrency": "CAD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "135",
+        "priceCurrency": "CAD",
+        "unitText": "per month"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 pt-32">
+      {/* Schema markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(courseSchema),
+        }}
+      />
       {/* Header with Navigation */}
       <Header />
 
@@ -267,11 +314,11 @@ export default function Grades912Page() {
             {/* Left Side - Main Content */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Grades 9-12 Math Program
+                Grades 9-12 Math Tutoring: Advanced Functions & Calculus and Vectors
               </h2>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                Explore our math courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 9 to 12</span>. Each course is designed to prepare students for <span className="font-semibold" style={{ color: '#30519d' }}>advanced math, competitions and university</span> by building <span className="font-semibold" style={{ color: '#30519d' }}>strong foundations, mastering senior level concepts</span> and developing <span className="font-semibold" style={{ color: '#30519d' }}>confidence, problem-solving and critical thinking skills</span>.
+                Explore our comprehensive math tutoring courses for <span className="font-semibold" style={{ color: '#30519d' }}>Grades 9 to 12</span>, including Advanced Functions and Calculus and Vectors tutoring. Each course is designed to prepare students for <span className="font-semibold" style={{ color: '#30519d' }}>advanced math, competitions and university</span> by building <span className="font-semibold" style={{ color: '#30519d' }}>strong foundations, mastering senior level concepts</span> and developing <span className="font-semibold" style={{ color: '#30519d' }}>confidence, problem-solving and critical thinking skills</span>.
               </p>
             </div>
 
@@ -328,7 +375,7 @@ export default function Grades912Page() {
         >
             <div className="text-center">
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Programs For High-School Students
+                Math Tutoring Programs: Advanced Functions & Calculus and Vectors
               </h3>
             </div>
         </motion.div>
@@ -543,7 +590,7 @@ export default function Grades912Page() {
               Ready to Achieve Mathematical Mastery? 🚀
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-800 font-medium leading-relaxed mb-4 sm:mb-6 max-w-2xl mx-auto">
-              Prepare your high school student for university success with our comprehensive advanced mathematics program. 
+              Prepare your high school student for university success with our comprehensive math tutoring program including Advanced Functions and Calculus and Vectors tutoring. 
               Master calculus, functions, and vectors with confidence!
             </p>
             <Link href="/contact">
