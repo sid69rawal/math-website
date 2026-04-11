@@ -2,7 +2,7 @@ import { BlogPost } from './types';
 
 export const bestWayToTeachMath: BlogPost = {
   slug: 'best-way-to-teach-math',
-  title: "What's the Best Way to Teach Math to Children? (And How Level Up Math Academy Gets It Right)",
+  title: "What's the Best Way to Teach Math to Children?",
   excerpt: 'Should kids memorize times tables or focus on understanding math concepts first? A new study suggests a balanced approach — doing both in the right order.',
   date: '2026-04-03', // Format: YYYY-MM-DD
   readTime: '4 min read',
