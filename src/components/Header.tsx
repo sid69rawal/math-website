@@ -27,6 +27,7 @@ function Ticker({
   maxDuration?: number;
 }) {
   const [index, setIndex] = useState(0);
+  const [iteration, setIteration] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const currentMeasureRef = useRef<HTMLDivElement | null>(null);
 
@@ -156,7 +157,7 @@ function Ticker({
       {/* Animated message (only mounts when measurement ready) */}
       {canAnimate && (
         <motion.div
-          key={index}
+          key={`${index}-${iteration}`}
           initial={{ x: containerWidth }}
           animate={{ x: -currentTextWidth }}
           transition={{ duration: computedDuration, ease: 'linear' }}
@@ -164,6 +165,7 @@ function Ticker({
           style={{ display: 'inline-block' }}
           onAnimationComplete={() => {
             setIndex((i) => (i + 1) % messages.length);
+            setIteration((prev) => prev + 1);
           }}
         >
           <span className="px-2">{messages[index]}</span>
@@ -178,8 +180,7 @@ export default function Header() {
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
 
   const messages = [
-    'First Month Money-Back Guarantee',
-    'Classes Starting from $135 per month',
+    'Enroll for Summer Math Program -  Grades 2-7 - $17 per hour',
   ];
 
   // safe fallbacks if contactConfig is undefined/missing values
