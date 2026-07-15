@@ -180,7 +180,7 @@ export default function Header() {
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
 
   const messages = [
-    'Enroll for Summer Math Program -  Grades 2-7 - $17 per hour',
+    'Classes Starting from $135 per month',
   ];
 
   // safe fallbacks if contactConfig is undefined/missing values
