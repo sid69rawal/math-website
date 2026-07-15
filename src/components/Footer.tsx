@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="bg-gray-900 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-          
+
           {/* Left Side - Logo, Message, Social Media */}
           <motion.div
             className="text-center md:text-left"
@@ -81,12 +81,12 @@ export default function Footer() {
           >
             {/* Two Column Layout with Centered Header */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              
+
               {/* Quick Links Header - Centered above both columns */}
               <div className="md:col-span-2 text-center mb-6">
                 <h4 className="text-white font-bold text-2xl">Quick Links</h4>
               </div>
-              
+
               {/* Courses Column */}
               <div>
                 <h5 className="text-white font-semibold text-xl mb-3">Courses</h5>
@@ -185,12 +185,12 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            
+
             <h4 className="text-white font-bold text-2xl mb-6">Contact Info</h4>
-            
+
             {/* Blank space between Contact Info heading and email */}
             <div className="h-4 md:h-6"></div>
-            
+
             {/* Contact Info with Icons and Values */}
             <div className="space-y-4 mb-8 flex flex-col items-start">
               <div className="flex flex-col space-y-4 w-full max-w-sm">
@@ -202,7 +202,7 @@ export default function Footer() {
                   <div className="bg-blue-600 p-2 rounded-lg flex-shrink-0">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
-                  <a 
+                  <a
                     href={`mailto:${contactConfig.email}`}
                     className="text-white hover:text-blue-400 transition-colors break-all text-lg"
                   >
@@ -218,7 +218,7 @@ export default function Footer() {
                   <div className="bg-green-600 p-2 rounded-lg flex-shrink-0">
                     <Phone className="w-5 h-5 text-white" />
                   </div>
-                  <a 
+                  <a
                     href={`tel:${contactConfig.phoneLink}`}
                     className="text-white hover:text-green-400 transition-colors text-lg"
                   >
@@ -277,7 +277,7 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-lg">
-              © 2025 Level Up Math Academy. All rights reserved.
+              © 2026 Level Up Math Academy. All rights reserved.
             </p>
             <p className="text-gray-400 text-lg">
               Making Mathematics Magical for Every Child! ✨
