@@ -152,7 +152,7 @@ export default function ContactPage() {
   const gradeOptions = Array.from({ length: 10 }, (_, i) => `Grade ${i + 3}`);
 
   return (
-    <div className="min-h-screen bg-gray-50 overflow-x-hidden pt-32">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden pt-[140px]">
       {/* Schema markup */}
       <script
         type="application/ld+json"

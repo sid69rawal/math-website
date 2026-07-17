@@ -240,8 +240,8 @@ export default function Header() {
           <motion.div
             className="max-w-7xl mx-auto px-4 sm:px-6"
             animate={{
-              paddingTop: '1rem',
-              paddingBottom: '1rem',
+              paddingTop: '0.75rem',
+              paddingBottom: '0.75rem',
             }}
             transition={{ duration: 0.3 }}
           >
@@ -252,11 +252,11 @@ export default function Header() {
                   <Image 
                     src="/logo_3.png" 
                     alt="Math Tutor Mississauga - Level Up Math Academy Logo" 
-                    width={100} 
-                    height={100} 
+                    width={110} 
+                    height={90} 
                     className="object-contain" 
                     priority
-                    style={{ width: "auto", height: "auto" }}
+                    style={{ width: "auto", height: "90px" }}
                   />
                 </motion.div>
               </Link>

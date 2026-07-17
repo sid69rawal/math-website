@@ -17,6 +17,7 @@
     "posthog-js": "^1.269.1",
     "react": "19.1.2",
     "react-dom": "19.1.2",
+    "sharp": "^0.35.3",
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {

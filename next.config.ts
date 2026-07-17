@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const nextConfig: NextConfig = {
+  images: {
+    // Disable image optimization locally — WSL2 + Turbopack has a known bug where
+    // the image optimizer fails to read local files. On Vercel this is always false.
+    unoptimized: isDev,
+  },
   async redirects() {
     return [
       // Redirect www to non-www

@@ -117,7 +117,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-32">
+    <div className="min-h-screen bg-gray-50 pt-[140px]">
       {/* Schema markup */}
       <script
         type="application/ld+json"
