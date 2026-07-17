@@ -334,11 +334,11 @@ export default function Grades912Page() {
                 </li>
                 <li className="flex items-start text-gray-700">
                   <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                  <span className="text-base">Online or at our Mississauga center</span>
+                  <span className="text-base">Online or In-person at our center</span>
                 </li>
                 <li className="flex items-start text-gray-700">
                   <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
-                  <span className="text-base">Affordable at $25/hour</span>
+                  <span className="text-base">Affordable Pricing</span>
                 </li>
                 <li className="flex items-start text-gray-700">
                   <span className="w-3 h-3 bg-blue-600 rounded-full mr-4 mt-1 flex-shrink-0" />
