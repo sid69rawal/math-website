@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Heart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { contactConfig } from '@/config/contact';
@@ -283,6 +283,31 @@ export default function Footer() {
               Making Mathematics Magical for Every Child! ✨
             </p>
           </div>
+
+          {/* Backlink Section */}
+          <motion.div 
+            className="mt-8 flex justify-center items-center text-gray-400 text-base"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+             Designed & Developed with 
+             <motion.div
+               animate={{ scale: [1, 1.2, 1] }}
+               transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+             >
+               <Heart className="w-5 h-5 mx-2 text-red-500 fill-red-500" />
+             </motion.div>
+             by 
+             <Link href="https://www.mimctechnologies.com/" target="_blank" rel="noopener noreferrer">
+               <motion.span 
+                 className="ml-2 font-bold text-gray-300 hover:text-white transition-all cursor-pointer inline-block"
+                 whileHover={{ scale: 1.05 }}
+               >
+                 MIMC Technologies
+               </motion.span>
+             </Link>
+          </motion.div>
         </motion.div>
       </div>
     </footer>
