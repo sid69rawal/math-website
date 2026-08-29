@@ -273,11 +273,11 @@ export default function Grades912Page() {
     ],
     "offers": {
       "@type": "Offer",
-      "price": "135",
+      "price": "150",
       "priceCurrency": "CAD",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
-        "price": "135",
+        "price": "150",
         "priceCurrency": "CAD",
         "unitText": "per month"
       }

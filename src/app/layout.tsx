@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Level Up Math Academy - Professional Math Tutoring in Mississauga | Grades 3-12",
-  description: "Expert math tutoring in Mississauga for Grades 3-12. Professional math tutoring services including Advanced Functions and Calculus and Vectors. In-person & online programs. Algebra, Calculus, EQAO prep. Starting from $135/month with money-back guarantee. Book free assessment!",
+  description: "Expert math tutoring in Mississauga for Grades 3-12. Professional math tutoring services including Advanced Functions and Calculus and Vectors. In-person & online programs. Algebra, Calculus, EQAO prep. Starting from $150/month with money-back guarantee. Book free assessment!",
   keywords: "math tutor Mississauga, math tutoring Mississauga, math tutoring, math tutor Ontario, math tutoring Ontario, online math tutoring Canada, Level Up Math Academy, Advanced Functions, Calculus and Vectors, Advanced Functions tutoring, Calculus Vectors tutoring, algebra tutoring, calculus tutoring, EQAO prep, math competitions, elementary math tutoring, high school math help, best math tutor Mississauga, math tutor near me",
   authors: [{ name: "Level Up Math Academy" }],
   creator: "Level Up Math Academy",
@@ -203,7 +203,7 @@ export default function RootLayout({
         "name": "How much does math tutoring cost in Mississauga?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our math tutoring programs start from $135+HST per month for 8 hours of classes. We offer flexible scheduling and a first month money-back guarantee."
+          "text": "Our math tutoring programs start from $150+HST per month for 8 hours of classes. We offer flexible scheduling and a first month money-back guarantee."
         }
       },
       {

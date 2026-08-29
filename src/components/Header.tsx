@@ -180,7 +180,7 @@ export default function Header() {
   const [coursesDropdownOpen, setCoursesDropdownOpen] = useState(false);
 
   const messages = [
-    'Classes Starting from $135 per month',
+    'Classes Starting from $150 per month',
   ];
 
   // safe fallbacks if contactConfig is undefined/missing values
