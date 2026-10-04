@@ -1,103 +1,75 @@
-'use client';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { allBlogPosts, blogPostsBySlug } from '../posts';
+import BlogPostClient from './BlogPostClient';
 
-import { motion } from 'framer-motion';
-import { use } from 'react';
-import Link from 'next/link';
-import { ArrowLeft, Calendar, Clock } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import FloatingActionButton from '@/components/FloatingActionButton';
-import { blogPostsBySlug } from '../posts';
+export function generateStaticParams() {
+  return allBlogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
-export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
   const post = blogPostsBySlug[slug];
 
   if (!post) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <Header />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog Post Not Found</h1>
-          <p className="text-lg text-gray-600 mb-8">The blog post you&apos;re looking for doesn&apos;t exist.</p>
-          <Link href="/blog" className="text-blue-600 hover:text-blue-800 font-semibold">
-            ← Back to Blog
-          </Link>
-        </div>
-        <Footer />
-      </div>
-    );
+    return {
+      title: 'Post Not Found | Level Up Math Academy',
+      description: 'The requested blog post could not be found.',
+    };
   }
 
-  return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
-      
-      {/* Blog Post Header */}
-      <section className="text-white pt-[140px] pb-16 mt-20" style={{ backgroundColor: '#30519d' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <Link 
-              href="/blog"
-              className="inline-flex items-center text-blue-100 hover:text-white mb-6 transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5 mr-2" />
-              Back to Blog
-            </Link>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              {post.title}
-            </h1>
-            <div className="flex items-center text-blue-100 space-x-6">
-              <div className="flex items-center">
-                <Calendar className="w-5 h-5 mr-2" />
-                <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-5 h-5 mr-2" />
-                <span>{post.readTime}</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+  const url = `https://levelupmathacademy.ca/blog/${post.slug}`;
 
-      {/* Blog Post Content */}
-      <article className="py-12" itemScope itemType="https://schema.org/BlogPosting">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white rounded-lg shadow-lg p-8 md:p-12"
-          >
-            <meta itemProp="headline" content={post.title} />
-            <meta itemProp="datePublished" content={post.date} />
-            <meta itemProp="dateModified" content={post.date} />
-            <div itemProp="articleBody">
-            {post.content}
-            </div>
-          </motion.div>
-        </div>
-      </article>
-
-      {/* Back to Blog Link */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 text-left">
-        <Link 
-          href="/blog"
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors"
-        >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Back to All Blog Posts
-        </Link>
-      </div>
-
-      <Footer />
-      <FloatingActionButton />
-    </div>
-  );
+  return {
+    title: `${post.title} | Level Up Math Academy`,
+    description: post.excerpt,
+    keywords: `${post.title.toLowerCase()}, math tutoring Mississauga, math tutor Mississauga, math skills, Level Up Math Academy, math study strategies`,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${post.title} | Level Up Math Academy`,
+      description: post.excerpt,
+      type: 'article',
+      url,
+      publishedTime: post.date,
+      authors: ['Level Up Math Academy'],
+      siteName: 'Level Up Math Academy',
+      images: [
+        {
+          url: 'https://levelupmathacademy.ca/hero_img.png',
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} | Level Up Math Academy`,
+      description: post.excerpt,
+      images: ['https://levelupmathacademy.ca/hero_img.png'],
+    },
+  };
 }
 
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = blogPostsBySlug[slug];
+
+  if (!post) {
+    notFound();
+  }
+
+  return <BlogPostClient post={post} />;
+}

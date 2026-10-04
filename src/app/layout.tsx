@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Level Up Math Academy - Professional Math Tutoring in Mississauga | Grades 3-12",
   description: "Expert math tutoring in Mississauga for Grades 3-12. Professional math tutoring services including Advanced Functions and Calculus and Vectors. In-person & online programs. Algebra, Calculus, EQAO prep. Starting from $150/month with money-back guarantee. Book free assessment!",
-  keywords: "math tutor Mississauga, math tutoring Mississauga, math tutoring, math tutor Ontario, math tutoring Ontario, online math tutoring Canada, Level Up Math Academy, Advanced Functions, Calculus and Vectors, Advanced Functions tutoring, Calculus Vectors tutoring, algebra tutoring, calculus tutoring, EQAO prep, math competitions, elementary math tutoring, high school math help, best math tutor Mississauga, math tutor near me",
+  keywords: "math tutor Mississauga, math tutoring Mississauga, math tutor near me, best math tutor Mississauga, math tutor Ontario, math tutoring Ontario, online math tutoring Canada, Level Up Math Academy, Advanced Functions tutoring, Calculus and Vectors tutoring, Grade 11 Functions tutor, Grade 12 Advanced Functions tutor, Grade 12 Calculus Vectors tutor, algebra tutoring Mississauga, calculus tutoring Mississauga, EQAO prep Mississauga, math competitions Waterloo, elementary math tutoring, middle school math tutor, high school math help Mississauga, private math tutor Mississauga, math tutor Streetsville, math tutor Erin Mills, math tutor Meadowvale, math tutor Churchill Meadows",
   authors: [{ name: "Level Up Math Academy" }],
   creator: "Level Up Math Academy",
   publisher: "Level Up Math Academy",
@@ -59,9 +59,6 @@ export const metadata: Metadata = {
     canonical: "https://levelupmathacademy.ca",
   },
   metadataBase: new URL('https://levelupmathacademy.ca'),
-  verification: {
-    google: "your-google-verification-code", // Replace with actual verification code
-  },
 };
 
 export default function RootLayout({
@@ -96,10 +93,28 @@ export default function RootLayout({
       "latitude": "43.5890",
       "longitude": "-79.6441"
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Mississauga"
-    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Mississauga"
+      },
+      {
+        "@type": "City",
+        "name": "Brampton"
+      },
+      {
+        "@type": "City",
+        "name": "Oakville"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Peel Region"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Ontario"
+      }
+    ],
     "serviceType": "Math Tutoring",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
