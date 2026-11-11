@@ -8,6 +8,7 @@ import FloatingActionButton from '@/components/FloatingActionButton';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { contactConfig } from '@/config/contact';
+import { trackEvent } from '@/lib/analytics';
 
 export default function ContactPage() {
   const contactSchema = {
@@ -105,17 +106,23 @@ export default function ContactPage() {
     
     try {
       const form = e.currentTarget;
-      const formData = new FormData(form);
+      const formPayload = new FormData(form);
       
       const response = await fetch(form.action, {
         method: 'POST',
-        body: formData,
+        body: formPayload,
       });
       
       // FormSubmit.co typically returns a 200 status even for successful submissions
       // We'll consider it successful if we get any response (not a network error)
       if (response.status === 200 || response.status === 302) {
         setShowSuccess(true);
+        // Track conversion lead for Google Ads, GA4, GTM, Meta Pixel
+        trackEvent('generate_lead', {
+          form_name: 'assessment_contact_form',
+          grade_level: formData.gradeLevel,
+          preference: formData.preference,
+        });
         // Reset form
         setFormData({
           firstName: '',

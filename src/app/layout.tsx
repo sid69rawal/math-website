@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { PostHogProvider } from "../components/posthog-provider";
+import { AnalyticsTracker } from "../components/AnalyticsTracker";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -326,6 +327,7 @@ export default function RootLayout({
         <PostHogProvider>
           {children}
         </PostHogProvider>
+        <AnalyticsTracker />
         <Analytics />
         <SpeedInsights />
       </body>
