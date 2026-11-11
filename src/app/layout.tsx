@@ -130,7 +130,7 @@ export default function RootLayout({
           }
         },
         {
-          "@type": "Offer", 
+          "@type": "Offer",
           "itemOffered": {
             "@type": "Course",
             "name": "Middle School Math Tutoring (Grades 6-8)",
@@ -140,7 +140,7 @@ export default function RootLayout({
         {
           "@type": "Offer",
           "itemOffered": {
-            "@type": "Course", 
+            "@type": "Course",
             "name": "High School Math Tutoring (Grades 9-12) - Advanced Functions & Calculus and Vectors",
             "description": "Advanced Functions, Calculus and Vectors tutoring. Functions, Calculus, and university preparation"
           }
@@ -236,18 +236,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        a        {/* Google tag (gtag.js) - Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-87W6BV4CRX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-87W6BV4CRX');
+          `}
+        </Script>
+
         {/* Google Tag Manager */}
         <Script
           src="https://www.googletagmanager.com/gtm.js?id=GTM-T4P5PVQC"
           strategy="afterInteractive"
         />
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          `}
-        </Script>
 
         {/* Meta Pixel Code */}
         <script
