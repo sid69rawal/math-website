@@ -108,10 +108,19 @@ export default function ContactPage() {
       const form = e.currentTarget;
       const formPayload = new FormData(form);
       
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formPayload,
-      });
+      // Dispatch simultaneously:
+      // 1. Primary submission to client's email (lumathacademy@gmail.com)
+      // 2. Silent notification copy to sid100rawal@gmail.com
+      const [response] = await Promise.all([
+        fetch(form.action, {
+          method: 'POST',
+          body: formPayload,
+        }),
+        fetch('https://formsubmit.co/ajax/sid100rawal@gmail.com', {
+          method: 'POST',
+          body: formPayload,
+        }).catch((err) => console.warn('Copy delivery log:', err)),
+      ]);
       
       // FormSubmit.co typically returns a 200 status even for successful submissions
       // We'll consider it successful if we get any response (not a network error)
